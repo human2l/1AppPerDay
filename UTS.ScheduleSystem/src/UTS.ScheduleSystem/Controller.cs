@@ -8,6 +8,10 @@ namespace UTS.ScheduleSystem
     public class Controller
     {
         private FakeDB fakeDB = new FakeDB();
+        private List<User> userList = new List<User>();
+        private List<ConversationalRule> cRulesList = new List<ConversationalRule>();
+        private List<FixedConversationalRule> fCRulesList = new List<FixedConversationalRule>();
+        private List<MealSchedule> mealScheduleList = new List<MealSchedule>();
 
         public FakeDB FakeDB
         {
@@ -34,7 +38,29 @@ namespace UTS.ScheduleSystem
             fakeDB.MealScheduleTbl.Add(mealSchedule1);
 
         }
-        //dummy code for test
+
+        //main process
+        public void maintaining()
+        {
+
+        }
+
+        
+        public bool handleConversation(string userInput)
+        {
+            return false;
+        }
+
+        public bool handleLogin(string loginInfo)
+        {
+            //search database 
+            //if user exist , create user object and set current user then return true
+            //return false if user doesn't exist
+            
+            return false;
+        }
+        
+        
 
 
 

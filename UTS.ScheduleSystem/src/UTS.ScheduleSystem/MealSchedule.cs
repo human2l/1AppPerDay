@@ -13,8 +13,9 @@ namespace UTS.ScheduleSystem
         private string location;
         private string startDate;
         private string endDate;
+        private string lastEditUserId;
 
-        public MealSchedule(string id, string topic, string participants, string location, string startDate, string endDate)
+        public MealSchedule(string id, string topic, string participants, string location, string startDate, string endDate, string lastEditUserId)
         {
             this.id = id;
             this.topic = topic;
@@ -22,6 +23,7 @@ namespace UTS.ScheduleSystem
             this.location = location;
             this.startDate = startDate;
             this.endDate = endDate;
+            this.LastEditUserId = lastEditUserId;
         }
 
         public string Id
@@ -99,6 +101,19 @@ namespace UTS.ScheduleSystem
             set
             {
                 endDate = value;
+            }
+        }
+
+        public string LastEditUserId
+        {
+            get
+            {
+                return lastEditUserId;
+            }
+
+            set
+            {
+                lastEditUserId = value;
             }
         }
     }
