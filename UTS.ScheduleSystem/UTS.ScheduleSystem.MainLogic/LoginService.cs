@@ -19,7 +19,7 @@ namespace UTS.ScheduleSystem
         public void handleLogout()
         {
             //wipe out current user
-
+            
         }
 
         public void handleChangePassword()

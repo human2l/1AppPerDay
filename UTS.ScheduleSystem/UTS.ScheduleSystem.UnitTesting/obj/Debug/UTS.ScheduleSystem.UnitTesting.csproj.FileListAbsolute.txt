@@ -1,0 +1,8 @@
+C:\Users\12184026\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.UnitTesting\bin\Debug\UTS.ScheduleSystem.UnitTesting.dll
+C:\Users\12184026\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.UnitTesting\bin\Debug\UTS.ScheduleSystem.UnitTesting.pdb
+C:\Users\12184026\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.UnitTesting\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\12184026\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.UnitTesting\bin\Debug\UTS.ScheduleSystem.MainLogic.dll
+C:\Users\12184026\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.UnitTesting\bin\Debug\UTS.ScheduleSystem.MainLogic.pdb
+C:\Users\12184026\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.UnitTesting\obj\Debug\UTS.ScheduleSystem.UnitTesting.csprojResolveAssemblyReference.cache
+C:\Users\12184026\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.UnitTesting\obj\Debug\UTS.ScheduleSystem.UnitTesting.dll
+C:\Users\12184026\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.UnitTesting\obj\Debug\UTS.ScheduleSystem.UnitTesting.pdb

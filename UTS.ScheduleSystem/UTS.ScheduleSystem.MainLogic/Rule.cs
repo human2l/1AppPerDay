@@ -8,35 +8,23 @@ namespace UTS.ScheduleSystem
     public enum Status { Approved, Rejected, Pending }
     public abstract class Rule
     {
-        private string name;
         private string input;
         private string output;
         private string relatedUsersId;
         private Status status;
         private string id;
 
-        public Rule(string id, string name, string input, string output, string relatedUsersId, Status status)
+        public Rule(string id,  string input, string output, string relatedUsersId, Status status)
         {
             this.Id = id;
-            this.name = name;
+
             this.input = input;
             this.output = output;
             this.relatedUsersId = relatedUsersId;
             this.status = status;
         }
 
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-
-            set
-            {
-                name = value;
-            }
-        }
+       
 
         public string Input
         {

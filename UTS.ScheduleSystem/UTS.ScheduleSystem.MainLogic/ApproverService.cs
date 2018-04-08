@@ -144,18 +144,18 @@ namespace UTS.ScheduleSystem
             return result;
         }
 
-        public int countUserApprovedRule(User user, List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList, Status status)
-        {
-            switch(status)
-                case Status.Approved:
-                    List<Rule> approvedList = requestApprovedRulesList(cRulesList, fCRulesList);
-                break;
-            case Status.Pending:
-                break;
-                case 
+        //public int countUserApprovedRule(User user, List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList, Status status)
+        //{
+        //    switch(status)
+        //        case Status.Approved:
+        //            List<Rule> approvedList = requestApprovedRulesList(cRulesList, fCRulesList);
+        //        break;
+        //    case Status.Pending:
+        //        break;
+        //        case 
 
-                return countUserRelatedRule(user, approvedList);
-        }
+        //        return countUserRelatedRule(user, approvedList);
+        //}
 
         public int countUserRejectedRule(User user, List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
         {
