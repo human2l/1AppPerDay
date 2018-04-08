@@ -2,3 +2,4 @@ C:\Users\12184026\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSys
 C:\Users\12184026\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\bin\Debug\UTS.ScheduleSystem.MainLogic.pdb
 C:\Users\12184026\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\obj\Debug\UTS.ScheduleSystem.MainLogic.dll
 C:\Users\12184026\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\obj\Debug\UTS.ScheduleSystem.MainLogic.pdb
+C:\Users\12184026\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\obj\Debug\UTS.ScheduleSystem.MainLogic.csprojResolveAssemblyReference.cache

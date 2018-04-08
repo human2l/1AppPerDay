@@ -126,6 +126,53 @@ namespace UTS.ScheduleSystem.UnitTesting
             {
 
             }
+            //-----------------------------------EditorService-----------------------------------------
+            [TestMethod]
+            public void EditorService_AddNewCRule_CRuleListHaveCorrectRules()
+            {
+
+            }
+            [TestMethod]
+            public void EditorService_AddNewFCRule_FCRuleListHaveCorrectRules()
+            {
+
+            }
+            [TestMethod]
+            public void EditorService_ShowAllPendingRules_ReturnCorrectList()
+            {
+
+            }
+            [TestMethod]
+            public void EditorService_ShowAllRejectedRules_ReturnCorrectList()
+            {
+
+            }
+            [TestMethod]
+            public void EditorService_EditPendingRule_PendingRuleSuccessEdited()
+            {
+
+            }
+            [TestMethod]
+            public void EditorService_DeletePendingRule_CertainPendingRuleDeleted()
+            {
+
+            }
+            [TestMethod]
+            public void EditorService_ShowCurrentUserApprovedRules_ReturnCorrectList()
+            {
+
+            }
+            [TestMethod]
+            public void EditorService_ShowCurrentUserApprovedRulesCount_ReturnCorrectNumberOfApprovedRules()
+            {
+
+            }
+            [TestMethod]
+            public void EditorService_ShowCurrentUserSuccessRate_ReturnCorrectSuccessRate()
+            {
+
+            }
+            
         }
     }
         

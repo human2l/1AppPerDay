@@ -30,7 +30,7 @@ namespace UTS.ScheduleSystem
         //    return rule;
         //}
 
-        public List<Rule> traversalList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList, Status status)
+        private List<Rule> traversalList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList, Status status)
         {
             List<Rule> newRulesList = new List<Rule>();
             foreach (Rule rule in cRulesList)
@@ -46,18 +46,6 @@ namespace UTS.ScheduleSystem
             return newRulesList;
         }
 
-        public List<Rule> requestPendingRulesList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
-        {
-            List<Rule> pRulesList = traversalList(cRulesList, fCRulesList, Status.Pending);
-            return pRulesList;
-        }
-
-        public List<Rule> requestApprovedRulesList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
-        {
-            List<Rule> apvRulesList = traversalList(cRulesList, fCRulesList, Status.Approved);
-            return apvRulesList;
-        }
-
         private List<Rule> requestRejectedRulesList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
         {
             List<Rule> rjRulesList = traversalList(cRulesList, fCRulesList, Status.Rejected);
@@ -71,6 +59,29 @@ namespace UTS.ScheduleSystem
             string lastUserId = relatedUsersIdString[relatedUsersIdString.Length];
             return lastUserId;
         }
+        private int countUserRelatedRule(User user, List<Rule> rules)
+        {
+            int result = 0;
+            foreach (Rule rule in rules)
+            {
+                if (rule.RelatedUsersId.Contains(user.Id))
+                    result++;
+            }
+            return result;
+        }
+
+        public List<Rule> requestPendingRulesList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
+        {
+            List<Rule> pRulesList = traversalList(cRulesList, fCRulesList, Status.Pending);
+            return pRulesList;
+        }
+
+        public List<Rule> requestApprovedRulesList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
+        {
+            List<Rule> apvRulesList = traversalList(cRulesList, fCRulesList, Status.Approved);
+            return apvRulesList;
+        }
+
 
         public void approveRule(string ruleIdid, ref List<ConversationalRule> cRulesList, ref List<FixedConversationalRule> fCRulesList)
         {
@@ -133,16 +144,7 @@ namespace UTS.ScheduleSystem
             return rate;
         }
 
-        private int countUserRelatedRule(User user, List<Rule> rules)
-        {
-            int result = 0;
-            foreach (Rule rule in rules)
-            {
-                if (rule.RelatedUsersId.Contains(user.Id))
-                    result++;
-            }
-            return result;
-        }
+        
 
         public int userRelatedApprovedRulesNum(User user, List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
         {
