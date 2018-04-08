@@ -19,6 +19,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "UTS.ScheduleSystem.console"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.web", "UTS.ScheduleSystem.web\UTS.ScheduleSystem.web.csproj", "{CE51770D-B25F-4C71-8F3B-4FD696FA2FBF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.UnitTesting", "UTS.ScheduleSystem.UnitTesting\UTS.ScheduleSystem.UnitTesting.csproj", "{89AEE31F-D781-4B0B-8270-D884DDB88B56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{CE51770D-B25F-4C71-8F3B-4FD696FA2FBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE51770D-B25F-4C71-8F3B-4FD696FA2FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE51770D-B25F-4C71-8F3B-4FD696FA2FBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89AEE31F-D781-4B0B-8270-D884DDB88B56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89AEE31F-D781-4B0B-8270-D884DDB88B56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89AEE31F-D781-4B0B-8270-D884DDB88B56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89AEE31F-D781-4B0B-8270-D884DDB88B56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -14,6 +14,12 @@ namespace UTS.ScheduleSystem
         private List<FixedConversationalRule> fCRulesList = new List<FixedConversationalRule>();
         private List<MealSchedule> mealScheduleList = new List<MealSchedule>();
 
+        private DMService dMService = new DMService();
+        private EditorService eService = new EditorService();
+        private ApproverService aService = new ApproverService();
+
+
+
         public FakeDB FakeDB
         {
             get
@@ -37,7 +43,9 @@ namespace UTS.ScheduleSystem
             fakeDB.CRulesTbl.Add(weatherRule1);
             fakeDB.FCRulesTbl.Add(weatherFRule1);
             fakeDB.MealScheduleTbl.Add(mealSchedule1);
+            //codes for read database and update all lists
 
+            
         }
 
         //main process

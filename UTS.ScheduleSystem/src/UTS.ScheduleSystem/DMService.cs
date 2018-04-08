@@ -8,8 +8,9 @@ namespace UTS.ScheduleSystem
     public class DMService
     {
         
-        public void addMeal(string meal)
+        public void addMealSchedule(string meal, List<MealSchedule> mealScheduleList)
         {
+            
             //for datamaintainer to add meal
         }
 
@@ -20,7 +21,7 @@ namespace UTS.ScheduleSystem
             
         }
 
-        public bool deleteMealSchedule(string meal)
+        public bool deleteMealSchedule(string meal, List<MealSchedule> mealScheduleList)
         {
             //for datamaintainer to delete meal from mealschedule list
             return false;
