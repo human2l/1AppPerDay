@@ -74,9 +74,58 @@ namespace UTS.ScheduleSystem.UnitTesting
                 Assert.AreEqual(pRulesList, pRulesList);
             }
 
-            //[TestMethod]
-            //public void ApproverService_ApproveRule_
+            [TestMethod]
+            public void ApproverService_ApproveRule_CorrectApprovedRules()
+            {
 
+            }
+
+            [TestMethod]
+            public void ApproverService_RejectRule_CorrectRejectedRules()
+            {
+
+            }
+            [TestMethod]
+            public void ApproverService_ApprovedRulesNum_ReturnCorrectNumberOfApprovedRules()
+            {
+
+            }
+
+            [TestMethod]
+            public void ApproverService_RejectedRulesNum_ReturnCorrectNumberOfRejectedRules()
+            {
+
+            }
+            [TestMethod]
+            public void ApproverService_SuccessRate_ReturnCorrectSuccessRate()
+            {
+
+            }
+            [TestMethod]
+            public void ApproverService_CountUserApprovedRules_ReturnCorrectNumberOfApprovedRulesByUser()
+            {
+
+            }
+            [TestMethod]
+            public void ApproverService_CountUserRejectedRules_ReturnCorrectNumberOfRejectedRulesByUser()
+            {
+
+            }
+            [TestMethod]
+            public void ApproverService_CountUserPendingRules_ReturnCorrectNumberOfPendingRulesByUser()
+            {
+
+            }
+            [TestMethod]
+            public void ApproverService_UserSuccessRate_ReturnCorrectSuccessRateOfUser()
+            {
+
+            }
+            [TestMethod]
+            public void ApproverService_OverallAveSuccessRate_ReturnCorrectNumberOfOverallAverageSuccessRate()
+            {
+
+            }
         }
     }
         
