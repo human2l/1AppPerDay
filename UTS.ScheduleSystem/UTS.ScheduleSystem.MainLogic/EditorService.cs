@@ -111,59 +111,124 @@ namespace UTS.ScheduleSystem
         //}
 
         //Not sure about input and output format
-        public void EditPendingFCRule(string ruleId, string ruleInput, string ruleOutput, ref List<FixedConversationalRule> fCRulesList)
+        public void EditPendingRule(string ruleId, string ruleInput, string ruleOutput, ref List<FixedConversationalRule> fCRulesList, ref List<ConversationalRule> cRulesList)
         {
-            FixedConversationalRule fCRule = FindFCRule(ruleId, fCRulesList);
-            fCRule.Input = ruleInput;
-            fCRule.Output = ruleOutput;
-            DeletePendingFCRule(ruleId, ref fCRulesList);
-            fCRulesList.Add(fCRule);
+            bool valueChanged = false;
+            for(int i=0; i<fCRulesList.Count; i++)
+            {
+                if(fCRulesList[i].Id == ruleId)
+                {
+                    fCRulesList[i].Input = ruleInput;
+                    fCRulesList[i].Output = ruleOutput;
+                    valueChanged = true;
+                    break;
+                }
+            }
+            if (!valueChanged)
+            {
+                for (int i = 0; i < cRulesList.Count; i++)
+                {
+                    if (cRulesList[i].Id == ruleId)
+                    {
+                        cRulesList[i].Input = ruleInput;
+                        cRulesList[i].Output = ruleOutput;
+                        break;
+                    }
+                }
+            }
+            //FixedConversationalRule fCRule = FindFCRule(ruleId, fCRulesList);
+            //fCRule.Input = ruleInput;
+            //fCRule.Output = ruleOutput;
+            //DeletePendingFCRule(ruleId, ref fCRulesList);
+            //fCRulesList.Add(fCRule);
         }
 
         //Not sure about input and output format
-        public void EditPendingCRule(string ruleId, string ruleInput, string ruleOutput, ref List<ConversationalRule> cRulesList)
+        //public void EditPendingCRule(string ruleId, string ruleInput, string ruleOutput, ref List<ConversationalRule> cRulesList)
+        //{
+        //    ConversationalRule cRule = FindCRule(ruleId, cRulesList);
+        //    cRule.Input = ruleInput;
+        //    cRule.Output = ruleOutput;
+        //    DeletePendingCRule(ruleId, ref cRulesList);
+        //    cRulesList.Add(cRule);
+        //}
+
+        public void DeletePendingRule(string ruleId, ref List<FixedConversationalRule> fCRulesList, ref List<ConversationalRule> cRulesList)
         {
-            ConversationalRule cRule = FindCRule(ruleId, cRulesList);
-            cRule.Input = ruleInput;
-            cRule.Output = ruleOutput;
-            DeletePendingCRule(ruleId, ref cRulesList);
-            cRulesList.Add(cRule);
+            FixedConversationalRule fCRule = FindFCRule(ruleId, fCRulesList);
+            if (fCRule != null)
+            {
+                fCRulesList.Remove(fCRule);
+            }
+            else
+            {
+                ConversationalRule cRule = FindCRule(ruleId, cRulesList);
+                if (cRule != null)
+                {
+                    cRulesList.Remove(cRule);
+                }
+            }
         }
 
-        public void DeletePendingFCRule(string ruleId, ref List<FixedConversationalRule> fCRulesList)
+        //public void DeletePendingCRule(string ruleId, ref List<ConversationalRule> cRulesList)
+        //{
+        //    ConversationalRule rule = FindCRule(ruleId, cRulesList);
+        //    if (rule != null)
+        //    {
+        //        cRulesList.Remove(rule);
+        //    }
+        //}
+
+        public List<Rule> ShowCurrentUserApprovedRules(User user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
-            FixedConversationalRule rule = FindFCRule(ruleId, fCRulesList);
-            fCRulesList.Remove(rule);
+            List<Rule> userRelatedRules = new List<Rule>();
+            foreach(Rule rule in fCRulesList)
+            {
+                if(rule.Status == Status.Pending)
+                {
+                    string[] relatedUserId = rule.RelatedUsersId.Split(' ');
+                    for (int i = 0; i < relatedUserId.Length; i++)
+                    {
+                        if (relatedUserId[i] == user.Id)
+                        {
+                            userRelatedRules.Add(rule);
+                        }
+                    }
+                }
+            }
+            foreach (Rule rule in cRulesList)
+            {
+                if (rule.Status == Status.Pending)
+                {
+                    string[] relatedUserId = rule.RelatedUsersId.Split(' ');
+                    for (int i = 0; i < relatedUserId.Length; i++)
+                    {
+                        if (relatedUserId[i] == user.Id)
+                        {
+                            userRelatedRules.Add(rule);
+                        }
+                    }
+                }
+            }
+            return userRelatedRules;
         }
 
-        public void DeletePendingCRule(string ruleId, ref List<ConversationalRule> cRulesList)
-        {
-            ConversationalRule rule = FindCRule(ruleId, cRulesList);
-            cRulesList.Remove(rule);
-        }
+        //public List<ConversationalRule> ShowCurrentUserApprovedCRules(User user)
+        //{
+        //    return null;
+        //}
 
-        public List<FixedConversationalRule> ShowCurrentUserApprovedFCRules(User user)
+        public int ShowCurrentUserApprovedRulesCount(User user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
-
-            return null;
-        }
-
-        public List<ConversationalRule> ShowCurrentUserApprovedCRules(User user)
-        {
-            return null;
-        }
-
-        public int ShowCurrentUserApprovedRulesCount(User user)
-        {
-            int count = 0;
+            int count = ShowCurrentUserApprovedRules(user, fCRulesList, cRulesList).Count;
             return count;
         }
 
-        public int ShowCurrentUserRejectedRulesCount(User user)
-        {
-            int count = 0;
-            return count;
-        }
+        //public int ShowCurrentUserRejectedRulesCount(User user)
+        //{
+        //    int count = 0;
+        //    return count;
+        //}
 
         public double ShowCurrentUserSuccessRate(User user)
         {
@@ -194,6 +259,7 @@ namespace UTS.ScheduleSystem
             }
             return null;
         }
+
     }
 }
 
