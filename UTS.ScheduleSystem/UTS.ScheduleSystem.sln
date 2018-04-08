@@ -12,6 +12,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.web", "U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.MainLogic", "UTS.ScheduleSystem.MainLogic\UTS.ScheduleSystem.MainLogic.csproj", "{55BE9C1E-B8A9-4AAD-8C16-07D12E120878}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.UnitTesting", "UTS.ScheduleSystem.UnitTesting\UTS.ScheduleSystem.UnitTesting.csproj", "{5DF83E4F-08F1-42B6-82B6-3BB0327C9805}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.Console", "UTS.ScheduleSystem.Console\UTS.ScheduleSystem.Console.csproj", "{3B18EDE9-44C3-45E8-A018-127AB918C35A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +30,14 @@ Global
 		{55BE9C1E-B8A9-4AAD-8C16-07D12E120878}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55BE9C1E-B8A9-4AAD-8C16-07D12E120878}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55BE9C1E-B8A9-4AAD-8C16-07D12E120878}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DF83E4F-08F1-42B6-82B6-3BB0327C9805}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DF83E4F-08F1-42B6-82B6-3BB0327C9805}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DF83E4F-08F1-42B6-82B6-3BB0327C9805}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DF83E4F-08F1-42B6-82B6-3BB0327C9805}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B18EDE9-44C3-45E8-A018-127AB918C35A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B18EDE9-44C3-45E8-A018-127AB918C35A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B18EDE9-44C3-45E8-A018-127AB918C35A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B18EDE9-44C3-45E8-A018-127AB918C35A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
