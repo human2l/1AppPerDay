@@ -7,12 +7,12 @@ namespace UTS.ScheduleSystem
 {
     public class FakeDB
     {
-        private LinkedList<User> userTbl;
-        private LinkedList<ConversationalRule> CRulesTbl;
-        private LinkedList<FixedConversationalRule> FCRulesTbl;
-        private LinkedList<MealSchedule> mealScheduleTble;
+        private List<User> userTbl = new List<User>();
+        private List<ConversationalRule> cRulesTbl = new List<ConversationalRule>();
+        private List<FixedConversationalRule> fCRulesTbl = new List<FixedConversationalRule>();
+        private List<MealSchedule> mealScheduleTbl = new List<MealSchedule>();
 
-        public LinkedList<User> UserTbl
+        public List<User> UserTbl
         {
             get
             {
@@ -25,43 +25,40 @@ namespace UTS.ScheduleSystem
             }
         }
 
-        public LinkedList<ConversationalRule> CRulesTbl1
+        public List<ConversationalRule> CRulesTbl
         {
             get
             {
-                return CRulesTbl;
+                return cRulesTbl;
             }
 
             set
             {
-                CRulesTbl = value;
+                cRulesTbl = value;
             }
         }
 
-        internal LinkedList<FixedConversationalRule> FCRulesTbl1
+        internal List<FixedConversationalRule> FCRulesTbl
         {
             get
             {
-                return FCRulesTbl;
+                return fCRulesTbl;
             }
 
             set
             {
-                FCRulesTbl = value;
+                fCRulesTbl = value;
             }
         }
 
-        public LinkedList<MealSchedule> MealScheduleTble
-        {
-            get
-            {
-                return mealScheduleTble;
-            }
+        //public FakeDB(LinkedList<User> userTbl, LinkedList<ConversationalRule> cRulesTbl, LinkedList<FixedConversationalRule> fCRulesTbl, LinkedList<MealSchedule> mealScheduleTbl)
+        //{
+        //    this.userTbl = userTbl;
+        //    this.cRulesTbl = cRulesTbl;
+        //    this.fCRulesTbl = fCRulesTbl;
+        //    this.mealScheduleTbl = mealScheduleTbl;
+        //}
 
-            set
-            {
-                mealScheduleTble = value;
-            }
-        }
+
     }
 }

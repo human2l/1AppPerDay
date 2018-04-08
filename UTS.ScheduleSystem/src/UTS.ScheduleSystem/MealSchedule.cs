@@ -14,6 +14,16 @@ namespace UTS.ScheduleSystem
         private string startDate;
         private string endDate;
 
+        public MealSchedule(string id, string topic, string participants, string location, string startDate, string endDate)
+        {
+            this.id = id;
+            this.topic = topic;
+            this.participants = participants;
+            this.location = location;
+            this.startDate = startDate;
+            this.endDate = endDate;
+        }
+
         public string Id
         {
             get

@@ -9,10 +9,10 @@ namespace UTS.ScheduleSystem.console
     {
         public void Main(string[] args)
         {
-            Console.WriteLine("a");
+            Console.WriteLine(DateTime.Now);
             Console.ReadLine();
             
-
+            
         }
     }
 }
