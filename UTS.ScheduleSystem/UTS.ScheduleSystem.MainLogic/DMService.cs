@@ -7,10 +7,10 @@ namespace UTS.ScheduleSystem
 {
     public class DMService
     {
-        
+
         public void addMealSchedule(string meal, List<MealSchedule> mealScheduleList)
         {
-            
+
             //for datamaintainer to add meal
         }
 
@@ -18,7 +18,7 @@ namespace UTS.ScheduleSystem
         {
             //for datamaintainer to list all meal schedule
             //note: parameter mealSchedulelist will convert to xml then send to front end
-            
+
         }
 
         public bool deleteMealSchedule(string meal, List<MealSchedule> mealScheduleList)
@@ -27,6 +27,6 @@ namespace UTS.ScheduleSystem
             return false;
         }
 
-        
+
     }
 }

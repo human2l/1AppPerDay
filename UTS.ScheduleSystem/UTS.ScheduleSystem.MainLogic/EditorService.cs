@@ -7,7 +7,7 @@ namespace UTS.ScheduleSystem
 {
     public class EditorService
     {
-        
+
         public List<FixedConversationalRule> AddNewFCRule(FixedConversationalRule rule, List<FixedConversationalRule> fCRulesList)
         {
             return fCRulesList;
@@ -20,7 +20,7 @@ namespace UTS.ScheduleSystem
 
         public List<FixedConversationalRule> ShowAllPendingFCRules(List<FixedConversationalRule> fCRulesList)
         {
-            
+
             return fCRulesList;
         }
 

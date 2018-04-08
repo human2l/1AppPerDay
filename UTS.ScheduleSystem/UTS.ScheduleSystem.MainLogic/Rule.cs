@@ -102,10 +102,6 @@ namespace UTS.ScheduleSystem
                 id = value;
             }
         }
-        //public string name { get; set; }
-        //public string input { get; set; }
-        //public string output { get; set; }
-        //public string relatedUsersId { get; set; }
-        //public string status { get; set; }
+        
     }
 }

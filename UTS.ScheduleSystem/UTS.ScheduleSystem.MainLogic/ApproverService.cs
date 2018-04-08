@@ -18,7 +18,7 @@ namespace UTS.ScheduleSystem
         public List<Rule> requestPendingRulesList()
         {
             List<Rule> pRulesList = new List<Rule>();
-            foreach(Rule rule in cRulesList)
+            foreach (Rule rule in cRulesList)
             {
                 if (rule.Status.Equals(Status.Pending))
                     pRulesList.Add(rule);
