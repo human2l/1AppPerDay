@@ -51,14 +51,20 @@ namespace UTS.ScheduleSystem
             }
         }
 
-        //public FakeDB(LinkedList<User> userTbl, LinkedList<ConversationalRule> cRulesTbl, LinkedList<FixedConversationalRule> fCRulesTbl, LinkedList<MealSchedule> mealScheduleTbl)
-        //{
-        //    this.userTbl = userTbl;
-        //    this.cRulesTbl = cRulesTbl;
-        //    this.fCRulesTbl = fCRulesTbl;
-        //    this.mealScheduleTbl = mealScheduleTbl;
-        //}
+        public List<MealSchedule> MealScheduleTbl
+        {
+            get
+            {
+                return mealScheduleTbl;
+            }
 
+            set
+            {
+                mealScheduleTbl = value;
+            }
+        }
+
+        
 
     }
 }
