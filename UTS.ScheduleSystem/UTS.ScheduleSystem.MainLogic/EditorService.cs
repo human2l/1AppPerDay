@@ -8,55 +8,98 @@ namespace UTS.ScheduleSystem
     public class EditorService
     {
 
-        public List<FixedConversationalRule> AddNewFCRule(FixedConversationalRule rule, List<FixedConversationalRule> fCRulesList)
+        public void AddNewFCRule(FixedConversationalRule rule, ref List<FixedConversationalRule> fCRulesList)
         {
-            return fCRulesList;
+            fCRulesList.Add(rule);
         }
 
-        public List<ConversationalRule> AddNewCRule(ConversationalRule rule, List<ConversationalRule> cRulesList)
+        public void AddNewCRule(ConversationalRule rule, ref List<ConversationalRule> cRulesList)
         {
-            return cRulesList;
+            cRulesList.Add(rule);
         }
 
         public List<FixedConversationalRule> ShowAllPendingFCRules(List<FixedConversationalRule> fCRulesList)
         {
-
-            return fCRulesList;
+            List<FixedConversationalRule> pendingFCRulesList = new List<FixedConversationalRule>();
+            foreach(FixedConversationalRule fCRule in fCRulesList)
+            {
+                if(fCRule.Status == Status.Pending)
+                {
+                    pendingFCRulesList.Add(fCRule);
+                }
+            }
+            return pendingFCRulesList;
         }
 
         public List<ConversationalRule> ShowAllPendingCRules(List<ConversationalRule> cRulesList)
         {
-            return cRulesList;
+            List<ConversationalRule> pendingCRulesList = new List<ConversationalRule>();
+            foreach(ConversationalRule cRule in cRulesList)
+            {
+                if(cRule.Status == Status.Pending)
+                {
+                    pendingCRulesList.Add(cRule);
+                }
+            }
+            return pendingCRulesList;
         }
 
-        public List<FixedConversationalRule> ShowAllRejectewdFCRules(List<FixedConversationalRule> fCRulesList)
+        public List<FixedConversationalRule> ShowAllRejectedFCRules(List<FixedConversationalRule> fCRulesList)
         {
-            return fCRulesList;
+            List<FixedConversationalRule> rejectedFCRulesList = new List<FixedConversationalRule>();
+            foreach (FixedConversationalRule fCRule in fCRulesList)
+            {
+                if (fCRule.Status == Status.Rejected)
+                {
+                    rejectedFCRulesList.Add(fCRule);
+                }
+            }
+            return rejectedFCRulesList;
         }
 
         public List<ConversationalRule> ShowAllRejectedCRules(List<ConversationalRule> cRulesList)
         {
-            return cRulesList;
+            List<ConversationalRule> rejectedCRulesList = new List<ConversationalRule>();
+            foreach (ConversationalRule cRule in cRulesList)
+            {
+                if (cRule.Status == Status.Rejected)
+                {
+                    rejectedCRulesList.Add(cRule);
+                }
+            }
+            return rejectedCRulesList;
         }
 
-        public void EditPendingFCRule(FixedConversationalRule fCRule)
+        //Not sure about input and output format
+        public void EditPendingFCRule(string ruleId, string ruleInput, string ruleOutput, ref List<FixedConversationalRule> fCRulesList)
         {
-
+            FixedConversationalRule fCRule = FindFCRule(ruleId, fCRulesList);
+            fCRule.Input = ruleInput;
+            fCRule.Output = ruleOutput;
+            DeletePendingFCRule(ruleId, ref fCRulesList);
+            fCRulesList.Add(fCRule);
         }
 
-        public void EditPendingCRule(ConversationalRule cRule)
+        //Not sure about input and output format
+        public void EditPendingCRule(string ruleId, string ruleInput, string ruleOutput, ref List<ConversationalRule> cRulesList)
         {
-
+            ConversationalRule cRule = FindCRule(ruleId, cRulesList);
+            cRule.Input = ruleInput;
+            cRule.Output = ruleOutput;
+            DeletePendingCRule(ruleId, ref cRulesList);
+            cRulesList.Add(cRule);
         }
 
-        public void DeletePendingFCRule(FixedConversationalRule fCRule)
+        public void DeletePendingFCRule(string ruleId, ref List<FixedConversationalRule> fCRulesList)
         {
-
+            FixedConversationalRule rule = FindFCRule(ruleId, fCRulesList);
+            fCRulesList.Remove(rule);
         }
 
-        public void DeletePendingCRule(ConversationalRule cRule)
+        public void DeletePendingCRule(string ruleId, ref List<ConversationalRule> cRulesList)
         {
-
+            ConversationalRule rule = FindCRule(ruleId, cRulesList);
+            cRulesList.Remove(rule);
         }
 
         public List<FixedConversationalRule> ShowCurrentUserApprovedFCRules(User user)
@@ -86,5 +129,60 @@ namespace UTS.ScheduleSystem
             double rate = 0;
             return rate;
         }
+
+        public FixedConversationalRule FindFCRule(string ruleId, List<FixedConversationalRule> rulesList)
+        {
+            foreach (FixedConversationalRule rule in rulesList)
+            {
+                if (rule.Id == ruleId)
+                {
+                    return rule;
+                }
+            }
+            return null;
+        }
+
+        public ConversationalRule FindCRule(string ruleId, List<ConversationalRule> rulesList)
+        {
+            foreach (ConversationalRule rule in rulesList)
+            {
+                if (rule.Id == ruleId)
+                {
+                    return rule;
+                }
+            }
+            return null;
+        }
+        public ConversationalRule RemoveCRule(string ruleId, ref List<ConversationalRule> rulesList)
+        {
+            foreach (ConversationalRule rule in rulesList)
+            {
+                if (rule.Id == ruleId)
+                {
+                    rulesList.Remove(rule);
+                    return rule;
+                }
+            }
+            return null;
+        }
     }
 }
+
+//foreach(Rule rule in rulesList)
+//{
+//    ConversationalRule cr = rule as ConversationalRule;
+//    if(cr != null)
+//    {
+//        if (cr.Id == ruleId)
+//        {
+//            return cr;
+//        }
+//    }
+//    else{
+//        FixedConversationalRule fr = rule as FixedConversationalRule;
+//        if (fr.Id == ruleId)
+//        {
+//            return fr;
+//        }
+//    }
+//}
