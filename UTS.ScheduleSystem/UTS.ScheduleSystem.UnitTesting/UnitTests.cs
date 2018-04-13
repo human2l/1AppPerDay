@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace UTS.ScheduleSystem.UnitTesting
 {
@@ -15,11 +16,11 @@ namespace UTS.ScheduleSystem.UnitTesting
             //controller.initialization();
             User frank = new User("u002", "FRANK", "wtf", "FRANK@wtf.com", Role.DMnEnA);
             ConversationalRule cRule1 = new ConversationalRule("c001", "When will I have meal with {p1}", "It's {p1}", "u001 u002", Status.Pending);
-            ConversationalRule cRule2 = new ConversationalRule("c001", "Who will I have meal with on {p1}", "It's {p1}", "u001 u002", Status.Approved);
-            ConversationalRule cRule3 = new ConversationalRule("c001", "What will I surpose to eat on {p1}", "{p1}", "u001 u002", Status.Rejected);
-            FixedConversationalRule cFRule1 = new FixedConversationalRule("fc002", "How do you do", "I'm fine, fuck you, and you?", "u001", Status.Pending);
+            ConversationalRule cRule2 = new ConversationalRule("c002", "Who will I have meal with on {p1}", "It's {p1}", "u001 u002", Status.Approved);
+            ConversationalRule cRule3 = new ConversationalRule("c003", "What will I surpose to eat on {p1}", "{p1}", "u001 u002", Status.Rejected);
+            FixedConversationalRule cFRule1 = new FixedConversationalRule("fc001", "How do you do", "I'm fine, fuck you, and you?", "u001", Status.Pending);
             FixedConversationalRule cFRule2 = new FixedConversationalRule("fc002", "What is your name", "Are you flirting with me?", "u001", Status.Approved);
-            FixedConversationalRule cFRule3 = new FixedConversationalRule("fc002", "I'm not good", "So go fuck yourself", "u001", Status.Rejected);
+            FixedConversationalRule cFRule3 = new FixedConversationalRule("fc003", "I'm not good", "So go fuck yourself", "u001", Status.Rejected);
             [TestInitialize]
             public void Setup()
             {
@@ -74,11 +75,37 @@ namespace UTS.ScheduleSystem.UnitTesting
                 CollectionAssert.AreEqual(correctPRulesList, rulesList);
             }
 
-            //[TestMethod]
-            //public void ApproverService_ApproveRule_CorrectApprovedRules()
-            //{
+            [TestMethod]
+            public void ApproverService_ApproveRule_CorrectApprovedRules()
+            {
+                ConversationalRule cRulex = new ConversationalRule("c001", "When will I have meal with {p1}", "It's {p1}", "u001 u002", Status.Pending);
+                ConversationalRule cRuley = new ConversationalRule("c002", "Who will I have meal with on {p1}", "It's {p1}", "u001 u002", Status.Pending);
+                ConversationalRule cRulez = new ConversationalRule("c003", "What will I surpose to eat on {p1}", "{p1}", "u001 u002", Status.Pending);
+                FixedConversationalRule cFRulex = new FixedConversationalRule("fc001", "How do you do", "I'm fine, fuck you, and you?", "u001", Status.Pending);
+                FixedConversationalRule cFRuley = new FixedConversationalRule("fc002", "What is your name", "Are you flirting with me?", "u001", Status.Pending);
+                FixedConversationalRule cFRulez = new FixedConversationalRule("fc003", "I'm not good", "So go fuck yourself", "u001", Status.Pending);
+                List<ConversationalRule> CRulesList = new List<ConversationalRule>();
+                List<FixedConversationalRule> FCRulesList = new List<FixedConversationalRule>();
+                CRulesList.Add(cRulex);
+                CRulesList.Add(cRuley);
+                CRulesList.Add(cRulez);
+                FCRulesList.Add(cFRulex);
+                FCRulesList.Add(cFRuley);
+                FCRulesList.Add(cFRulez);
+                controller.AService.approveRule(cRulex.Id, ref CRulesList, ref FCRulesList);
+                controller.AService.approveRule(cRuley.Id, ref CRulesList, ref FCRulesList);
+                controller.AService.approveRule(cRulez.Id, ref CRulesList, ref FCRulesList);
+                controller.AService.approveRule(cFRulex.Id, ref CRulesList, ref FCRulesList);
+                controller.AService.approveRule(cFRuley.Id, ref CRulesList, ref FCRulesList);
+                controller.AService.approveRule(cFRulez.Id, ref CRulesList, ref FCRulesList);
+                Assert.AreEqual<Status>(Status.Approved, CRulesList[0].Status);
+                Assert.AreEqual<Status>(Status.Approved, CRulesList[1].Status);
+                Assert.AreEqual<Status>(Status.Approved, CRulesList[2].Status);
+                Assert.AreEqual<Status>(Status.Approved, FCRulesList[0].Status);
+                Assert.AreEqual<Status>(Status.Approved, FCRulesList[1].Status);
+                Assert.AreEqual<Status>(Status.Approved, FCRulesList[2].Status);
 
-            //}
+            }
 
             //[TestMethod]
             //public void ApproverService_RejectRule_CorrectRejectedRules()
