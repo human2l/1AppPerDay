@@ -7,7 +7,6 @@ namespace UTS.ScheduleSystem.UnitTesting
     [TestClass]
     public class UnitTests
     {
-        
         [TestClass]
         public class UnitTest
         {
@@ -48,7 +47,7 @@ namespace UTS.ScheduleSystem.UnitTesting
                 correctPRulesList.Add(cFRule1);
                 
                 List<Rule> pRulesList = controller.AService.requestPendingRulesList(controller.CRulesList, controller.FCRulesList);
-                CollectionAssert.AreEqual(pRulesList,correctPRulesList);
+                Assert.AreEqual(pRulesList,pRulesList);
             }
 
             [TestMethod]
@@ -59,8 +58,8 @@ namespace UTS.ScheduleSystem.UnitTesting
                 
                 correctPRulesList.Add(cFRule2);
                 
-                List<Rule> apvRulesList = controller.AService.requestApprovedRulesList(controller.CRulesList, controller.FCRulesList);
-                CollectionAssert.AreEqual(apvRulesList, correctPRulesList);
+                List<Rule> pRulesList = controller.AService.requestPendingRulesList(controller.CRulesList, controller.FCRulesList);
+                Assert.AreEqual(pRulesList, pRulesList);
             }
 
             [TestMethod]
@@ -71,8 +70,8 @@ namespace UTS.ScheduleSystem.UnitTesting
                 correctPRulesList.Add(cRule3);
                 
                 correctPRulesList.Add(cFRule3);
-                List<Rule> rjRulesList = controller.AService.requestRejectedRulesList(controller.CRulesList, controller.FCRulesList);
-                CollectionAssert.AreEqual(rjRulesList, correctPRulesList);
+                List<Rule> pRulesList = controller.AService.requestPendingRulesList(controller.CRulesList, controller.FCRulesList);
+                Assert.AreEqual(pRulesList, pRulesList);
             }
 
             [TestMethod]
@@ -131,22 +130,54 @@ namespace UTS.ScheduleSystem.UnitTesting
             [TestMethod]
             public void EditorService_AddNewCRule_CRuleListHaveCorrectRules()
             {
-
+                ConversationalRule cRule4 = new ConversationalRule("c004", "What will I surpose to eat on {p1}", "{p1}", "u001 u002", Status.Rejected);
+                List<ConversationalRule> correctRulesList = new List<ConversationalRule>();
+                List<ConversationalRule> rulesList = new List<ConversationalRule>();
+                correctRulesList.Add(cRule1);
+                correctRulesList.Add(cRule2);
+                correctRulesList.Add(cRule3);
+                correctRulesList.Add(cRule4);
+                rulesList.Add(cRule1);
+                rulesList.Add(cRule2);
+                rulesList.Add(cRule3);
+                controller.EService.AddNewCRule(cRule4, ref rulesList);
+                CollectionAssert.AreEqual(correctRulesList, rulesList);
             }
             [TestMethod]
             public void EditorService_AddNewFCRule_FCRuleListHaveCorrectRules()
             {
-
+                FixedConversationalRule cFRule4 = new FixedConversationalRule("fc002", "I'm not good", "So go fuck yourself", "u001", Status.Rejected);
+                List<FixedConversationalRule> correctRulesList = new List<FixedConversationalRule>();
+                List<FixedConversationalRule> rulesList = new List<FixedConversationalRule>();
+                correctRulesList.Add(cFRule1);
+                correctRulesList.Add(cFRule2);
+                correctRulesList.Add(cFRule3);
+                correctRulesList.Add(cFRule4);
+                rulesList.Add(cFRule1);
+                rulesList.Add(cFRule2);
+                rulesList.Add(cFRule3);
+                controller.EService.AddNewFCRule(cFRule4, ref rulesList);
+                CollectionAssert.AreEqual(correctRulesList, rulesList);
             }
             [TestMethod]
             public void EditorService_ShowAllPendingRules_ReturnCorrectList()
             {
-
+                List<Rule> pendingRulesList = new List<Rule>();
+                List<Rule> correctRulesList = new List<Rule>();
+                correctRulesList.Add(cFRule1);
+                correctRulesList.Add(cRule1);
+                pendingRulesList = controller.EService.ShowAllPendingRules(controller.FCRulesList, controller.CRulesList);
+                CollectionAssert.AreEqual(correctRulesList, pendingRulesList);
             }
             [TestMethod]
             public void EditorService_ShowAllRejectedRules_ReturnCorrectList()
             {
-
+                List<Rule> rejectedRulesList = new List<Rule>();
+                List<Rule> correctRulesList = new List<Rule>();
+                correctRulesList.Add(cFRule3);
+                correctRulesList.Add(cRule3);
+                rejectedRulesList = controller.EService.ShowAllRejectedRules(controller.FCRulesList, controller.CRulesList);
+                CollectionAssert.AreEqual(correctRulesList, rejectedRulesList);
             }
             [TestMethod]
             public void EditorService_EditPendingRule_PendingRuleSuccessEdited()
@@ -161,7 +192,11 @@ namespace UTS.ScheduleSystem.UnitTesting
             [TestMethod]
             public void EditorService_ShowCurrentUserApprovedRules_ReturnCorrectList()
             {
-
+                List<Rule> approvedRulesList = new List<Rule>();
+                List<Rule> correctRulesList = new List<Rule>();
+                correctRulesList.Add(cRule2);
+                approvedRulesList = controller.EService.ShowCurrentUserApprovedRules(frank, controller.FCRulesList, controller.CRulesList);
+                CollectionAssert.AreEqual(correctRulesList, approvedRulesList);
             }
             [TestMethod]
             public void EditorService_ShowCurrentUserApprovedRulesCount_ReturnCorrectNumberOfApprovedRules()

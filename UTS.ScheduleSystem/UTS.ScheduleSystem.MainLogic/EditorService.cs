@@ -184,7 +184,7 @@ namespace UTS.ScheduleSystem
             List<Rule> userRelatedRules = new List<Rule>();
             foreach(Rule rule in fCRulesList)
             {
-                if(rule.Status == Status.Pending)
+                if(rule.Status == Status.Approved)
                 {
                     string[] relatedUserId = rule.RelatedUsersId.Split(' ');
                     for (int i = 0; i < relatedUserId.Length; i++)
@@ -198,7 +198,7 @@ namespace UTS.ScheduleSystem
             }
             foreach (Rule rule in cRulesList)
             {
-                if (rule.Status == Status.Pending)
+                if (rule.Status == Status.Approved)
                 {
                     string[] relatedUserId = rule.RelatedUsersId.Split(' ');
                     for (int i = 0; i < relatedUserId.Length; i++)
