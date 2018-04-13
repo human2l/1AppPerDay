@@ -58,10 +58,10 @@ namespace UTS.ScheduleSystem
             return rejectedRulesList;
         }
 
-        //public List<FixedConversationalRule> ShowAllPendingFCRules(List<FixedConversationalRule> fCRulesList)
+        //public List<FixedConversationalRule> ShowAllPendingFCRules(List<FixedConversationalRule> fixedConversationalRulesList)
         //{
         //    List<FixedConversationalRule> pendingFCRulesList = new List<FixedConversationalRule>();
-        //    foreach(FixedConversationalRule fCRule in fCRulesList)
+        //    foreach(FixedConversationalRule fCRule in fixedConversationalRulesList)
         //    {
         //        if(fCRule.Status == Status.Pending)
         //        {
@@ -71,10 +71,10 @@ namespace UTS.ScheduleSystem
         //    return pendingFCRulesList;
         //}
 
-        //public List<ConversationalRule> ShowAllPendingCRules(List<ConversationalRule> cRulesList)
+        //public List<ConversationalRule> ShowAllPendingCRules(List<ConversationalRule> conversationalRulesList)
         //{
         //    List<ConversationalRule> pendingCRulesList = new List<ConversationalRule>();
-        //    foreach(ConversationalRule cRule in cRulesList)
+        //    foreach(ConversationalRule cRule in conversationalRulesList)
         //    {
         //        if(cRule.Status == Status.Pending)
         //        {
@@ -84,10 +84,10 @@ namespace UTS.ScheduleSystem
         //    return pendingCRulesList;
         //}
 
-        //public List<FixedConversationalRule> ShowAllRejectedFCRules(List<FixedConversationalRule> fCRulesList)
+        //public List<FixedConversationalRule> ShowAllRejectedFCRules(List<FixedConversationalRule> fixedConversationalRulesList)
         //{
         //    List<FixedConversationalRule> rejectedFCRulesList = new List<FixedConversationalRule>();
-        //    foreach (FixedConversationalRule fCRule in fCRulesList)
+        //    foreach (FixedConversationalRule fCRule in fixedConversationalRulesList)
         //    {
         //        if (fCRule.Status == Status.Rejected)
         //        {
@@ -97,10 +97,10 @@ namespace UTS.ScheduleSystem
         //    return rejectedFCRulesList;
         //}
 
-        //public List<ConversationalRule> ShowAllRejectedCRules(List<ConversationalRule> cRulesList)
+        //public List<ConversationalRule> ShowAllRejectedCRules(List<ConversationalRule> conversationalRulesList)
         //{
         //    List<ConversationalRule> rejectedCRulesList = new List<ConversationalRule>();
-        //    foreach (ConversationalRule cRule in cRulesList)
+        //    foreach (ConversationalRule cRule in conversationalRulesList)
         //    {
         //        if (cRule.Status == Status.Rejected)
         //        {
@@ -136,21 +136,21 @@ namespace UTS.ScheduleSystem
                     }
                 }
             }
-            //FixedConversationalRule fCRule = FindFCRule(ruleId, fCRulesList);
+            //FixedConversationalRule fCRule = FindFCRule(ruleId, fixedConversationalRulesList);
             //fCRule.Input = ruleInput;
             //fCRule.Output = ruleOutput;
-            //DeletePendingFCRule(ruleId, ref fCRulesList);
-            //fCRulesList.Add(fCRule);
+            //DeletePendingFCRule(ruleId, ref fixedConversationalRulesList);
+            //fixedConversationalRulesList.Add(fCRule);
         }
 
         //Not sure about input and output format
-        //public void EditPendingCRule(string ruleId, string ruleInput, string ruleOutput, ref List<ConversationalRule> cRulesList)
+        //public void EditPendingCRule(string ruleId, string ruleInput, string ruleOutput, ref List<ConversationalRule> conversationalRulesList)
         //{
-        //    ConversationalRule cRule = FindCRule(ruleId, cRulesList);
+        //    ConversationalRule cRule = FindCRule(ruleId, conversationalRulesList);
         //    cRule.Input = ruleInput;
         //    cRule.Output = ruleOutput;
-        //    DeletePendingCRule(ruleId, ref cRulesList);
-        //    cRulesList.Add(cRule);
+        //    DeletePendingCRule(ruleId, ref conversationalRulesList);
+        //    conversationalRulesList.Add(cRule);
         //}
 
         public void DeletePendingRule(string ruleId, ref List<FixedConversationalRule> fCRulesList, ref List<ConversationalRule> cRulesList)
@@ -170,12 +170,12 @@ namespace UTS.ScheduleSystem
             }
         }
 
-        //public void DeletePendingCRule(string ruleId, ref List<ConversationalRule> cRulesList)
+        //public void DeletePendingCRule(string ruleId, ref List<ConversationalRule> conversationalRulesList)
         //{
-        //    ConversationalRule rule = FindCRule(ruleId, cRulesList);
+        //    ConversationalRule rule = FindCRule(ruleId, conversationalRulesList);
         //    if (rule != null)
         //    {
-        //        cRulesList.Remove(rule);
+        //        conversationalRulesList.Remove(rule);
         //    }
         //}
 

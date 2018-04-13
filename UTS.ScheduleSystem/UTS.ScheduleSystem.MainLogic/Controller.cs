@@ -10,14 +10,14 @@ namespace UTS.ScheduleSystem
         private FakeDB fakeDB = new FakeDB();
         private User currentUser;
         private List<User> userList = new List<User>();
-        private List<ConversationalRule> cRulesList = new List<ConversationalRule>();
-        private List<FixedConversationalRule> fCRulesList = new List<FixedConversationalRule>();
+        private List<ConversationalRule> conversationalRulesList = new List<ConversationalRule>();
+        private List<FixedConversationalRule> fixedConversationalRulesList = new List<FixedConversationalRule>();
         private List<MealSchedule> mealScheduleList = new List<MealSchedule>();
         //private List<Rule> ruleList = new List<Rule>();
 
-        private DMService dMService = new DMService();
-        private EditorService eService = new EditorService();
-        private ApproverService aService = new ApproverService();
+        private DMService dataMaintainerService = new DMService();
+        private EditorService editorService = new EditorService();
+        private ApproverService approverService = new ApproverService();
 
 
         
@@ -35,42 +35,42 @@ namespace UTS.ScheduleSystem
             }
         }
 
-        public DMService DMService
+        public DMService DataMaintainerService
         {
             get
             {
-                return dMService;
+                return dataMaintainerService;
             }
 
             set
             {
-                dMService = value;
+                dataMaintainerService = value;
             }
         }
 
-        public EditorService EService
+        public EditorService EditorService
         {
             get
             {
-                return eService;
+                return editorService;
             }
 
             set
             {
-                eService = value;
+                editorService = value;
             }
         }
 
-        public ApproverService AService
+        public ApproverService ApproverService
         {
             get
             {
-                return aService;
+                return approverService;
             }
 
             set
             {
-                aService = value;
+                approverService = value;
             }
         }
 
@@ -87,29 +87,29 @@ namespace UTS.ScheduleSystem
             }
         }
 
-        public List<ConversationalRule> CRulesList
+        public List<ConversationalRule> ConversationalRulesList
         {
             get
             {
-                return cRulesList;
+                return conversationalRulesList;
             }
 
             set
             {
-                cRulesList = value;
+                conversationalRulesList = value;
             }
         }
 
-        public List<FixedConversationalRule> FCRulesList
+        public List<FixedConversationalRule> FixedConversationalRulesList
         {
             get
             {
-                return fCRulesList;
+                return fixedConversationalRulesList;
             }
 
             set
             {
-                fCRulesList = value;
+                fixedConversationalRulesList = value;
             }
         }
 
