@@ -40,13 +40,13 @@ namespace UTS.ScheduleSystem
             }
             foreach (Rule rule in fCRulesList)
             {
-                if (rule.Status.Equals(Status.Pending))
+                if (rule.Status.Equals(status))
                     newRulesList.Add(rule);
             }
             return newRulesList;
         }
 
-        private List<Rule> requestRejectedRulesList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
+        public List<Rule> requestRejectedRulesList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
         {
             List<Rule> rjRulesList = traversalList(cRulesList, fCRulesList, Status.Rejected);
             return rjRulesList;

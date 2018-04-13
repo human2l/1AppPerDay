@@ -7,6 +7,7 @@ namespace UTS.ScheduleSystem.UnitTesting
     [TestClass]
     public class UnitTests
     {
+        
         [TestClass]
         public class UnitTest
         {
@@ -47,7 +48,7 @@ namespace UTS.ScheduleSystem.UnitTesting
                 correctPRulesList.Add(cFRule1);
                 
                 List<Rule> pRulesList = controller.AService.requestPendingRulesList(controller.CRulesList, controller.FCRulesList);
-                Assert.AreEqual(pRulesList,pRulesList);
+                CollectionAssert.AreEqual(pRulesList,correctPRulesList);
             }
 
             [TestMethod]
@@ -58,8 +59,8 @@ namespace UTS.ScheduleSystem.UnitTesting
                 
                 correctPRulesList.Add(cFRule2);
                 
-                List<Rule> pRulesList = controller.AService.requestPendingRulesList(controller.CRulesList, controller.FCRulesList);
-                Assert.AreEqual(pRulesList, pRulesList);
+                List<Rule> apvRulesList = controller.AService.requestApprovedRulesList(controller.CRulesList, controller.FCRulesList);
+                CollectionAssert.AreEqual(apvRulesList, correctPRulesList);
             }
 
             [TestMethod]
@@ -70,8 +71,8 @@ namespace UTS.ScheduleSystem.UnitTesting
                 correctPRulesList.Add(cRule3);
                 
                 correctPRulesList.Add(cFRule3);
-                List<Rule> pRulesList = controller.AService.requestPendingRulesList(controller.CRulesList, controller.FCRulesList);
-                Assert.AreEqual(pRulesList, pRulesList);
+                List<Rule> rjRulesList = controller.AService.requestRejectedRulesList(controller.CRulesList, controller.FCRulesList);
+                CollectionAssert.AreEqual(rjRulesList, correctPRulesList);
             }
 
             [TestMethod]
