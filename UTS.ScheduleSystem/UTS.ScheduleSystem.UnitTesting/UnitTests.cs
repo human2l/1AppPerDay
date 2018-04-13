@@ -31,11 +31,11 @@ namespace UTS.ScheduleSystem.UnitTesting
                 controller.FCRulesList.Add(cFRule2);
                 controller.FCRulesList.Add(cFRule3);
             }
-            [TestMethod]
-            public void ControllerLists_OnInitialization_NotNull()
-            {
-                //print controller
-            }
+            //[TestMethod]
+            //public void ControllerLists_OnInitialization_NotNull()
+            //{
+            //    //print controller
+            //}
 
             [TestMethod]
 
@@ -46,8 +46,8 @@ namespace UTS.ScheduleSystem.UnitTesting
                 
                 correctPRulesList.Add(cFRule1);
                 
-                List<Rule> pRulesList = controller.AService.requestPendingRulesList(controller.CRulesList, controller.FCRulesList);
-                Assert.AreEqual(pRulesList,pRulesList);
+                List<Rule> rulesList = controller.AService.requestPendingRulesList(controller.CRulesList, controller.FCRulesList);
+                CollectionAssert.AreEqual(correctPRulesList,rulesList);
             }
 
             [TestMethod]
@@ -58,8 +58,8 @@ namespace UTS.ScheduleSystem.UnitTesting
                 
                 correctPRulesList.Add(cFRule2);
                 
-                List<Rule> pRulesList = controller.AService.requestPendingRulesList(controller.CRulesList, controller.FCRulesList);
-                Assert.AreEqual(pRulesList, pRulesList);
+                List<Rule> rulesList = controller.AService.requestApprovedRulesList(controller.CRulesList, controller.FCRulesList);
+                CollectionAssert.AreEqual(correctPRulesList, rulesList);
             }
 
             [TestMethod]
@@ -70,62 +70,62 @@ namespace UTS.ScheduleSystem.UnitTesting
                 correctPRulesList.Add(cRule3);
                 
                 correctPRulesList.Add(cFRule3);
-                List<Rule> pRulesList = controller.AService.requestPendingRulesList(controller.CRulesList, controller.FCRulesList);
-                Assert.AreEqual(pRulesList, pRulesList);
+                List<Rule> rulesList = controller.AService.requestRejectedRulesList(controller.CRulesList, controller.FCRulesList);
+                CollectionAssert.AreEqual(correctPRulesList, rulesList);
             }
 
-            [TestMethod]
-            public void ApproverService_ApproveRule_CorrectApprovedRules()
-            {
+            //[TestMethod]
+            //public void ApproverService_ApproveRule_CorrectApprovedRules()
+            //{
 
-            }
+            //}
 
-            [TestMethod]
-            public void ApproverService_RejectRule_CorrectRejectedRules()
-            {
+            //[TestMethod]
+            //public void ApproverService_RejectRule_CorrectRejectedRules()
+            //{
 
-            }
-            [TestMethod]
-            public void ApproverService_ApprovedRulesNum_ReturnCorrectNumberOfApprovedRules()
-            {
+            //}
+            //[TestMethod]
+            //public void ApproverService_ApprovedRulesNum_ReturnCorrectNumberOfApprovedRules()
+            //{
 
-            }
+            //}
 
-            [TestMethod]
-            public void ApproverService_RejectedRulesNum_ReturnCorrectNumberOfRejectedRules()
-            {
+            //[TestMethod]
+            //public void ApproverService_RejectedRulesNum_ReturnCorrectNumberOfRejectedRules()
+            //{
 
-            }
-            [TestMethod]
-            public void ApproverService_SuccessRate_ReturnCorrectSuccessRate()
-            {
+            //}
+            //[TestMethod]
+            //public void ApproverService_SuccessRate_ReturnCorrectSuccessRate()
+            //{
 
-            }
-            [TestMethod]
-            public void ApproverService_CountUserApprovedRules_ReturnCorrectNumberOfApprovedRulesByUser()
-            {
+            //}
+            //[TestMethod]
+            //public void ApproverService_CountUserApprovedRules_ReturnCorrectNumberOfApprovedRulesByUser()
+            //{
 
-            }
-            [TestMethod]
-            public void ApproverService_CountUserRejectedRules_ReturnCorrectNumberOfRejectedRulesByUser()
-            {
+            //}
+            //[TestMethod]
+            //public void ApproverService_CountUserRejectedRules_ReturnCorrectNumberOfRejectedRulesByUser()
+            //{
 
-            }
-            [TestMethod]
-            public void ApproverService_CountUserPendingRules_ReturnCorrectNumberOfPendingRulesByUser()
-            {
+            //}
+            //[TestMethod]
+            //public void ApproverService_CountUserPendingRules_ReturnCorrectNumberOfPendingRulesByUser()
+            //{
 
-            }
-            [TestMethod]
-            public void ApproverService_UserSuccessRate_ReturnCorrectSuccessRateOfUser()
-            {
+            //}
+            //[TestMethod]
+            //public void ApproverService_UserSuccessRate_ReturnCorrectSuccessRateOfUser()
+            //{
 
-            }
-            [TestMethod]
-            public void ApproverService_OverallAveSuccessRate_ReturnCorrectNumberOfOverallAverageSuccessRate()
-            {
+            //}
+            //[TestMethod]
+            //public void ApproverService_OverallAveSuccessRate_ReturnCorrectNumberOfOverallAverageSuccessRate()
+            //{
 
-            }
+            //}
             //-----------------------------------EditorService-----------------------------------------
             [TestMethod]
             public void EditorService_AddNewCRule_CRuleListHaveCorrectRules()
@@ -179,35 +179,35 @@ namespace UTS.ScheduleSystem.UnitTesting
                 rejectedRulesList = controller.EService.ShowAllRejectedRules(controller.FCRulesList, controller.CRulesList);
                 CollectionAssert.AreEqual(correctRulesList, rejectedRulesList);
             }
-            [TestMethod]
-            public void EditorService_EditPendingRule_PendingRuleSuccessEdited()
-            {
+            //[TestMethod]
+            //public void EditorService_EditPendingRule_PendingRuleSuccessEdited()
+            //{
 
-            }
-            [TestMethod]
-            public void EditorService_DeletePendingRule_CertainPendingRuleDeleted()
-            {
+            //}
+            //[TestMethod]
+            //public void EditorService_DeletePendingRule_CertainPendingRuleDeleted()
+            //{
 
-            }
-            [TestMethod]
-            public void EditorService_ShowCurrentUserApprovedRules_ReturnCorrectList()
-            {
-                List<Rule> approvedRulesList = new List<Rule>();
-                List<Rule> correctRulesList = new List<Rule>();
-                correctRulesList.Add(cRule2);
-                approvedRulesList = controller.EService.ShowCurrentUserApprovedRules(frank, controller.FCRulesList, controller.CRulesList);
-                CollectionAssert.AreEqual(correctRulesList, approvedRulesList);
-            }
-            [TestMethod]
-            public void EditorService_ShowCurrentUserApprovedRulesCount_ReturnCorrectNumberOfApprovedRules()
-            {
+            //}
+            //[TestMethod]
+            //public void EditorService_ShowCurrentUserApprovedRules_ReturnCorrectList()
+            //{
+            //    List<Rule> approvedRulesList = new List<Rule>();
+            //    List<Rule> correctRulesList = new List<Rule>();
+            //    correctRulesList.Add(cRule2);
+            //    approvedRulesList = controller.EService.ShowCurrentUserApprovedRules(frank, controller.FCRulesList, controller.CRulesList);
+            //    CollectionAssert.AreEqual(correctRulesList, approvedRulesList);
+            //}
+            //[TestMethod]
+            //public void EditorService_ShowCurrentUserApprovedRulesCount_ReturnCorrectNumberOfApprovedRules()
+            //{
 
-            }
-            [TestMethod]
-            public void EditorService_ShowCurrentUserSuccessRate_ReturnCorrectSuccessRate()
-            {
+            //}
+            //[TestMethod]
+            //public void EditorService_ShowCurrentUserSuccessRate_ReturnCorrectSuccessRate()
+            //{
 
-            }
+            //}
             
         }
     }
