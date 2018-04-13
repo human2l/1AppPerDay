@@ -136,11 +136,11 @@ namespace UTS.ScheduleSystem
             return rejectedRulesList.Count;
         }
 
-        public int successRate(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
+        public double successRate(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
         {
-            int approved = approvedRulesNum(cRulesList, fCRulesList);
-            int rejected = rejectedRulesNum(cRulesList, fCRulesList);
-            int rate = approved/(approved+rejected);
+            double approved = approvedRulesNum(cRulesList, fCRulesList);
+            double rejected = rejectedRulesNum(cRulesList, fCRulesList);
+            double rate = approved/(approved+rejected);
             return rate;
         }
 
@@ -167,17 +167,17 @@ namespace UTS.ScheduleSystem
             return countUserRelatedRule(user, newList);
         }
 
-        public int userSuccessRate(User user, List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
+        public double userSuccessRate(User user, List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
         {
-            int approved = userRelatedApprovedRulesNum(user, cRulesList, fCRulesList);
-            int rejected = userRelatedRejectedRulesNum(user, cRulesList, fCRulesList);
-            int rate = approved / (approved + rejected);
+            double approved = userRelatedApprovedRulesNum(user, cRulesList, fCRulesList);
+            double rejected = userRelatedRejectedRulesNum(user, cRulesList, fCRulesList);
+            double rate = approved / (approved + rejected);
             return rate;
         }
 
-        public int overallAveSuccessRate(List<User> userList, List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
+        public double overallAveSuccessRate(List<User> userList, List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
         {
-            int rateSum = 0;
+            double rateSum = 0;
             foreach(User user in userList)
             {
                 rateSum = rateSum + userSuccessRate(user, cRulesList, fCRulesList);

@@ -85,22 +85,25 @@ namespace UTS.ScheduleSystem.UnitTesting
             //{
 
             //}
-            //[TestMethod]
-            //public void ApproverService_ApprovedRulesNum_ReturnCorrectNumberOfApprovedRules()
-            //{
+            [TestMethod]
+            public void ApproverService_ApprovedRulesNum_ReturnCorrectNumberOfApprovedRules()
+            {
+                int approvedRuleNum = controller.AService.approvedRulesNum(controller.CRulesList, controller.FCRulesList);
+                Assert.AreEqual(approvedRuleNum, 2);
+            }
 
-            //}
-
-            //[TestMethod]
-            //public void ApproverService_RejectedRulesNum_ReturnCorrectNumberOfRejectedRules()
-            //{
-
-            //}
-            //[TestMethod]
-            //public void ApproverService_SuccessRate_ReturnCorrectSuccessRate()
-            //{
-
-            //}
+            [TestMethod]
+            public void ApproverService_RejectedRulesNum_ReturnCorrectNumberOfRejectedRules()
+            {
+                int rejectedRuleNum = controller.AService.rejectedRulesNum(controller.CRulesList, controller.FCRulesList);
+                Assert.AreEqual(rejectedRuleNum, 2);
+            }
+            [TestMethod]
+            public void ApproverService_SuccessRate_ReturnCorrectSuccessRate()
+            {
+                double successRate = controller.AService.successRate(controller.CRulesList, controller.FCRulesList);
+                Assert.AreEqual(successRate, 0.5);
+            }
             //[TestMethod]
             //public void ApproverService_CountUserApprovedRules_ReturnCorrectNumberOfApprovedRulesByUser()
             //{
@@ -189,15 +192,15 @@ namespace UTS.ScheduleSystem.UnitTesting
             //{
 
             //}
-            //[TestMethod]
-            //public void EditorService_ShowCurrentUserApprovedRules_ReturnCorrectList()
-            //{
-            //    List<Rule> approvedRulesList = new List<Rule>();
-            //    List<Rule> correctRulesList = new List<Rule>();
-            //    correctRulesList.Add(cRule2);
-            //    approvedRulesList = controller.EService.ShowCurrentUserApprovedRules(frank, controller.FCRulesList, controller.CRulesList);
-            //    CollectionAssert.AreEqual(correctRulesList, approvedRulesList);
-            //}
+            [TestMethod]
+            public void EditorService_ShowCurrentUserApprovedRules_ReturnCorrectList()
+            {
+                List<Rule> approvedRulesList = new List<Rule>();
+                List<Rule> correctRulesList = new List<Rule>();
+                correctRulesList.Add(cRule2);
+                approvedRulesList = controller.EService.ShowCurrentUserApprovedRules(frank, controller.FCRulesList, controller.CRulesList);
+                CollectionAssert.AreEqual(correctRulesList, approvedRulesList);
+            }
             //[TestMethod]
             //public void EditorService_ShowCurrentUserApprovedRulesCount_ReturnCorrectNumberOfApprovedRules()
             //{
@@ -208,7 +211,7 @@ namespace UTS.ScheduleSystem.UnitTesting
             //{
 
             //}
-            
+
         }
     }
         
