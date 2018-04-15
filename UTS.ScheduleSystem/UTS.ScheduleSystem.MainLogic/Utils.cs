@@ -33,7 +33,7 @@ namespace UTS.ScheduleSystem
             {
                 if(list.Count == 0)
                 {
-                    return "u000";
+                    return "u0";
                 }
                 User lastUser =(User)(object)list.Last();
                 return lastUser.Id;
@@ -41,7 +41,7 @@ namespace UTS.ScheduleSystem
             {
                 if(list.Count == 0)
                 {
-                    return "c000";
+                    return "c0";
                 }
                 ConversationalRule lastConversationalRule = (ConversationalRule)(object)list.Last();
                 return lastConversationalRule.Id;
@@ -49,7 +49,7 @@ namespace UTS.ScheduleSystem
             {
                 if(list.Count == 0)
                 {
-                    return "fc000";
+                    return "fc0";
                 }
                 FixedConversationalRule lastFixedConversationalRule = (FixedConversationalRule)(object)list.Last();
                 return lastFixedConversationalRule.Id;
@@ -57,7 +57,7 @@ namespace UTS.ScheduleSystem
             {
                 if(list.Count == 0)
                 {
-                    return "ms000";
+                    return "ms0";
                 }
                 MealSchedule lastMealSchedule = (MealSchedule)(object)list.Last();
                 return lastMealSchedule.Id;
