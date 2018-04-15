@@ -10,14 +10,14 @@ namespace UTS.ScheduleSystem
 
         public List<FixedConversationalRule> AddNewFCRule(string input, string output, string userId, List<FixedConversationalRule> fCRulesList)
         {
-            FixedConversationalRule rule = new FixedConversationalRule("r999", input, output, userId, Status.Pending);
+            FixedConversationalRule rule = new FixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", fCRulesList), input, output, userId, Status.Pending);
             fCRulesList.Add(rule);
             return fCRulesList;
         }
 
         public List<ConversationalRule> AddNewCRule(string input, string output, string userId, List<ConversationalRule> cRulesList)
         {
-            ConversationalRule rule = new ConversationalRule("r999", input, output, userId, Status.Pending);
+            ConversationalRule rule = new ConversationalRule(Utils.CreateIdByType("ConversationalRule", cRulesList), input, output, userId, Status.Pending);
             cRulesList.Add(rule);
             return cRulesList;
         }
