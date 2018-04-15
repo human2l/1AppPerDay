@@ -13,18 +13,25 @@ namespace UTS.ScheduleSystem
         private string relatedUsersId;
         private Status status;
         private string id;
+        private string lastRelatedUserID;
 
         public Rule(string id,  string input, string output, string relatedUsersId, Status status)
         {
             this.Id = id;
-
             this.input = input;
             this.output = output;
             this.relatedUsersId = relatedUsersId;
             this.status = status;
+            this.lastRelatedUserID = GetLastRelatedUserID();
         }
 
-       
+        private string GetLastRelatedUserID()
+        {
+            string[] relatedUsersIdString = relatedUsersId.Split(' ');
+            string lastUserId = relatedUsersIdString[relatedUsersIdString.Length-1];
+            return lastUserId;
+        }
+
 
         public string Input
         {
@@ -90,6 +97,18 @@ namespace UTS.ScheduleSystem
                 id = value;
             }
         }
-        
+
+        public string LastRelatedUserID
+        {
+            get
+            {
+                return lastRelatedUserID;
+            }
+
+            set
+            {
+                lastRelatedUserID = value;
+            }
+        }
     }
 }

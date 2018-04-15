@@ -54,11 +54,20 @@ namespace UTS.ScheduleSystem
 
         private string GetLastUser(Rule rule)
         {
-            string relatedUsersId = rule.RelatedUsersId;
-            string[] relatedUsersIdString = relatedUsersId.Split(' ');
-            string lastUserId = relatedUsersIdString[relatedUsersIdString.Length];
-            return lastUserId;
+            return rule.LastRelatedUserID;
         }
+
+        public List<User> RequestEditorList(List<User> userList)
+        {
+            List<User> editorList = new List<User>();
+            foreach(User user in userList)
+            {
+                if (user.Role.ToString().Contains("E"))
+                    editorList.Add(user);
+            }
+            return editorList;
+        }
+
         private int CountUserRelatedRule(User user, List<Rule> rules)
         {
             int result = 0;
