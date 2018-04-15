@@ -11,7 +11,13 @@ namespace UTS.ScheduleSystem.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            MealSchedule ms1 = new MealSchedule("id-s","userId-s","topic-s","participants-s","location-s","startDate-s","endDate-s","lastEditUserId-s");
+            MealSchedule ms2 = new MealSchedule("222id-s", "userId-s", "topic-s", "participants-s", "location-s", "startDate-s", "endDate-s", "lastEditUserId-s");
+            List<MealSchedule> msList = new List<MealSchedule>();
+            msList.Add(ms1);
+            msList.Add(ms2);
+            DataMaintainerGridView.DataSource = msList;
+            DataMaintainerGridView.DataBind();
         }
     }
 }

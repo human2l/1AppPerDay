@@ -64,3 +64,5 @@ C:\Users\12184026\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSys
 C:\Users\12184026\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Web\obj\Debug\UTS.ScheduleSystem.Web.csprojResolveAssemblyReference.cache
 C:\Users\12184026\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Web\obj\Debug\UTS.ScheduleSystem.Web.dll
 C:\Users\12184026\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Web\obj\Debug\UTS.ScheduleSystem.Web.pdb
+C:\Users\12184026\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Web\bin\UTS.ScheduleSystem.MainLogic.dll
+C:\Users\12184026\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Web\bin\UTS.ScheduleSystem.MainLogic.pdb
