@@ -8,14 +8,18 @@ namespace UTS.ScheduleSystem
     public class EditorService
     {
 
-        public void AddNewFCRule(FixedConversationalRule rule, ref List<FixedConversationalRule> fCRulesList)
+        public List<FixedConversationalRule> AddNewFCRule(string input, string output, string userId, List<FixedConversationalRule> fCRulesList)
         {
+            FixedConversationalRule rule = new FixedConversationalRule("r999", input, output, userId, Status.Pending);
             fCRulesList.Add(rule);
+            return fCRulesList;
         }
 
-        public void AddNewCRule(ConversationalRule rule, ref List<ConversationalRule> cRulesList)
+        public List<ConversationalRule> AddNewCRule(string input, string output, string userId, List<ConversationalRule> cRulesList)
         {
+            ConversationalRule rule = new ConversationalRule("r999", input, output, userId, Status.Pending);
             cRulesList.Add(rule);
+            return cRulesList;
         }
 
         public List<Rule> ShowAllPendingRules(List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
