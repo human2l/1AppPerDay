@@ -7,9 +7,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using UTS.ScheduleSystem.web.Models;
+using UTS.ScheduleSystem.Web.Models;
 
-namespace UTS.ScheduleSystem.web.Account
+namespace UTS.ScheduleSystem.Web.Account
 {
     public partial class TwoFactorAuthenticationSignIn : System.Web.UI.Page
     {

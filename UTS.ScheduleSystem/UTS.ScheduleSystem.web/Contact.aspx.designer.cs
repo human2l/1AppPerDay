@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UTS.ScheduleSystem.web
+namespace UTS.ScheduleSystem.Web
 {
 
 

@@ -1,6 +1,6 @@
 ﻿using System.Web.UI;
 
-namespace UTS.ScheduleSystem.web.Account
+namespace UTS.ScheduleSystem.Web.Account
 {
     public partial class ResetPasswordConfirmation : Page
     {

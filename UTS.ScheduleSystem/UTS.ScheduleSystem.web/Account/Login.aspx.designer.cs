@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UTS.ScheduleSystem.web.Account {
+namespace UTS.ScheduleSystem.Web.Account {
     
     
     public partial class Login {
@@ -73,6 +73,6 @@ namespace UTS.ScheduleSystem.web.Account {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::UTS.ScheduleSystem.web.Account.OpenAuthProviders OpenAuthLogin;
+        protected global::UTS.ScheduleSystem.Web.Account.OpenAuthProviders OpenAuthLogin;
     }
 }

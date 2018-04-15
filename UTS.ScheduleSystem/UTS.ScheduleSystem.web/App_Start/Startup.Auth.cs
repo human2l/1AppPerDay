@@ -7,9 +7,9 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.DataProtection;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using UTS.ScheduleSystem.web.Models;
+using UTS.ScheduleSystem.Web.Models;
 
-namespace UTS.ScheduleSystem.web
+namespace UTS.ScheduleSystem.Web
 {
     public partial class Startup {
 

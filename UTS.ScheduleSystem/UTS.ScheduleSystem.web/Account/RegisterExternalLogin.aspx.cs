@@ -4,9 +4,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
-using UTS.ScheduleSystem.web.Models;
+using UTS.ScheduleSystem.Web.Models;
 
-namespace UTS.ScheduleSystem.web.Account
+namespace UTS.ScheduleSystem.Web.Account
 {
     public partial class RegisterExternalLogin : System.Web.UI.Page
     {

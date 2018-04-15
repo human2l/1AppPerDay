@@ -8,13 +8,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		global.json = global.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.web", "UTS.ScheduleSystem.web\UTS.ScheduleSystem.web.csproj", "{CE51770D-B25F-4C71-8F3B-4FD696FA2FBF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.MainLogic", "UTS.ScheduleSystem.MainLogic\UTS.ScheduleSystem.MainLogic.csproj", "{55BE9C1E-B8A9-4AAD-8C16-07D12E120878}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.UnitTesting", "UTS.ScheduleSystem.UnitTesting\UTS.ScheduleSystem.UnitTesting.csproj", "{5DF83E4F-08F1-42B6-82B6-3BB0327C9805}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.Console", "UTS.ScheduleSystem.Console\UTS.ScheduleSystem.Console.csproj", "{3B18EDE9-44C3-45E8-A018-127AB918C35A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.Web", "UTS.ScheduleSystem.Web\UTS.ScheduleSystem.Web.csproj", "{A0DC9F22-DF6B-48A7-9844-73F492C889CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,10 +22,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CE51770D-B25F-4C71-8F3B-4FD696FA2FBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CE51770D-B25F-4C71-8F3B-4FD696FA2FBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CE51770D-B25F-4C71-8F3B-4FD696FA2FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CE51770D-B25F-4C71-8F3B-4FD696FA2FBF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{55BE9C1E-B8A9-4AAD-8C16-07D12E120878}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{55BE9C1E-B8A9-4AAD-8C16-07D12E120878}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55BE9C1E-B8A9-4AAD-8C16-07D12E120878}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -38,6 +34,10 @@ Global
 		{3B18EDE9-44C3-45E8-A018-127AB918C35A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B18EDE9-44C3-45E8-A018-127AB918C35A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B18EDE9-44C3-45E8-A018-127AB918C35A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0DC9F22-DF6B-48A7-9844-73F492C889CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0DC9F22-DF6B-48A7-9844-73F492C889CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0DC9F22-DF6B-48A7-9844-73F492C889CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0DC9F22-DF6B-48A7-9844-73F492C889CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

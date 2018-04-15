@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(UTS.ScheduleSystem.web.Startup))]
-namespace UTS.ScheduleSystem.web
+[assembly: OwinStartupAttribute(typeof(UTS.ScheduleSystem.Web.Startup))]
+namespace UTS.ScheduleSystem.Web
 {
     public partial class Startup {
         public void Configuration(IAppBuilder app) {

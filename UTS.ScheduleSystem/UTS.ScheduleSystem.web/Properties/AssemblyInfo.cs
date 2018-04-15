@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("UTS.ScheduleSystem.web")]
+[assembly: AssemblyTitle("UTS.ScheduleSystem.Web")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("UTS.ScheduleSystem.web")]
+[assembly: AssemblyProduct("UTS.ScheduleSystem.Web")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ce51770d-b25f-4c71-8f3b-4fd696fa2fbf")]
+[assembly: Guid("a0dc9f22-df6b-48a7-9844-73f492c889ce")]
 
 // Version information for an assembly consists of the following four values:
 //

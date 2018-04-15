@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UTS.ScheduleSystem.web.Account {
+namespace UTS.ScheduleSystem.Web.Account {
     
     
     public partial class TwoFactorAuthenticationSignIn {

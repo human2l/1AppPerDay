@@ -6,9 +6,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using UTS.ScheduleSystem.web.Models;
+using UTS.ScheduleSystem.Web.Models;
 
-namespace UTS.ScheduleSystem.web
+namespace UTS.ScheduleSystem.Web
 {
     public class EmailService : IIdentityMessageService
     {

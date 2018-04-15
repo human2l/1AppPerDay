@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace UTS.ScheduleSystem.web
+namespace UTS.ScheduleSystem.Web
 {
     public partial class About : Page
     {

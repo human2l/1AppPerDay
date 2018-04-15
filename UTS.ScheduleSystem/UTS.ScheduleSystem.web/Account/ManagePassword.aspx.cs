@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 
-namespace UTS.ScheduleSystem.web.Account
+namespace UTS.ScheduleSystem.Web.Account
 {
     public partial class ManagePassword : System.Web.UI.Page
     {

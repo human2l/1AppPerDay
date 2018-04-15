@@ -6,9 +6,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using UTS.ScheduleSystem.web.Models;
+using UTS.ScheduleSystem.Web.Models;
 
-namespace UTS.ScheduleSystem.web.Models
+namespace UTS.ScheduleSystem.Web.Models
 {
     // You can add User data for the user by adding more properties to your User class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
@@ -42,7 +42,7 @@ namespace UTS.ScheduleSystem.web.Models
 }
 
 #region Helpers
-namespace UTS.ScheduleSystem.web
+namespace UTS.ScheduleSystem.Web
 {
     public static class IdentityHelper
     {

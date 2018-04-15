@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="UTS.ScheduleSystem.web.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="UTS.ScheduleSystem.Web.Global" Language="C#" %>
