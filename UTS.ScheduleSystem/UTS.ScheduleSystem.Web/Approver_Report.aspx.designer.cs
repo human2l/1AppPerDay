@@ -13,21 +13,12 @@ namespace UTS.ScheduleSystem.Web {
     public partial class Approver_Report {
         
         /// <summary>
-        /// BackButton control.
+        /// ApprovedRulesDisplayView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BackButton;
-        
-        /// <summary>
-        /// LogoutButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LogoutButton;
+        protected global::System.Web.UI.WebControls.GridView ApprovedRulesDisplayView;
     }
 }
