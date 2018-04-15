@@ -38,6 +38,7 @@ namespace UTS.ScheduleSystem.Web.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
+                        //Kai Create Controller Session after login successful
                         if ((Controller)Session["Controller"] == null)
                         {
                             Session["Controller"] = new Controller();

@@ -18,6 +18,26 @@ namespace UTS.ScheduleSystem.Web
             msList.Add(ms2);
             DataMaintainerGridView.DataSource = msList;
             DataMaintainerGridView.DataBind();
+            Controller controller = (Controller)Session["Controller"];
+            //controller.initialization();
+            if(controller != null)
+            {
+                TextBox1.Text = "bu shi null!!!";
+            }
+            else
+            {
+                TextBox1.Text = "null...";
+            }
+        }
+
+        protected void DataMaintainerGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+        protected void DataMaintainerGridView_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+
         }
     }
 }
