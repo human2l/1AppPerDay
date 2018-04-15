@@ -40,13 +40,13 @@ namespace UTS.ScheduleSystem.Web {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Label2 control.
+        /// Username control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label Username;
         
         /// <summary>
         /// Label3 control.
@@ -58,13 +58,13 @@ namespace UTS.ScheduleSystem.Web {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// Label4 control.
+        /// NumberOfRules control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label NumberOfRules;
         
         /// <summary>
         /// Label5 control.
@@ -76,13 +76,13 @@ namespace UTS.ScheduleSystem.Web {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// Label6 control.
+        /// NumberOfRejectedRules control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.Label NumberOfRejectedRules;
         
         /// <summary>
         /// Label7 control.
@@ -94,12 +94,12 @@ namespace UTS.ScheduleSystem.Web {
         protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// Label8 control.
+        /// SuccessRate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label8;
+        protected global::System.Web.UI.WebControls.Label SuccessRate;
     }
 }
