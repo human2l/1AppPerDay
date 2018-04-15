@@ -21,11 +21,12 @@
             </asp:GridView>
         </div>
         <div class="col-md-4">
-            <asp:TextBox ID="TextBox1" runat="server" TextMode="MultiLine"></asp:TextBox>
+            <asp:TextBox ID="Input" runat="server" TextMode="MultiLine"></asp:TextBox>
             <br />
-            <asp:TextBox ID="TextBox2" runat="server" TextMode="MultiLine"></asp:TextBox>
+            <asp:TextBox ID="Output" runat="server" TextMode="MultiLine"></asp:TextBox>
             <br />
-            <asp:Button ID="Button2" runat="server" Text="Add rule" />
+            <asp:Button ID="Add_rule" runat="server" Text="Add rule" OnClick="Add_rule_Click" />
+            <asp:Button ID="Add_fixed_rule" runat="server" Text="Add fixed rule" OnClick="Add_fixed_rule_Click"/>
         </div>
     </div>
 </asp:Content>
