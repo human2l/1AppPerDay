@@ -4,12 +4,12 @@
     <div class="row">
         <div class="col-md-8">Pending Rules:</div>
         <div class="col-md-4">
-            <asp:Button ID="MyRules" runat="server" Text="My Rules" href="~/Approver_Report"/>
+            <asp:Button ID="PassedRulesButton" runat="server" Text="My Rules" onclick="PassedRulesButton_Click"/>
         </div>
     </div>
     <div class="row">
         <div class="col-md-8">
-            <asp:GridView ID="PendingRuleDisplayView" runat="server">
+            <asp:GridView ID="PendingRuleDisplayView" runat="server" AutoGenerateColumns="false">
                 <Columns>
                     <asp:BoundField DataField="Id" HeaderText="ID" />
                     <asp:BoundField DataField="Input" HeaderText="Input" />
@@ -22,7 +22,7 @@
             </asp:GridView>
         </div>
         <div class="col-md-4">
-            <asp:Button ID="EditorDashboard" runat="server" Text="Editor Dashboard" href="~/Approver_Editor_Report"/>
+            <asp:Button ID="EditorDashboardButton" runat="server" Text="Editor Dashboard" onclick="EditorDashboardButton_Click"/>
         </div>
     </div>
 </asp:Content>
