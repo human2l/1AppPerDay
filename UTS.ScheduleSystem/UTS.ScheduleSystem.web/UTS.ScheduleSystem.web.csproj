@@ -177,6 +177,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="DataMaintainer.aspx" />
     <Content Include="Editor.aspx" />
+    <Content Include="Editor_Report.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -381,6 +382,13 @@
     </Compile>
     <Compile Include="Editor.aspx.designer.cs">
       <DependentUpon>Editor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Editor_Report.aspx.cs">
+      <DependentUpon>Editor_Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Editor_Report.aspx.designer.cs">
+      <DependentUpon>Editor_Report.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

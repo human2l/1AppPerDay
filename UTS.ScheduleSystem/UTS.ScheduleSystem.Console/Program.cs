@@ -13,6 +13,8 @@ namespace UTS.ScheduleSystem.Console
             Controller controller = new Controller();
             controller.initialization();
             System.Diagnostics.Debug.WriteLine(controller.FakeDB.UserTbl);
+
+            System.Diagnostics.Debug.WriteLine(controller.Utils.CreateIdByType("user",controller.UserList));
             
         }
     }

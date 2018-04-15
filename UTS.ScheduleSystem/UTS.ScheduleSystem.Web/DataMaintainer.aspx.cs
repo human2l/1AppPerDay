@@ -28,6 +28,9 @@ namespace UTS.ScheduleSystem.Web
             {
                 TextBox1.Text = "null...";
             }
+
+            Object a = new object();
+            
         }
 
         protected void DataMaintainerGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)

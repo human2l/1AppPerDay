@@ -19,6 +19,8 @@ namespace UTS.ScheduleSystem
         private EditorService editorService = new EditorService();
         private ApproverService approverService = new ApproverService();
 
+        private Utils utils = new Utils();
+        
 
         
 
@@ -136,6 +138,19 @@ namespace UTS.ScheduleSystem
             set
             {
                 currentUser = value;
+            }
+        }
+
+        public Utils Utils
+        {
+            get
+            {
+                return utils;
+            }
+
+            set
+            {
+                utils = value;
             }
         }
 
