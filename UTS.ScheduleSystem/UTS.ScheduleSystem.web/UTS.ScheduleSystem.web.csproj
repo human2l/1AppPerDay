@@ -171,6 +171,8 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Approver.aspx" />
+    <Content Include="Approver_Editor_Report.aspx" />
+    <Content Include="Approver_Report.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -343,6 +345,20 @@
     </Compile>
     <Compile Include="Approver.aspx.designer.cs">
       <DependentUpon>Approver.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Approver_Editor_Report.aspx.cs">
+      <DependentUpon>Approver_Editor_Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Approver_Editor_Report.aspx.designer.cs">
+      <DependentUpon>Approver_Editor_Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Approver_Report.aspx.cs">
+      <DependentUpon>Approver_Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Approver_Report.aspx.designer.cs">
+      <DependentUpon>Approver_Report.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
