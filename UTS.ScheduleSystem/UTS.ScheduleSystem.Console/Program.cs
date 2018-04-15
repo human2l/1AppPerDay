@@ -14,7 +14,7 @@ namespace UTS.ScheduleSystem.Console
             controller.initialization();
             System.Diagnostics.Debug.WriteLine(controller.FakeDB.UserTbl);
 
-            System.Diagnostics.Debug.WriteLine(controller.Utils.CreateIdByType("user",controller.UserList));
+            System.Diagnostics.Debug.WriteLine(Utils.CreateIdByType("user",controller.UserList));
             
         }
     }

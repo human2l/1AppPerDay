@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace UTS.ScheduleSystem
 {
-    public class Utils
+    public static class Utils
     {
-        public string CreateIdByType<T>(string objType, List<T> list)
+        public static string CreateIdByType<T>(string objType, List<T> list)
         {
             switch (objType)
             {
@@ -27,7 +27,7 @@ namespace UTS.ScheduleSystem
 
         
 
-        public string GetLastId<T>(List<T> list)
+        public static string GetLastId<T>(List<T> list)
         {
             if(typeof(T).Equals(typeof(User)))
             {
