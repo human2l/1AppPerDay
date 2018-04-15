@@ -17,9 +17,9 @@ namespace UTS.ScheduleSystem
                 case "ConversationalRule":
                     return "c" + (int.Parse(GetLastId(list).Substring(1)) + 1);
                 case "FixedConversationalRule":
-                    return "fc" + (int.Parse(GetLastId(list).Substring(1)) + 2);
+                    return "fc" + (int.Parse(GetLastId(list).Substring(2)) + 1);
                 case "MealSchedule":
-                    return "ms" + (int.Parse(GetLastId(list).Substring(1)) + 2);
+                    return "ms" + (int.Parse(GetLastId(list).Substring(2)) + 1);
                 default:
                     return null;
             }
