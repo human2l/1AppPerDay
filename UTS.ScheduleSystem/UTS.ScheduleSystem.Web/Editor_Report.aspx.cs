@@ -7,11 +7,10 @@ using System.Web.UI.WebControls;
 
 namespace UTS.ScheduleSystem.Web
 {
-    public partial class Editor : System.Web.UI.Page
+    public partial class Editor_Report : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Controller c = new Controller();
             ConversationalRule cRule1 = new ConversationalRule("c001", "When will I have meal with {p1}", "It's {p1}", "u001 u002", Status.Pending);
             ConversationalRule cRule2 = new ConversationalRule("c002", "Who will I have meal with on {p1}", "It's {p1}", "u001 u002", Status.Approved);
             ConversationalRule cRule3 = new ConversationalRule("c003", "What will I surpose to eat on {p1}", "{p1}", "u001 u002", Status.Rejected);
@@ -28,9 +27,8 @@ namespace UTS.ScheduleSystem.Web
             fCRuleLists.Add(cFRule2);
             fCRuleLists.Add(cFRule3);
             //rulesList = c.EditorService.ShowAllPendingRules(fCRuleLists, cRulesList);
-            EditorGridView.DataSource = cRulesList;
-            EditorGridView.DataBind();
+            EditorReportGridView.DataSource = cRulesList;
+            EditorReportGridView.DataBind();
         }
-
     }
 }
