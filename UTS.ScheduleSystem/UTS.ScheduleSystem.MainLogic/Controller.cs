@@ -141,19 +141,6 @@ namespace UTS.ScheduleSystem
             }
         }
 
-        public Utils Utils
-        {
-            get
-            {
-                return utils;
-            }
-
-            set
-            {
-                utils = value;
-            }
-        }
-
         public void initialization()
         {
             User frank = new User("u001", "Frank", "frank", "frank@frank.com", Role.DMnA);

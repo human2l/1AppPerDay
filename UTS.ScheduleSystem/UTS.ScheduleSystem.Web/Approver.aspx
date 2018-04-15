@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-8">Pending Rules:</div>
         <div class="col-md-4">
-            <asp:Button ID="MyRules" runat="server" Text="My Rules" />
+            <asp:Button ID="MyRules" runat="server" Text="My Rules" href="~/Approver_Report"/>
         </div>
     </div>
     <div class="row">
@@ -22,7 +22,7 @@
             </asp:GridView>
         </div>
         <div class="col-md-4">
-            <asp:Button ID="EditorDashboard" runat="server" Text="Editor Dashboard" />
+            <asp:Button ID="EditorDashboard" runat="server" Text="Editor Dashboard" href="~/Approver_Editor_Report"/>
         </div>
     </div>
 </asp:Content>
