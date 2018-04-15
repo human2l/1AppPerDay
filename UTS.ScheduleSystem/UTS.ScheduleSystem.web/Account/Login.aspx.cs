@@ -38,7 +38,12 @@ namespace UTS.ScheduleSystem.Web.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
+                        if ((Controller)Session["Controller"] == null)
+                        {
+                            Session["Controller"] = new Controller();
+                        }
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                        
                         break;
                     case SignInStatus.LockedOut:
                         Response.Redirect("/Account/Lockout");

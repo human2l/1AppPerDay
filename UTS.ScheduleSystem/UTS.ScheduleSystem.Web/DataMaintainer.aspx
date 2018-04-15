@@ -1,5 +1,20 @@
 ﻿<%@ Page Title="Data Maintainer Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DataMaintainer.aspx.cs" Inherits="UTS.ScheduleSystem.Web.DataMaintainer" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    Data Maintainer page
+
+        <asp:GridView ID="DataMaintainerGridView" runat="server" AutoGenerateColumns="False"  DataKeyNames="Id">
+                <Columns>
+                    <asp:BoundField DataField="Id" HeaderText="Id" />
+                    <asp:BoundField DataField="Topic" HeaderText="Topic" />
+                    <asp:BoundField DataField="UserId" HeaderText="UserId" />
+                    <asp:BoundField DataField="Participants" HeaderText="Participants" />
+                    <asp:BoundField DataField="Location" HeaderText="Location" />
+                    <asp:BoundField DataField="StartDate" HeaderText="StartDate" />
+                    <asp:BoundField DataField="EndDate" HeaderText="EndDate" />
+                    <asp:BoundField DataField="LastEditUserId" HeaderText="LastEditUserId" />
+                    <asp:ButtonField Text="Edit" CommandName="Edit" />
+                    <asp:ButtonField Text="Delete" CommandName="Delete" />
+                </Columns>
+        </asp:GridView>
+
     </asp:Content>
