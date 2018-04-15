@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace UTS.ScheduleSystem
 {
-    public class DMService
+    public class DataMaintainerService
     {
 
         public void addMealSchedule(MealSchedule mealSchedule, ref List<MealSchedule> mealScheduleList)
@@ -15,13 +15,13 @@ namespace UTS.ScheduleSystem
             mealScheduleList.Add(mealSchedule);
         }
 
-        public void getMealSchedules(List<MealSchedule> mealScheduleList)
-        {
-            //for datamaintainer to list all meal schedule
-            //note: parameter mealSchedulelist will convert to xml then send to front end
+        //public void getMealSchedules(List<MealSchedule> mealScheduleList)
+        //{
+        //    //for datamaintainer to list all meal schedule
+        //    //note: parameter mealSchedulelist will convert to xml then send to front end
 
 
-        }
+        //}
 
         public bool deleteMealSchedule(string id, List<MealSchedule> mealScheduleList)
         {
