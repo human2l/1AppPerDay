@@ -10,33 +10,24 @@
 namespace UTS.ScheduleSystem.Web {
     
     
-    public partial class Approver {
+    public partial class Approver_Report {
         
         /// <summary>
-        /// Button1 control.
+        /// BackButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button BackButton;
         
         /// <summary>
-        /// PendingRuleDisplayView control.
+        /// LogoutButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView PendingRuleDisplayView;
-        
-        /// <summary>
-        /// EditorListDisplayView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView EditorListDisplayView;
+        protected global::System.Web.UI.WebControls.Button LogoutButton;
     }
 }
