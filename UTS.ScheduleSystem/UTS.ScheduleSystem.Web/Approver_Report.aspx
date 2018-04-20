@@ -2,6 +2,10 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
+        <div class="row">
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Approver">< Go back  </asp:HyperLink>
+            <b>Approver Rule Report:</b>
+        </div>
         <div class="row justify-content-start">
             <div class="col-md-10">
                 All Approved Rules:
