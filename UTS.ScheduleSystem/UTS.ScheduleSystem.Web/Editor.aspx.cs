@@ -90,5 +90,17 @@ namespace UTS.ScheduleSystem.Web
                 ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Invalid input" + "');", true);
             }
         }
+
+        protected void EditorGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            string id = EditorGridView.DataKeys[e.RowIndex].Value.ToString();
+            var fRuleList = controller.FixedConversationalRulesList;
+            var cRuleList = controller.ConversationalRulesList;
+            controller.EditorService.DeletePendingRule(id, ref fRuleList, ref cRuleList);
+            List<Rule> rulesList = new List<Rule>();
+            rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+            EditorGridView.DataSource = rulesList;
+            EditorGridView.DataBind();
+        }
     }
 }

@@ -10,7 +10,7 @@
             Add new rule
         </div>
         <div class="col-md-8">
-            <asp:GridView ID="EditorGridView" runat="server" AutoGenerateColumns="false">
+            <asp:GridView ID="EditorGridView" runat="server" AutoGenerateColumns="false" DataKeyNames="Id" OnRowDeleting="EditorGridView_RowDeleting">
                 <Columns>
                     <asp:BoundField DataField="Id" HeaderText="ID" />
                     <asp:BoundField DataField="Input" HeaderText="Input" />

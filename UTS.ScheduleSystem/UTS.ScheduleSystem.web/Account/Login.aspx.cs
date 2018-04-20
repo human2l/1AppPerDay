@@ -44,7 +44,13 @@ namespace UTS.ScheduleSystem.Web.Account
                             Controller controller = new Controller();
                             if (controller != null)
                             {
-                                controller.CurrentUser.Name = Email.Text;
+                                foreach (User u in controller.UserList)
+                                {
+                                    if (u.Email == Email.Text){
+                                        controller.CurrentUser = u;
+                                        break;
+                                    }
+                                }
                                 Session["Controller"] = controller;
                             }
                             
