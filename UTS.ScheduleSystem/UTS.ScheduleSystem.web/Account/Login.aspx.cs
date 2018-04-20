@@ -41,7 +41,13 @@ namespace UTS.ScheduleSystem.Web.Account
                         //Kai Create Controller Session after login successful
                         if ((Controller)Session["Controller"] == null)
                         {
-                            Session["Controller"] = new Controller();
+                            Controller controller = new Controller();
+                            if (controller != null)
+                            {
+                                controller.CurrentUser.Name = Email.Text;
+                                Session["Controller"] = controller;
+                            }
+                            
                         }
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                         

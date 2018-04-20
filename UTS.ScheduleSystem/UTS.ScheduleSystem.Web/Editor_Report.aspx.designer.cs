@@ -58,13 +58,13 @@ namespace UTS.ScheduleSystem.Web {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// NumberOfRules control.
+        /// NumberOfApprovedRules control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label NumberOfRules;
+        protected global::System.Web.UI.WebControls.Label NumberOfApprovedRules;
         
         /// <summary>
         /// Label5 control.
