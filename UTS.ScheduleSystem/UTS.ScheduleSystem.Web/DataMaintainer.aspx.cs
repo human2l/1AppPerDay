@@ -14,20 +14,18 @@ namespace UTS.ScheduleSystem.Web
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (Session["Controller"] != null)
+            if (Session["Controller"] != null && controller == null)
             {
+                
                 controller = (Controller)Session["Controller"];
                 List<MealSchedule> mealScheduleList = new List<MealSchedule>();
                 //test
-                MealSchedule ms1 = new MealSchedule("ms001", "userId-s", "topic-s", "participants-s", "location-s", "startDate-s", "endDate-s", "lastEditUserId-s");
-                MealSchedule ms2 = new MealSchedule("ms002", "userId-s", "topic-s", "participants-s", "location-s", "startDate-s", "endDate-s", "lastEditUserId-s");
-                controller.MealScheduleList.Add(ms1);
-                controller.MealScheduleList.Add(ms2);
+
+                //controller.MealScheduleList.Add(ms1);
+                //controller.MealScheduleList.Add(ms2);
 
                 //--test
-                mealScheduleList = controller.MealScheduleList;
-                DataMaintainerGridView.DataSource = mealScheduleList;
-                DataMaintainerGridView.DataBind();
+                UpdateGridView();
             }
             else
             {
@@ -35,35 +33,39 @@ namespace UTS.ScheduleSystem.Web
                 Response.Redirect("~/");
             }
 
-
-            
-            
-
-            //string newID = Utils.CreateIdByType("MealSchedule", msList);
-
-            //Controller controller = (Controller)Session["Controller"];
-            ////controller.initialization();
-            //if(controller != null)
-            //{
-            //    TextBox2.Text = "bu shi null!!!"+newID;
-            //}
-            //else
-            //{
-            //    TextBox2.Text = "null..."+newID;
-            //}
-
-            //Object a = new object();
             
         }
 
         protected void DataMaintainerGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-
+            string id = DataMaintainerGridView.DataKeys[e.RowIndex].Value.ToString();
+            controller.MealScheduleList = controller.DataMaintainerService.deleteMealSchedule(id, controller.MealScheduleList);
+            UpdateGridView();
         }
 
         protected void DataMaintainerGridView_RowEditing(object sender, GridViewEditEventArgs e)
         {
+            DataMaintainerGridView.EditIndex = e.NewEditIndex;
+            DataMaintainerGridView.DataBind();
+        }
 
+        private void UpdateGridView()
+        {
+            DataMaintainerGridView.DataSource = controller.MealScheduleList;
+            DataMaintainerGridView.DataBind();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string topic = TopicTB.Text;
+            string userId = UserIdTB.Text;
+            string participants = ParticipantsTB.Text;
+            string location = LocationTB.Text;
+            string startDate = StartDateTB.Text;
+            string endDate = EndDateTB.Text;
+            MealSchedule ms = new MealSchedule(Utils.CreateIdByType("MealSchedule", controller.MealScheduleList), userId, topic, participants, location, startDate, endDate,"blahblah");
+            controller.MealScheduleList.Add(ms);
+            UpdateGridView();
         }
     }
 }

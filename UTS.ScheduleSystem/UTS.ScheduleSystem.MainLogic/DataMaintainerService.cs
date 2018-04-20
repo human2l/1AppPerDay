@@ -23,7 +23,7 @@ namespace UTS.ScheduleSystem
 
         //}
 
-        public bool deleteMealSchedule(string id, List<MealSchedule> mealScheduleList)
+        public List<MealSchedule> deleteMealSchedule(string id, List<MealSchedule> mealScheduleList)
         {
             //for datamaintainer to delete meal from mealschedule list
             foreach(MealSchedule mealSchedule in mealScheduleList)
@@ -31,10 +31,10 @@ namespace UTS.ScheduleSystem
                 if(mealSchedule.Id == id)
                 {
                     mealScheduleList.Remove(mealSchedule);
-                    return true;
+                    return mealScheduleList;
                 }
             }
-            return false;
+            return mealScheduleList;
 
         }
 

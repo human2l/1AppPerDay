@@ -4,9 +4,10 @@
     <div class="row">
         <div class="col-md-8">All rules: 
             <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Editor_Report">Run report</asp:HyperLink>
         </div>
         <div class="col-md-4">
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Editor_Report">Run report</asp:HyperLink>
+            Add new rule
         </div>
         <div class="col-md-8">
             <asp:GridView ID="EditorGridView" runat="server" AutoGenerateColumns="false">
@@ -21,10 +22,10 @@
             </asp:GridView>
         </div>
         <div class="col-md-4">
-            <asp:TextBox ID="Input" runat="server" TextMode="MultiLine"></asp:TextBox>
+            <asp:TextBox ID="Input" runat="server" TextMode="MultiLine" placeholder="Input"></asp:TextBox>
             <br />
-            <asp:TextBox ID="Output" runat="server" TextMode="MultiLine"></asp:TextBox>
-            <br />
+            <asp:TextBox ID="Output" runat="server" TextMode="MultiLine" placeholder="Output"></asp:TextBox>
+            <br /><br />
             <asp:Button ID="Add_rule" runat="server" Text="Add rule" OnClick="Add_rule_Click" />
             <asp:Button ID="Add_fixed_rule" runat="server" Text="Add fixed rule" OnClick="Add_fixed_rule_Click"/>
         </div>

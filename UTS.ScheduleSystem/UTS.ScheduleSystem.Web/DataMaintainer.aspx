@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <asp:GridView ID="DataMaintainerGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" OnRowDeleting="DataMaintainerGridView_RowDeleting" OnRowEditing="DataMaintainerGridView_RowEditing">
+    <asp:GridView ID="DataMaintainerGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" OnRowDeleting="DataMaintainerGridView_RowDeleting" OnRowEditing="DataMaintainerGridView_RowEditing" >
         <Columns>
             <asp:BoundField DataField="Id" HeaderText="Id" />
             <asp:BoundField DataField="Topic" HeaderText="Topic" />
@@ -17,15 +17,41 @@
         </Columns>
     </asp:GridView>
 
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-
-    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-
-    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
-    <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
-    <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
-    <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
-    <asp:Button ID="Button1" runat="server" Text="Add" />
+    <asp:Panel ID="Panel1" runat="server" Height="300px" style="margin-bottom: 0px" BorderStyle="Solid" Width="200px">
+        
+        <asp:Label ID="Label2" runat="server" Text="Topic"></asp:Label>
+        <br />
+        <asp:TextBox ID="TopicTB" runat="server"></asp:TextBox>
+        <br/>
+        
+        <asp:Label ID="Label3" runat="server" Text="UserId"></asp:Label>
+        <br />
+        <asp:TextBox ID="UserIdTB" runat="server"></asp:TextBox>
+        <br />
+        
+        <asp:Label ID="Label4" runat="server" Text="Participants"></asp:Label>
+        <br />
+                <asp:TextBox ID="ParticipantsTB" runat="server"></asp:TextBox>
+        <br />
+        
+        <asp:Label ID="Label5" runat="server" Text="Location"></asp:Label>
+        <br />
+                <asp:TextBox ID="LocationTB" runat="server"></asp:TextBox>
+        <br />
+        
+        <asp:Label ID="Label6" runat="server" Text="StartDate"></asp:Label>
+        <br />
+                <asp:TextBox ID="StartDateTB" runat="server"></asp:TextBox>
+        <br />
+        
+        <asp:Label ID="Label7" runat="server" Text="EndDate"></asp:Label>
+        <br />
+                <asp:TextBox ID="EndDateTB" runat="server"></asp:TextBox>
+        
+        <br />
+        
+        
+        <asp:Button ID="Button1" runat="server" Text="Add" />
+    </asp:Panel>
 
 </asp:Content>

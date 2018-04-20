@@ -17,14 +17,19 @@ namespace UTS.ScheduleSystem.Web
             {
                 controller = (Controller)Session["Controller"];
                 List<Rule> rulesList = new List<Rule>();
-                rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+                rulesList = controller.EditorService.ShowCurrentUserApprovedRules(controller.CurrentUser, controller.FixedConversationalRulesList, controller.ConversationalRulesList);
                 EditorReportGridView.DataSource = rulesList;
                 EditorReportGridView.DataBind();
+                Username.Text = controller.CurrentUser.Name;
+                NumberOfApprovedRules.Text = controller.EditorService.ShowCurrentUserApprovedRulesCount(controller.CurrentUser, controller.FixedConversationalRulesList, controller.ConversationalRulesList).ToString();
+                NumberOfRejectedRules.Text = controller.EditorService.ShowCurrentUserRejectedRulesCount(controller.CurrentUser, controller.FixedConversationalRulesList, controller.ConversationalRulesList).ToString();
+                SuccessRate.Text = controller.EditorService.ShowCurrentUserSuccessRate(controller.CurrentUser, controller.FixedConversationalRulesList, controller.ConversationalRulesList).ToString();
             }
             else
             {
                 Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
                 Response.Redirect("~/");
+                
             }
         }
     }

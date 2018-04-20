@@ -25,6 +25,11 @@ namespace UTS.ScheduleSystem
             Role = role;
         }
 
+        public User()
+        {
+
+        }
+
         public string Id
         {
             get
