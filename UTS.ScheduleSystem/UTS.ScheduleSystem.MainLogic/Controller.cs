@@ -20,7 +20,10 @@ namespace UTS.ScheduleSystem
         private ApproverService approverService = new ApproverService();
 
         
-        
+        public Controller()
+        {
+            initialization();
+        }
 
         
 
@@ -147,10 +150,19 @@ namespace UTS.ScheduleSystem
             ConversationalRule weatherRule1 = new ConversationalRule("c001", "How is the weather on ", "The weather on {p1} is {p2}", "u001 u002", Status.Pending);
             FixedConversationalRule weatherFRule1 = new FixedConversationalRule("fc002", "How do you do", "I'm fine, fuck you, and you?", "u001", Status.Pending);
             MealSchedule mealSchedule1 = new MealSchedule("m001","u001", "dinner", "Michael Bay,Donald Trump", "Sydney", "08/04/2018 3:12:18 PM", "08/04/2018 4:15:00 PM", "u001 u002");
-            fakeDB.UserTbl.Add(frank);
-            fakeDB.CRulesTbl.Add(weatherRule1);
-            fakeDB.FCRulesTbl.Add(weatherFRule1);
-            fakeDB.MealScheduleTbl.Add(mealSchedule1);
+            MealSchedule ms1 = new MealSchedule("ms001", "userId-s", "topic-s", "participants-s", "location-s", "startDate-s", "endDate-s", "lastEditUserId-s");
+            MealSchedule ms2 = new MealSchedule("ms002", "userId-s", "topic-s", "participants-s", "location-s", "startDate-s", "endDate-s", "lastEditUserId-s");
+            //fakeDB.UserTbl.Add(frank);
+            //fakeDB.CRulesTbl.Add(weatherRule1);
+            //fakeDB.FCRulesTbl.Add(weatherFRule1);
+            //fakeDB.MealScheduleTbl.Add(mealSchedule1);
+            UserList.Add(frank);
+            conversationalRulesList.Add(weatherRule1);
+            fixedConversationalRulesList.Add(weatherFRule1);
+            MealScheduleList.Add(mealSchedule1);
+            MealScheduleList.Add(ms1);
+            MealScheduleList.Add(ms2);
+
 
             //codes for read database and update all lists
 
