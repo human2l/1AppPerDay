@@ -96,6 +96,7 @@ namespace UTS.ScheduleSystem
         {
             get
             {
+                
                 return conversationalRulesList;
             }
 
@@ -150,9 +151,9 @@ namespace UTS.ScheduleSystem
             ConversationalRule weatherRule1 = new ConversationalRule("c001", "How is the weather on ", "The weather on {p1} is {p2}", "u001 u002", Status.Approved);
             FixedConversationalRule weatherFRule1 = new FixedConversationalRule("fc001", "How do you do", "I'm fine, fuck you, and you?", "u001", Status.Rejected);
             FixedConversationalRule weatherFRule2 = new FixedConversationalRule("fc002", "qwerty", "asdfgg", "u001", Status.Pending);
-            MealSchedule mealSchedule1 = new MealSchedule("m001","u001", "dinner", "Michael Bay,Donald Trump", "Sydney", "08/04/2018 3:12:18 PM", "08/04/2018 4:15:00 PM", "u001 u002");
-            MealSchedule ms1 = new MealSchedule("ms001", "userId-s", "topic-s", "participants-s", "location-s", "startDate-s", "endDate-s", "lastEditUserId-s");
-            MealSchedule ms2 = new MealSchedule("ms002", "userId-s", "topic-s", "participants-s", "location-s", "startDate-s", "endDate-s", "lastEditUserId-s");
+            MealSchedule mealSchedule1 = new MealSchedule("ms1","u001", "dinner", "Michael Bay,Donald Trump", "Sydney", "08/04/2018 3:12:18 PM", "08/04/2018 4:15:00 PM", "u001 u002");
+            MealSchedule ms1 = new MealSchedule("ms2", "userId-s", "topic-s", "participants-s", "location-s", "startDate-s", "endDate-s", "lastEditUserId-s");
+            MealSchedule ms2 = new MealSchedule("ms3", "userId-s", "topic-s", "participants-s", "location-s", "startDate-s", "endDate-s", "lastEditUserId-s");
             //fakeDB.UserTbl.Add(frank);
             //fakeDB.CRulesTbl.Add(weatherRule1);
             //fakeDB.FCRulesTbl.Add(weatherFRule1);

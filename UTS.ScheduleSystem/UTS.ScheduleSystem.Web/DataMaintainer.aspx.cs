@@ -38,19 +38,23 @@ namespace UTS.ScheduleSystem.Web
 
         protected void DataMaintainerGridView_RowEditing(object sender, GridViewEditEventArgs e)
         {
+            System.Diagnostics.Debug.WriteLine("RowEditing!");
+
             DataMaintainerGridView.EditIndex = e.NewEditIndex;
             UpdateGridView();
         }
 
         private void UpdateGridView()
         {
-            DataMaintainerGridView.Columns[0].Visible = false;
+            //DataMaintainerGridView.Columns[0].Visible = false;
             DataMaintainerGridView.DataSource = controller.MealScheduleList;
             DataMaintainerGridView.DataBind();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            System.Diagnostics.Debug.WriteLine("ButtonClick!");
+
             string topic = TopicTB.Text;
             string userId = UserIdTB.Text;
             string participants = ParticipantsTB.Text;
@@ -66,15 +70,25 @@ namespace UTS.ScheduleSystem.Web
 
         protected void DataMaintainerGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            string id = (DataMaintainerGridView.Rows[e.RowIndex].Cells[0].Controls[0] as TextBox).Text.ToString();
-            string topic = (DataMaintainerGridView.Rows[e.RowIndex].Cells[1].Controls[0] as TextBox).Text.ToString();
-            string userId = (DataMaintainerGridView.Rows[e.RowIndex].Cells[2].Controls[0] as TextBox).Text.ToString();
-            string participants = (DataMaintainerGridView.Rows[e.RowIndex].Cells[3].Controls[0] as TextBox).Text.ToString();
-            string location = (DataMaintainerGridView.Rows[e.RowIndex].Cells[4].Controls[0] as TextBox).Text.ToString();
-            string startDate = (DataMaintainerGridView.Rows[e.RowIndex].Cells[5].Controls[0] as TextBox).Text.ToString();
-            string endDate = (DataMaintainerGridView.Rows[e.RowIndex].Cells[6].Controls[0] as TextBox).Text.ToString();
+            System.Diagnostics.Debug.WriteLine("RowUpdating!");
+            string id = (DataMaintainerGridView.Rows[e.RowIndex].Cells[0].Controls[0] as TextBox).Text;
+            string topic = (DataMaintainerGridView.Rows[e.RowIndex].Cells[0].Controls[1] as TextBox).Text;
+            string userId = (DataMaintainerGridView.Rows[e.RowIndex].Cells[0].Controls[2] as TextBox).Text;
+            string participants = (DataMaintainerGridView.Rows[e.RowIndex].Cells[0].Controls[3] as TextBox).Text;
+            string location = (DataMaintainerGridView.Rows[e.RowIndex].Cells[0].Controls[4] as TextBox).Text;
+            string startDate = (DataMaintainerGridView.Rows[e.RowIndex].Cells[0].Controls[5] as TextBox).Text;
+            string endDate = (DataMaintainerGridView.Rows[e.RowIndex].Cells[0].Controls[6] as TextBox).Text;
+            System.Diagnostics.Debug.WriteLine("RowUpdating! id = " + id + "topic : "+topic);
+
             MealSchedule ms = new MealSchedule(id, userId, topic, participants, location, startDate, endDate, "blahblah");
             controller.MealScheduleList = controller.DataMaintainerService.updateMealSchedule(ms, controller.MealScheduleList);
+            DataMaintainerGridView.EditIndex = -1;
+            UpdateGridView();
+        }
+
+        protected void DataMaintainerGridView_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("RowCancelling!");
             DataMaintainerGridView.EditIndex = -1;
             UpdateGridView();
         }

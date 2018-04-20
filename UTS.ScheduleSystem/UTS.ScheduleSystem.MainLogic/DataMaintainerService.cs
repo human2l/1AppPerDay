@@ -40,10 +40,12 @@ namespace UTS.ScheduleSystem
 
         public List<MealSchedule> updateMealSchedule(MealSchedule ms, List<MealSchedule> mealScheduleList)
         {
+            System.Diagnostics.Debug.WriteLine(ms);
             for(int i =0; i < mealScheduleList.Count; i++)
             {
                 if(mealScheduleList[i].Id == ms.Id)
                 {
+                    System.Diagnostics.Debug.WriteLine("Updated record!");
                     mealScheduleList[i] = ms;
                 }
             }
