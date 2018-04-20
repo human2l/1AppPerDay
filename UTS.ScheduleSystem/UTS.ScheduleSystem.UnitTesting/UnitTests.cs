@@ -75,32 +75,32 @@ namespace UTS.ScheduleSystem.UnitTesting
                 CollectionAssert.AreEqual(correctPRulesList, rulesList);
             }
 
-            [TestMethod]
-            public void ApproverService_ApproveRule_CorrectApprovedRules()
-            {
-                List<ConversationalRule> CRulesList = new List<ConversationalRule>();
-                List<FixedConversationalRule> FCRulesList = new List<FixedConversationalRule>();
-                CRulesList.Add(cRule1);
-                FCRulesList.Add(cFRule1);
-                controller.ApproverService.ApproveRule(cRule1.Id, ref CRulesList, ref FCRulesList);
-                controller.ApproverService.ApproveRule(cFRule1.Id, ref CRulesList, ref FCRulesList);
-                Assert.AreEqual<Status>(Status.Approved, CRulesList[0].Status);
-                Assert.AreEqual<Status>(Status.Approved, FCRulesList[0].Status);
+            //[TestMethod]
+            //public void ApproverService_ApproveRule_CorrectApprovedRules()
+            //{
+            //    List<ConversationalRule> CRulesList = new List<ConversationalRule>();
+            //    List<FixedConversationalRule> FCRulesList = new List<FixedConversationalRule>();
+            //    CRulesList.Add(cRule1);
+            //    FCRulesList.Add(cFRule1);
+            //    controller.ApproverService.ApproveRule(cRule1.Id, ref CRulesList, ref FCRulesList);
+            //    controller.ApproverService.ApproveRule(cFRule1.Id, ref CRulesList, ref FCRulesList);
+            //    Assert.AreEqual<Status>(Status.Approved, CRulesList[0].Status);
+            //    Assert.AreEqual<Status>(Status.Approved, FCRulesList[0].Status);
 
-            }
+            //}
 
-            [TestMethod]
-            public void ApproverService_RejectRule_CorrectRejectedRules()
-            {
-                List<ConversationalRule> CRulesList = new List<ConversationalRule>();
-                List<FixedConversationalRule> FCRulesList = new List<FixedConversationalRule>();
-                CRulesList.Add(cRule1);
-                FCRulesList.Add(cFRule1);
-                controller.ApproverService.RejectRule(cRule1.Id, ref CRulesList, ref FCRulesList);
-                controller.ApproverService.RejectRule(cFRule1.Id, ref CRulesList, ref FCRulesList);
-                Assert.AreEqual<Status>(Status.Rejected, CRulesList[0].Status);
-                Assert.AreEqual<Status>(Status.Rejected, FCRulesList[0].Status);
-            }
+            //[TestMethod]
+            //public void ApproverService_RejectRule_CorrectRejectedRules()
+            //{
+            //    List<ConversationalRule> CRulesList = new List<ConversationalRule>();
+            //    List<FixedConversationalRule> FCRulesList = new List<FixedConversationalRule>();
+            //    CRulesList.Add(cRule1);
+            //    FCRulesList.Add(cFRule1);
+            //    controller.ApproverService.RejectRule(cRule1.Id, ref CRulesList, ref FCRulesList);
+            //    controller.ApproverService.RejectRule(cFRule1.Id, ref CRulesList, ref FCRulesList);
+            //    Assert.AreEqual<Status>(Status.Rejected, CRulesList[0].Status);
+            //    Assert.AreEqual<Status>(Status.Rejected, FCRulesList[0].Status);
+            //}
 
             [TestMethod]
             public void ApproverService_ApprovedRulesNum_ReturnCorrectNumberOfApprovedRules()

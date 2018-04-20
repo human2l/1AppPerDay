@@ -91,28 +91,46 @@ namespace UTS.ScheduleSystem
             return apvRulesList;
         }
 
-
-        public void ApproveRule(string ruleIdid, ref List<ConversationalRule> cRulesList, ref List<FixedConversationalRule> fCRulesList)
+        public List<FixedConversationalRule> ApproveRuleInFixedConversationalRuleList(string ruleId, List<FixedConversationalRule> fCRulesList)
         {
-            for(int x = 0; x < cRulesList.Count; x++)
-            {
-                if (cRulesList[x].Id.Equals(ruleIdid))
-                {
-                    cRulesList[x].Status = Status.Approved;
-                    break;
-                } 
-            }
             for (int x = 0; x < fCRulesList.Count; x++)
             {
-                if (fCRulesList[x].Id.Equals(ruleIdid))
+                if (fCRulesList[x].Id.Equals(ruleId))
                 {
                     fCRulesList[x].Status = Status.Approved;
                     break;
                 }
             }
+            return fCRulesList;
         }
 
-        public void RejectRule(string ruleId, ref List<ConversationalRule> cRulesList, ref List<FixedConversationalRule> fCRulesList)
+        public List<ConversationalRule> ApproveRuleInConversationalRuleList(string ruleId, List<ConversationalRule> cRulesList)
+        {
+            for (int x = 0; x < cRulesList.Count; x++)
+            {
+                if (cRulesList[x].Id.Equals(ruleId))
+                {
+                    cRulesList[x].Status = Status.Approved;
+                    break;
+                }
+            }
+            return cRulesList;
+        }
+
+        public List<FixedConversationalRule> RejectRuleInFixedConversationalRuleList(string ruleId, List<FixedConversationalRule> fCRulesList)
+        {
+            for (int x = 0; x < fCRulesList.Count; x++)
+            {
+                if (fCRulesList[x].Id.Equals(ruleId))
+                {
+                    fCRulesList[x].Status = Status.Rejected;
+                    break;
+                }
+            }
+            return fCRulesList;
+        }
+
+        public List<ConversationalRule> RejectRuleInConversationalRuleList(string ruleId, List<ConversationalRule> cRulesList)
         {
             for (int x = 0; x < cRulesList.Count; x++)
             {
@@ -122,17 +140,9 @@ namespace UTS.ScheduleSystem
                     break;
                 }
             }
-            for (int x = 0; x < fCRulesList.Count; x++)
-            {
-                if (fCRulesList[x].Id.Equals(ruleId))
-                {
-                    fCRulesList[x].Status = Status.Rejected;
-                    break;
-                }
-            }
+            return cRulesList;
         }
 
-        
         public int ApprovedRulesNum(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
         {
             List<Rule> approvedRulesList = RequestApprovedRulesList(cRulesList, fCRulesList);

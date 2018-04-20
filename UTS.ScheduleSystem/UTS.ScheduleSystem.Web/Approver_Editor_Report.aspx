@@ -2,6 +2,10 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Approver">< Go back  </asp:HyperLink>
+        <b>Editor Individual Rule Report:</b>
+    </div>
+    <div class="row">
         <div class="col-md-4">
             <asp:BulletedList ID="editorList" BulletStyle="Disc" DisplayMode="LinkButton" OnClick="editorList_Click" runat="server"></asp:BulletedList>
         </div>
