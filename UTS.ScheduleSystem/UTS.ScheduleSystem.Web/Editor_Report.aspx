@@ -19,16 +19,16 @@
         </div>
         <div class="col-md-4">
             <asp:Label ID="Label1" runat="server" Text="Username"></asp:Label>
-            <asp:Label ID="Username" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
             <br />
             <asp:Label ID="Label3" runat="server" Text="Number of rules created"></asp:Label>
-            <asp:Label ID="NumberOfRules" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
             <br />
             <asp:Label ID="Label5" runat="server" Text="Number of rules rejected"></asp:Label>
-            <asp:Label ID="NumberOfRejectedRules" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
             <br />
             <asp:Label ID="Label7" runat="server" Text="Success rate"></asp:Label>
-            <asp:Label ID="SuccessRate" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
         </div>
     </div>
     
