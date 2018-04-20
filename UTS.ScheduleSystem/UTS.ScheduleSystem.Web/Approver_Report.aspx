@@ -13,7 +13,15 @@
         </div>
         <div class="row justify-content-start">
             <div class="col-md-10">
-                <asp:GridView ID="ApprovedRulesDisplayView" runat="server"></asp:GridView>
+                <asp:GridView ID="ApprovedRulesDisplayView" runat="server" AutoGenerateColumns="false">
+                    <Columns>
+                    <asp:BoundField DataField="Id" HeaderText="ID" />
+                    <asp:BoundField DataField="Input" HeaderText="Input" />
+                    <asp:BoundField DataField="Output" HeaderText="Output" />
+                    <asp:BoundField DataField="Status" HeaderText="Status" />
+                    <asp:BoundField DataField="LastRelatedUserID" HeaderText="Last Editor" />
+                </Columns>
+                </asp:GridView>
             </div>
             <div class="col-md-2">
                 <div class="row">Approved Rules: <%=ApprovedRuleNum%></div>

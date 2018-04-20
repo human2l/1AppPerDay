@@ -10,8 +10,8 @@ namespace UTS.ScheduleSystem.Web
 {
     public partial class Approver : System.Web.UI.Page
     {
-        Controller controller;
-        List<Rule> pendingList = new List<Rule>();
+        private Controller controller;
+        private List<Rule> pendingList = new List<Rule>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,7 +19,7 @@ namespace UTS.ScheduleSystem.Web
             {
                 controller = (Controller)Session["Controller"];
                 pendingList = controller.ApproverService.RequestPendingRulesList(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
-                readPendingRule(pendingList);
+                readPendingRule();
             }
             else
             {
@@ -28,7 +28,7 @@ namespace UTS.ScheduleSystem.Web
             }
         }
 
-        private void readPendingRule(List<Rule> pendingList)
+        private void readPendingRule()
         {
             PendingRuleDisplayView.DataSource = pendingList;
             PendingRuleDisplayView.DataBind();
@@ -67,7 +67,7 @@ namespace UTS.ScheduleSystem.Web
                 default:
                     break;
             }
-            readPendingRule(pendingList);
+            readPendingRule();
         }
     }
 }

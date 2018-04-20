@@ -13,12 +13,15 @@ namespace UTS.ScheduleSystem.Web
         private int approvedRuleNum;
         private int rejectedRuleNum;
         private string successRate;
+        private List<Rule> approvedList = new List<Rule>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Controller"] != null)
             {
                 Controller controller = (Controller)Session["Controller"];
+                approvedList = controller.ApproverService.RequestApprovedRulesList(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
+                readApprovedRule();
                 approvedRuleNum = controller.ApproverService.ApprovedRulesNum(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
                 rejectedRuleNum = controller.ApproverService.RejectedRulesNum(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
                 double _successRate = controller.ApproverService.SuccessRate(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
@@ -29,6 +32,12 @@ namespace UTS.ScheduleSystem.Web
                 Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
                 Response.Redirect("~/");
             }
+        }
+
+        private void readApprovedRule()
+        {
+            ApprovedRulesDisplayView.DataSource = approvedList;
+            ApprovedRulesDisplayView.DataBind();
         }
 
         public int ApprovedRuleNum
