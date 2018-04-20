@@ -20,7 +20,7 @@ namespace UTS.ScheduleSystem.Web
                 rulesList = controller.EditorService.ShowCurrentUserApprovedRules(controller.CurrentUser, controller.FixedConversationalRulesList, controller.ConversationalRulesList);
                 EditorReportGridView.DataSource = rulesList;
                 EditorReportGridView.DataBind();
-                Username.Text = controller.CurrentUser.Name + controller.CurrentUser.Id;
+                Username.Text = controller.CurrentUser.Name;
                 NumberOfApprovedRules.Text = controller.EditorService.ShowCurrentUserApprovedRulesCount(controller.CurrentUser, controller.FixedConversationalRulesList, controller.ConversationalRulesList).ToString();
                 NumberOfRejectedRules.Text = controller.EditorService.ShowCurrentUserRejectedRulesCount(controller.CurrentUser, controller.FixedConversationalRulesList, controller.ConversationalRulesList).ToString();
                 SuccessRate.Text = controller.EditorService.ShowCurrentUserSuccessRate(controller.CurrentUser, controller.FixedConversationalRulesList, controller.ConversationalRulesList).ToString();

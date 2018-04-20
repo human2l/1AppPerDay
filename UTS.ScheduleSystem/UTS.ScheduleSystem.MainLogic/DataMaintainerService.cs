@@ -38,18 +38,6 @@ namespace UTS.ScheduleSystem
 
         }
 
-        public List<MealSchedule> updateMealSchedule(MealSchedule ms, List<MealSchedule> mealScheduleList)
-        {
-            for(int i =0; i < mealScheduleList.Count; i++)
-            {
-                if(mealScheduleList[i].Id == ms.Id)
-                {
-                    mealScheduleList[i] = ms;
-                }
-            }
-            return mealScheduleList;
-        }
-
 
     }
 }

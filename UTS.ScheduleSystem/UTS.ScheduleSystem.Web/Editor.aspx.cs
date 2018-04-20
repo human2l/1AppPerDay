@@ -37,7 +37,7 @@ namespace UTS.ScheduleSystem.Web
                     controller = (Controller)Session["Controller"];
                     if(!controller.EditorService.CheckRepeatingRule(Input.Text, controller.FixedConversationalRulesList, controller.ConversationalRulesList))
                     {
-                        controller.ConversationalRulesList = controller.EditorService.AddNewCRule(Input.Text, Output.Text, "???", controller.ConversationalRulesList);
+                        controller.ConversationalRulesList = controller.EditorService.AddNewCRule(Input.Text, Output.Text, controller.CurrentUser.Id, controller.ConversationalRulesList);
                         List<Rule> rulesList = new List<Rule>();
                         rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
                         EditorGridView.DataSource = rulesList;
@@ -69,7 +69,7 @@ namespace UTS.ScheduleSystem.Web
                     controller = (Controller)Session["Controller"];
                     if (!controller.EditorService.CheckRepeatingRule(Input.Text, controller.FixedConversationalRulesList, controller.ConversationalRulesList))
                     {
-                        controller.FixedConversationalRulesList = controller.EditorService.AddNewFCRule(Input.Text, Output.Text, "???", controller.FixedConversationalRulesList);
+                        controller.FixedConversationalRulesList = controller.EditorService.AddNewFCRule(Input.Text, Output.Text, controller.CurrentUser.Id, controller.FixedConversationalRulesList);
                         List<Rule> rulesList = new List<Rule>();
                         rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
                         EditorGridView.DataSource = rulesList;
