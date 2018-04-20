@@ -30,27 +30,50 @@ namespace UTS.ScheduleSystem.Web
 
         protected void Add_rule_Click(object sender, EventArgs e)
         {
-            if (Session["Controller"] != null)
+            if (Input.Text != "" && Output.Text != "")
             {
-                controller = (Controller)Session["Controller"];
-                controller.ConversationalRulesList = controller.EditorService.AddNewCRule(Input.Text, Output.Text, "???", controller.ConversationalRulesList);
-                List<Rule> rulesList = new List<Rule>();
-                rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-                EditorGridView.DataSource = rulesList;
-                EditorGridView.DataBind();
+                if (Session["Controller"] != null)
+                {
+                    controller = (Controller)Session["Controller"];
+                    controller.ConversationalRulesList = controller.EditorService.AddNewCRule(Input.Text, Output.Text, "???", controller.ConversationalRulesList);
+                    List<Rule> rulesList = new List<Rule>();
+                    rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+                    EditorGridView.DataSource = rulesList;
+                    EditorGridView.DataBind();
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Error" + "');", true);
+                }
             }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Invalid input" + "');", true);
+            }
+            
         }
 
         protected void Add_fixed_rule_Click(object sender, EventArgs e)
         {
-            if (Session["Controller"] != null)
+            if (Input.Text != "" && Output.Text != "")
             {
-                controller = (Controller)Session["Controller"];
-                controller.FixedConversationalRulesList = controller.EditorService.AddNewFCRule(Input.Text, Output.Text, "???", controller.FixedConversationalRulesList);
-                List<Rule> rulesList = new List<Rule>();
-                rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-                EditorGridView.DataSource = rulesList;
-                EditorGridView.DataBind();
+                if (Session["Controller"] != null)
+                {
+                    controller = (Controller)Session["Controller"];
+                    controller.FixedConversationalRulesList = controller.EditorService.AddNewFCRule(Input.Text, Output.Text, "???", controller.FixedConversationalRulesList);
+                    List<Rule> rulesList = new List<Rule>();
+                    rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+                    EditorGridView.DataSource = rulesList;
+                    EditorGridView.DataBind();
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Error" + "');", true);
+                }
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Invalid input" + "');", true);
             }
         }
     }

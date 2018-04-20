@@ -8,7 +8,7 @@ namespace UTS.ScheduleSystem
     public class Controller
     {
         private FakeDB fakeDB = new FakeDB();
-        private User currentUser;
+        private User currentUser = new User();
         private List<User> userList = new List<User>();
         private List<ConversationalRule> conversationalRulesList = new List<ConversationalRule>();
         private List<FixedConversationalRule> fixedConversationalRulesList = new List<FixedConversationalRule>();
