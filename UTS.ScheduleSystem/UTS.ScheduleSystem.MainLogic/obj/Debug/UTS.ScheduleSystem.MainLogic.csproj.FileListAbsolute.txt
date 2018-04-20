@@ -8,3 +8,8 @@ C:\Users\99127944\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSys
 C:\Users\99127944\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\obj\Debug\UTS.ScheduleSystem.MainLogic.csprojResolveAssemblyReference.cache
 C:\Users\99127944\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\obj\Debug\UTS.ScheduleSystem.MainLogic.dll
 C:\Users\99127944\Documents\GitHub\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\obj\Debug\UTS.ScheduleSystem.MainLogic.pdb
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\obj\Debug\UTS.ScheduleSystem.MainLogic.csprojResolveAssemblyReference.cache
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\obj\Debug\UTS.ScheduleSystem.MainLogic.dll
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\obj\Debug\UTS.ScheduleSystem.MainLogic.pdb
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\bin\Debug\UTS.ScheduleSystem.MainLogic.dll
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\bin\Debug\UTS.ScheduleSystem.MainLogic.pdb

@@ -178,7 +178,7 @@ namespace UTS.ScheduleSystem.UnitTesting
                 rulesList.Add(cRule1);
                 rulesList.Add(cRule2);
                 rulesList.Add(cRule3);
-                controller.EditorService.AddNewCRule(cRule4, ref rulesList);
+                //controller.EditorService.AddNewCRule(cRule4, ref rulesList);
                 CollectionAssert.AreEqual(correctRulesList, rulesList);
             }
             [TestMethod]
@@ -194,7 +194,7 @@ namespace UTS.ScheduleSystem.UnitTesting
                 rulesList.Add(cFRule1);
                 rulesList.Add(cFRule2);
                 rulesList.Add(cFRule3);
-                controller.EditorService.AddNewFCRule(cFRule4, ref rulesList);
+                //controller.EditorService.AddNewFCRule(cFRule4, ref rulesList);
                 CollectionAssert.AreEqual(correctRulesList, rulesList);
             }
             [TestMethod]
