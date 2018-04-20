@@ -35,11 +35,18 @@ namespace UTS.ScheduleSystem.Web
                 if (Session["Controller"] != null)
                 {
                     controller = (Controller)Session["Controller"];
-                    controller.ConversationalRulesList = controller.EditorService.AddNewCRule(Input.Text, Output.Text, "???", controller.ConversationalRulesList);
-                    List<Rule> rulesList = new List<Rule>();
-                    rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-                    EditorGridView.DataSource = rulesList;
-                    EditorGridView.DataBind();
+                    if(!controller.EditorService.CheckRepeatingRule(Input.Text, controller.FixedConversationalRulesList, controller.ConversationalRulesList))
+                    {
+                        controller.ConversationalRulesList = controller.EditorService.AddNewCRule(Input.Text, Output.Text, "???", controller.ConversationalRulesList);
+                        List<Rule> rulesList = new List<Rule>();
+                        rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+                        EditorGridView.DataSource = rulesList;
+                        EditorGridView.DataBind();
+                    }
+                    else
+                    {
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Repeating rule" + "');", true);
+                    }
                 }
                 else
                 {
@@ -60,11 +67,18 @@ namespace UTS.ScheduleSystem.Web
                 if (Session["Controller"] != null)
                 {
                     controller = (Controller)Session["Controller"];
-                    controller.FixedConversationalRulesList = controller.EditorService.AddNewFCRule(Input.Text, Output.Text, "???", controller.FixedConversationalRulesList);
-                    List<Rule> rulesList = new List<Rule>();
-                    rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-                    EditorGridView.DataSource = rulesList;
-                    EditorGridView.DataBind();
+                    if (!controller.EditorService.CheckRepeatingRule(Input.Text, controller.FixedConversationalRulesList, controller.ConversationalRulesList))
+                    {
+                        controller.FixedConversationalRulesList = controller.EditorService.AddNewFCRule(Input.Text, Output.Text, "???", controller.FixedConversationalRulesList);
+                        List<Rule> rulesList = new List<Rule>();
+                        rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+                        EditorGridView.DataSource = rulesList;
+                        EditorGridView.DataBind();
+                    }
+                    else
+                    {
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Repeating rule" + "');", true);
+                    }   
                 }
                 else
                 {

@@ -11,18 +11,18 @@ namespace UTS.ScheduleSystem
         public List<FixedConversationalRule> AddNewFCRule(string input, string output, string userId, List<FixedConversationalRule> fCRulesList)
         {
             FixedConversationalRule rule = new FixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", fCRulesList), input, output, userId, Status.Pending);
-            bool repeated = false;
-            foreach (FixedConversationalRule r in fCRulesList)
-            {
-                if (rule.Input == r.Input)
-                {
-                    repeated = true;
-                }
-            }
-            if (!repeated)
-            {
+            //bool repeated = false;
+            //foreach (FixedConversationalRule r in fCRulesList)
+            //{
+            //    if (rule.Input == r.Input)
+            //    {
+            //        repeated = true;
+            //    }
+            //}
+            //if (!repeated)
+            //{
                 fCRulesList.Add(rule);
-            }
+            //}
             
             return fCRulesList;
         }
@@ -357,7 +357,24 @@ namespace UTS.ScheduleSystem
             return null;
         }
 
-       
+        public bool CheckRepeatingRule(string input, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
+        {
+            foreach (FixedConversationalRule r in fCRulesList)
+            {
+                if (input == r.Input)
+                {
+                    return true;
+                }
+            }
+            foreach (ConversationalRule r in cRulesList)
+            {
+                if (input == r.Input)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
     }
 }
