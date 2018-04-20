@@ -27,7 +27,7 @@ namespace UTS.ScheduleSystem.Web.Account
                 signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
                 //Kai create Controller Session after registered
                 Controller controller = new Controller();
-                User u = new User(Utils.CreateIdByType("u", controller.UserList), Name.Text, Password.Text, Email.Text, Role.DMnA);
+                User u = new User(Utils.CreateIdByType("User", controller.UserList), Name.Text, Password.Text, Email.Text, Role.DMnEnA);
                 controller.UserList.Add(u);
                 controller.CurrentUser = u;
                 Session["Controller"] = controller;
