@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Microsoft.AspNet.Identity;
 
 namespace UTS.ScheduleSystem.Web
 {
@@ -12,17 +11,8 @@ namespace UTS.ScheduleSystem.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Controller"] != null)
-            {
-                Controller controller = (Controller)Session["Controller"];
-                List<Rule> pendingList = controller.ApproverService.RequestPendingRulesList(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
-                readPendingRule(pendingList);
-            }
-            else
-            {
-                Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-                Response.Redirect("~/");
-            }
+            Controller controller = (Controller)Session["Controller"];
+            readPendingRule(controller);
             //ConversationalRule cRule1 = new ConversationalRule("c001", "When will I have meal with {p1}", "It's {p1}", "u001 u002", Status.Pending);
             //ConversationalRule cRule2 = new ConversationalRule("c002", "Who will I have meal with on {p1}", "It's {p1}", "u001 u002", Status.Approved);
             //ConversationalRule cRule3 = new ConversationalRule("c003", "What will I surpose to eat on {p1}", "{p1}", "u001 u002", Status.Rejected);
@@ -37,20 +27,13 @@ namespace UTS.ScheduleSystem.Web
             //controller.FixedConversationalRulesList.Add(cFRule3);
         }
 
-        private void readPendingRule(List<Rule> pendingList)
+        private void readPendingRule(Controller controller)
         {
+            List<Rule> pendingList = (controller != null) ?
+                controller.ApproverService.RequestPendingRulesList(controller.ConversationalRulesList, controller.FixedConversationalRulesList) :
+                null;
             PendingRuleDisplayView.DataSource = pendingList;
             PendingRuleDisplayView.DataBind();
-        }
-
-        protected void PassedRulesButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Approver_Report");
-        }
-
-        protected void EditorDashboardButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Approver_Editor_Report");
         }
     }
 }

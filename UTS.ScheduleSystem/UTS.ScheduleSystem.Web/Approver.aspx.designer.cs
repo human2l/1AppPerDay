@@ -13,13 +13,13 @@ namespace UTS.ScheduleSystem.Web {
     public partial class Approver {
         
         /// <summary>
-        /// PassedRulesButton control.
+        /// MyRules control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button PassedRulesButton;
+        protected global::System.Web.UI.WebControls.Button MyRules;
         
         /// <summary>
         /// PendingRuleDisplayView control.
@@ -31,12 +31,12 @@ namespace UTS.ScheduleSystem.Web {
         protected global::System.Web.UI.WebControls.GridView PendingRuleDisplayView;
         
         /// <summary>
-        /// EditorDashboardButton control.
+        /// EditorDashboard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button EditorDashboardButton;
+        protected global::System.Web.UI.WebControls.Button EditorDashboard;
     }
 }

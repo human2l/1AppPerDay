@@ -15,7 +15,7 @@ namespace UTS.ScheduleSystem
         private List<MealSchedule> mealScheduleList = new List<MealSchedule>();
         //private List<Rule> ruleList = new List<Rule>();
 
-        private DataMaintainerService dataMaintainerService = new DataMaintainerService();
+        private DMService dataMaintainerService = new DMService();
         private EditorService editorService = new EditorService();
         private ApproverService approverService = new ApproverService();
 
@@ -37,7 +37,7 @@ namespace UTS.ScheduleSystem
             }
         }
 
-        public DataMaintainerService DataMaintainerService
+        public DMService DataMaintainerService
         {
             get
             {
