@@ -10,12 +10,15 @@ namespace UTS.ScheduleSystem.Web
 {
     public partial class Approver : System.Web.UI.Page
     {
+        Controller controller;
+        List<Rule> pendingList = new List<Rule>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Controller"] != null)
             {
-                Controller controller = (Controller)Session["Controller"];
-                List<Rule> pendingList = controller.ApproverService.RequestPendingRulesList(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
+                controller = (Controller)Session["Controller"];
+                pendingList = controller.ApproverService.RequestPendingRulesList(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
                 readPendingRule(pendingList);
             }
             else
@@ -39,6 +42,32 @@ namespace UTS.ScheduleSystem.Web
         protected void EditorDashboardButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Approver_Editor_Report");
+        }
+
+        protected void PendingRuleDisplayView_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int index = Convert.ToInt32(e.CommandArgument);
+            string _ruleId = PendingRuleDisplayView.Rows[index].Cells[0].Text;
+            switch (e.CommandName)
+            {
+                case "Approve":
+                    if (_ruleId.StartsWith("c"))
+                        controller.ConversationalRulesList = controller.ApproverService.ApproveRuleInConversationalRuleList(_ruleId, controller.ConversationalRulesList);
+                    else
+                        controller.FixedConversationalRulesList = controller.ApproverService.ApproveRuleInFixedConversationalRuleList(_ruleId, controller.FixedConversationalRulesList);
+                    pendingList = controller.ApproverService.RequestPendingRulesList(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
+                    break;
+                case "Reject":
+                    if (_ruleId.StartsWith("c"))
+                        controller.ConversationalRulesList = controller.ApproverService.RejectRuleInConversationalRuleList(_ruleId, controller.ConversationalRulesList);
+                    else
+                        controller.FixedConversationalRulesList = controller.ApproverService.RejectRuleInFixedConversationalRuleList(_ruleId, controller.FixedConversationalRulesList);
+                    pendingList = controller.ApproverService.RequestPendingRulesList(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
+                    break;
+                default:
+                    break;
+            }
+            readPendingRule(pendingList);
         }
     }
 }
