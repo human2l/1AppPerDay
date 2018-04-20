@@ -12,9 +12,9 @@
                 <asp:GridView ID="ApprovedRulesDisplayView" runat="server"></asp:GridView>
             </div>
             <div class="col-md-2">
-                <div class="row">Approved Rules: <%=approvedRuleNum%></div>
-                <div class="row">Rejected Rules: </div>
-                <div class="row">Success Rate: </div>
+                <div class="row">Approved Rules: <%=ApprovedRuleNum%></div>
+                <div class="row">Rejected Rules: <%=RejectedRuleNum%></div>
+                <div class="row">Success Rate: <%=SuccessRate%></div>
             </div>
         </div>
     </div>
