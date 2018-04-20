@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <asp:GridView ID="DataMaintainerGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" OnRowDeleting="DataMaintainerGridView_RowDeleting" OnRowEditing="DataMaintainerGridView_RowEditing" >
+    <asp:GridView ID="DataMaintainerGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" OnRowDeleting="DataMaintainerGridView_RowDeleting" OnRowEditing="DataMaintainerGridView_RowEditing" OnRowUpdating="DataMaintainerGridView_RowUpdating" >
         <Columns>
             <asp:BoundField DataField="Id" HeaderText="Id" />
             <asp:BoundField DataField="Topic" HeaderText="Topic" />
@@ -51,7 +51,7 @@
         <br />
         
         
-        <asp:Button ID="Button1" runat="server" Text="Add" />
+        <asp:Button ID="Button1" runat="server" Text="Add" OnClick="Button1_Click" />
     </asp:Panel>
 
 </asp:Content>
