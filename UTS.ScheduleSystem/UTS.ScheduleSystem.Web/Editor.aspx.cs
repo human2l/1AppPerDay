@@ -108,8 +108,8 @@ namespace UTS.ScheduleSystem.Web
 
         protected void PendingGridView_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            string id = (string)PendingGridView.DataKeys[e.NewEditIndex].Value;
-            Response.Redirect("~/Editor_Edit.aspx?ID=" + id);
+            //int id = (int)PendingGridView.DataKeys[e.NewEditIndex].Value;
+            //Response.Redirect("~/Editor_Edit.aspx?ID=" + id);
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)

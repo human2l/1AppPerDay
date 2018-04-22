@@ -11,11 +11,11 @@ namespace UTS.ScheduleSystem.Web
     public partial class Editor_Edit : System.Web.UI.Page
     {
         public const string IdKey = "ID";
-        string currentId;
-        Controller controller;
+        int? currentId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             if (Session["Controller"] != null)
             {
                 controller = (Controller)Session["Controller"];
@@ -82,6 +82,9 @@ namespace UTS.ScheduleSystem.Web
         protected void CancelButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Editor.aspx");
+=======
+
+>>>>>>> ac97a37e91417b5901c8eaaa99ea4591fd480cbd
         }
     }
 }
