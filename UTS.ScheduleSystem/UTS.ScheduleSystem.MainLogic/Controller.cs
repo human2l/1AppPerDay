@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using UTS.ScheduleSystem.Data.ScheduleSystemDataSetsTableAdapters;
@@ -34,11 +35,33 @@ namespace UTS.ScheduleSystem
         {
             var adapter = new AspNetUsersTableAdapter();
             var set = adapter.GetData();
-            List<User> userList1 = new List<User>();
-            string sql;
-            sql = "select * " + "from AspNetUsers " + "where "
+            //List<User> userList1 = new List<User>();
+            //string sql;
+            //sql = "select * " + "from AspNetUsers " + "where email = a@a.com";
+            //SqlDataAdapter da = new SqlDataAdapter(sql)
+
             adapter.Dispose();
-            System.Diagnostics.Debug.WriteLine(set.First().UserName+"hello a");
+            //System.Diagnostics.Debug.WriteLine(set.First().UserName + "hello a");
+            //var user = ;
+            //foreach (data in user)
+            //{
+            //    objUser.name = data
+            //        objUser.email  =data
+            //}
+            //var datas = from c in set
+
+            //                    select c;
+
+            //string output = "";
+            //foreach (string name in datas)
+            //{
+            //    output += name;
+            //    User a = new User();
+            //    a.Name = name
+
+            //}
+            set.RemoveAspNetUsersRow(set.First());
+            System.Diagnostics.Debug.WriteLine(set.First().Email);
             return set.First().UserName;
             
         }
