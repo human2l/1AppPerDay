@@ -125,19 +125,7 @@ namespace UTS.ScheduleSystem
         {
             get
             {
-                var adapter = new ConversationalRuleTableAdapter();
-                var set = adapter.GetData();
-                adapter.Dispose();
-                while (set.Count != 0)
-                {
-
-                    ConversationalRule cRule = new ConversationalRule(set.First().Id, set.First().Input, set.First().Output, set.First().RelatedUsersId,
-                        (set.First().Status.Equals("Approved")) ? Status.Approved :
-                        (set.First().Status.Equals("Rejected")) ? Status.Rejected : Status.Pending );
-                    set.RemoveConversationalRuleRow(set.First());
-                    conversationalRulesList.Add(cRule);
-                }
-
+                
                 return conversationalRulesList;
             }
 
@@ -151,19 +139,6 @@ namespace UTS.ScheduleSystem
         {
             get
             {
-                var adapter = new FixConversationalRuleTableAdapter();
-                var set = adapter.GetData();
-                adapter.Dispose();
-                while (set.Count != 0)
-                {
-
-                    FixedConversationalRule fcRule = new FixedConversationalRule(set.First().Id, set.First().Input, set.First().Output, set.First().RelatedUsersId,
-                        (set.First().Status.Equals("Approved")) ? Status.Approved :
-                        (set.First().Status.Equals("Rejected")) ? Status.Rejected : Status.Pending);
-                    set.RemoveFixConversationalRuleRow(set.First());
-                    fixedConversationalRulesList.Add(fcRule);
-                }
-
                 return fixedConversationalRulesList;
             }
 
@@ -248,17 +223,7 @@ namespace UTS.ScheduleSystem
 
         public bool handleConversation(string userInput)
         {
-            //formating input
-            string formatedInput = FormatedInput(userInput);
-
-
             return false;
-        }
-
-        private string FormatedInput(string userInput)
-        {
-            string formatedInput = userInput;
-            return formatedInput;
         }
 
 
