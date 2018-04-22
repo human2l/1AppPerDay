@@ -93,17 +93,23 @@ namespace UTS.ScheduleSystem
                 var adapter = new AspNetUsersTableAdapter();
                 var set = adapter.GetData();
                 adapter.Dispose();
+                if(set.Count >= 1)
+                {
+                    User DMnEnA = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, Role.DMnEnA);
+                    set.RemoveAspNetUsersRow(set.First());
+                    userList.Add(DMnEnA);
+                }
                 if(set.Count >= 3)
                 {
-                    User dataMaintainer = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, Role.DM);
+                    User DM = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, Role.DM);
                     set.RemoveAspNetUsersRow(set.First());
-                    User editor = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, Role.E);
+                    User E = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, Role.E);
                     set.RemoveAspNetUsersRow(set.First());
-                    User approver = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, Role.A);
+                    User A = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, Role.A);
                     set.RemoveAspNetUsersRow(set.First());
-                    userList.Add(dataMaintainer);
-                    userList.Add(editor);
-                    userList.Add(approver);
+                    userList.Add(DM);
+                    userList.Add(E);
+                    userList.Add(A);
                 }
                 
                 return userList;
