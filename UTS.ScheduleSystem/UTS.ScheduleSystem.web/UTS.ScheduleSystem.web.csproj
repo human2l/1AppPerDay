@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -178,7 +179,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="DataMaintainer.aspx" />
+    <Content Include="DataMaintainer_Edit.aspx" />
     <Content Include="Editor.aspx" />
+    <Content Include="Editor_Edit.aspx" />
     <Content Include="Editor_Report.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -385,6 +388,13 @@
     <Compile Include="DataMaintainer.aspx.designer.cs">
       <DependentUpon>DataMaintainer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DataMaintainer_Edit.aspx.cs">
+      <DependentUpon>DataMaintainer_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DataMaintainer_Edit.aspx.designer.cs">
+      <DependentUpon>DataMaintainer_Edit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -398,6 +408,13 @@
     </Compile>
     <Compile Include="Editor.aspx.designer.cs">
       <DependentUpon>Editor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Editor_Edit.aspx.cs">
+      <DependentUpon>Editor_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Editor_Edit.aspx.designer.cs">
+      <DependentUpon>Editor_Edit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Editor_Report.aspx.cs">
       <DependentUpon>Editor_Report.aspx</DependentUpon>
