@@ -15,9 +15,11 @@ namespace UTS.ScheduleSystem.Web
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
+        Controller controller;
 
         protected void Page_Init(object sender, EventArgs e)
         {
+            
             // The code below helps to protect against XSRF attacks
             var requestCookie = Request.Cookies[AntiXsrfTokenKey];
             Guid requestCookieGuidValue;
@@ -46,6 +48,7 @@ namespace UTS.ScheduleSystem.Web
             }
 
             Page.PreLoad += master_Page_PreLoad;
+
         }
 
         protected void master_Page_PreLoad(object sender, EventArgs e)
@@ -69,12 +72,63 @@ namespace UTS.ScheduleSystem.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Controller"] != null && controller == null)
+            {
+
+                controller = (Controller)Session["Controller"];
+
+                if(controller.CurrentUser == null)
+                {
+                    editorPage.Visible = false;
+                    approverPage.Visible = false;
+                    dataMaintainerPage.Visible = false;
+                }
+                else
+                {
+                    switch (controller.CurrentUser.Role)
+                    {
+                        case Role.A:
+                            editorPage.Visible = false;
+                            dataMaintainerPage.Visible = false;
+                            break;
+                        case Role.E:
+                            approverPage.Visible = false;
+                            dataMaintainerPage.Visible = false;
+                            break;
+                        case Role.DM:
+                            approverPage.Visible = false;
+                            editorPage.Visible = false;
+                            break;
+                        default:
+                            editorPage.Visible = false;
+                            approverPage.Visible = false;
+                            dataMaintainerPage.Visible = false;
+                            break;
+                    }
+                }
+                
+            }
+            else
+            {
+                editorPage.Visible = false;
+                approverPage.Visible = false;
+                dataMaintainerPage.Visible = false;
+            }
 
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            //if(Session["Controller"] != null)
+            //{
+            //    controller = (Controller)Session["Controller"];
+            //    controller.CurrentUser
+            //}
+            if(controller != null)
+            {
+                controller.CurrentUser = null;
+            }
         }
     }
 

@@ -26,9 +26,6 @@ namespace UTS.ScheduleSystem.Web
                 Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
                 Response.Redirect("~/");
             }
-            controller.getData();
-
-            
         }
 
         protected void DataMaintainerGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)

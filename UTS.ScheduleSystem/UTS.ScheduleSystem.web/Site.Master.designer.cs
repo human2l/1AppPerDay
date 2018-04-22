@@ -13,6 +13,33 @@ namespace UTS.ScheduleSystem.Web {
     public partial class SiteMaster {
         
         /// <summary>
+        /// approverPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor approverPage;
+        
+        /// <summary>
+        /// editorPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor editorPage;
+        
+        /// <summary>
+        /// dataMaintainerPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor dataMaintainerPage;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

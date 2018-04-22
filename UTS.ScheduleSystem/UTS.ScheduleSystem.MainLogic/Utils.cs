@@ -13,7 +13,8 @@ namespace UTS.ScheduleSystem
             switch (objType)
             {
                 case "User":
-                    return "u" + (int.Parse(GetLastId(list).Substring(1))+1);
+                    //return "u" + (int.Parse(GetLastId(list).Substring(1))+1);
+                    return "uuu";
                 case "ConversationalRule":
                     return "c" + (int.Parse(GetLastId(list).Substring(1)) + 1);
                 case "FixedConversationalRule":

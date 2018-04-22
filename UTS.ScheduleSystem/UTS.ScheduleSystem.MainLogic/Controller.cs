@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using UTS.ScheduleSystem.Data.ScheduleSystemDataSetsTableAdapters;
@@ -10,7 +11,7 @@ namespace UTS.ScheduleSystem
     public class Controller
     {
         private FakeDB fakeDB = new FakeDB();
-        private User currentUser = new User();
+        private User currentUser;
         private List<User> userList = new List<User>();
         private List<ConversationalRule> conversationalRulesList = new List<ConversationalRule>();
         private List<FixedConversationalRule> fixedConversationalRulesList = new List<FixedConversationalRule>();
@@ -30,18 +31,6 @@ namespace UTS.ScheduleSystem
             
         }
 
-       public string getData()
-        {
-            var adapter = new AspNetUsersTableAdapter();
-            var set = adapter.GetData();
-            List<User> userList1 = new List<User>();
-            string sql;
-            sql = "select * " + "from AspNetUsers " + "where "
-            adapter.Dispose();
-            System.Diagnostics.Debug.WriteLine(set.First().UserName+"hello a");
-            return set.First().UserName;
-            
-        }
 
         
 
@@ -101,6 +90,22 @@ namespace UTS.ScheduleSystem
         {
             get
             {
+                var adapter = new AspNetUsersTableAdapter();
+                var set = adapter.GetData();
+                adapter.Dispose();
+                if(set.Count >= 3)
+                {
+                    User dataMaintainer = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, Role.DM);
+                    set.RemoveAspNetUsersRow(set.First());
+                    User editor = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, Role.E);
+                    set.RemoveAspNetUsersRow(set.First());
+                    User approver = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, Role.A);
+                    set.RemoveAspNetUsersRow(set.First());
+                    userList.Add(dataMaintainer);
+                    userList.Add(editor);
+                    userList.Add(approver);
+                }
+                
                 return userList;
             }
 
