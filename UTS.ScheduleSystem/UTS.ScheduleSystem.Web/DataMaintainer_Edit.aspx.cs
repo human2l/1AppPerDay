@@ -8,11 +8,11 @@ using System.Web.UI.WebControls;
 
 namespace UTS.ScheduleSystem.Web
 {
-    public partial class Editor_Edit : System.Web.UI.Page
+    public partial class DataMaintainer_Edit : System.Web.UI.Page
     {
+        Controller controller;
         public const string IdKey = "ID";
         string currentId;
-        Controller controller;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -65,23 +65,21 @@ namespace UTS.ScheduleSystem.Web
                 // Edit
                 // Find the Contact
                 // Save Changes
-                var fcRuleList = controller.FixedConversationalRulesList;
-                var cRuleList = controller.ConversationalRulesList;
-                controller.EditorService.EditPendingRule(controller.CurrentUser.Id, currentId, 
-                    InputTextBox.Text, OutputTextBox.Text, ref fcRuleList, ref cRuleList);
+                controller.DataMaintainerService.EditMealSchedule(currentId, TopicTextBox.Text, ParticipantsTextBox.Text, 
+                    LocationTextBox.Text, StartDateTextBox.Text, EndDateTextBox.Text, controller.CurrentUser.Id, controller.MealScheduleList);
             }
             else
             {
-               
+
             }
 
             // Return to the list page
-            Response.Redirect("~/Editor.aspx");
+            Response.Redirect("~/Datamaintainer.aspx");
         }
 
         protected void CancelButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Editor.aspx");
+            Response.Redirect("~/Datamaintainer.aspx");
         }
     }
 }
