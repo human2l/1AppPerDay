@@ -13,7 +13,7 @@
             Add new rule
         </div>
         <div class="col-md-8">
-            <asp:GridView ID="PendingGridView" runat="server" AutoGenerateColumns="false" DataKeyNames="Id" OnRowEditing="PendingGridView_RowEditing" OnRowDeleting="PendingGridView_RowDeleting">
+            <asp:GridView ID="PendingGridView" runat="server" AutoGenerateColumns="false" DataKeyNames="Id" OnRowEditing="PendingGridView_RowEditing" OnRowDeleting="PendingGridView_RowDeleting" >
                 <Columns>
                     <asp:BoundField DataField="Id" HeaderText="ID" />
                     <asp:BoundField DataField="Input" HeaderText="Input" />
