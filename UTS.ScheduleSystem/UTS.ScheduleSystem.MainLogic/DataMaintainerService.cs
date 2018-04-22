@@ -52,22 +52,6 @@ namespace UTS.ScheduleSystem
             return mealScheduleList;
         }
 
-        public List<MealSchedule> EditMealSchedule(string id, string topic, string participants, string location, string startDate, string endDate, string laseEditor, List<MealSchedule> mealScheduleList)
-        {
-            //System.Diagnostics.Debug.WriteLine(ms);
-            for (int i = 0; i < mealScheduleList.Count; i++)
-            {
-                if (mealScheduleList[i].Id == id)
-                {
-                    System.Diagnostics.Debug.WriteLine("Updated record!");
-                    mealScheduleList[i].Topic = topic;
-                    mealScheduleList[i].Participants = participants;
-                    mealScheduleList[i].Location = location;
-                    mealScheduleList[i].StartDate = startDate;
-                    mealScheduleList[i].EndDate = endDate;
-                }
-            }
-            return mealScheduleList;
-        }
+
     }
 }

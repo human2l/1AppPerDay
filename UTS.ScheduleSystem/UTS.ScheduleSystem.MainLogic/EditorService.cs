@@ -127,7 +127,7 @@ namespace UTS.ScheduleSystem
         //}
 
         //Not sure about input and output format
-        public void EditPendingRule(string userId, string ruleId, string ruleInput, string ruleOutput, ref List<FixedConversationalRule> fCRulesList, ref List<ConversationalRule> cRulesList)
+        public void EditPendingRule(string ruleId, string ruleInput, string ruleOutput, ref List<FixedConversationalRule> fCRulesList, ref List<ConversationalRule> cRulesList)
         {
             bool valueChanged = false;
             for(int i=0; i<fCRulesList.Count; i++)
@@ -136,7 +136,6 @@ namespace UTS.ScheduleSystem
                 {
                     fCRulesList[i].Input = ruleInput;
                     fCRulesList[i].Output = ruleOutput;
-                    fCRulesList[i].LastRelatedUserID += " " + userId;
                     valueChanged = true;
                     break;
                 }

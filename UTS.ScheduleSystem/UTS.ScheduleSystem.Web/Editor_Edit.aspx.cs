@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNet.Identity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,11 +18,6 @@ namespace UTS.ScheduleSystem.Web
             if (Session["Controller"] != null)
             {
                 controller = (Controller)Session["Controller"];
-            }
-            else
-            {
-                Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-                Response.Redirect("~/");
             }
 
             if (IsPostBack)
@@ -67,8 +61,7 @@ namespace UTS.ScheduleSystem.Web
                 // Save Changes
                 var fcRuleList = controller.FixedConversationalRulesList;
                 var cRuleList = controller.ConversationalRulesList;
-                controller.EditorService.EditPendingRule(controller.CurrentUser.Id, currentId, 
-                    InputTextBox.Text, OutputTextBox.Text, ref fcRuleList, ref cRuleList);
+                controller.EditorService.EditPendingRule(currentId, InputTextBox.Text, OutputTextBox.Text, ref fcRuleList, ref cRuleList);
             }
             else
             {
