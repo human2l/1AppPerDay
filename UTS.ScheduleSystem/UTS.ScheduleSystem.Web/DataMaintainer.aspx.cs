@@ -18,6 +18,7 @@ namespace UTS.ScheduleSystem.Web
             {
                 
                 controller = (Controller)Session["Controller"];
+                
                 UpdateGridView();
             }
             else
@@ -25,6 +26,7 @@ namespace UTS.ScheduleSystem.Web
                 Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
                 Response.Redirect("~/");
             }
+            controller.getData();
 
             
         }

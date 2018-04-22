@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using UTS.ScheduleSystem.Data.ScheduleSystemDataSetsTableAdapters;
 
 namespace UTS.ScheduleSystem
 {
@@ -19,10 +21,26 @@ namespace UTS.ScheduleSystem
         private EditorService editorService = new EditorService();
         private ApproverService approverService = new ApproverService();
 
+         
+
         
         public Controller()
         {
             initialization();
+            
+        }
+
+       public string getData()
+        {
+            var adapter = new AspNetUsersTableAdapter();
+            var set = adapter.GetData();
+            List<User> userList1 = new List<User>();
+            string sql;
+            sql = "select * " + "from AspNetUsers " + "where "
+            adapter.Dispose();
+            System.Diagnostics.Debug.WriteLine(set.First().UserName+"hello a");
+            return set.First().UserName;
+            
         }
 
         

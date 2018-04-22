@@ -54,6 +54,12 @@
     <Compile Include="User.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UTS.ScheduleSystem.Data\UTS.ScheduleSystem.Data.csproj">
+      <Project>{a1cc7aa4-9723-4257-98f4-8f5ee299a818}</Project>
+      <Name>UTS.ScheduleSystem.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

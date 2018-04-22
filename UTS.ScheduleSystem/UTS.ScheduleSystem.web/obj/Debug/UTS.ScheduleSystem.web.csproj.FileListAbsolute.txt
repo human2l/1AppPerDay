@@ -202,3 +202,8 @@ C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Web\obj\Debug\UTS.ScheduleSystem.Web.csprojResolveAssemblyReference.cache
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Web\obj\Debug\UTS.ScheduleSystem.Web.dll
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Web\obj\Debug\UTS.ScheduleSystem.Web.pdb
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Web\bin\UTS.ScheduleSystem.Data.dll
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Web\bin\UTS.ScheduleSystem.Data.pdb
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Web\bin\UTS.ScheduleSystem.Data.dll.config
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Web\obj\Debug\UTS.ScheduleSystem.Web.csproj.CoreCompileInputs.cache
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Web\obj\Debug\UTS.ScheduleSystem.Web.csproj.CopyComplete
