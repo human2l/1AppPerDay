@@ -31,13 +31,22 @@ namespace UTS.ScheduleSystem.Web {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
         
         /// <summary>
-        /// EditorGridView control.
+        /// PendingGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView EditorGridView;
+        protected global::System.Web.UI.WebControls.GridView PendingGridView;
+        
+        /// <summary>
+        /// RejectedGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView RejectedGridView;
         
         /// <summary>
         /// Input control.

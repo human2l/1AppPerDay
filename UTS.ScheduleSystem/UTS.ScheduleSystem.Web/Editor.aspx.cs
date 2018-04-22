@@ -18,8 +18,11 @@ namespace UTS.ScheduleSystem.Web
                 controller = (Controller)Session["Controller"];
                 List<Rule> rulesList = new List<Rule>();
                 rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-                EditorGridView.DataSource = rulesList;
-                EditorGridView.DataBind();
+                PendingGridView.DataSource = rulesList;
+                PendingGridView.DataBind();
+                rulesList = controller.EditorService.ShowAllRejectedRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+                RejectedGridView.DataSource = rulesList;
+                RejectedGridView.DataBind();
             }
             else
             {
@@ -40,8 +43,8 @@ namespace UTS.ScheduleSystem.Web
                         controller.ConversationalRulesList = controller.EditorService.AddNewCRule(Input.Text, Output.Text, "???", controller.ConversationalRulesList);
                         List<Rule> rulesList = new List<Rule>();
                         rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-                        EditorGridView.DataSource = rulesList;
-                        EditorGridView.DataBind();
+                        PendingGridView.DataSource = rulesList;
+                        PendingGridView.DataBind();
                     }
                     else
                     {
@@ -72,8 +75,8 @@ namespace UTS.ScheduleSystem.Web
                         controller.FixedConversationalRulesList = controller.EditorService.AddNewFCRule(Input.Text, Output.Text, "???", controller.FixedConversationalRulesList);
                         List<Rule> rulesList = new List<Rule>();
                         rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-                        EditorGridView.DataSource = rulesList;
-                        EditorGridView.DataBind();
+                        PendingGridView.DataSource = rulesList;
+                        PendingGridView.DataBind();
                     }
                     else
                     {
@@ -91,16 +94,41 @@ namespace UTS.ScheduleSystem.Web
             }
         }
 
-        protected void EditorGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void PendingGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            string id = EditorGridView.DataKeys[e.RowIndex].Value.ToString();
+            string id = PendingGridView.DataKeys[e.RowIndex].Value.ToString();
             var fRuleList = controller.FixedConversationalRulesList;
             var cRuleList = controller.ConversationalRulesList;
             controller.EditorService.DeletePendingRule(id, ref fRuleList, ref cRuleList);
             List<Rule> rulesList = new List<Rule>();
             rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-            EditorGridView.DataSource = rulesList;
-            EditorGridView.DataBind();
+            PendingGridView.DataSource = rulesList;
+            PendingGridView.DataBind();
+        }
+
+        protected void PendingGridView_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            //int id = (int)PendingGridView.DataKeys[e.NewEditIndex].Value;
+            //Response.Redirect("~/Editor_Edit.aspx?ID=" + id);
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DropDownList1.SelectedValue == "Pending")
+            {
+                List<Rule> rulesList = new List<Rule>();
+                rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+                PendingGridView.DataSource = rulesList;
+                PendingGridView.DataBind();
+            }
+            else if (DropDownList1.SelectedValue == "Rejected")
+            {
+                List<Rule> rulesList = new List<Rule>();
+                rulesList = controller.EditorService.ShowAllRejectedRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+                RejectedGridView.DataSource = rulesList;
+                RejectedGridView.DataBind();
+                
+            }
         }
     }
 }

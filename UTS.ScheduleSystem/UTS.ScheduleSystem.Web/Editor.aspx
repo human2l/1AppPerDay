@@ -3,14 +3,17 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
         <div class="col-md-8">All rules: 
-            <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                <asp:ListItem Selected="True">Pending</asp:ListItem>
+                <asp:ListItem>Rejected</asp:ListItem>
+            </asp:DropDownList>
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Editor_Report">Run report</asp:HyperLink>
         </div>
         <div class="col-md-4">
             Add new rule
         </div>
         <div class="col-md-8">
-            <asp:GridView ID="EditorGridView" runat="server" AutoGenerateColumns="false" DataKeyNames="Id" OnRowDeleting="EditorGridView_RowDeleting">
+            <asp:GridView ID="PendingGridView" runat="server" AutoGenerateColumns="false" DataKeyNames="Id" OnRowEditing="PendingGridView_RowEditing" OnRowDeleting="PendingGridView_RowDeleting">
                 <Columns>
                     <asp:BoundField DataField="Id" HeaderText="ID" />
                     <asp:BoundField DataField="Input" HeaderText="Input" />
@@ -18,6 +21,15 @@
                     <asp:BoundField DataField="Status" HeaderText="Status" />
                     <asp:ButtonField Text="Edit" CommandName="Edit" />
                     <asp:ButtonField Text="Delete" CommandName="Delete" />
+                </Columns>
+            </asp:GridView>
+            <br />
+            <asp:GridView ID="RejectedGridView" runat="server" AutoGenerateColumns="false">
+                <Columns>
+                    <asp:BoundField DataField="Id" HeaderText="ID" />
+                    <asp:BoundField DataField="Input" HeaderText="Input" />
+                    <asp:BoundField DataField="Output" HeaderText="Output" />
+                    <asp:BoundField DataField="Status" HeaderText="Status" />
                 </Columns>
             </asp:GridView>
         </div>
