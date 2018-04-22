@@ -10,6 +10,8 @@ namespace UTS.ScheduleSystem.Web.Account
 {
     public partial class Login : Page
     {
+
+        Controller controller;
         protected void Page_Load(object sender, EventArgs e)
         {
             RegisterHyperLink.NavigateUrl = "Register";
@@ -39,22 +41,22 @@ namespace UTS.ScheduleSystem.Web.Account
                 {
                     case SignInStatus.Success:
                         //Kai Create Controller Session after login successful
-                        if ((Controller)Session["Controller"] == null)
+                        if (controller == null)
                         {
-                            Controller controller = new Controller();
-                            if (controller != null)
-                            {
-                                foreach (User u in controller.UserList)
-                                {
-                                    if (u.Email == Email.Text){
-                                        controller.CurrentUser = u;
-                                        break;
-                                    }
-                                }
-                                Session["Controller"] = controller;
-                            }
-                            
+                            controller = new Controller();
+                            Session["Controller"] = controller;
                         }
+
+                            foreach (User u in controller.UserList)
+                            {
+                                if (u.Email == Email.Text)
+                                {
+                                    controller.CurrentUser = u;
+                                    break;
+                                }
+                            }
+
+
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                         
                         break;
