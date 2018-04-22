@@ -99,6 +99,17 @@ namespace UTS.ScheduleSystem.Web
                             approverPage.Visible = false;
                             editorPage.Visible = false;
                             break;
+                        case Role.DMnEnA:
+                            break;
+                        case Role.DMnA:
+                            editorPage.Visible = false;
+                            break;
+                        case Role.DMnE:
+                            approverPage.Visible = false;
+                            break;
+                        case Role.EnA:
+                            dataMaintainerPage.Visible = false;
+                            break;
                         default:
                             editorPage.Visible = false;
                             approverPage.Visible = false;
@@ -120,11 +131,6 @@ namespace UTS.ScheduleSystem.Web
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            //if(Session["Controller"] != null)
-            //{
-            //    controller = (Controller)Session["Controller"];
-            //    controller.CurrentUser
-            //}
             if(controller != null)
             {
                 controller.CurrentUser = null;

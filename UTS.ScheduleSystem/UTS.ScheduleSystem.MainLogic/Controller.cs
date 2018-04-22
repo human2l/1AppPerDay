@@ -152,11 +152,24 @@ namespace UTS.ScheduleSystem
         {
             get
             {
+                var adapter = new MealScheduleTableAdapter();
+                var set = adapter.GetData();
+                adapter.Dispose();
+                while(set.Count != 0)
+                {
+                    MealSchedule ms = new MealSchedule(set.First().Id, set.First().UserId, set.First().Topic, set.First().Participants, set.First().Location, set.First().StartDate, set.First().EndDate, set.First().LastEditUserId);
+                    set.RemoveMealScheduleRow(set.First());
+                    mealScheduleList.Add(ms);
+                }
+
                 return mealScheduleList;
             }
 
             set
             {
+                var adapter = new MealScheduleTableAdapter();
+                var set = adapter.GetData();
+                
                 mealScheduleList = value;
             }
         }
