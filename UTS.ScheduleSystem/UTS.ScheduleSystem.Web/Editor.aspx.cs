@@ -17,10 +17,12 @@ namespace UTS.ScheduleSystem.Web
             {
                 controller = (Controller)Session["Controller"];
                 List<Rule> rulesList = new List<Rule>();
-                rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+                List<FixedConversationalRule> fcRuleList = controller.FixedConversationalRulesList;
+                List<ConversationalRule> cRuleList = controller.ConversationalRulesList;
+                rulesList = controller.EditorService.ShowAllPendingRules(fcRuleList, cRuleList);
                 PendingGridView.DataSource = rulesList;
                 PendingGridView.DataBind();
-                rulesList = controller.EditorService.ShowAllRejectedRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+                rulesList = controller.EditorService.ShowAllRejectedRules(fcRuleList, cRuleList);
                 RejectedGridView.DataSource = rulesList;
                 RejectedGridView.DataBind();
             }
@@ -38,9 +40,11 @@ namespace UTS.ScheduleSystem.Web
                 if (Session["Controller"] != null)
                 {
                     controller = (Controller)Session["Controller"];
-                    if(!controller.EditorService.CheckRepeatingRule(Input.Text, controller.FixedConversationalRulesList, controller.ConversationalRulesList))
+                    List<FixedConversationalRule> fcRuleList = controller.FixedConversationalRulesList;
+                    List<ConversationalRule> cRuleList = controller.ConversationalRulesList;
+                    if (!controller.EditorService.CheckRepeatingRule(Input.Text, fcRuleList, cRuleList))
                     {
-                        controller.ConversationalRulesList = controller.EditorService.AddNewCRule(Input.Text, Output.Text, "???", controller.ConversationalRulesList);
+                        controller.ConversationalRulesList = controller.EditorService.AddNewCRule(Input.Text, Output.Text, "???", cRuleList);
                         List<Rule> rulesList = new List<Rule>();
                         rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
                         PendingGridView.DataSource = rulesList;
@@ -70,9 +74,11 @@ namespace UTS.ScheduleSystem.Web
                 if (Session["Controller"] != null)
                 {
                     controller = (Controller)Session["Controller"];
-                    if (!controller.EditorService.CheckRepeatingRule(Input.Text, controller.FixedConversationalRulesList, controller.ConversationalRulesList))
+                    List<FixedConversationalRule> fcRuleList = controller.FixedConversationalRulesList;
+                    List<ConversationalRule> cRuleList = controller.ConversationalRulesList;
+                    if (!controller.EditorService.CheckRepeatingRule(Input.Text, fcRuleList, cRuleList))
                     {
-                        controller.FixedConversationalRulesList = controller.EditorService.AddNewFCRule(Input.Text, Output.Text, "???", controller.FixedConversationalRulesList);
+                        controller.FixedConversationalRulesList = controller.EditorService.AddNewFCRule(Input.Text, Output.Text, "???", fcRuleList);
                         List<Rule> rulesList = new List<Rule>();
                         rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
                         PendingGridView.DataSource = rulesList;

@@ -17,13 +17,15 @@ namespace UTS.ScheduleSystem.Web
             {
                 controller = (Controller)Session["Controller"];
                 List<Rule> rulesList = new List<Rule>();
-                rulesList = controller.EditorService.ShowCurrentUserApprovedRules(controller.CurrentUser, controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+                List<FixedConversationalRule> fcRuleList = controller.FixedConversationalRulesList;
+                List<ConversationalRule> cRuleList = controller.ConversationalRulesList;
+                rulesList = controller.EditorService.ShowCurrentUserApprovedRules(controller.CurrentUser, fcRuleList, cRuleList);
                 EditorReportGridView.DataSource = rulesList;
                 EditorReportGridView.DataBind();
                 Username.Text = controller.CurrentUser.Name + controller.CurrentUser.Id;
-                NumberOfApprovedRules.Text = controller.EditorService.ShowCurrentUserApprovedRulesCount(controller.CurrentUser, controller.FixedConversationalRulesList, controller.ConversationalRulesList).ToString();
-                NumberOfRejectedRules.Text = controller.EditorService.ShowCurrentUserRejectedRulesCount(controller.CurrentUser, controller.FixedConversationalRulesList, controller.ConversationalRulesList).ToString();
-                SuccessRate.Text = controller.EditorService.ShowCurrentUserSuccessRate(controller.CurrentUser, controller.FixedConversationalRulesList, controller.ConversationalRulesList).ToString();
+                NumberOfApprovedRules.Text = controller.EditorService.ShowCurrentUserApprovedRulesCount(controller.CurrentUser, fcRuleList, cRuleList).ToString();
+                NumberOfRejectedRules.Text = controller.EditorService.ShowCurrentUserRejectedRulesCount(controller.CurrentUser, fcRuleList, cRuleList).ToString();
+                SuccessRate.Text = controller.EditorService.ShowCurrentUserSuccessRate(controller.CurrentUser, fcRuleList, cRuleList).ToString();
             }
             else
             {
