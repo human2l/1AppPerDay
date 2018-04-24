@@ -14,7 +14,6 @@ namespace UTS.ScheduleSystem.Web
         private List<User> _editorList = new List<User>();
         private User currentEditor; 
 
-        private string editorId;
         private string editorUsername;
         private string editorApprovedRuleNum;
         private string editorRejectedRuleNum;
@@ -46,7 +45,7 @@ namespace UTS.ScheduleSystem.Web
         protected void editorList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int index = Convert.ToInt32(e.CommandArgument);
-            string _editorId = editorList.Rows[index].Cells[0].Text;
+            string editorId = editorList.Rows[index].Cells[0].Text;
             List<ConversationalRule> conversationalRules = controller.ConversationalRulesList;
             List<FixedConversationalRule> fixedConversationalRules = controller.FixedConversationalRulesList;
             foreach (User user in _editorList)
@@ -69,19 +68,6 @@ namespace UTS.ScheduleSystem.Web
                     break;
                 default:
                     break;
-            }
-        }
-
-        public string EditorId
-        {
-            get
-            {
-                return editorId;
-            }
-
-            set
-            {
-                editorId = value;
             }
         }
 

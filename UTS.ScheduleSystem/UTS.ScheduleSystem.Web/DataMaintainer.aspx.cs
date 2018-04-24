@@ -36,7 +36,8 @@ namespace UTS.ScheduleSystem.Web
         protected void DataMaintainerGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             string id = DataMaintainerGridView.DataKeys[e.RowIndex].Value.ToString();
-            controller.MealScheduleList = controller.DataMaintainerService.deleteMealSchedule(id, controller.MealScheduleList);
+            mealScheduleList = controller.DataMaintainerService.deleteMealSchedule(id, mealScheduleList);
+            controller.MealScheduleList = mealScheduleList;
             UpdateGridView();
         }
 
