@@ -45,5 +45,15 @@ namespace UTS.ScheduleSystem.Data.Properties {
                 return ((string)(this["DatabaseConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Web\App_Data\aspnet-UTS.ScheduleSystem.Web-20180415025446.mdf;Initial Catalog=aspnet-UTS.ScheduleSystem.Web-20180415025446;Integrated Security=True")]
+        public string aspnet_UTS_ScheduleSystem_Web_20180415025446ConnectionString1 {
+            get {
+                return ((string)(this["aspnet_UTS_ScheduleSystem_Web_20180415025446ConnectionString1"]));
+            }
+        }
     }
 }

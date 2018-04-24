@@ -2232,7 +2232,7 @@ SELECT Id, UserId, Topic, Participants, Location, StartDate, EndDate, LastEditUs
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::UTS.ScheduleSystem.Data.Properties.Settings.Default.DatabaseConnectionString;
+            this._connection.ConnectionString = global::UTS.ScheduleSystem.Data.Properties.Settings.Default.aspnet_UTS_ScheduleSystem_Web_20180415025446ConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
