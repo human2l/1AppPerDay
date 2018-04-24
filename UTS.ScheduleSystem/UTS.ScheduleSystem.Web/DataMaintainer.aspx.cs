@@ -11,14 +11,19 @@ namespace UTS.ScheduleSystem.Web
     public partial class DataMaintainer : System.Web.UI.Page
     {
         Controller controller;
+        List<MealSchedule> mealScheduleList;//added
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            System.Diagnostics.Debug.WriteLine("page load");
             if (Session["Controller"] != null && controller == null)
             {
-                
+
                 controller = (Controller)Session["Controller"];
-                
+                //System.Diagnostics.Debug.WriteLine("load:front mealList Count: " + mealScheduleList.Count);
+
+                mealScheduleList = controller.MealScheduleList;//added
+                System.Diagnostics.Debug.WriteLine("loadafter:front mealList Count: " + mealScheduleList.Count);
                 UpdateGridView();
             }
             else
@@ -47,14 +52,15 @@ namespace UTS.ScheduleSystem.Web
         private void UpdateGridView()
         {
             //DataMaintainerGridView.Columns[0].Visible = false;
-            DataMaintainerGridView.DataSource = controller.MealScheduleList;
+            //DataMaintainerGridView.DataSource = controller.MealScheduleList;
+
+            DataMaintainerGridView.DataSource = mealScheduleList;//changed
             DataMaintainerGridView.DataBind();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("ButtonClick!");
-            List<MealSchedule> mealSchedules = controller.MealScheduleList;
+
 
             string topic = TopicTB.Text;
             string userId = UserIdTB.Text;
@@ -62,10 +68,10 @@ namespace UTS.ScheduleSystem.Web
             string location = LocationTB.Text;
             string startDate = StartDateTB.Text;
             string endDate = EndDateTB.Text;
-            MealSchedule ms = new MealSchedule(Utils.CreateIdByType("MealSchedule", mealSchedules), userId, topic, participants, location, startDate, endDate, "blahblah");
+            MealSchedule ms = new MealSchedule(Utils.CreateIdByType("MealSchedule", mealScheduleList), userId, topic, participants, location, startDate, endDate, "blahblah");
 
-            mealSchedules.Add(ms);
-            controller.MealScheduleList = mealSchedules;
+            mealScheduleList.Add(ms);
+            controller.MealScheduleList = mealScheduleList;
             UpdateGridView();
 
         }

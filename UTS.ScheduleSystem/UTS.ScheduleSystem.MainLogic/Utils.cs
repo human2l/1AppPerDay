@@ -65,5 +65,29 @@ namespace UTS.ScheduleSystem
             }
                 return null;
         }
+
+        public static Role GetRole(string role)
+        {
+            switch (role)
+            {
+                case "DMnEnA":
+                    return Role.DMnEnA;
+                case "DMnA":
+                    return Role.DMnA;
+                case "DMnE":
+                    return Role.DMnE;
+                case "EnA":
+                    return Role.EnA;
+                case "E":
+                    return Role.E;
+                case "A":
+                    return Role.A;
+                case "DM":
+                    return Role.DM;
+
+                default:
+                    return Role.None;
+            }
+        }
     }
 }

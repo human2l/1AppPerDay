@@ -27,7 +27,7 @@ namespace UTS.ScheduleSystem
         
         public Controller()
         {
-            initialization();
+            //initialization();
             
         }
 
@@ -93,13 +93,16 @@ namespace UTS.ScheduleSystem
                 var adapter = new AspNetUsersTableAdapter();
                 var set = adapter.GetData();
                 adapter.Dispose();
+                List<User> u = new List<User>();
 
                 while (set.Count > 0)
                 {
-                    User user = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, GetRole(set.First().Role));
+                    User user = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, Utils.GetRole(set.First().Role));
                     set.RemoveAspNetUsersRow(set.First());
-                    userList.Add(user);
+                    u.Add(user);
                 }
+
+                userList = u;
 
                 //if(set.Count >= 1)
                 //{
@@ -186,10 +189,15 @@ namespace UTS.ScheduleSystem
                 var adapter = new MealScheduleTableAdapter();
                 var set = adapter.GetData();
                 adapter.Dispose();
+                for (var i = 0; i < mealScheduleList.Count; i++)
+                {
+                    mealScheduleList.RemoveAt(i);
+                }
                 while (set.Count != 0)
                 {
                     MealSchedule ms = new MealSchedule(set.First().Id, set.First().UserId, set.First().Topic, set.First().Participants, set.First().Location, set.First().StartDate, set.First().EndDate, set.First().LastEditUserId);
                     set.RemoveMealScheduleRow(set.First());
+
                     mealScheduleList.Add(ms);
                 }
 
@@ -200,16 +208,19 @@ namespace UTS.ScheduleSystem
             {
                 var adapter = new MealScheduleTableAdapter();
                 var set = adapter.GetData();
-                //while (set.Count != 0)
-                //{
-                //    set.RemoveMealScheduleRow(set.First());
-                //}
-                //while (MealScheduleList.Count != 0)
-                //{
-                //    MealSchedule ms = MealScheduleList.
-                //}
 
-                mealScheduleList = value;
+                for (var i = 0; i < set.Count; i++)
+                {
+                    adapter.Delete(set[i].Id, set[i].UserId, set[i].Topic, set[i].Participants, set[i].Location, set[i].StartDate, set[i].EndDate, set[i].LastEditUserId);
+                }
+                System.Diagnostics.Debug.WriteLine("valueCount: " + value.Count);
+                for (var i = 0; i < value.Count; i++)
+                {
+                    MealSchedule ms = value[i];
+                    System.Diagnostics.Debug.WriteLine(ms.Id);
+                    adapter.Insert(ms.Id, ms.UserId, ms.Topic, ms.Participants, ms.Location, ms.StartDate, ms.EndDate, ms.LastEditUserId); ;
+                }
+                adapter.Dispose();
             }
         }
 
@@ -265,29 +276,7 @@ namespace UTS.ScheduleSystem
             return false;
         }
 
-        private Role GetRole(string role)
-        {
-            switch (role)
-            {
-                case "DMnEnA":
-                    return Role.DMnEnA;
-                case "DMnA":
-                    return Role.DMnA;
-                case "DMnE":
-                    return Role.DMnE;
-                case "EnA":
-                    return Role.EnA;
-                case "E":
-                    return Role.E;
-                case "A":
-                    return Role.A;
-                case "DM":
-                    return Role.DM;
-
-                default:
-                    return Role.None;
-            }
-        }
+        
 
 
 
