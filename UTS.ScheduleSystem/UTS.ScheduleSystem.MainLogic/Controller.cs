@@ -186,7 +186,19 @@ namespace UTS.ScheduleSystem
 
             set
             {
-                fixedConversationalRulesList = value;
+                var adapter = new FixedConversationalRuleTableAdapter();
+                var set = adapter.GetData();
+                for (var i = 0; i < set.Count; i++)
+                {
+                    adapter.Delete(set[i].Id, set[i].Input, set[i].Output, set[i].RelatedUsersId, set[i].Status);
+                }
+                for (var i = 0; i < value.Count; i++)
+                {
+                    FixedConversationalRule rule = value[i];
+                    adapter.Insert(rule.Id, rule.Input, rule.Output, rule.RelatedUsersId, rule.Status.ToString());
+                }
+                adapter.Dispose();
+                //fixedConversationalRulesList = value;
             }
         }
 
