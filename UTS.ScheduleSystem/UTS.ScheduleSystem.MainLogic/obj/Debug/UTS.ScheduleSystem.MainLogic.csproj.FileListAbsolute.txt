@@ -18,5 +18,3 @@ C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\bin\Debug\UTS.ScheduleSystem.Data.pdb
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\bin\Debug\UTS.ScheduleSystem.Data.dll.config
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\obj\Debug\UTS.ScheduleSystem.MainLogic.csproj.CopyComplete
-C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\bin\Debug\Database.mdf
-C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\bin\Debug\Database_log.ldf

@@ -95,17 +95,17 @@ namespace UTS.ScheduleSystem
                 adapter.Dispose();
                 if(set.Count >= 1)
                 {
-                    User DMnEnA = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, Role.DMnEnA);
+                    User DMnEnA = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, GetRole(set.First().Role));
                     set.RemoveAspNetUsersRow(set.First());
                     userList.Add(DMnEnA);
                 }
                 if(set.Count >= 3)
                 {
-                    User DM = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, Role.DM);
+                    User DM = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, GetRole(set.First().Role));
                     set.RemoveAspNetUsersRow(set.First());
-                    User E = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, Role.E);
+                    User E = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, GetRole(set.First().Role));
                     set.RemoveAspNetUsersRow(set.First());
-                    User A = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, Role.A);
+                    User A = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, GetRole(set.First().Role));
                     set.RemoveAspNetUsersRow(set.First());
                     userList.Add(DM);
                     userList.Add(E);
@@ -128,15 +128,15 @@ namespace UTS.ScheduleSystem
                 var adapter = new MealScheduleTableAdapter();
                 var set = adapter.GetData();
                 adapter.Dispose();
-                while (set.Count != 0)
-                {
-                    ConversationalRule cRule = new ConversationalRule(set.First().Id, set.First().Input, set.First().Output, set.First().RelatedUsersId,
-                        (set.First().status.Equals((Status.Approved).ToString())) ? Status.Approved :
-                        (set.First().status.Equals((Status.Rejected).ToString())) ? Status.Rejected :
-                        Status.Pending);
-                    set.RemoveMealScheduleRow(set.First());
-                    conversationalRulesList.Add(cRule);
-                }
+                //while (set.Count != 0)
+                //{
+                //    ConversationalRule cRule = new ConversationalRule(set.First().Id, set.First().Input, set.First().Output, set.First().RelatedUsersId,
+                //        (set.First().status.Equals((Status.Approved).ToString())) ? Status.Approved :
+                //        (set.First().status.Equals((Status.Rejected).ToString())) ? Status.Rejected :
+                //        Status.Pending);
+                //    set.RemoveMealScheduleRow(set.First());
+                //    conversationalRulesList.Add(cRule);
+                //}
                 return conversationalRulesList;
             }
 
@@ -153,15 +153,15 @@ namespace UTS.ScheduleSystem
                 var adapter = new MealScheduleTableAdapter();
                 var set = adapter.GetData();
                 adapter.Dispose();
-                while (set.Count != 0)
-                {
-                    FixedConversationalRule fcRule = new FixedConversationalRule(set.First().Id, set.First().Input, set.First().Output, set.First().RelatedUsersId,
-                        (set.First().status.Equals((Status.Approved).ToString())) ? Status.Approved :
-                        (set.First().status.Equals((Status.Rejected).ToString())) ? Status.Rejected :
-                        Status.Pending);
-                    set.RemoveMealScheduleRow(set.First());
-                    fixedConversationalRulesList.Add(fcRule);
-                }
+                //while (set.Count != 0)
+                //{
+                //    FixedConversationalRule fcRule = new FixedConversationalRule(set.First().Id, set.First().Input, set.First().Output, set.First().RelatedUsersId,
+                //        (set.First().status.Equals((Status.Approved).ToString())) ? Status.Approved :
+                //        (set.First().status.Equals((Status.Rejected).ToString())) ? Status.Rejected :
+                //        Status.Pending);
+                //    set.RemoveMealScheduleRow(set.First());
+                //    fixedConversationalRulesList.Add(fcRule);
+                //}
                 return fixedConversationalRulesList;
             }
 
@@ -192,14 +192,14 @@ namespace UTS.ScheduleSystem
             {
                 var adapter = new MealScheduleTableAdapter();
                 var set = adapter.GetData();
-                while (set.Count != 0)
-                {
-                    set.RemoveMealScheduleRow(set.First());
-                }
-                while (MealScheduleList.Count != 0)
-                {
-                    MealSchedule ms = MealScheduleList.
-                }
+                //while (set.Count != 0)
+                //{
+                //    set.RemoveMealScheduleRow(set.First());
+                //}
+                //while (MealScheduleList.Count != 0)
+                //{
+                //    MealSchedule ms = MealScheduleList.
+                //}
 
                 mealScheduleList = value;
             }
@@ -257,7 +257,29 @@ namespace UTS.ScheduleSystem
             return false;
         }
 
+        private Role GetRole(string role)
+        {
+            switch (role)
+            {
+                case "DMnEnA":
+                    return Role.DMnEnA;
+                case "DMnA":
+                    return Role.DMnA;
+                case "DMnE":
+                    return Role.DMnE;
+                case "EnA":
+                    return Role.EnA;
+                case "E":
+                    return Role.E;
+                case "A":
+                    return Role.A;
+                case "DM":
+                    return Role.DM;
 
+                default:
+                    return Role.None;
+            }
+        }
 
 
 
