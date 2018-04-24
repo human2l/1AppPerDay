@@ -7,7 +7,13 @@
     </div>
     <div class="row">
         <div class="col-md-4">
-            <asp:BulletedList ID="editorList" BulletStyle="Disc" DisplayMode="LinkButton" OnClick="editorList_Click" runat="server"></asp:BulletedList>
+            <asp:GridView ID="editorList" runat="server" AutoGenerateColumns="false" OnRowCommand="editorList_RowCommand">
+                <Columns>
+                    <asp:BoundField DataField="Id" HeaderText="ID" />
+                    <asp:BoundField DataField="Name" HeaderText="Name" />
+                    <asp:ButtonField Text="Check" CommandName="Check" />
+                </Columns>
+            </asp:GridView>
         </div>
         <div class="col-md-8">
             <div class="row" id="username">Username: <%=EditorUsername%></div>
