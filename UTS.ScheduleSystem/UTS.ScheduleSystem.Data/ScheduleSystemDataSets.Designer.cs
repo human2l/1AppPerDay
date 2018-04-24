@@ -38,6 +38,10 @@ namespace UTS.ScheduleSystem.Data {
         
         private FixedConversationalRuleDataTable tableFixedConversationalRule;
         
+        private ConversationalRuleDataTable tableConversationalRule;
+        
+        private FixedConversationalRuleDataTable tableFixedConversationalRule;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -86,6 +90,12 @@ namespace UTS.ScheduleSystem.Data {
                 if ((ds.Tables["FixedConversationalRule"] != null)) {
                     base.Tables.Add(new FixedConversationalRuleDataTable(ds.Tables["FixedConversationalRule"]));
                 }
+                if ((ds.Tables["ConversationalRule"] != null)) {
+                    base.Tables.Add(new ConversationalRuleDataTable(ds.Tables["ConversationalRule"]));
+                }
+                if ((ds.Tables["FixedConversationalRule"] != null)) {
+                    base.Tables.Add(new FixedConversationalRuleDataTable(ds.Tables["FixedConversationalRule"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -121,6 +131,26 @@ namespace UTS.ScheduleSystem.Data {
         public AspNetUsersDataTable AspNetUsers {
             get {
                 return this.tableAspNetUsers;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ConversationalRuleDataTable ConversationalRule {
+            get {
+                return this.tableConversationalRule;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public FixedConversationalRuleDataTable FixedConversationalRule {
+            get {
+                return this.tableFixedConversationalRule;
             }
         }
         
@@ -251,6 +281,12 @@ namespace UTS.ScheduleSystem.Data {
                 if ((ds.Tables["FixedConversationalRule"] != null)) {
                     base.Tables.Add(new FixedConversationalRuleDataTable(ds.Tables["FixedConversationalRule"]));
                 }
+                if ((ds.Tables["ConversationalRule"] != null)) {
+                    base.Tables.Add(new ConversationalRuleDataTable(ds.Tables["ConversationalRule"]));
+                }
+                if ((ds.Tables["FixedConversationalRule"] != null)) {
+                    base.Tables.Add(new FixedConversationalRuleDataTable(ds.Tables["FixedConversationalRule"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -321,6 +357,18 @@ namespace UTS.ScheduleSystem.Data {
                     this.tableFixedConversationalRule.InitVars();
                 }
             }
+            this.tableConversationalRule = ((ConversationalRuleDataTable)(base.Tables["ConversationalRule"]));
+            if ((initTable == true)) {
+                if ((this.tableConversationalRule != null)) {
+                    this.tableConversationalRule.InitVars();
+                }
+            }
+            this.tableFixedConversationalRule = ((FixedConversationalRuleDataTable)(base.Tables["FixedConversationalRule"]));
+            if ((initTable == true)) {
+                if ((this.tableFixedConversationalRule != null)) {
+                    this.tableFixedConversationalRule.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -335,15 +383,19 @@ namespace UTS.ScheduleSystem.Data {
             base.Tables.Add(this.tableMealSchedule);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.tableAspNetUsers = new AspNetUsersDataTable();
             base.Tables.Add(this.tableAspNetUsers);
 =======
+=======
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             this.tableConversationalRule = new ConversationalRuleDataTable();
             base.Tables.Add(this.tableConversationalRule);
             this.tableFixedConversationalRule = new FixedConversationalRuleDataTable();
             base.Tables.Add(this.tableFixedConversationalRule);
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
         }
@@ -354,11 +406,25 @@ namespace UTS.ScheduleSystem.Data {
             return false;
 =======
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private bool ShouldSerializeAspNetUsers() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializeConversationalRule() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializeFixedConversationalRule() {
             return false;
         }
         
@@ -446,6 +512,12 @@ namespace UTS.ScheduleSystem.Data {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void AspNetUsersRowChangeEventHandler(object sender, AspNetUsersRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void ConversationalRuleRowChangeEventHandler(object sender, ConversationalRuleRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void FixedConversationalRuleRowChangeEventHandler(object sender, FixedConversationalRuleRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void ConversationalRuleRowChangeEventHandler(object sender, ConversationalRuleRowChangeEvent e);
@@ -1274,6 +1346,7 @@ namespace UTS.ScheduleSystem.Data {
         ///</summary>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         public partial class MealScheduleRow : global::System.Data.DataRow {
             
             private MealScheduleDataTable tableMealSchedule;
@@ -1306,10 +1379,51 @@ namespace UTS.ScheduleSystem.Data {
                 this.InitClass();
                 this.EndInit();
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ConversationalRuleDataTable : global::System.Data.TypedTableBase<ConversationalRuleRow> {
+            
+            private global::System.Data.DataColumn columnId;
+            
+            private global::System.Data.DataColumn columnInput;
+            
+            private global::System.Data.DataColumn columnOutput;
+            
+            private global::System.Data.DataColumn columnRelatedUsersId;
+            
+            private global::System.Data.DataColumn columnStatus;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ConversationalRuleDataTable() {
+                this.TableName = "ConversationalRule";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal ConversationalRuleDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
 <<<<<<< HEAD
             public string Id {
                 get {
@@ -1332,10 +1446,16 @@ namespace UTS.ScheduleSystem.Data {
                 }
                 this.Prefix = table.Prefix;
                 this.MinimumCapacity = table.MinimumCapacity;
+=======
+            protected ConversationalRuleDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
 <<<<<<< HEAD
             public string UserId {
                 get {
@@ -1343,6 +1463,11 @@ namespace UTS.ScheduleSystem.Data {
                 }
                 set {
                     this[this.tableMealSchedule.UserIdColumn] = value;
+=======
+            public global::System.Data.DataColumn IdColumn {
+                get {
+                    return this.columnId;
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
                 }
 =======
             protected ConversationalRuleDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
@@ -1353,6 +1478,7 @@ namespace UTS.ScheduleSystem.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
 <<<<<<< HEAD
             public string Topic {
                 get {
@@ -1365,11 +1491,17 @@ namespace UTS.ScheduleSystem.Data {
                 get {
                     return this.columnId;
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
+            public global::System.Data.DataColumn InputColumn {
+                get {
+                    return this.columnInput;
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
 <<<<<<< HEAD
             public string Participants {
                 get {
@@ -1382,11 +1514,17 @@ namespace UTS.ScheduleSystem.Data {
                 get {
                     return this.columnInput;
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
+            public global::System.Data.DataColumn OutputColumn {
+                get {
+                    return this.columnOutput;
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
 <<<<<<< HEAD
             public string Location {
                 get {
@@ -1399,11 +1537,17 @@ namespace UTS.ScheduleSystem.Data {
                 get {
                     return this.columnOutput;
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
+            public global::System.Data.DataColumn RelatedUsersIdColumn {
+                get {
+                    return this.columnRelatedUsersId;
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
 <<<<<<< HEAD
             public string StartDate {
                 get {
@@ -1416,11 +1560,17 @@ namespace UTS.ScheduleSystem.Data {
                 get {
                     return this.columnRelatedUsersId;
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
+            public global::System.Data.DataColumn StatusColumn {
+                get {
+                    return this.columnStatus;
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
 <<<<<<< HEAD
             public string EndDate {
                 get {
@@ -1433,11 +1583,18 @@ namespace UTS.ScheduleSystem.Data {
                 get {
                     return this.columnStatus;
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
 <<<<<<< HEAD
             public string LastEditUserId {
                 get {
@@ -1450,6 +1607,11 @@ namespace UTS.ScheduleSystem.Data {
             public int Count {
                 get {
                     return this.Rows.Count;
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
+            public ConversationalRuleRow this[int index] {
+                get {
+                    return ((ConversationalRuleRow)(this.Rows[index]));
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
                 }
             }
@@ -1475,8 +1637,8 @@ namespace UTS.ScheduleSystem.Data {
             
             private global::System.Data.DataColumn columnStatus;
             
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
 <<<<<<< HEAD
             public ConversationalRuleDataTable() {
                 this.TableName = "ConversationalRule";
@@ -1537,6 +1699,14 @@ namespace UTS.ScheduleSystem.Data {
                 }
 =======
             public event ConversationalRuleRowChangeEventHandler ConversationalRuleRowDeleting;
+=======
+            public event ConversationalRuleRowChangeEventHandler ConversationalRuleRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event ConversationalRuleRowChangeEventHandler ConversationalRuleRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event ConversationalRuleRowChangeEventHandler ConversationalRuleRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public event ConversationalRuleRowChangeEventHandler ConversationalRuleRowDeleted;
@@ -1545,11 +1715,43 @@ namespace UTS.ScheduleSystem.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void AddConversationalRuleRow(ConversationalRuleRow row) {
                 this.Rows.Add(row);
+            }
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
+            public event ConversationalRuleRowChangeEventHandler ConversationalRuleRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddConversationalRuleRow(ConversationalRuleRow row) {
+                this.Rows.Add(row);
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
+            public ConversationalRuleRow AddConversationalRuleRow(string Id, string Input, string Output, string RelatedUsersId, string Status) {
+                ConversationalRuleRow rowConversationalRuleRow = ((ConversationalRuleRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Id,
+                        Input,
+                        Output,
+                        RelatedUsersId,
+                        Status};
+                rowConversationalRuleRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowConversationalRuleRow);
+                return rowConversationalRuleRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ConversationalRuleRow FindById(string Id) {
+                return ((ConversationalRuleRow)(this.Rows.Find(new object[] {
+                            Id})));
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
 <<<<<<< HEAD
             public global::System.Data.DataColumn OutputColumn {
                 get {
@@ -1568,29 +1770,6 @@ namespace UTS.ScheduleSystem.Data {
                 this.Rows.Add(rowConversationalRuleRow);
                 return rowConversationalRuleRow;
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-<<<<<<< HEAD
-            public global::System.Data.DataColumn RelatedUsersIdColumn {
-                get {
-                    return this.columnRelatedUsersId;
-                }
-=======
-            public ConversationalRuleRow FindById(string Id) {
-                return ((ConversationalRuleRow)(this.Rows.Find(new object[] {
-                            Id})));
->>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-<<<<<<< HEAD
-            public global::System.Data.DataColumn StatusColumn {
-                get {
-                    return this.columnStatus;
-                }
 =======
             public override global::System.Data.DataTable Clone() {
                 ConversationalRuleDataTable cln = ((ConversationalRuleDataTable)(base.Clone()));
@@ -1602,6 +1781,50 @@ namespace UTS.ScheduleSystem.Data {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
 <<<<<<< HEAD
+<<<<<<< HEAD
+            public global::System.Data.DataColumn RelatedUsersIdColumn {
+                get {
+                    return this.columnRelatedUsersId;
+                }
+=======
+            public ConversationalRuleRow FindById(string Id) {
+                return ((ConversationalRuleRow)(this.Rows.Find(new object[] {
+                            Id})));
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ConversationalRuleDataTable();
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
+<<<<<<< HEAD
+            public global::System.Data.DataColumn StatusColumn {
+                get {
+                    return this.columnStatus;
+                }
+=======
+            public override global::System.Data.DataTable Clone() {
+                ConversationalRuleDataTable cln = ((ConversationalRuleDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
+            internal void InitVars() {
+                this.columnId = base.Columns["Id"];
+                this.columnInput = base.Columns["Input"];
+                this.columnOutput = base.Columns["Output"];
+                this.columnRelatedUsersId = base.Columns["RelatedUsersId"];
+                this.columnStatus = base.Columns["Status"];
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
+<<<<<<< HEAD
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1611,10 +1834,36 @@ namespace UTS.ScheduleSystem.Data {
             protected override global::System.Data.DataTable CreateInstance() {
                 return new ConversationalRuleDataTable();
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
+            private void InitClass() {
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.columnInput = new global::System.Data.DataColumn("Input", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInput);
+                this.columnOutput = new global::System.Data.DataColumn("Output", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOutput);
+                this.columnRelatedUsersId = new global::System.Data.DataColumn("RelatedUsersId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRelatedUsersId);
+                this.columnStatus = new global::System.Data.DataColumn("Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStatus);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId}, true));
+                this.columnId.AllowDBNull = false;
+                this.columnId.Unique = true;
+                this.columnId.MaxLength = 128;
+                this.columnInput.AllowDBNull = false;
+                this.columnInput.MaxLength = 128;
+                this.columnOutput.AllowDBNull = false;
+                this.columnOutput.MaxLength = 128;
+                this.columnRelatedUsersId.MaxLength = 128;
+                this.columnStatus.AllowDBNull = false;
+                this.columnStatus.MaxLength = 128;
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
 <<<<<<< HEAD
             public ConversationalRuleRow this[int index] {
                 get {
@@ -1628,9 +1877,14 @@ namespace UTS.ScheduleSystem.Data {
                 this.columnRelatedUsersId = base.Columns["RelatedUsersId"];
                 this.columnStatus = base.Columns["Status"];
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
+            public ConversationalRuleRow NewConversationalRuleRow() {
+                return ((ConversationalRuleRow)(this.NewRow()));
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
 <<<<<<< HEAD
             public event ConversationalRuleRowChangeEventHandler ConversationalRuleRowChanging;
 =======
@@ -1657,10 +1911,15 @@ namespace UTS.ScheduleSystem.Data {
                 this.columnRelatedUsersId.MaxLength = 128;
                 this.columnStatus.AllowDBNull = false;
                 this.columnStatus.MaxLength = 128;
+=======
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ConversationalRuleRow(builder);
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             }
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
 <<<<<<< HEAD
             public event ConversationalRuleRowChangeEventHandler ConversationalRuleRowChanged;
 =======
@@ -1672,8 +1931,14 @@ namespace UTS.ScheduleSystem.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
 <<<<<<< HEAD
             public event ConversationalRuleRowChangeEventHandler ConversationalRuleRowDeleting;
+=======
+            protected override global::System.Type GetRowType() {
+                return typeof(ConversationalRuleRow);
+            }
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
             public event ConversationalRuleRowChangeEventHandler ConversationalRuleRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1690,11 +1955,27 @@ namespace UTS.ScheduleSystem.Data {
                 }
                 set {
                     this[this.tableAspNetUsers.RoleColumn] = value;
+=======
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ConversationalRuleRowChanged != null)) {
+                    this.ConversationalRuleRowChanged(this, new ConversationalRuleRowChangeEvent(((ConversationalRuleRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ConversationalRuleRowChanging != null)) {
+                    this.ConversationalRuleRowChanging(this, new ConversationalRuleRowChangeEvent(((ConversationalRuleRow)(e.Row)), e.Action));
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
             public bool IsEmailNull() {
                 return this.IsNull(this.tableAspNetUsers.EmailColumn);
 =======
@@ -1704,17 +1985,33 @@ namespace UTS.ScheduleSystem.Data {
 =======
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
                 return new ConversationalRuleRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(ConversationalRuleRow);
+=======
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ConversationalRuleRowDeleted != null)) {
+                    this.ConversationalRuleRowDeleted(this, new ConversationalRuleRowChangeEvent(((ConversationalRuleRow)(e.Row)), e.Action));
+                }
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
+            protected override global::System.Type GetRowType() {
+                return typeof(ConversationalRuleRow);
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ConversationalRuleRowDeleting != null)) {
+                    this.ConversationalRuleRowDeleting(this, new ConversationalRuleRowChangeEvent(((ConversationalRuleRow)(e.Row)), e.Action));
+                }
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
 <<<<<<< HEAD
             public ConversationalRuleRow AddConversationalRuleRow(string Id, string Input, string Output, string RelatedUsersId, string Status) {
                 ConversationalRuleRow rowConversationalRuleRow = ((ConversationalRuleRow)(this.NewRow()));
@@ -1734,62 +2031,6 @@ namespace UTS.ScheduleSystem.Data {
                     this.ConversationalRuleRowChanged(this, new ConversationalRuleRowChangeEvent(((ConversationalRuleRow)(e.Row)), e.Action));
                 }
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-<<<<<<< HEAD
-            public ConversationalRuleRow FindById(string Id) {
-                return ((ConversationalRuleRow)(this.Rows.Find(new object[] {
-                            Id})));
-=======
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.ConversationalRuleRowChanging != null)) {
-                    this.ConversationalRuleRowChanging(this, new ConversationalRuleRowChangeEvent(((ConversationalRuleRow)(e.Row)), e.Action));
-                }
->>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-<<<<<<< HEAD
-            public override global::System.Data.DataTable Clone() {
-                ConversationalRuleDataTable cln = ((ConversationalRuleDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-=======
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.ConversationalRuleRowDeleted != null)) {
-                    this.ConversationalRuleRowDeleted(this, new ConversationalRuleRowChangeEvent(((ConversationalRuleRow)(e.Row)), e.Action));
-                }
->>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-<<<<<<< HEAD
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new ConversationalRuleDataTable();
-=======
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.ConversationalRuleRowDeleting != null)) {
-                    this.ConversationalRuleRowDeleting(this, new ConversationalRuleRowChangeEvent(((ConversationalRuleRow)(e.Row)), e.Action));
-                }
->>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-<<<<<<< HEAD
-            internal void InitVars() {
-                this.columnId = base.Columns["Id"];
-                this.columnInput = base.Columns["Input"];
-                this.columnOutput = base.Columns["Output"];
-                this.columnRelatedUsersId = base.Columns["RelatedUsersId"];
-                this.columnStatus = base.Columns["Status"];
 =======
             public void RemoveConversationalRuleRow(ConversationalRuleRow row) {
                 this.Rows.Remove(row);
@@ -1887,6 +2128,264 @@ namespace UTS.ScheduleSystem.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal FixedConversationalRuleDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
+<<<<<<< HEAD
+            public ConversationalRuleRow FindById(string Id) {
+                return ((ConversationalRuleRow)(this.Rows.Find(new object[] {
+                            Id})));
+=======
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ConversationalRuleRowChanging != null)) {
+                    this.ConversationalRuleRowChanging(this, new ConversationalRuleRowChangeEvent(((ConversationalRuleRow)(e.Row)), e.Action));
+=======
+            protected FixedConversationalRuleDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn IdColumn {
+                get {
+                    return this.columnId;
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+                }
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
+<<<<<<< HEAD
+            public override global::System.Data.DataTable Clone() {
+                ConversationalRuleDataTable cln = ((ConversationalRuleDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+=======
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ConversationalRuleRowDeleted != null)) {
+                    this.ConversationalRuleRowDeleted(this, new ConversationalRuleRowChangeEvent(((ConversationalRuleRow)(e.Row)), e.Action));
+=======
+            public global::System.Data.DataColumn InputColumn {
+                get {
+                    return this.columnInput;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn OutputColumn {
+                get {
+                    return this.columnOutput;
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+                }
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
+<<<<<<< HEAD
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ConversationalRuleDataTable();
+=======
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ConversationalRuleRowDeleting != null)) {
+                    this.ConversationalRuleRowDeleting(this, new ConversationalRuleRowChangeEvent(((ConversationalRuleRow)(e.Row)), e.Action));
+=======
+            public global::System.Data.DataColumn RelatedUsersIdColumn {
+                get {
+                    return this.columnRelatedUsersId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn StatusColumn {
+                get {
+                    return this.columnStatus;
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+                }
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
+<<<<<<< HEAD
+            internal void InitVars() {
+                this.columnId = base.Columns["Id"];
+                this.columnInput = base.Columns["Input"];
+                this.columnOutput = base.Columns["Output"];
+                this.columnRelatedUsersId = base.Columns["RelatedUsersId"];
+                this.columnStatus = base.Columns["Status"];
+=======
+            public void RemoveConversationalRuleRow(ConversationalRuleRow row) {
+                this.Rows.Remove(row);
+=======
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ScheduleSystemDataSets ds = new ScheduleSystemDataSets();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ConversationalRuleDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+=======
+            public FixedConversationalRuleRow this[int index] {
+                get {
+                    return ((FixedConversationalRuleRow)(this.Rows[index]));
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+<<<<<<< HEAD
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class FixedConversationalRuleDataTable : global::System.Data.TypedTableBase<FixedConversationalRuleRow> {
+            
+            private global::System.Data.DataColumn columnId;
+            
+            private global::System.Data.DataColumn columnInput;
+            
+            private global::System.Data.DataColumn columnOutput;
+            
+            private global::System.Data.DataColumn columnRelatedUsersId;
+            
+            private global::System.Data.DataColumn columnStatus;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public FixedConversationalRuleDataTable() {
+                this.TableName = "FixedConversationalRule";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+=======
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event FixedConversationalRuleRowChangeEventHandler FixedConversationalRuleRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event FixedConversationalRuleRowChangeEventHandler FixedConversationalRuleRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event FixedConversationalRuleRowChangeEventHandler FixedConversationalRuleRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event FixedConversationalRuleRowChangeEventHandler FixedConversationalRuleRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddFixedConversationalRuleRow(FixedConversationalRuleRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public FixedConversationalRuleRow AddFixedConversationalRuleRow(string Id, string Input, string Output, string RelatedUsersId, string Status) {
+                FixedConversationalRuleRow rowFixedConversationalRuleRow = ((FixedConversationalRuleRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Id,
+                        Input,
+                        Output,
+                        RelatedUsersId,
+                        Status};
+                rowFixedConversationalRuleRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowFixedConversationalRuleRow);
+                return rowFixedConversationalRuleRow;
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
             internal FixedConversationalRuleDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
@@ -2223,10 +2722,16 @@ namespace UTS.ScheduleSystem.Data {
                 get {
                     return this.columnInput;
                 }
+=======
+            public FixedConversationalRuleRow FindById(string Id) {
+                return ((FixedConversationalRuleRow)(this.Rows.Find(new object[] {
+                            Id})));
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
             public global::System.Data.DataColumn OutputColumn {
                 get {
                     return this.columnOutput;
@@ -2326,6 +2831,8 @@ namespace UTS.ScheduleSystem.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+=======
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             public override global::System.Data.DataTable Clone() {
                 FixedConversationalRuleDataTable cln = ((FixedConversationalRuleDataTable)(base.Clone()));
                 cln.InitVars();
@@ -2346,6 +2853,7 @@ namespace UTS.ScheduleSystem.Data {
                 this.columnOutput = base.Columns["Output"];
                 this.columnRelatedUsersId = base.Columns["RelatedUsersId"];
                 this.columnStatus = base.Columns["Status"];
+<<<<<<< HEAD
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6049,6 +6557,1811 @@ SELECT Id, UserId, Topic, Participants, Location, StartDate, EndDate, LastEditUs
             if ((Original_Id == null)) {
                 throw new global::System.ArgumentNullException("Original_Id");
             }
+=======
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.columnInput = new global::System.Data.DataColumn("Input", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInput);
+                this.columnOutput = new global::System.Data.DataColumn("Output", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOutput);
+                this.columnRelatedUsersId = new global::System.Data.DataColumn("RelatedUsersId", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRelatedUsersId);
+                this.columnStatus = new global::System.Data.DataColumn("Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStatus);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId}, true));
+                this.columnId.AllowDBNull = false;
+                this.columnId.Unique = true;
+                this.columnId.MaxLength = 128;
+                this.columnInput.AllowDBNull = false;
+                this.columnInput.MaxLength = 128;
+                this.columnOutput.AllowDBNull = false;
+                this.columnOutput.MaxLength = 128;
+                this.columnRelatedUsersId.MaxLength = 128;
+                this.columnStatus.AllowDBNull = false;
+                this.columnStatus.MaxLength = 128;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public FixedConversationalRuleRow NewFixedConversationalRuleRow() {
+                return ((FixedConversationalRuleRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new FixedConversationalRuleRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(FixedConversationalRuleRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.FixedConversationalRuleRowChanged != null)) {
+                    this.FixedConversationalRuleRowChanged(this, new FixedConversationalRuleRowChangeEvent(((FixedConversationalRuleRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.FixedConversationalRuleRowChanging != null)) {
+                    this.FixedConversationalRuleRowChanging(this, new FixedConversationalRuleRowChangeEvent(((FixedConversationalRuleRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.FixedConversationalRuleRowDeleted != null)) {
+                    this.FixedConversationalRuleRowDeleted(this, new FixedConversationalRuleRowChangeEvent(((FixedConversationalRuleRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.FixedConversationalRuleRowDeleting != null)) {
+                    this.FixedConversationalRuleRowDeleting(this, new FixedConversationalRuleRowChangeEvent(((FixedConversationalRuleRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemoveFixedConversationalRuleRow(FixedConversationalRuleRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ScheduleSystemDataSets ds = new ScheduleSystemDataSets();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "FixedConversationalRuleDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class AspNetUsersRow : global::System.Data.DataRow {
+            
+            private AspNetUsersDataTable tableAspNetUsers;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal AspNetUsersRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableAspNetUsers = ((AspNetUsersDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Id {
+                get {
+                    return ((string)(this[this.tableAspNetUsers.IdColumn]));
+                }
+                set {
+                    this[this.tableAspNetUsers.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Email {
+                get {
+                    try {
+                        return ((string)(this[this.tableAspNetUsers.EmailColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Email\' in table \'AspNetUsers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAspNetUsers.EmailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool EmailConfirmed {
+                get {
+                    return ((bool)(this[this.tableAspNetUsers.EmailConfirmedColumn]));
+                }
+                set {
+                    this[this.tableAspNetUsers.EmailConfirmedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string PasswordHash {
+                get {
+                    try {
+                        return ((string)(this[this.tableAspNetUsers.PasswordHashColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PasswordHash\' in table \'AspNetUsers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAspNetUsers.PasswordHashColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string SecurityStamp {
+                get {
+                    try {
+                        return ((string)(this[this.tableAspNetUsers.SecurityStampColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SecurityStamp\' in table \'AspNetUsers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAspNetUsers.SecurityStampColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string PhoneNumber {
+                get {
+                    try {
+                        return ((string)(this[this.tableAspNetUsers.PhoneNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PhoneNumber\' in table \'AspNetUsers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAspNetUsers.PhoneNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool PhoneNumberConfirmed {
+                get {
+                    return ((bool)(this[this.tableAspNetUsers.PhoneNumberConfirmedColumn]));
+                }
+                set {
+                    this[this.tableAspNetUsers.PhoneNumberConfirmedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool TwoFactorEnabled {
+                get {
+                    return ((bool)(this[this.tableAspNetUsers.TwoFactorEnabledColumn]));
+                }
+                set {
+                    this[this.tableAspNetUsers.TwoFactorEnabledColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime LockoutEndDateUtc {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableAspNetUsers.LockoutEndDateUtcColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LockoutEndDateUtc\' in table \'AspNetUsers\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAspNetUsers.LockoutEndDateUtcColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool LockoutEnabled {
+                get {
+                    return ((bool)(this[this.tableAspNetUsers.LockoutEnabledColumn]));
+                }
+                set {
+                    this[this.tableAspNetUsers.LockoutEnabledColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int AccessFailedCount {
+                get {
+                    return ((int)(this[this.tableAspNetUsers.AccessFailedCountColumn]));
+                }
+                set {
+                    this[this.tableAspNetUsers.AccessFailedCountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string UserName {
+                get {
+                    return ((string)(this[this.tableAspNetUsers.UserNameColumn]));
+                }
+                set {
+                    this[this.tableAspNetUsers.UserNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsEmailNull() {
+                return this.IsNull(this.tableAspNetUsers.EmailColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetEmailNull() {
+                this[this.tableAspNetUsers.EmailColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsPasswordHashNull() {
+                return this.IsNull(this.tableAspNetUsers.PasswordHashColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetPasswordHashNull() {
+                this[this.tableAspNetUsers.PasswordHashColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsSecurityStampNull() {
+                return this.IsNull(this.tableAspNetUsers.SecurityStampColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetSecurityStampNull() {
+                this[this.tableAspNetUsers.SecurityStampColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsPhoneNumberNull() {
+                return this.IsNull(this.tableAspNetUsers.PhoneNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetPhoneNumberNull() {
+                this[this.tableAspNetUsers.PhoneNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsLockoutEndDateUtcNull() {
+                return this.IsNull(this.tableAspNetUsers.LockoutEndDateUtcColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetLockoutEndDateUtcNull() {
+                this[this.tableAspNetUsers.LockoutEndDateUtcColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class MealScheduleRow : global::System.Data.DataRow {
+            
+            private MealScheduleDataTable tableMealSchedule;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal MealScheduleRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableMealSchedule = ((MealScheduleDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Id {
+                get {
+                    return ((string)(this[this.tableMealSchedule.IdColumn]));
+                }
+                set {
+                    this[this.tableMealSchedule.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string UserId {
+                get {
+                    return ((string)(this[this.tableMealSchedule.UserIdColumn]));
+                }
+                set {
+                    this[this.tableMealSchedule.UserIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Topic {
+                get {
+                    return ((string)(this[this.tableMealSchedule.TopicColumn]));
+                }
+                set {
+                    this[this.tableMealSchedule.TopicColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Participants {
+                get {
+                    return ((string)(this[this.tableMealSchedule.ParticipantsColumn]));
+                }
+                set {
+                    this[this.tableMealSchedule.ParticipantsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Location {
+                get {
+                    return ((string)(this[this.tableMealSchedule.LocationColumn]));
+                }
+                set {
+                    this[this.tableMealSchedule.LocationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string StartDate {
+                get {
+                    return ((string)(this[this.tableMealSchedule.StartDateColumn]));
+                }
+                set {
+                    this[this.tableMealSchedule.StartDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string EndDate {
+                get {
+                    return ((string)(this[this.tableMealSchedule.EndDateColumn]));
+                }
+                set {
+                    this[this.tableMealSchedule.EndDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string LastEditUserId {
+                get {
+                    return ((string)(this[this.tableMealSchedule.LastEditUserIdColumn]));
+                }
+                set {
+                    this[this.tableMealSchedule.LastEditUserIdColumn] = value;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class ConversationalRuleRow : global::System.Data.DataRow {
+            
+            private ConversationalRuleDataTable tableConversationalRule;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal ConversationalRuleRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableConversationalRule = ((ConversationalRuleDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Id {
+                get {
+                    return ((string)(this[this.tableConversationalRule.IdColumn]));
+                }
+                set {
+                    this[this.tableConversationalRule.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Input {
+                get {
+                    return ((string)(this[this.tableConversationalRule.InputColumn]));
+                }
+                set {
+                    this[this.tableConversationalRule.InputColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Output {
+                get {
+                    return ((string)(this[this.tableConversationalRule.OutputColumn]));
+                }
+                set {
+                    this[this.tableConversationalRule.OutputColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string RelatedUsersId {
+                get {
+                    try {
+                        return ((string)(this[this.tableConversationalRule.RelatedUsersIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RelatedUsersId\' in table \'ConversationalRule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableConversationalRule.RelatedUsersIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Status {
+                get {
+                    return ((string)(this[this.tableConversationalRule.StatusColumn]));
+                }
+                set {
+                    this[this.tableConversationalRule.StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsRelatedUsersIdNull() {
+                return this.IsNull(this.tableConversationalRule.RelatedUsersIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetRelatedUsersIdNull() {
+                this[this.tableConversationalRule.RelatedUsersIdColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class FixedConversationalRuleRow : global::System.Data.DataRow {
+            
+            private FixedConversationalRuleDataTable tableFixedConversationalRule;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal FixedConversationalRuleRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableFixedConversationalRule = ((FixedConversationalRuleDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Id {
+                get {
+                    return ((string)(this[this.tableFixedConversationalRule.IdColumn]));
+                }
+                set {
+                    this[this.tableFixedConversationalRule.IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Input {
+                get {
+                    return ((string)(this[this.tableFixedConversationalRule.InputColumn]));
+                }
+                set {
+                    this[this.tableFixedConversationalRule.InputColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Output {
+                get {
+                    return ((string)(this[this.tableFixedConversationalRule.OutputColumn]));
+                }
+                set {
+                    this[this.tableFixedConversationalRule.OutputColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string RelatedUsersId {
+                get {
+                    try {
+                        return ((string)(this[this.tableFixedConversationalRule.RelatedUsersIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RelatedUsersId\' in table \'FixedConversationalRule\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableFixedConversationalRule.RelatedUsersIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Status {
+                get {
+                    return ((string)(this[this.tableFixedConversationalRule.StatusColumn]));
+                }
+                set {
+                    this[this.tableFixedConversationalRule.StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsRelatedUsersIdNull() {
+                return this.IsNull(this.tableFixedConversationalRule.RelatedUsersIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetRelatedUsersIdNull() {
+                this[this.tableFixedConversationalRule.RelatedUsersIdColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class AspNetUsersRowChangeEvent : global::System.EventArgs {
+            
+            private AspNetUsersRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public AspNetUsersRowChangeEvent(AspNetUsersRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public AspNetUsersRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class MealScheduleRowChangeEvent : global::System.EventArgs {
+            
+            private MealScheduleRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public MealScheduleRowChangeEvent(MealScheduleRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public MealScheduleRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class ConversationalRuleRowChangeEvent : global::System.EventArgs {
+            
+            private ConversationalRuleRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ConversationalRuleRowChangeEvent(ConversationalRuleRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ConversationalRuleRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class FixedConversationalRuleRowChangeEvent : global::System.EventArgs {
+            
+            private FixedConversationalRuleRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public FixedConversationalRuleRowChangeEvent(FixedConversationalRuleRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public FixedConversationalRuleRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+    }
+}
+namespace UTS.ScheduleSystem.Data.ScheduleSystemDataSetsTableAdapters {
+    
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class AspNetUsersTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public AspNetUsersTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "AspNetUsers";
+            tableMapping.ColumnMappings.Add("Id", "Id");
+            tableMapping.ColumnMappings.Add("Email", "Email");
+            tableMapping.ColumnMappings.Add("EmailConfirmed", "EmailConfirmed");
+            tableMapping.ColumnMappings.Add("PasswordHash", "PasswordHash");
+            tableMapping.ColumnMappings.Add("SecurityStamp", "SecurityStamp");
+            tableMapping.ColumnMappings.Add("PhoneNumber", "PhoneNumber");
+            tableMapping.ColumnMappings.Add("PhoneNumberConfirmed", "PhoneNumberConfirmed");
+            tableMapping.ColumnMappings.Add("TwoFactorEnabled", "TwoFactorEnabled");
+            tableMapping.ColumnMappings.Add("LockoutEndDateUtc", "LockoutEndDateUtc");
+            tableMapping.ColumnMappings.Add("LockoutEnabled", "LockoutEnabled");
+            tableMapping.ColumnMappings.Add("AccessFailedCount", "AccessFailedCount");
+            tableMapping.ColumnMappings.Add("UserName", "UserName");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[AspNetUsers] WHERE (([Id] = @Original_Id) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ([EmailConfirmed] = @Original_EmailConfirmed) AND ([PhoneNumberConfirmed] = @Original_PhoneNumberConfirmed) AND ([TwoFactorEnabled] = @Original_TwoFactorEnabled) AND ((@IsNull_LockoutEndDateUtc = 1 AND [LockoutEndDateUtc] IS NULL) OR ([LockoutEndDateUtc] = @Original_LockoutEndDateUtc)) AND ([LockoutEnabled] = @Original_LockoutEnabled) AND ([AccessFailedCount] = @Original_AccessFailedCount) AND ([UserName] = @Original_UserName))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Email", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EmailConfirmed", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmailConfirmed", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PhoneNumberConfirmed", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneNumberConfirmed", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TwoFactorEnabled", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TwoFactorEnabled", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LockoutEndDateUtc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LockoutEndDateUtc", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LockoutEndDateUtc", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LockoutEndDateUtc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LockoutEnabled", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LockoutEnabled", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AccessFailedCount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccessFailedCount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UserName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName]) VALUES (@Id, @Email, @EmailConfirmed, @PasswordHash, @SecurityStamp, @PhoneNumber, @PhoneNumberConfirmed, @TwoFactorEnabled, @LockoutEndDateUtc, @LockoutEnabled, @AccessFailedCount, @UserName);
+SELECT Id, Email, EmailConfirmed, PasswordHash, SecurityStamp, PhoneNumber, PhoneNumberConfirmed, TwoFactorEnabled, LockoutEndDateUtc, LockoutEnabled, AccessFailedCount, UserName FROM AspNetUsers WHERE (Id = @Id)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmailConfirmed", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmailConfirmed", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PasswordHash", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PasswordHash", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SecurityStamp", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SecurityStamp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PhoneNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PhoneNumberConfirmed", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneNumberConfirmed", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TwoFactorEnabled", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TwoFactorEnabled", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LockoutEndDateUtc", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LockoutEndDateUtc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LockoutEnabled", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LockoutEnabled", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccessFailedCount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccessFailedCount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[AspNetUsers] SET [Id] = @Id, [Email] = @Email, [EmailConfirmed] = @EmailConfirmed, [PasswordHash] = @PasswordHash, [SecurityStamp] = @SecurityStamp, [PhoneNumber] = @PhoneNumber, [PhoneNumberConfirmed] = @PhoneNumberConfirmed, [TwoFactorEnabled] = @TwoFactorEnabled, [LockoutEndDateUtc] = @LockoutEndDateUtc, [LockoutEnabled] = @LockoutEnabled, [AccessFailedCount] = @AccessFailedCount, [UserName] = @UserName WHERE (([Id] = @Original_Id) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ([EmailConfirmed] = @Original_EmailConfirmed) AND ([PhoneNumberConfirmed] = @Original_PhoneNumberConfirmed) AND ([TwoFactorEnabled] = @Original_TwoFactorEnabled) AND ((@IsNull_LockoutEndDateUtc = 1 AND [LockoutEndDateUtc] IS NULL) OR ([LockoutEndDateUtc] = @Original_LockoutEndDateUtc)) AND ([LockoutEnabled] = @Original_LockoutEnabled) AND ([AccessFailedCount] = @Original_AccessFailedCount) AND ([UserName] = @Original_UserName));
+SELECT Id, Email, EmailConfirmed, PasswordHash, SecurityStamp, PhoneNumber, PhoneNumberConfirmed, TwoFactorEnabled, LockoutEndDateUtc, LockoutEnabled, AccessFailedCount, UserName FROM AspNetUsers WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EmailConfirmed", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmailConfirmed", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PasswordHash", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PasswordHash", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SecurityStamp", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SecurityStamp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PhoneNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PhoneNumberConfirmed", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneNumberConfirmed", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TwoFactorEnabled", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TwoFactorEnabled", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LockoutEndDateUtc", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LockoutEndDateUtc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LockoutEnabled", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LockoutEnabled", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccessFailedCount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccessFailedCount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Email", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EmailConfirmed", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmailConfirmed", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PhoneNumberConfirmed", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneNumberConfirmed", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TwoFactorEnabled", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TwoFactorEnabled", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LockoutEndDateUtc", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LockoutEndDateUtc", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LockoutEndDateUtc", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LockoutEndDateUtc", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LockoutEnabled", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LockoutEnabled", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AccessFailedCount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccessFailedCount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UserName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::UTS.ScheduleSystem.Data.Properties.Settings.Default.aspnet_UTS_ScheduleSystem_Web_20180415025446ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT Id, Email, EmailConfirmed, PasswordHash, SecurityStamp, PhoneNumber, Phone" +
+                "NumberConfirmed, TwoFactorEnabled, LockoutEndDateUtc, LockoutEnabled, AccessFail" +
+                "edCount, UserName FROM dbo.AspNetUsers";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(ScheduleSystemDataSets.AspNetUsersDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual ScheduleSystemDataSets.AspNetUsersDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            ScheduleSystemDataSets.AspNetUsersDataTable dataTable = new ScheduleSystemDataSets.AspNetUsersDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(ScheduleSystemDataSets.AspNetUsersDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(ScheduleSystemDataSets dataSet) {
+            return this.Adapter.Update(dataSet, "AspNetUsers");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_Id, string Original_Email, bool Original_EmailConfirmed, bool Original_PhoneNumberConfirmed, bool Original_TwoFactorEnabled, global::System.Nullable<global::System.DateTime> Original_LockoutEndDateUtc, bool Original_LockoutEnabled, int Original_AccessFailedCount, string Original_UserName) {
+            if ((Original_Id == null)) {
+                throw new global::System.ArgumentNullException("Original_Id");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Id));
+            }
+            if ((Original_Email == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Email));
+            }
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((bool)(Original_EmailConfirmed));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((bool)(Original_PhoneNumberConfirmed));
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((bool)(Original_TwoFactorEnabled));
+            if ((Original_LockoutEndDateUtc.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((System.DateTime)(Original_LockoutEndDateUtc.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((bool)(Original_LockoutEnabled));
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_AccessFailedCount));
+            if ((Original_UserName == null)) {
+                throw new global::System.ArgumentNullException("Original_UserName");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_UserName));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string Id, string Email, bool EmailConfirmed, string PasswordHash, string SecurityStamp, string PhoneNumber, bool PhoneNumberConfirmed, bool TwoFactorEnabled, global::System.Nullable<global::System.DateTime> LockoutEndDateUtc, bool LockoutEnabled, int AccessFailedCount, string UserName) {
+            if ((Id == null)) {
+                throw new global::System.ArgumentNullException("Id");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Id));
+            }
+            if ((Email == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Email));
+            }
+            this.Adapter.InsertCommand.Parameters[2].Value = ((bool)(EmailConfirmed));
+            if ((PasswordHash == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(PasswordHash));
+            }
+            if ((SecurityStamp == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(SecurityStamp));
+            }
+            if ((PhoneNumber == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(PhoneNumber));
+            }
+            this.Adapter.InsertCommand.Parameters[6].Value = ((bool)(PhoneNumberConfirmed));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(TwoFactorEnabled));
+            if ((LockoutEndDateUtc.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(LockoutEndDateUtc.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.InsertCommand.Parameters[9].Value = ((bool)(LockoutEnabled));
+            this.Adapter.InsertCommand.Parameters[10].Value = ((int)(AccessFailedCount));
+            if ((UserName == null)) {
+                throw new global::System.ArgumentNullException("UserName");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(UserName));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string Id, 
+                    string Email, 
+                    bool EmailConfirmed, 
+                    string PasswordHash, 
+                    string SecurityStamp, 
+                    string PhoneNumber, 
+                    bool PhoneNumberConfirmed, 
+                    bool TwoFactorEnabled, 
+                    global::System.Nullable<global::System.DateTime> LockoutEndDateUtc, 
+                    bool LockoutEnabled, 
+                    int AccessFailedCount, 
+                    string UserName, 
+                    string Original_Id, 
+                    string Original_Email, 
+                    bool Original_EmailConfirmed, 
+                    bool Original_PhoneNumberConfirmed, 
+                    bool Original_TwoFactorEnabled, 
+                    global::System.Nullable<global::System.DateTime> Original_LockoutEndDateUtc, 
+                    bool Original_LockoutEnabled, 
+                    int Original_AccessFailedCount, 
+                    string Original_UserName) {
+            if ((Id == null)) {
+                throw new global::System.ArgumentNullException("Id");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Id));
+            }
+            if ((Email == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Email));
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((bool)(EmailConfirmed));
+            if ((PasswordHash == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(PasswordHash));
+            }
+            if ((SecurityStamp == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(SecurityStamp));
+            }
+            if ((PhoneNumber == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(PhoneNumber));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((bool)(PhoneNumberConfirmed));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(TwoFactorEnabled));
+            if ((LockoutEndDateUtc.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(LockoutEndDateUtc.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((bool)(LockoutEnabled));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(AccessFailedCount));
+            if ((UserName == null)) {
+                throw new global::System.ArgumentNullException("UserName");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(UserName));
+            }
+            if ((Original_Id == null)) {
+                throw new global::System.ArgumentNullException("Original_Id");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Id));
+            }
+            if ((Original_Email == null)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Email));
+            }
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((bool)(Original_EmailConfirmed));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((bool)(Original_PhoneNumberConfirmed));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((bool)(Original_TwoFactorEnabled));
+            if ((Original_LockoutEndDateUtc.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((System.DateTime)(Original_LockoutEndDateUtc.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((bool)(Original_LockoutEnabled));
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_AccessFailedCount));
+            if ((Original_UserName == null)) {
+                throw new global::System.ArgumentNullException("Original_UserName");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_UserName));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string Email, 
+                    bool EmailConfirmed, 
+                    string PasswordHash, 
+                    string SecurityStamp, 
+                    string PhoneNumber, 
+                    bool PhoneNumberConfirmed, 
+                    bool TwoFactorEnabled, 
+                    global::System.Nullable<global::System.DateTime> LockoutEndDateUtc, 
+                    bool LockoutEnabled, 
+                    int AccessFailedCount, 
+                    string UserName, 
+                    string Original_Id, 
+                    string Original_Email, 
+                    bool Original_EmailConfirmed, 
+                    bool Original_PhoneNumberConfirmed, 
+                    bool Original_TwoFactorEnabled, 
+                    global::System.Nullable<global::System.DateTime> Original_LockoutEndDateUtc, 
+                    bool Original_LockoutEnabled, 
+                    int Original_AccessFailedCount, 
+                    string Original_UserName) {
+            return this.Update(Original_Id, Email, EmailConfirmed, PasswordHash, SecurityStamp, PhoneNumber, PhoneNumberConfirmed, TwoFactorEnabled, LockoutEndDateUtc, LockoutEnabled, AccessFailedCount, UserName, Original_Id, Original_Email, Original_EmailConfirmed, Original_PhoneNumberConfirmed, Original_TwoFactorEnabled, Original_LockoutEndDateUtc, Original_LockoutEnabled, Original_AccessFailedCount, Original_UserName);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class MealScheduleTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public MealScheduleTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "MealSchedule";
+            tableMapping.ColumnMappings.Add("Id", "Id");
+            tableMapping.ColumnMappings.Add("UserId", "UserId");
+            tableMapping.ColumnMappings.Add("Topic", "Topic");
+            tableMapping.ColumnMappings.Add("Participants", "Participants");
+            tableMapping.ColumnMappings.Add("Location", "Location");
+            tableMapping.ColumnMappings.Add("StartDate", "StartDate");
+            tableMapping.ColumnMappings.Add("EndDate", "EndDate");
+            tableMapping.ColumnMappings.Add("LastEditUserId", "LastEditUserId");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[MealSchedule] WHERE (([Id] = @Original_Id) AND ([UserId] = @Original_UserId) AND ([Topic] = @Original_Topic) AND ([Participants] = @Original_Participants) AND ([Location] = @Original_Location) AND ([StartDate] = @Original_StartDate) AND ([EndDate] = @Original_EndDate) AND ([LastEditUserId] = @Original_LastEditUserId))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UserId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Topic", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Topic", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Participants", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Participants", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StartDate", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EndDate", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LastEditUserId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastEditUserId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[MealSchedule] ([Id], [UserId], [Topic], [Participants], [Location], [StartDate], [EndDate], [LastEditUserId]) VALUES (@Id, @UserId, @Topic, @Participants, @Location, @StartDate, @EndDate, @LastEditUserId);
+SELECT Id, UserId, Topic, Participants, Location, StartDate, EndDate, LastEditUserId FROM MealSchedule WHERE (Id = @Id)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Topic", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Topic", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Participants", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Participants", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StartDate", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastEditUserId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastEditUserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[MealSchedule] SET [Id] = @Id, [UserId] = @UserId, [Topic] = @Topic, [Participants] = @Participants, [Location] = @Location, [StartDate] = @StartDate, [EndDate] = @EndDate, [LastEditUserId] = @LastEditUserId WHERE (([Id] = @Original_Id) AND ([UserId] = @Original_UserId) AND ([Topic] = @Original_Topic) AND ([Participants] = @Original_Participants) AND ([Location] = @Original_Location) AND ([StartDate] = @Original_StartDate) AND ([EndDate] = @Original_EndDate) AND ([LastEditUserId] = @Original_LastEditUserId));
+SELECT Id, UserId, Topic, Participants, Location, StartDate, EndDate, LastEditUserId FROM MealSchedule WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Topic", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Topic", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Participants", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Participants", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StartDate", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastEditUserId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastEditUserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UserId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Topic", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Topic", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Participants", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Participants", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StartDate", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EndDate", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LastEditUserId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastEditUserId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::UTS.ScheduleSystem.Data.Properties.Settings.Default.aspnet_UTS_ScheduleSystem_Web_20180415025446ConnectionString1;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT Id, UserId, Topic, Participants, Location, StartDate, EndDate, LastEditUse" +
+                "rId FROM dbo.MealSchedule";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(ScheduleSystemDataSets.MealScheduleDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual ScheduleSystemDataSets.MealScheduleDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            ScheduleSystemDataSets.MealScheduleDataTable dataTable = new ScheduleSystemDataSets.MealScheduleDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(ScheduleSystemDataSets.MealScheduleDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(ScheduleSystemDataSets dataSet) {
+            return this.Adapter.Update(dataSet, "MealSchedule");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_Id, string Original_UserId, string Original_Topic, string Original_Participants, string Original_Location, string Original_StartDate, string Original_EndDate, string Original_LastEditUserId) {
+            if ((Original_Id == null)) {
+                throw new global::System.ArgumentNullException("Original_Id");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Id));
+            }
+            if ((Original_UserId == null)) {
+                throw new global::System.ArgumentNullException("Original_UserId");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_UserId));
+            }
+            if ((Original_Topic == null)) {
+                throw new global::System.ArgumentNullException("Original_Topic");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Topic));
+            }
+            if ((Original_Participants == null)) {
+                throw new global::System.ArgumentNullException("Original_Participants");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Participants));
+            }
+            if ((Original_Location == null)) {
+                throw new global::System.ArgumentNullException("Original_Location");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Location));
+            }
+            if ((Original_StartDate == null)) {
+                throw new global::System.ArgumentNullException("Original_StartDate");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_StartDate));
+            }
+            if ((Original_EndDate == null)) {
+                throw new global::System.ArgumentNullException("Original_EndDate");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_EndDate));
+            }
+            if ((Original_LastEditUserId == null)) {
+                throw new global::System.ArgumentNullException("Original_LastEditUserId");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_LastEditUserId));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string Id, string UserId, string Topic, string Participants, string Location, string StartDate, string EndDate, string LastEditUserId) {
+            if ((Id == null)) {
+                throw new global::System.ArgumentNullException("Id");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Id));
+            }
+            if ((UserId == null)) {
+                throw new global::System.ArgumentNullException("UserId");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(UserId));
+            }
+            if ((Topic == null)) {
+                throw new global::System.ArgumentNullException("Topic");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Topic));
+            }
+            if ((Participants == null)) {
+                throw new global::System.ArgumentNullException("Participants");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Participants));
+            }
+            if ((Location == null)) {
+                throw new global::System.ArgumentNullException("Location");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Location));
+            }
+            if ((StartDate == null)) {
+                throw new global::System.ArgumentNullException("StartDate");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(StartDate));
+            }
+            if ((EndDate == null)) {
+                throw new global::System.ArgumentNullException("EndDate");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(EndDate));
+            }
+            if ((LastEditUserId == null)) {
+                throw new global::System.ArgumentNullException("LastEditUserId");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(LastEditUserId));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string Id, 
+                    string UserId, 
+                    string Topic, 
+                    string Participants, 
+                    string Location, 
+                    string StartDate, 
+                    string EndDate, 
+                    string LastEditUserId, 
+                    string Original_Id, 
+                    string Original_UserId, 
+                    string Original_Topic, 
+                    string Original_Participants, 
+                    string Original_Location, 
+                    string Original_StartDate, 
+                    string Original_EndDate, 
+                    string Original_LastEditUserId) {
+            if ((Id == null)) {
+                throw new global::System.ArgumentNullException("Id");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Id));
+            }
+            if ((UserId == null)) {
+                throw new global::System.ArgumentNullException("UserId");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(UserId));
+            }
+            if ((Topic == null)) {
+                throw new global::System.ArgumentNullException("Topic");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Topic));
+            }
+            if ((Participants == null)) {
+                throw new global::System.ArgumentNullException("Participants");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Participants));
+            }
+            if ((Location == null)) {
+                throw new global::System.ArgumentNullException("Location");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Location));
+            }
+            if ((StartDate == null)) {
+                throw new global::System.ArgumentNullException("StartDate");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(StartDate));
+            }
+            if ((EndDate == null)) {
+                throw new global::System.ArgumentNullException("EndDate");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(EndDate));
+            }
+            if ((LastEditUserId == null)) {
+                throw new global::System.ArgumentNullException("LastEditUserId");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(LastEditUserId));
+            }
+            if ((Original_Id == null)) {
+                throw new global::System.ArgumentNullException("Original_Id");
+            }
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Id));
             }
@@ -6118,6 +8431,14 @@ SELECT Id, UserId, Topic, Participants, Location, StartDate, EndDate, LastEditUs
         public virtual int Update(string UserId, string Topic, string Participants, string Location, string StartDate, string EndDate, string LastEditUserId, string Original_Id, string Original_UserId, string Original_Topic, string Original_Participants, string Original_Location, string Original_StartDate, string Original_EndDate, string Original_LastEditUserId) {
             return this.Update(Original_Id, UserId, Topic, Participants, Location, StartDate, EndDate, LastEditUserId, Original_Id, Original_UserId, Original_Topic, Original_Participants, Original_Location, Original_StartDate, Original_EndDate, Original_LastEditUserId);
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string UserId, string Topic, string Participants, string Location, string StartDate, string EndDate, string LastEditUserId, string Original_Id, string Original_UserId, string Original_Topic, string Original_Participants, string Original_Location, string Original_StartDate, string Original_EndDate, string Original_LastEditUserId) {
+            return this.Update(Original_Id, UserId, Topic, Participants, Location, StartDate, EndDate, LastEditUserId, Original_Id, Original_UserId, Original_Topic, Original_Participants, Original_Location, Original_StartDate, Original_EndDate, Original_LastEditUserId);
+        }
     }
     
     /// <summary>
@@ -6131,7 +8452,11 @@ SELECT Id, UserId, Topic, Participants, Location, StartDate, EndDate, LastEditUs
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public partial class MealScheduleTableAdapter : global::System.ComponentModel.Component {
+=======
+    public partial class ConversationalRuleTableAdapter : global::System.ComponentModel.Component {
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
     public partial class ConversationalRuleTableAdapter : global::System.ComponentModel.Component {
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
@@ -6153,7 +8478,11 @@ SELECT Id, UserId, Topic, Participants, Location, StartDate, EndDate, LastEditUs
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         public MealScheduleTableAdapter() {
+=======
+        public ConversationalRuleTableAdapter() {
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
         public ConversationalRuleTableAdapter() {
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
@@ -6256,6 +8585,7 @@ SELECT Id, UserId, Topic, Participants, Location, StartDate, EndDate, LastEditUs
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             tableMapping.DataSetTable = "MealSchedule";
@@ -6395,12 +8725,56 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
+            tableMapping.DataSetTable = "ConversationalRule";
+            tableMapping.ColumnMappings.Add("Id", "Id");
+            tableMapping.ColumnMappings.Add("Input", "Input");
+            tableMapping.ColumnMappings.Add("Output", "Output");
+            tableMapping.ColumnMappings.Add("RelatedUsersId", "RelatedUsersId");
+            tableMapping.ColumnMappings.Add("Status", "Status");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[ConversationalRule] WHERE (([Id] = @Original_Id) AND ([Input] = @Original_Input) AND ([Output] = @Original_Output) AND ((@IsNull_RelatedUsersId = 1 AND [RelatedUsersId] IS NULL) OR ([RelatedUsersId] = @Original_RelatedUsersId)) AND ([Status] = @Original_Status))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Input", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Input", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Output", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Output", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RelatedUsersId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedUsersId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RelatedUsersId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedUsersId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ConversationalRule] ([Id], [Input], [Output], [RelatedUsersId]" +
+                ", [Status]) VALUES (@Id, @Input, @Output, @RelatedUsersId, @Status);\r\nSELECT Id," +
+                " Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (Id = @Id)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Input", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Input", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Output", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Output", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RelatedUsersId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedUsersId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ConversationalRule] SET [Id] = @Id, [Input] = @Input, [Output] = @Output, [RelatedUsersId] = @RelatedUsersId, [Status] = @Status WHERE (([Id] = @Original_Id) AND ([Input] = @Original_Input) AND ([Output] = @Original_Output) AND ((@IsNull_RelatedUsersId = 1 AND [RelatedUsersId] IS NULL) OR ([RelatedUsersId] = @Original_RelatedUsersId)) AND ([Status] = @Original_Status));
+SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Input", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Input", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Output", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Output", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RelatedUsersId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedUsersId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Input", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Input", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Output", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Output", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RelatedUsersId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedUsersId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RelatedUsersId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedUsersId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
@@ -6412,7 +8786,11 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (
             this._connection = new global::System.Data.SqlClient.SqlConnection();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this._connection.ConnectionString = global::UTS.ScheduleSystem.Data.Properties.Settings.Default.aspnet_UTS_ScheduleSystem_Web_20180415025446ConnectionString1;
+=======
+            this._connection.ConnectionString = global::UTS.ScheduleSystem.Data.Properties.Settings.Default.aspnet_UTS_ScheduleSystem_Web_20180415025446ConnectionString2;
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
             this._connection.ConnectionString = global::UTS.ScheduleSystem.Data.Properties.Settings.Default.aspnet_UTS_ScheduleSystem_Web_20180415025446ConnectionString2;
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
@@ -6429,8 +8807,12 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (
             this._commandCollection[0].Connection = this.Connection;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this._commandCollection[0].CommandText = "SELECT Id, UserId, Topic, Participants, Location, StartDate, EndDate, LastEditUse" +
                 "rId FROM dbo.MealSchedule";
+=======
+            this._commandCollection[0].CommandText = "SELECT Id, Input, Output, RelatedUsersId, Status FROM dbo.ConversationalRule";
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
             this._commandCollection[0].CommandText = "SELECT Id, Input, Output, RelatedUsersId, Status FROM dbo.ConversationalRule";
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
@@ -6446,7 +8828,11 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         public virtual int Fill(ScheduleSystemDataSets.MealScheduleDataTable dataTable) {
+=======
+        public virtual int Fill(ScheduleSystemDataSets.ConversationalRuleDataTable dataTable) {
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
         public virtual int Fill(ScheduleSystemDataSets.ConversationalRuleDataTable dataTable) {
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
@@ -6467,9 +8853,15 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         public virtual ScheduleSystemDataSets.MealScheduleDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             ScheduleSystemDataSets.MealScheduleDataTable dataTable = new ScheduleSystemDataSets.MealScheduleDataTable();
+=======
+        public virtual ScheduleSystemDataSets.ConversationalRuleDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            ScheduleSystemDataSets.ConversationalRuleDataTable dataTable = new ScheduleSystemDataSets.ConversationalRuleDataTable();
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
         public virtual ScheduleSystemDataSets.ConversationalRuleDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
@@ -6489,7 +8881,11 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         public virtual int Update(ScheduleSystemDataSets.MealScheduleDataTable dataTable) {
+=======
+        public virtual int Update(ScheduleSystemDataSets.ConversationalRuleDataTable dataTable) {
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
         public virtual int Update(ScheduleSystemDataSets.ConversationalRuleDataTable dataTable) {
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
@@ -6505,7 +8901,11 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (
         public virtual int Update(ScheduleSystemDataSets dataSet) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             return this.Adapter.Update(dataSet, "MealSchedule");
+=======
+            return this.Adapter.Update(dataSet, "ConversationalRule");
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
             return this.Adapter.Update(dataSet, "ConversationalRule");
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
@@ -6535,7 +8935,11 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         public virtual int Delete(string Original_Id, string Original_UserId, string Original_Topic, string Original_Participants, string Original_Location, string Original_StartDate, string Original_EndDate, string Original_LastEditUserId) {
+=======
+        public virtual int Delete(string Original_Id, string Original_Input, string Original_Output, string Original_RelatedUsersId, string Original_Status) {
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
         public virtual int Delete(string Original_Id, string Original_Input, string Original_Output, string Original_RelatedUsersId, string Original_Status) {
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
@@ -6548,6 +8952,7 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (
             else {
                 this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Id));
             }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             if ((Original_UserId == null)) {
@@ -6636,6 +9041,25 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
+=======
+            if ((Original_Input == null)) {
+                throw new global::System.ArgumentNullException("Original_Input");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Input));
+            }
+            if ((Original_Output == null)) {
+                throw new global::System.ArgumentNullException("Original_Output");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Output));
+            }
+            if ((Original_RelatedUsersId == null)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_RelatedUsersId));
             }
@@ -6644,6 +9068,9 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Status));
+<<<<<<< HEAD
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
@@ -6668,7 +9095,11 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         public virtual int Insert(string Id, string UserId, string Topic, string Participants, string Location, string StartDate, string EndDate, string LastEditUserId) {
+=======
+        public virtual int Insert(string Id, string Input, string Output, string RelatedUsersId, string Status) {
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
         public virtual int Insert(string Id, string Input, string Output, string RelatedUsersId, string Status) {
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
@@ -6681,6 +9112,7 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Id));
             }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             if ((UserId == null)) {
@@ -6937,6 +9369,31 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_StartDate));
+=======
+            if ((Input == null)) {
+                throw new global::System.ArgumentNullException("Input");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Input));
+            }
+            if ((Output == null)) {
+                throw new global::System.ArgumentNullException("Output");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Output));
+            }
+            if ((RelatedUsersId == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(RelatedUsersId));
+            }
+            if ((Status == null)) {
+                throw new global::System.ArgumentNullException("Status");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Status));
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             }
             if ((Original_EndDate == null)) {
                 throw new global::System.ArgumentNullException("Original_EndDate");
@@ -6947,15 +9404,28 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (
             if ((Original_LastEditUserId == null)) {
                 throw new global::System.ArgumentNullException("Original_LastEditUserId");
             }
+<<<<<<< HEAD
             else {
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_LastEditUserId));
 =======
             if ((Input == null)) {
                 throw new global::System.ArgumentNullException("Input");
+=======
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string Id, string Input, string Output, string RelatedUsersId, string Status, string Original_Id, string Original_Input, string Original_Output, string Original_RelatedUsersId, string Original_Status) {
+            if ((Id == null)) {
+                throw new global::System.ArgumentNullException("Id");
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Input));
             }
+<<<<<<< HEAD
             if ((Output == null)) {
                 throw new global::System.ArgumentNullException("Output");
             }
@@ -7029,6 +9499,63 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Status));
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
+            if ((Input == null)) {
+                throw new global::System.ArgumentNullException("Input");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Input));
+            }
+            if ((Output == null)) {
+                throw new global::System.ArgumentNullException("Output");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Output));
+            }
+            if ((RelatedUsersId == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(RelatedUsersId));
+            }
+            if ((Status == null)) {
+                throw new global::System.ArgumentNullException("Status");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Status));
+            }
+            if ((Original_Id == null)) {
+                throw new global::System.ArgumentNullException("Original_Id");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Id));
+            }
+            if ((Original_Input == null)) {
+                throw new global::System.ArgumentNullException("Original_Input");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Input));
+            }
+            if ((Original_Output == null)) {
+                throw new global::System.ArgumentNullException("Original_Output");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Output));
+            }
+            if ((Original_RelatedUsersId == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_RelatedUsersId));
+            }
+            if ((Original_Status == null)) {
+                throw new global::System.ArgumentNullException("Original_Status");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Status));
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7052,8 +9579,13 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         public virtual int Update(string UserId, string Topic, string Participants, string Location, string StartDate, string EndDate, string LastEditUserId, string Original_Id, string Original_UserId, string Original_Topic, string Original_Participants, string Original_Location, string Original_StartDate, string Original_EndDate, string Original_LastEditUserId) {
             return this.Update(Original_Id, UserId, Topic, Participants, Location, StartDate, EndDate, LastEditUserId, Original_Id, Original_UserId, Original_Topic, Original_Participants, Original_Location, Original_StartDate, Original_EndDate, Original_LastEditUserId);
+=======
+        public virtual int Update(string Input, string Output, string RelatedUsersId, string Status, string Original_Id, string Original_Input, string Original_Output, string Original_RelatedUsersId, string Original_Status) {
+            return this.Update(Original_Id, Input, Output, RelatedUsersId, Status, Original_Id, Original_Input, Original_Output, Original_RelatedUsersId, Original_Status);
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
         public virtual int Update(string Input, string Output, string RelatedUsersId, string Status, string Original_Id, string Original_Input, string Original_Output, string Original_RelatedUsersId, string Original_Status) {
             return this.Update(Original_Id, Input, Output, RelatedUsersId, Status, Original_Id, Original_Input, Original_Output, Original_RelatedUsersId, Original_Status);
@@ -7076,7 +9608,11 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public partial class AspNetUsersTableAdapter : global::System.ComponentModel.Component {
+=======
+    public partial class FixedConversationalRuleTableAdapter : global::System.ComponentModel.Component {
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
     public partial class FixedConversationalRuleTableAdapter : global::System.ComponentModel.Component {
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
@@ -7098,7 +9634,11 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         public AspNetUsersTableAdapter() {
+=======
+        public FixedConversationalRuleTableAdapter() {
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
         public FixedConversationalRuleTableAdapter() {
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
@@ -7201,6 +9741,7 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM ConversationalRule WHERE (
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             tableMapping.DataSetTable = "AspNetUsers";
@@ -7351,6 +9892,33 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
                 "Id = @Id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+=======
+            tableMapping.DataSetTable = "FixedConversationalRule";
+            tableMapping.ColumnMappings.Add("Id", "Id");
+            tableMapping.ColumnMappings.Add("Input", "Input");
+            tableMapping.ColumnMappings.Add("Output", "Output");
+            tableMapping.ColumnMappings.Add("RelatedUsersId", "RelatedUsersId");
+            tableMapping.ColumnMappings.Add("Status", "Status");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[FixedConversationalRule] WHERE (([Id] = @Original_Id) AND ([Input] = @Original_Input) AND ([Output] = @Original_Output) AND ((@IsNull_RelatedUsersId = 1 AND [RelatedUsersId] IS NULL) OR ([RelatedUsersId] = @Original_RelatedUsersId)) AND ([Status] = @Original_Status))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Input", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Input", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Output", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Output", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RelatedUsersId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedUsersId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RelatedUsersId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedUsersId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[FixedConversationalRule] ([Id], [Input], [Output], [RelatedUse" +
+                "rsId], [Status]) VALUES (@Id, @Input, @Output, @RelatedUsersId, @Status);\r\nSELEC" +
+                "T Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WHERE (" +
+                "Id = @Id)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Input", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Input", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Output", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Output", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RelatedUsersId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedUsersId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7366,6 +9934,9 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RelatedUsersId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedUsersId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+<<<<<<< HEAD
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Input", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Input", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Output", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Output", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -7373,6 +9944,9 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RelatedUsersId", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RelatedUsersId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
@@ -7393,9 +9967,14 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
             this._commandCollection[0].Connection = this.Connection;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             this._commandCollection[0].CommandText = "SELECT Id, Email, EmailConfirmed, PasswordHash, SecurityStamp, PhoneNumber, Phone" +
                 "NumberConfirmed, TwoFactorEnabled, LockoutEndDateUtc, LockoutEnabled, AccessFail" +
                 "edCount, UserName, Role FROM dbo.AspNetUsers";
+=======
+            this._commandCollection[0].CommandText = "SELECT Id, Input, Output, RelatedUsersId, Status FROM dbo.FixedConversationalRule" +
+                "";
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
             this._commandCollection[0].CommandText = "SELECT Id, Input, Output, RelatedUsersId, Status FROM dbo.FixedConversationalRule" +
                 "";
@@ -7413,7 +9992,11 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         public virtual int Fill(ScheduleSystemDataSets.AspNetUsersDataTable dataTable) {
+=======
+        public virtual int Fill(ScheduleSystemDataSets.FixedConversationalRuleDataTable dataTable) {
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
         public virtual int Fill(ScheduleSystemDataSets.FixedConversationalRuleDataTable dataTable) {
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
@@ -7434,9 +10017,15 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         public virtual ScheduleSystemDataSets.AspNetUsersDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             ScheduleSystemDataSets.AspNetUsersDataTable dataTable = new ScheduleSystemDataSets.AspNetUsersDataTable();
+=======
+        public virtual ScheduleSystemDataSets.FixedConversationalRuleDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            ScheduleSystemDataSets.FixedConversationalRuleDataTable dataTable = new ScheduleSystemDataSets.FixedConversationalRuleDataTable();
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
         public virtual ScheduleSystemDataSets.FixedConversationalRuleDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
@@ -7456,7 +10045,11 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         public virtual int Update(ScheduleSystemDataSets.AspNetUsersDataTable dataTable) {
+=======
+        public virtual int Update(ScheduleSystemDataSets.FixedConversationalRuleDataTable dataTable) {
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
         public virtual int Update(ScheduleSystemDataSets.FixedConversationalRuleDataTable dataTable) {
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
@@ -7472,7 +10065,11 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
         public virtual int Update(ScheduleSystemDataSets dataSet) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             return this.Adapter.Update(dataSet, "AspNetUsers");
+=======
+            return this.Adapter.Update(dataSet, "FixedConversationalRule");
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
             return this.Adapter.Update(dataSet, "FixedConversationalRule");
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
@@ -7502,7 +10099,11 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         public virtual int Delete(string Original_Id, string Original_Email, bool Original_EmailConfirmed, bool Original_PhoneNumberConfirmed, bool Original_TwoFactorEnabled, global::System.Nullable<global::System.DateTime> Original_LockoutEndDateUtc, bool Original_LockoutEnabled, int Original_AccessFailedCount, string Original_UserName, string Original_Role) {
+=======
+        public virtual int Delete(string Original_Id, string Original_Input, string Original_Output, string Original_RelatedUsersId, string Original_Status) {
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
         public virtual int Delete(string Original_Id, string Original_Input, string Original_Output, string Original_RelatedUsersId, string Original_Status) {
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
@@ -7515,6 +10116,7 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
             else {
                 this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Id));
             }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             if ((Original_Email == null)) {
@@ -7589,6 +10191,33 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
+            if ((Original_Input == null)) {
+                throw new global::System.ArgumentNullException("Original_Input");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Input));
+            }
+            if ((Original_Output == null)) {
+                throw new global::System.ArgumentNullException("Original_Output");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Output));
+            }
+            if ((Original_RelatedUsersId == null)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_RelatedUsersId));
+            }
+            if ((Original_Status == null)) {
+                throw new global::System.ArgumentNullException("Original_Status");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Status));
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7612,7 +10241,11 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         public virtual int Insert(string Id, string Email, bool EmailConfirmed, string PasswordHash, string SecurityStamp, string PhoneNumber, bool PhoneNumberConfirmed, bool TwoFactorEnabled, global::System.Nullable<global::System.DateTime> LockoutEndDateUtc, bool LockoutEnabled, int AccessFailedCount, string UserName, string Role) {
+=======
+        public virtual int Insert(string Id, string Input, string Output, string RelatedUsersId, string Status) {
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
         public virtual int Insert(string Id, string Input, string Output, string RelatedUsersId, string Status) {
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
@@ -7625,6 +10258,7 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Id));
             }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             if ((Email == null)) {
@@ -7723,6 +10357,31 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Status));
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
+            if ((Input == null)) {
+                throw new global::System.ArgumentNullException("Input");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Input));
+            }
+            if ((Output == null)) {
+                throw new global::System.ArgumentNullException("Output");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Output));
+            }
+            if ((RelatedUsersId == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(RelatedUsersId));
+            }
+            if ((Status == null)) {
+                throw new global::System.ArgumentNullException("Status");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Status));
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7744,6 +10403,7 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         public virtual int Update(
@@ -7776,12 +10436,16 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
 =======
         public virtual int Update(string Id, string Input, string Output, string RelatedUsersId, string Status, string Original_Id, string Original_Input, string Original_Output, string Original_RelatedUsersId, string Original_Status) {
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
+        public virtual int Update(string Id, string Input, string Output, string RelatedUsersId, string Status, string Original_Id, string Original_Input, string Original_Output, string Original_RelatedUsersId, string Original_Status) {
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             if ((Id == null)) {
                 throw new global::System.ArgumentNullException("Id");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Id));
             }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             if ((Email == null)) {
@@ -7925,11 +10589,37 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
                 this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_Role));
 =======
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Id));
+=======
+            if ((Input == null)) {
+                throw new global::System.ArgumentNullException("Input");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Input));
+            }
+            if ((Output == null)) {
+                throw new global::System.ArgumentNullException("Output");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Output));
+            }
+            if ((RelatedUsersId == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(RelatedUsersId));
+            }
+            if ((Status == null)) {
+                throw new global::System.ArgumentNullException("Status");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Status));
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             }
             if ((Original_Input == null)) {
                 throw new global::System.ArgumentNullException("Original_Input");
             }
             else {
+<<<<<<< HEAD
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Input));
             }
             if ((Original_Output == null)) {
@@ -7953,6 +10643,8 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Status));
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
+=======
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Id));
             }
             if ((Original_Input == null)) {
@@ -7980,6 +10672,9 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Status));
+<<<<<<< HEAD
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
@@ -8002,6 +10697,7 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         public virtual int Update(
@@ -8036,6 +10732,10 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
         public virtual int Update(string Input, string Output, string RelatedUsersId, string Status, string Original_Id, string Original_Input, string Original_Output, string Original_RelatedUsersId, string Original_Status) {
             return this.Update(Original_Id, Input, Output, RelatedUsersId, Status, Original_Id, Original_Input, Original_Output, Original_RelatedUsersId, Original_Status);
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
+        public virtual int Update(string Input, string Output, string RelatedUsersId, string Status, string Original_Id, string Original_Input, string Original_Output, string Original_RelatedUsersId, string Original_Status) {
+            return this.Update(Original_Id, Input, Output, RelatedUsersId, Status, Original_Id, Original_Input, Original_Output, Original_RelatedUsersId, Original_Status);
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
         }
     }
     
@@ -8060,6 +10760,10 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
         
         private FixedConversationalRuleTableAdapter _fixedConversationalRuleTableAdapter;
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+        
+        private ConversationalRuleTableAdapter _conversationalRuleTableAdapter;
+        
+        private FixedConversationalRuleTableAdapter _fixedConversationalRuleTableAdapter;
         
         private ConversationalRuleTableAdapter _conversationalRuleTableAdapter;
         
@@ -8166,6 +10870,34 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public ConversationalRuleTableAdapter ConversationalRuleTableAdapter {
+            get {
+                return this._conversationalRuleTableAdapter;
+            }
+            set {
+                this._conversationalRuleTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public FixedConversationalRuleTableAdapter FixedConversationalRuleTableAdapter {
+            get {
+                return this._fixedConversationalRuleTableAdapter;
+            }
+            set {
+                this._fixedConversationalRuleTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -8209,6 +10941,14 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
                             && (this._fixedConversationalRuleTableAdapter.Connection != null))) {
                     return this._fixedConversationalRuleTableAdapter.Connection;
                 }
+                if (((this._conversationalRuleTableAdapter != null) 
+                            && (this._conversationalRuleTableAdapter.Connection != null))) {
+                    return this._conversationalRuleTableAdapter.Connection;
+                }
+                if (((this._fixedConversationalRuleTableAdapter != null) 
+                            && (this._fixedConversationalRuleTableAdapter.Connection != null))) {
+                    return this._fixedConversationalRuleTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -8226,6 +10966,12 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
                     count = (count + 1);
                 }
                 if ((this._aspNetUsersTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._conversationalRuleTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._fixedConversationalRuleTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._conversationalRuleTableAdapter != null)) {
@@ -8266,6 +11012,24 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._aspNetUsersTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._conversationalRuleTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ConversationalRule.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._conversationalRuleTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._fixedConversationalRuleTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.FixedConversationalRule.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._fixedConversationalRuleTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -8363,6 +11127,22 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._conversationalRuleTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ConversationalRule.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._conversationalRuleTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._fixedConversationalRuleTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.FixedConversationalRule.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._fixedConversationalRuleTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -8375,9 +11155,12 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
             int result = 0;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             if ((this._aspNetUsersTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.AspNetUsers.Select(null, null, global::System.Data.DataViewRowState.Deleted);
 =======
+=======
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
             if ((this._fixedConversationalRuleTableAdapter != null)) {
@@ -8459,6 +11242,16 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
             }
             if (((this._aspNetUsersTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._aspNetUsersTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._conversationalRuleTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._conversationalRuleTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._fixedConversationalRuleTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._fixedConversationalRuleTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -8569,6 +11362,24 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
                         adaptersWithAcceptChangesDuringUpdate.Add(this._fixedConversationalRuleTableAdapter.Adapter);
                     }
                 }
+                if ((this._conversationalRuleTableAdapter != null)) {
+                    revertConnections.Add(this._conversationalRuleTableAdapter, this._conversationalRuleTableAdapter.Connection);
+                    this._conversationalRuleTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._conversationalRuleTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._conversationalRuleTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._conversationalRuleTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._conversationalRuleTableAdapter.Adapter);
+                    }
+                }
+                if ((this._fixedConversationalRuleTableAdapter != null)) {
+                    revertConnections.Add(this._fixedConversationalRuleTableAdapter, this._fixedConversationalRuleTableAdapter.Connection);
+                    this._fixedConversationalRuleTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._fixedConversationalRuleTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._fixedConversationalRuleTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._fixedConversationalRuleTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._fixedConversationalRuleTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -8633,10 +11444,13 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
                 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if ((this._aspNetUsersTableAdapter != null)) {
                     this._aspNetUsersTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._aspNetUsersTableAdapter]));
                     this._aspNetUsersTableAdapter.Transaction = null;
 =======
+=======
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
                 if ((this._conversationalRuleTableAdapter != null)) {
@@ -8647,6 +11461,9 @@ SELECT Id, Input, Output, RelatedUsersId, Status FROM FixedConversationalRule WH
                     this._fixedConversationalRuleTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._fixedConversationalRuleTableAdapter]));
                     this._fixedConversationalRuleTableAdapter.Transaction = null;
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
+=======
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
 =======
 >>>>>>> aa1f23f1ccf0d9b2f6f9d5af3bdf833d8bdce766
