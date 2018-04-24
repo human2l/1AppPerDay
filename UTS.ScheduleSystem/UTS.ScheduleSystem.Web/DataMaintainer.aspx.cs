@@ -54,6 +54,7 @@ namespace UTS.ScheduleSystem.Web
         protected void Button1_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("ButtonClick!");
+            List<MealSchedule> mealSchedules = controller.MealScheduleList;
 
             string topic = TopicTB.Text;
             string userId = UserIdTB.Text;
@@ -61,9 +62,10 @@ namespace UTS.ScheduleSystem.Web
             string location = LocationTB.Text;
             string startDate = StartDateTB.Text;
             string endDate = EndDateTB.Text;
-            MealSchedule ms = new MealSchedule(Utils.CreateIdByType("MealSchedule", controller.MealScheduleList), userId, topic, participants, location, startDate, endDate, "blahblah");
+            MealSchedule ms = new MealSchedule(Utils.CreateIdByType("MealSchedule", mealSchedules), userId, topic, participants, location, startDate, endDate, "blahblah");
 
-            controller.MealScheduleList.Add(ms);
+            mealSchedules.Add(ms);
+            controller.MealScheduleList = mealSchedules;
             UpdateGridView();
 
         }

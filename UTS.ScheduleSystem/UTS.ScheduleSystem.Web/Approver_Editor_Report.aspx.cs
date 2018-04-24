@@ -47,6 +47,8 @@ namespace UTS.ScheduleSystem.Web
         {
             int index = Convert.ToInt32(e.CommandArgument);
             string _editorId = editorList.Rows[index].Cells[0].Text;
+            List<ConversationalRule> conversationalRules = controller.ConversationalRulesList;
+            List<FixedConversationalRule> fixedConversationalRules = controller.FixedConversationalRulesList;
             foreach (User user in _editorList)
             {
                 if (user.Id.Equals(editorId))
@@ -59,11 +61,11 @@ namespace UTS.ScheduleSystem.Web
             {
                 case "Check":
                     editorUsername = currentEditor.Name;
-                    editorApprovedRuleNum = controller.ApproverService.UserRelatedApprovedRulesNum(currentEditor, controller.ConversationalRulesList, controller.FixedConversationalRulesList).ToString();
-                    editorRejectedRuleNum = controller.ApproverService.UserRelatedRejectedRulesNum(currentEditor, controller.ConversationalRulesList, controller.FixedConversationalRulesList).ToString();
-                    editorPendingRuleNum = controller.ApproverService.UserRelatedPendingRulesNum(currentEditor, controller.ConversationalRulesList, controller.FixedConversationalRulesList).ToString();
-                    editorSuccessRate = controller.ApproverService.UserSuccessRate(currentEditor, controller.ConversationalRulesList, controller.FixedConversationalRulesList).ToString();
-                    overallSuccessRate = controller.ApproverService.OverallAveSuccessRate(_editorList, controller.ConversationalRulesList, controller.FixedConversationalRulesList).ToString();
+                    editorApprovedRuleNum = controller.ApproverService.UserRelatedApprovedRulesNum(currentEditor, conversationalRules, fixedConversationalRules).ToString();
+                    editorRejectedRuleNum = controller.ApproverService.UserRelatedRejectedRulesNum(currentEditor, conversationalRules, fixedConversationalRules).ToString();
+                    editorPendingRuleNum = controller.ApproverService.UserRelatedPendingRulesNum(currentEditor, conversationalRules, fixedConversationalRules).ToString();
+                    editorSuccessRate = controller.ApproverService.UserSuccessRate(currentEditor, conversationalRules, fixedConversationalRules).ToString();
+                    overallSuccessRate = controller.ApproverService.OverallAveSuccessRate(_editorList, conversationalRules, fixedConversationalRules).ToString();
                     break;
                 default:
                     break;

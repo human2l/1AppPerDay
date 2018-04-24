@@ -20,11 +20,13 @@ namespace UTS.ScheduleSystem.Web
             if (Session["Controller"] != null)
             {
                 Controller controller = (Controller)Session["Controller"];
-                approvedList = controller.ApproverService.RequestApprovedRulesList(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
+                List<ConversationalRule> conversationalRules = controller.ConversationalRulesList;
+                List<FixedConversationalRule> fixedConversationalRules = controller.FixedConversationalRulesList;
+                approvedList = controller.ApproverService.RequestApprovedRulesList(conversationalRules, fixedConversationalRules);
                 readApprovedRule();
-                approvedRuleNum = controller.ApproverService.ApprovedRulesNum(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
-                rejectedRuleNum = controller.ApproverService.RejectedRulesNum(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
-                double _successRate = controller.ApproverService.SuccessRate(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
+                approvedRuleNum = controller.ApproverService.ApprovedRulesNum(conversationalRules, fixedConversationalRules);
+                rejectedRuleNum = controller.ApproverService.RejectedRulesNum(conversationalRules, fixedConversationalRules);
+                double _successRate = controller.ApproverService.SuccessRate(conversationalRules, fixedConversationalRules);
                 successRate = _successRate.ToString("0%");
             }
             else

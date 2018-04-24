@@ -48,21 +48,24 @@ namespace UTS.ScheduleSystem.Web
         {
             int index = Convert.ToInt32(e.CommandArgument);
             string _ruleId = PendingRuleDisplayView.Rows[index].Cells[0].Text;
+            List<ConversationalRule> conversationalRules = controller.ConversationalRulesList;
+            List<FixedConversationalRule> fixedConversationalRules = controller.FixedConversationalRulesList;
+
             switch (e.CommandName)
             {
                 case "Approve":
                     if (_ruleId.StartsWith("c"))
-                        controller.ConversationalRulesList = controller.ApproverService.ApproveRuleInConversationalRuleList(_ruleId, controller.ConversationalRulesList);
+                        controller.ConversationalRulesList = controller.ApproverService.ApproveRuleInConversationalRuleList(_ruleId, conversationalRules);
                     else
-                        controller.FixedConversationalRulesList = controller.ApproverService.ApproveRuleInFixedConversationalRuleList(_ruleId, controller.FixedConversationalRulesList);
-                    pendingList = controller.ApproverService.RequestPendingRulesList(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
+                        controller.FixedConversationalRulesList = controller.ApproverService.ApproveRuleInFixedConversationalRuleList(_ruleId, fixedConversationalRules);
+                    pendingList = controller.ApproverService.RequestPendingRulesList(conversationalRules, fixedConversationalRules);
                     break;
                 case "Reject":
                     if (_ruleId.StartsWith("c"))
-                        controller.ConversationalRulesList = controller.ApproverService.RejectRuleInConversationalRuleList(_ruleId, controller.ConversationalRulesList);
+                        controller.ConversationalRulesList = controller.ApproverService.RejectRuleInConversationalRuleList(_ruleId, conversationalRules);
                     else
-                        controller.FixedConversationalRulesList = controller.ApproverService.RejectRuleInFixedConversationalRuleList(_ruleId, controller.FixedConversationalRulesList);
-                    pendingList = controller.ApproverService.RequestPendingRulesList(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
+                        controller.FixedConversationalRulesList = controller.ApproverService.RejectRuleInFixedConversationalRuleList(_ruleId, fixedConversationalRules);
+                    pendingList = controller.ApproverService.RequestPendingRulesList(conversationalRules, fixedConversationalRules);
                     break;
                 default:
                     break;
