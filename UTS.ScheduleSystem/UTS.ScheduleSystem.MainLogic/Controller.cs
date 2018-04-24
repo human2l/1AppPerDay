@@ -93,24 +93,32 @@ namespace UTS.ScheduleSystem
                 var adapter = new AspNetUsersTableAdapter();
                 var set = adapter.GetData();
                 adapter.Dispose();
-                if(set.Count >= 1)
+
+                while (set.Count > 0)
                 {
-                    User DMnEnA = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, GetRole(set.First().Role));
+                    User user = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, GetRole(set.First().Role));
                     set.RemoveAspNetUsersRow(set.First());
-                    userList.Add(DMnEnA);
+                    userList.Add(user);
                 }
-                if(set.Count >= 3)
-                {
-                    User DM = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, GetRole(set.First().Role));
-                    set.RemoveAspNetUsersRow(set.First());
-                    User E = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, GetRole(set.First().Role));
-                    set.RemoveAspNetUsersRow(set.First());
-                    User A = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, GetRole(set.First().Role));
-                    set.RemoveAspNetUsersRow(set.First());
-                    userList.Add(DM);
-                    userList.Add(E);
-                    userList.Add(A);
-                }
+
+                //if(set.Count >= 1)
+                //{
+                //    User DMnEnA = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, GetRole(set.First().Role));
+                //    set.RemoveAspNetUsersRow(set.First());
+                //    userList.Add(DMnEnA);
+                //}
+                //if(set.Count >= 3)
+                //{
+                //    User DM = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, GetRole(set.First().Role));
+                //    set.RemoveAspNetUsersRow(set.First());
+                //    User E = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, GetRole(set.First().Role));
+                //    set.RemoveAspNetUsersRow(set.First());
+                //    User A = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, GetRole(set.First().Role));
+                //    set.RemoveAspNetUsersRow(set.First());
+                //    userList.Add(DM);
+                //    userList.Add(E);
+                //    userList.Add(A);
+                //}
                 
                 return userList;
             }
