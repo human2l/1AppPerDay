@@ -139,10 +139,12 @@ namespace UTS.ScheduleSystem
                 var adapter = new ConversationalRuleTableAdapter();
                 var set = adapter.GetData();
                 adapter.Dispose();
-                for (var i = 0; i < conversationalRulesList.Count; i++)
-                {
-                    conversationalRulesList.RemoveAt(i);
-                }
+                List<ConversationalRule> list = new List<ConversationalRule>();
+                conversationalRulesList = list;
+                //for (var i = 0; i < conversationalRulesList.Count; i++)
+                //{
+                //    conversationalRulesList.RemoveAt(i);
+                //}
                 while (set.Count != 0)
                 {
                     ConversationalRule cRule = new ConversationalRule(set.First().Id, set.First().Input, set.First().Output, set.First().RelatedUsersId,
@@ -183,10 +185,12 @@ namespace UTS.ScheduleSystem
                 var adapter = new FixedConversationalRuleTableAdapter();
                 var set = adapter.GetData();
                 adapter.Dispose();
-                for (var i = 0; i < fixedConversationalRulesList.Count; i++)
-                {
-                    fixedConversationalRulesList.RemoveAt(i);
-                }
+                List<FixedConversationalRule> list = new List<FixedConversationalRule>();
+                fixedConversationalRulesList = list;
+                //for (var i = 0; i < fixedConversationalRulesList.Count; i++)
+                //{
+                //    fixedConversationalRulesList.RemoveAt(i);
+                //}
                 while (set.Count != 0)
                 {
                     FixedConversationalRule fcRule = new FixedConversationalRule(set.First().Id, set.First().Input, set.First().Output, set.First().RelatedUsersId,
