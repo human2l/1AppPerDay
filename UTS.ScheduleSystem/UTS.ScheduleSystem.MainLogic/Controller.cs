@@ -228,10 +228,11 @@ namespace UTS.ScheduleSystem
                 var adapter = new MealScheduleTableAdapter();
                 var set = adapter.GetData();
                 adapter.Dispose();
-                for (var i = 0; i < mealScheduleList.Count; i++)
-                {
-                    mealScheduleList.RemoveAt(i);
-                }
+                //for (var i = 0; i < mealScheduleList.Count; i++)
+                //{
+                //    mealScheduleList.RemoveAt(i);
+                //}
+                mealScheduleList = new List<MealSchedule>();
                 while (set.Count != 0)
                 {
                     MealSchedule ms = new MealSchedule(set.First().Id, set.First().UserId, set.First().Topic, set.First().Participants, set.First().Location, set.First().StartDate, set.First().EndDate, set.First().LastEditUserId);
