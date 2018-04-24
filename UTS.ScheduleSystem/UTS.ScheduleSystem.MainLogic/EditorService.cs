@@ -127,7 +127,7 @@ namespace UTS.ScheduleSystem
         //}
 
         //Not sure about input and output format
-        public Tuple<List<FixedConversationalRule>, List<ConversationalRule>> EditPendingRule(string userId, string ruleId, string ruleInput, string ruleOutput, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
+        public void EditPendingRule(string userId, string ruleId, string ruleInput, string ruleOutput, ref List<FixedConversationalRule> fCRulesList, ref List<ConversationalRule> cRulesList)
         {
             bool valueChanged = false;
             for(int i=0; i<fCRulesList.Count; i++)
@@ -158,7 +158,6 @@ namespace UTS.ScheduleSystem
             //fCRule.Output = ruleOutput;
             //DeletePendingFCRule(ruleId, ref fixedConversationalRulesList);
             //fixedConversationalRulesList.Add(fCRule);
-            return Tuple.Create(fCRulesList, cRulesList);
         }
 
         //Not sure about input and output format
@@ -171,7 +170,7 @@ namespace UTS.ScheduleSystem
         //    conversationalRulesList.Add(cRule);
         //}
 
-        public Tuple<List<FixedConversationalRule>, List<ConversationalRule>> DeletePendingRule(string ruleId, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
+        public void DeletePendingRule(string ruleId, ref List<FixedConversationalRule> fCRulesList, ref List<ConversationalRule> cRulesList)
         {
             FixedConversationalRule fCRule = FindFCRule(ruleId, fCRulesList);
             if (fCRule != null)
@@ -186,7 +185,6 @@ namespace UTS.ScheduleSystem
                     cRulesList.Remove(cRule);
                 }
             }
-            return Tuple.Create(fCRulesList, cRulesList);
         }
 
         //public void DeletePendingCRule(string ruleId, ref List<ConversationalRule> conversationalRulesList)
