@@ -75,7 +75,7 @@ namespace UTS.ScheduleSystem
                 List<FixedConversationalRule> fixedConversationalRuleList = list.Cast<FixedConversationalRule>().ToList();
                 for (var i = 0; i < fixedConversationalRuleList.Count; i++)
                 {
-                    var idNumber = int.Parse(fixedConversationalRuleList[i].Id.Substring(1));
+                    var idNumber = int.Parse(fixedConversationalRuleList[i].Id.Substring(2));
                     if (idNumber > largestIdNumber)
                     {
                         largestIdNumber = idNumber;
@@ -90,16 +90,16 @@ namespace UTS.ScheduleSystem
                     return "ms0";
                 }
                 var largestIdNumber = 0;
-                List<MealSchedule> mealSchedulesList = list.Cast<User>().ToList();
-                for (var i = 0; i < userList.Count; i++)
+                List<MealSchedule> mealScheduleList = list.Cast<MealSchedule>().ToList();
+                for (var i = 0; i < mealScheduleList.Count; i++)
                 {
-                    var idNumber = int.Parse(userList[i].Id.Substring(1));
+                    var idNumber = int.Parse(mealScheduleList[i].Id.Substring(2));
                     if (idNumber > largestIdNumber)
                     {
                         largestIdNumber = idNumber;
                     }
                 }
-                return "u" + largestIdNumber;
+                return "ms" + largestIdNumber;
             }
                 return null;
         }
