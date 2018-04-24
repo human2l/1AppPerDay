@@ -36,35 +36,74 @@ namespace UTS.ScheduleSystem
                 {
                     return "u0";
                 }
-                User lastUser =(User)(object)list.Last();
-                return lastUser.Id;
+                var largestIdNumber = 0;
+                List<User> userList = list.Cast<User>().ToList();
+                for(var i = 0; i < userList.Count; i++)
+                {
+                    var idNumber = int.Parse(userList[i].Id.Substring(1));
+                    if (idNumber > largestIdNumber)
+                    {
+                        largestIdNumber = idNumber;
+                    }
+                }
+                return "u" + largestIdNumber;
             }else if (typeof(T).Equals(typeof(ConversationalRule)))
             {
                 if(list.Count == 0)
                 {
                     return "c0";
                 }
-                ConversationalRule lastConversationalRule = (ConversationalRule)(object)list.Last();
-                return lastConversationalRule.Id;
-            }else if (typeof(T).Equals(typeof(FixedConversationalRule)))
+                var largestIdNumber = 0;
+                List<ConversationalRule> conversationalRuleList = list.Cast<ConversationalRule>().ToList();
+                for (var i = 0; i < conversationalRuleList.Count; i++)
+                {
+                    var idNumber = int.Parse(conversationalRuleList[i].Id.Substring(1));
+                    if (idNumber > largestIdNumber)
+                    {
+                        largestIdNumber = idNumber;
+                    }
+                }
+                return "c" + largestIdNumber;
+            }
+            else if (typeof(T).Equals(typeof(FixedConversationalRule)))
             {
                 if(list.Count == 0)
                 {
                     return "fc0";
                 }
-                FixedConversationalRule lastFixedConversationalRule = (FixedConversationalRule)(object)list.Last();
-                return lastFixedConversationalRule.Id;
-            }else if (typeof(T).Equals(typeof(MealSchedule)))
+                var largestIdNumber = 0;
+                List<FixedConversationalRule> fixedConversationalRuleList = list.Cast<FixedConversationalRule>().ToList();
+                for (var i = 0; i < fixedConversationalRuleList.Count; i++)
+                {
+                    var idNumber = int.Parse(fixedConversationalRuleList[i].Id.Substring(1));
+                    if (idNumber > largestIdNumber)
+                    {
+                        largestIdNumber = idNumber;
+                    }
+                }
+                return "fc" + largestIdNumber;
+            }
+            else if (typeof(T).Equals(typeof(MealSchedule)))
             {
                 if(list.Count == 0)
                 {
                     return "ms0";
                 }
-                MealSchedule lastMealSchedule = (MealSchedule)(object)list.Last();
-                return lastMealSchedule.Id;
+                var largestIdNumber = 0;
+                List<MealSchedule> mealSchedulesList = list.Cast<User>().ToList();
+                for (var i = 0; i < userList.Count; i++)
+                {
+                    var idNumber = int.Parse(userList[i].Id.Substring(1));
+                    if (idNumber > largestIdNumber)
+                    {
+                        largestIdNumber = idNumber;
+                    }
+                }
+                return "u" + largestIdNumber;
             }
                 return null;
         }
+
 
         public static Role GetRole(string role)
         {
