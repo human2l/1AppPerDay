@@ -103,9 +103,9 @@ namespace UTS.ScheduleSystem.Web
         protected void PendingGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             string id = PendingGridView.DataKeys[e.RowIndex].Value.ToString();
-            var fRuleList = controller.FixedConversationalRulesList;
-            var cRuleList = controller.ConversationalRulesList;
-            controller.EditorService.DeletePendingRule(id, ref fRuleList, ref cRuleList);
+            var lists = controller.EditorService.DeletePendingRule(id, controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+            controller.FixedConversationalRulesList = lists.Item1;
+            controller.ConversationalRulesList = lists.Item2;
             List<Rule> rulesList = new List<Rule>();
             rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
             PendingGridView.DataSource = rulesList;
