@@ -325,12 +325,12 @@ namespace UTS.ScheduleSystem
 
         public double ShowCurrentUserSuccessRate(User user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
-            int approvedCount = ShowCurrentUserApprovedRulesCount(user, fCRulesList, cRulesList);
-            int rejectedCount = ShowCurrentUserRejectedRulesCount(user, fCRulesList, cRulesList);
-            int pendingCount = ShowCurrentUserPendingRulesCount(user, fCRulesList, cRulesList);
+            double approvedCount = ShowCurrentUserApprovedRulesCount(user, fCRulesList, cRulesList);
+            double rejectedCount = ShowCurrentUserRejectedRulesCount(user, fCRulesList, cRulesList);
+            double pendingCount = ShowCurrentUserPendingRulesCount(user, fCRulesList, cRulesList);
             if (approvedCount + rejectedCount + pendingCount != 0)
             {
-                double rate = approvedCount / (approvedCount + rejectedCount + pendingCount);
+                double rate = Math.Round (approvedCount / (approvedCount + rejectedCount + pendingCount), 2);
                 return rate;
             }
             return 0;

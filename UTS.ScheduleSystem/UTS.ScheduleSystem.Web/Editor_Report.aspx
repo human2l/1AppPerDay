@@ -6,7 +6,7 @@
             <b>My Approved Rules</b>
         </div>
         <div class="col-md-4">
-            ???
+            Summary:
         </div>
         <div class="col-md-8">
             <asp:GridView ID="EditorReportGridView" runat="server" AutoGenerateColumns="false">
