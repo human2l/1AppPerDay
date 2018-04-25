@@ -4,7 +4,7 @@
 
     <asp:GridView ID="DataMaintainerGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" 
         OnRowCancelingEdit ="DataMaintainerGridView_RowCancelingEdit"
-        OnRowDeleting="DataMaintainerGridView_RowDeleting" OnRowEditing="DataMaintainerGridView_RowEditing" OnRowUpdating="DataMaintainerGridView_RowUpdating" >
+        OnRowDeleting="DataMaintainerGridView_RowDeleting" OnRowEditing="DataMaintainerGridView_RowEditing" >
         <Columns>
             <asp:BoundField DataField="Id" HeaderText="Id" />
             <asp:BoundField DataField="Topic" HeaderText="Topic" />
@@ -15,7 +15,6 @@
             <asp:BoundField DataField="EndDate" HeaderText="EndDate" />
             <asp:BoundField DataField="LastEditUserId" HeaderText="LastEditUserId" />
             <asp:ButtonField Text="Edit" CommandName="Edit" />
-            <asp:ButtonField Text="Update" CommandName="Update" />
             <asp:ButtonField Text="Delete" CommandName="Delete" />
         </Columns>
     </asp:GridView>

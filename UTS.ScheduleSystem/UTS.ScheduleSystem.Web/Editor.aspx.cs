@@ -124,6 +124,8 @@ namespace UTS.ScheduleSystem.Web
             {
                 List<Rule> rulesList = new List<Rule>();
                 rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+                PendingGridView.Visible = true;
+                RejectedGridView.Visible = false;
                 PendingGridView.DataSource = rulesList;
                 PendingGridView.DataBind();
             }
@@ -131,6 +133,8 @@ namespace UTS.ScheduleSystem.Web
             {
                 List<Rule> rulesList = new List<Rule>();
                 rulesList = controller.EditorService.ShowAllRejectedRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+                PendingGridView.Visible = false;
+                RejectedGridView.Visible = true;
                 RejectedGridView.DataSource = rulesList;
                 RejectedGridView.DataBind();
                 
