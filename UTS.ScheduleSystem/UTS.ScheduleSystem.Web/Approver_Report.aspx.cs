@@ -10,8 +10,8 @@ namespace UTS.ScheduleSystem.Web
 {
     public partial class Approver_Report : System.Web.UI.Page
     {
-        private int approvedRuleNum;
-        private int rejectedRuleNum;
+        private string approvedRuleNum;
+        private string rejectedRuleNum;
         private string successRate;
         private List<Rule> approvedList = new List<Rule>();
 
@@ -24,10 +24,9 @@ namespace UTS.ScheduleSystem.Web
                 List<FixedConversationalRule> fixedConversationalRules = controller.FixedConversationalRulesList;
                 approvedList = controller.ApproverService.RequestApprovedRulesList(conversationalRules, fixedConversationalRules);
                 readApprovedRule();
-                approvedRuleNum = controller.ApproverService.ApprovedRulesNum(conversationalRules, fixedConversationalRules);
-                rejectedRuleNum = controller.ApproverService.RejectedRulesNum(conversationalRules, fixedConversationalRules);
-                double _successRate = controller.ApproverService.SuccessRate(conversationalRules, fixedConversationalRules);
-                successRate = _successRate.ToString("0%");
+                approvedRuleNum = controller.ApproverService.ApprovedRulesNum(conversationalRules, fixedConversationalRules).ToString();
+                rejectedRuleNum = controller.ApproverService.RejectedRulesNum(conversationalRules, fixedConversationalRules).ToString();
+                successRate = controller.ApproverService.SuccessRate(conversationalRules, fixedConversationalRules).ToString("0.00%");
             }
             else
             {
@@ -42,7 +41,7 @@ namespace UTS.ScheduleSystem.Web
             ApprovedRulesDisplayView.DataBind();
         }
 
-        public int ApprovedRuleNum
+        public string ApprovedRuleNum
         {
             get
             {
@@ -55,7 +54,7 @@ namespace UTS.ScheduleSystem.Web
             }
         }
 
-        public int RejectedRuleNum
+        public string RejectedRuleNum
         {
             get
             {

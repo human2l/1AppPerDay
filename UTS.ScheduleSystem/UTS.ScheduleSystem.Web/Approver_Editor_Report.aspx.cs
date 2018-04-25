@@ -63,8 +63,8 @@ namespace UTS.ScheduleSystem.Web
                     editorApprovedRuleNum = controller.ApproverService.UserRelatedApprovedRulesNum(currentEditor, conversationalRules, fixedConversationalRules).ToString();
                     editorRejectedRuleNum = controller.ApproverService.UserRelatedRejectedRulesNum(currentEditor, conversationalRules, fixedConversationalRules).ToString();
                     editorPendingRuleNum = controller.ApproverService.UserRelatedPendingRulesNum(currentEditor, conversationalRules, fixedConversationalRules).ToString();
-                    editorSuccessRate = controller.ApproverService.UserSuccessRate(currentEditor, conversationalRules, fixedConversationalRules).ToString();
-                    overallSuccessRate = controller.ApproverService.OverallAveSuccessRate(_editorList, conversationalRules, fixedConversationalRules).ToString();
+                    editorSuccessRate = controller.ApproverService.UserSuccessRate(currentEditor, conversationalRules, fixedConversationalRules).ToString("0.00%");
+                    overallSuccessRate = controller.ApproverService.OverallAveSuccessRate(_editorList, conversationalRules, fixedConversationalRules).ToString("0.00%");
                     break;
                 default:
                     break;
