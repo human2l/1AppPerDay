@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-8">Pending Rules:</div>
         <div class="col-md-4">
-            <asp:Button ID="PassedRulesButton" runat="server" Text="My Rules" onclick="PassedRulesButton_Click"/>
+            <asp:Button ID="PassedRulesButton" runat="server" Text="ApprovedRules" onclick="PassedRulesButton_Click"/>
         </div>
     </div>
     <div class="row">
