@@ -25,7 +25,7 @@ namespace UTS.ScheduleSystem.Web
                 Username.Text = controller.CurrentUser.Name;
                 NumberOfApprovedRules.Text = controller.EditorService.ShowCurrentUserApprovedRulesCount(controller.CurrentUser, fcRuleList, cRuleList).ToString();
                 NumberOfRejectedRules.Text = controller.EditorService.ShowCurrentUserRejectedRulesCount(controller.CurrentUser, fcRuleList, cRuleList).ToString();
-                SuccessRate.Text = controller.EditorService.ShowCurrentUserSuccessRate(controller.CurrentUser, fcRuleList, cRuleList).ToString() + "%";
+                SuccessRate.Text = controller.EditorService.ShowCurrentUserSuccessRate(controller.CurrentUser, fcRuleList, cRuleList).ToString("0.00%");
             }
             else
             {
