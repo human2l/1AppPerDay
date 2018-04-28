@@ -35,6 +35,8 @@
         </div>
         <div class="col-md-4">
             <asp:TextBox ID="Input" runat="server" TextMode="MultiLine" placeholder="Input"></asp:TextBox>
+            <h5>Please use parameter from option with braces:</h5> 
+            <h5>{ "topic", "participants", "location", "startdate", "enddate" }</h5>
             <br />
             <asp:TextBox ID="Output" runat="server" TextMode="MultiLine" placeholder="Output"></asp:TextBox>
             <br /><br />

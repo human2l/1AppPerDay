@@ -8,7 +8,6 @@
         <Columns>
             <asp:BoundField DataField="Id" HeaderText="Id" />
             <asp:BoundField DataField="Topic" HeaderText="Topic" />
-            <asp:BoundField DataField="UserId" HeaderText="UserId" />
             <asp:BoundField DataField="Participants" HeaderText="Participants" />
             <asp:BoundField DataField="Location" HeaderText="Location" />
             <asp:BoundField DataField="StartDate" HeaderText="StartDate" />
@@ -25,11 +24,6 @@
         <br />
         <asp:TextBox ID="TopicTB" runat="server"></asp:TextBox>
         <br/>
-        
-        <asp:Label ID="Label3" runat="server" Text="UserId"></asp:Label>
-        <br />
-        <asp:TextBox ID="UserIdTB" runat="server"></asp:TextBox>
-        <br />
         
         <asp:Label ID="Label4" runat="server" Text="Participants"></asp:Label>
         <br />

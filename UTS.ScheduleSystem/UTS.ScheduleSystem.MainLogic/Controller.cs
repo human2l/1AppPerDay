@@ -17,9 +17,8 @@ namespace UTS.ScheduleSystem.MainLogic
         private List<FixedConversationalRule> fixedConversationalRulesList = new List<FixedConversationalRule>();
         private List<MealSchedule> mealScheduleList = new List<MealSchedule>();
 
-        private string[] keywords = { "topic", "ddd" };
-
-        //private ConversationService 
+        //private ConversationService
+        private ConversationService conversationService = new ConversationService();
         private DataMaintainerService dataMaintainerService = new DataMaintainerService();
         private EditorService editorService = new EditorService();
         private ApproverService approverService = new ApproverService();
@@ -278,6 +277,8 @@ namespace UTS.ScheduleSystem.MainLogic
                 currentUser = value;
             }
         }
+
+        public ConversationService ConversationService { get => conversationService; set => conversationService = value; }
 
         //public void initialization()
         //{

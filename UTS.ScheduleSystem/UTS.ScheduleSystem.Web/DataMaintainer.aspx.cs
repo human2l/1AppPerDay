@@ -65,7 +65,6 @@ namespace UTS.ScheduleSystem.Web
 
 
             string topic = TopicTB.Text;
-            string userId = UserIdTB.Text;
             string participants = ParticipantsTB.Text;
             string location = LocationTB.Text;
             string startDate = StartDateTB.Text;

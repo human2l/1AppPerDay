@@ -3,7 +3,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-                <asp:TextBox ID="TextBox1" runat="server" Height="20px" Width="300px"></asp:TextBox>
+                <asp:TextBox ID="question" runat="server" Height="20px" Width="300px"></asp:TextBox>
 
     <%--<div class="container">
         <div class="row">
@@ -49,7 +49,7 @@
             </p>
         </div>
     </div>--%>
-                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+                <asp:Button ID="submit" runat="server" OnClick="Submit_Click" Text="Submit" />
                 <br />
-                <asp:TextBox ID="TextBox2" runat="server" Height="329px" ReadOnly="True" TextMode="MultiLine" Width="366px"></asp:TextBox>
+                <asp:TextBox ID="answer" runat="server" Height="329px" ReadOnly="True" TextMode="MultiLine" Width="366px"></asp:TextBox>
 </asp:Content>
