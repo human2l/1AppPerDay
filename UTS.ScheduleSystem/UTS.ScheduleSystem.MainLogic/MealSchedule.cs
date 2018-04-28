@@ -8,7 +8,6 @@ namespace UTS.ScheduleSystem.MainLogic
     public class MealSchedule
     {
         private string id;
-        private string userId;
         private string topic;
         private string participants;
         private string location;
@@ -16,10 +15,9 @@ namespace UTS.ScheduleSystem.MainLogic
         private string endDate;
         private string lastEditUserId;
 
-        public MealSchedule(string id, string userId, string topic, string participants, string location, string startDate, string endDate, string lastEditUserId)
+        public MealSchedule(string id, string topic, string participants, string location, string startDate, string endDate, string lastEditUserId)
         {
             this.id = id;
-            this.userId = userId;
             this.topic = topic;
             this.participants = participants;
             this.location = location;
@@ -116,19 +114,6 @@ namespace UTS.ScheduleSystem.MainLogic
             set
             {
                 lastEditUserId = value;
-            }
-        }
-
-        public string UserId
-        {
-            get
-            {
-                return userId;
-            }
-
-            set
-            {
-                userId = value;
             }
         }
     }

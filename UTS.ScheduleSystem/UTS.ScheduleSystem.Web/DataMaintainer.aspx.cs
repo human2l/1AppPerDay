@@ -70,7 +70,7 @@ namespace UTS.ScheduleSystem.Web
             string location = LocationTB.Text;
             string startDate = StartDateTB.Text;
             string endDate = EndDateTB.Text;
-            MealSchedule ms = new MealSchedule(Utils.CreateIdByType("MealSchedule", mealScheduleList), userId, topic, participants, location, startDate, endDate, "blahblah");
+            MealSchedule ms = new MealSchedule(Utils.CreateIdByType("MealSchedule", mealScheduleList), topic, participants, location, startDate, endDate, "blahblah");
 
             mealScheduleList.Add(ms);
             controller.MealScheduleList = mealScheduleList;

@@ -17,6 +17,8 @@ namespace UTS.ScheduleSystem.MainLogic
         private List<FixedConversationalRule> fixedConversationalRulesList = new List<FixedConversationalRule>();
         private List<MealSchedule> mealScheduleList = new List<MealSchedule>();
 
+        private string[] keywords = { "topic", "ddd" };
+
         //private ConversationService 
         private DataMaintainerService dataMaintainerService = new DataMaintainerService();
         private EditorService editorService = new EditorService();
@@ -235,7 +237,7 @@ namespace UTS.ScheduleSystem.MainLogic
                 mealScheduleList = new List<MealSchedule>();
                 while (set.Count != 0)
                 {
-                    MealSchedule ms = new MealSchedule(set.First().Id, set.First().UserId, set.First().Topic, set.First().Participants, set.First().Location, set.First().StartDate, set.First().EndDate, set.First().LastEditUserId);
+                    MealSchedule ms = new MealSchedule(set.First().Id, set.First().Topic, set.First().Participants, set.First().Location, set.First().StartDate, set.First().EndDate, set.First().LastEditUserId);
                     set.RemoveMealScheduleRow(set.First());
 
                     mealScheduleList.Add(ms);
@@ -251,14 +253,14 @@ namespace UTS.ScheduleSystem.MainLogic
 
                 for (var i = 0; i < set.Count; i++)
                 {
-                    adapter.Delete(set[i].Id, set[i].UserId, set[i].Topic, set[i].Participants, set[i].Location, set[i].StartDate, set[i].EndDate, set[i].LastEditUserId);
+                    adapter.Delete(set[i].Id, set[i].Topic, set[i].Participants, set[i].Location, set[i].StartDate, set[i].EndDate, set[i].LastEditUserId);
                 }
                 System.Diagnostics.Debug.WriteLine("valueCount: " + value.Count);
                 for (var i = 0; i < value.Count; i++)
                 {
                     MealSchedule ms = value[i];
                     System.Diagnostics.Debug.WriteLine(ms.Id);
-                    adapter.Insert(ms.Id, ms.UserId, ms.Topic, ms.Participants, ms.Location, ms.StartDate, ms.EndDate, ms.LastEditUserId); ;
+                    adapter.Insert(ms.Id, ms.Topic, ms.Participants, ms.Location, ms.StartDate, ms.EndDate, ms.LastEditUserId); ;
                 }
                 adapter.Dispose();
             }
@@ -277,32 +279,32 @@ namespace UTS.ScheduleSystem.MainLogic
             }
         }
 
-        public void initialization()
-        {
-            User frank = new User("u001", "Frank", "frank", "frank@frank.com", Role.DMnA);
-            ConversationalRule weatherRule1 = new ConversationalRule("c001", "How is the weather on ", "The weather on {p1} is {p2}", "u001 u002", Status.Approved);
-            FixedConversationalRule weatherFRule1 = new FixedConversationalRule("fc001", "How do you do", "I'm fine, fuck you, and you?", "u001", Status.Rejected);
-            FixedConversationalRule weatherFRule2 = new FixedConversationalRule("fc002", "qwerty", "asdfgg", "u001", Status.Pending);
-            MealSchedule mealSchedule1 = new MealSchedule("ms1","u001", "dinner", "Michael Bay,Donald Trump", "Sydney", "08/04/2018 3:12:18 PM", "08/04/2018 4:15:00 PM", "u001 u002");
-            MealSchedule ms1 = new MealSchedule("ms2", "userId-s", "topic-s", "participants-s", "location-s", "startDate-s", "endDate-s", "lastEditUserId-s");
-            MealSchedule ms2 = new MealSchedule("ms3", "userId-s", "topic-s", "participants-s", "location-s", "startDate-s", "endDate-s", "lastEditUserId-s");
-            //fakeDB.UserTbl.Add(frank);
-            //fakeDB.CRulesTbl.Add(weatherRule1);
-            //fakeDB.FCRulesTbl.Add(weatherFRule1);
-            //fakeDB.MealScheduleTbl.Add(mealSchedule1);
-            UserList.Add(frank);
-            conversationalRulesList.Add(weatherRule1);
-            fixedConversationalRulesList.Add(weatherFRule1);
-            fixedConversationalRulesList.Add(weatherFRule2);
-            MealScheduleList.Add(mealSchedule1);
-            MealScheduleList.Add(ms1);
-            MealScheduleList.Add(ms2);
+        //public void initialization()
+        //{
+        //    User frank = new User("u001", "Frank", "frank", "frank@frank.com", Role.DMnA);
+        //    ConversationalRule weatherRule1 = new ConversationalRule("c001", "How is the weather on ", "The weather on {p1} is {p2}", "u001 u002", Status.Approved);
+        //    FixedConversationalRule weatherFRule1 = new FixedConversationalRule("fc001", "How do you do", "I'm fine, fuck you, and you?", "u001", Status.Rejected);
+        //    FixedConversationalRule weatherFRule2 = new FixedConversationalRule("fc002", "qwerty", "asdfgg", "u001", Status.Pending);
+        //    MealSchedule mealSchedule1 = new MealSchedule("ms1","u001", "dinner", "Michael Bay,Donald Trump", "Sydney", "08/04/2018 3:12:18 PM", "08/04/2018 4:15:00 PM", "u001 u002");
+        //    MealSchedule ms1 = new MealSchedule("ms2", "userId-s", "topic-s", "participants-s", "location-s", "startDate-s", "endDate-s", "lastEditUserId-s");
+        //    MealSchedule ms2 = new MealSchedule("ms3", "userId-s", "topic-s", "participants-s", "location-s", "startDate-s", "endDate-s", "lastEditUserId-s");
+        //    //fakeDB.UserTbl.Add(frank);
+        //    //fakeDB.CRulesTbl.Add(weatherRule1);
+        //    //fakeDB.FCRulesTbl.Add(weatherFRule1);
+        //    //fakeDB.MealScheduleTbl.Add(mealSchedule1);
+        //    UserList.Add(frank);
+        //    conversationalRulesList.Add(weatherRule1);
+        //    fixedConversationalRulesList.Add(weatherFRule1);
+        //    fixedConversationalRulesList.Add(weatherFRule2);
+        //    MealScheduleList.Add(mealSchedule1);
+        //    MealScheduleList.Add(ms1);
+        //    MealScheduleList.Add(ms2);
 
 
-            //codes for read database and update all lists
+        //    //codes for read database and update all lists
 
 
-        }
+        //}
 
         //main process
         public void maintaining()
