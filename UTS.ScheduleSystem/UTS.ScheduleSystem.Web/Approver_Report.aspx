@@ -19,7 +19,7 @@
                         <asp:BoundField DataField="Input" HeaderText="Input" />
                         <asp:BoundField DataField="Output" HeaderText="Output" />
                         <asp:BoundField DataField="Status" HeaderText="Status" />
-                        <asp:BoundField DataField="LastRelatedUserID" HeaderText="Last Editor" />
+                        <asp:BoundField DataField="LastRelatedUserId" HeaderText="Last Editor" />
                     </Columns>
                 </asp:GridView>
             </div>

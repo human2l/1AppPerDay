@@ -10,7 +10,9 @@ namespace UTS.ScheduleSystem.Web
 {
     public partial class Approver_Editor_Report : System.Web.UI.Page
     {
-        Controller controller;
+        private Controller controller;
+        private List<ConversationalRule> conversationalRules;
+        private List<FixedConversationalRule> fixedConversationalRules;
         private List<User> _editorList = new List<User>();
         private User currentEditor; 
 
@@ -26,7 +28,8 @@ namespace UTS.ScheduleSystem.Web
             if (Session["Controller"] != null)
             {
                 controller = (Controller)Session["Controller"];
-                readEditorList(controller);
+                LoadRuleList();
+                DisplayEditorList(controller);
             }
             else
             {
@@ -35,19 +38,35 @@ namespace UTS.ScheduleSystem.Web
             }
         }
 
-        private void readEditorList(Controller controller)
+        // Load rule list from database
+        private void LoadRuleList()
+        {
+            conversationalRules = controller.ConversationalRulesList;
+            fixedConversationalRules = controller.FixedConversationalRulesList;
+        }
+
+        // Load editor list from database and bind with display
+        private void DisplayEditorList(Controller controller)
         {
             _editorList = controller.ApproverService.RequestEditorList(controller.UserList);
             editorList.DataSource = _editorList;
             editorList.DataBind();
         }
 
-        protected void editorList_RowCommand(object sender, GridViewCommandEventArgs e)
+        // Refresh statistics data from database and refresh on display table
+        private void DisplayStatisticsData()
         {
-            int index = Convert.ToInt32(e.CommandArgument);
-            string editorId = editorList.Rows[index].Cells[0].Text;
-            List<ConversationalRule> conversationalRules = controller.ConversationalRulesList;
-            List<FixedConversationalRule> fixedConversationalRules = controller.FixedConversationalRulesList;
+            editorUsername = currentEditor.Name;
+            editorApprovedRuleNum = controller.ApproverService.UserRelatedApprovedRulesNum(currentEditor, conversationalRules, fixedConversationalRules).ToString();
+            editorRejectedRuleNum = controller.ApproverService.UserRelatedRejectedRulesNum(currentEditor, conversationalRules, fixedConversationalRules).ToString();
+            editorPendingRuleNum = controller.ApproverService.UserRelatedPendingRulesNum(currentEditor, conversationalRules, fixedConversationalRules).ToString();
+            editorSuccessRate = controller.ApproverService.UserSuccessRate(currentEditor, conversationalRules, fixedConversationalRules).ToString("0.00%");
+            overallSuccessRate = controller.ApproverService.OverallAveSuccessRate(_editorList, conversationalRules, fixedConversationalRules).ToString("0.00%");
+        }
+
+        // Recognize the on selected row editor and save into on focus user
+        private void RecognizeUser(string editorId)
+        {
             foreach (User user in _editorList)
             {
                 if (user.Id.Equals(editorId))
@@ -56,15 +75,19 @@ namespace UTS.ScheduleSystem.Web
                     break;
                 }
             }
+        }
+
+        // Row command function on click of "Check"
+        protected void EditorList_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int index = Convert.ToInt32(e.CommandArgument);
+            string editorId = editorList.Rows[index].Cells[0].Text;
+            LoadRuleList();
+            RecognizeUser(editorId);
             switch (e.CommandName)
             {
                 case "Check":
-                    editorUsername = currentEditor.Name;
-                    editorApprovedRuleNum = controller.ApproverService.UserRelatedApprovedRulesNum(currentEditor, conversationalRules, fixedConversationalRules).ToString();
-                    editorRejectedRuleNum = controller.ApproverService.UserRelatedRejectedRulesNum(currentEditor, conversationalRules, fixedConversationalRules).ToString();
-                    editorPendingRuleNum = controller.ApproverService.UserRelatedPendingRulesNum(currentEditor, conversationalRules, fixedConversationalRules).ToString();
-                    editorSuccessRate = controller.ApproverService.UserSuccessRate(currentEditor, conversationalRules, fixedConversationalRules).ToString("0.00%");
-                    overallSuccessRate = controller.ApproverService.OverallAveSuccessRate(_editorList, conversationalRules, fixedConversationalRules).ToString("0.00%");
+                    DisplayStatisticsData();
                     break;
                 default:
                     break;

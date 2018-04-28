@@ -10,23 +10,22 @@ namespace UTS.ScheduleSystem.Web
 {
     public partial class Approver_Report : System.Web.UI.Page
     {
+        private Controller controller;
         private string approvedRuleNum;
         private string rejectedRuleNum;
         private string successRate;
+        private List<ConversationalRule> conversationalRules;
+        private List<FixedConversationalRule> fixedConversationalRules;
         private List<Rule> approvedList = new List<Rule>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Controller"] != null)
             {
-                Controller controller = (Controller)Session["Controller"];
-                List<ConversationalRule> conversationalRules = controller.ConversationalRulesList;
-                List<FixedConversationalRule> fixedConversationalRules = controller.FixedConversationalRulesList;
-                approvedList = controller.ApproverService.RequestApprovedRulesList(conversationalRules, fixedConversationalRules);
-                readApprovedRule();
-                approvedRuleNum = controller.ApproverService.ApprovedRulesNum(conversationalRules, fixedConversationalRules).ToString();
-                rejectedRuleNum = controller.ApproverService.RejectedRulesNum(conversationalRules, fixedConversationalRules).ToString();
-                successRate = controller.ApproverService.SuccessRate(conversationalRules, fixedConversationalRules).ToString("0.00%");
+                controller = (Controller)Session["Controller"];
+                LoadRuleList();
+                DisplayApprovedRuleList();
+                DisplayStatisticsData();
             }
             else
             {
@@ -35,10 +34,27 @@ namespace UTS.ScheduleSystem.Web
             }
         }
 
-        private void readApprovedRule()
+        // Load rule list from database
+        private void LoadRuleList()
         {
+            conversationalRules = controller.ConversationalRulesList;
+            fixedConversationalRules = controller.FixedConversationalRulesList;
+        }
+
+        // Load approved rule list from database and bind with display
+        private void DisplayApprovedRuleList()
+        {
+            approvedList = controller.ApproverService.RequestApprovedRulesList(conversationalRules, fixedConversationalRules);
             ApprovedRulesDisplayView.DataSource = approvedList;
             ApprovedRulesDisplayView.DataBind();
+        }
+
+        // Refresh statistics data from database and refresh on display table
+        private void DisplayStatisticsData()
+        {
+            approvedRuleNum = controller.ApproverService.ApprovedRulesNum(conversationalRules, fixedConversationalRules).ToString();
+            rejectedRuleNum = controller.ApproverService.RejectedRulesNum(conversationalRules, fixedConversationalRules).ToString();
+            successRate = controller.ApproverService.SuccessRate(conversationalRules, fixedConversationalRules).ToString("0.00%");
         }
 
         public string ApprovedRuleNum

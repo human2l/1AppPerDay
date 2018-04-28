@@ -7,7 +7,7 @@
     </div>
     <div class="row">
         <div class="col-md-4">
-            <asp:GridView ID="editorList" runat="server" AutoGenerateColumns="false" OnRowCommand="editorList_RowCommand">
+            <asp:GridView ID="editorList" runat="server" AutoGenerateColumns="false" OnRowCommand="EditorList_RowCommand">
                 <Columns>
                     <asp:BoundField DataField="Id" HeaderText="ID" />
                     <asp:BoundField DataField="Name" HeaderText="Name" />

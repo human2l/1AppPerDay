@@ -11,6 +11,8 @@ namespace UTS.ScheduleSystem.Web
     public partial class Approver : System.Web.UI.Page
     {
         private Controller controller;
+        private List<ConversationalRule> conversationalRules;
+        private List<FixedConversationalRule> fixedConversationalRules;
         private List<Rule> pendingList = new List<Rule>();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -18,8 +20,8 @@ namespace UTS.ScheduleSystem.Web
             if (Session["Controller"] != null)
             {
                 controller = (Controller)Session["Controller"];
-                pendingList = controller.ApproverService.RequestPendingRulesList(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
-                readPendingRule();
+                LoadRuleList();
+                DisplayPendingRuleList();
             }
             else
             {
@@ -28,8 +30,17 @@ namespace UTS.ScheduleSystem.Web
             }
         }
 
-        private void readPendingRule()
+        // Load rule list from database
+        private void LoadRuleList()
         {
+            conversationalRules = controller.ConversationalRulesList;
+            fixedConversationalRules = controller.FixedConversationalRulesList;
+        }
+
+        // Load pending rule list from database and bind with display
+        private void DisplayPendingRuleList()
+        {
+            pendingList = controller.ApproverService.RequestPendingRulesList(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
             PendingRuleDisplayView.DataSource = pendingList;
             PendingRuleDisplayView.DataBind();
         }
@@ -48,8 +59,7 @@ namespace UTS.ScheduleSystem.Web
         {
             int index = Convert.ToInt32(e.CommandArgument);
             string _ruleId = PendingRuleDisplayView.Rows[index].Cells[0].Text;
-            List<ConversationalRule> conversationalRules = controller.ConversationalRulesList;
-            List<FixedConversationalRule> fixedConversationalRules = controller.FixedConversationalRulesList;
+            LoadRuleList();
 
             switch (e.CommandName)
             {
@@ -58,19 +68,17 @@ namespace UTS.ScheduleSystem.Web
                         controller.ConversationalRulesList = controller.ApproverService.ApproveRuleInConversationalRuleList(_ruleId, conversationalRules);
                     else
                         controller.FixedConversationalRulesList = controller.ApproverService.ApproveRuleInFixedConversationalRuleList(_ruleId, fixedConversationalRules);
-                    pendingList = controller.ApproverService.RequestPendingRulesList(conversationalRules, fixedConversationalRules);
                     break;
                 case "Reject":
                     if (_ruleId.StartsWith("c"))
                         controller.ConversationalRulesList = controller.ApproverService.RejectRuleInConversationalRuleList(_ruleId, conversationalRules);
                     else
                         controller.FixedConversationalRulesList = controller.ApproverService.RejectRuleInFixedConversationalRuleList(_ruleId, fixedConversationalRules);
-                    pendingList = controller.ApproverService.RequestPendingRulesList(conversationalRules, fixedConversationalRules);
                     break;
                 default:
                     break;
             }
-            readPendingRule();
+            DisplayPendingRuleList();
         }
     }
 }
