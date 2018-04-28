@@ -91,7 +91,19 @@ namespace UTS.ScheduleSystem
             return apvRulesList;
         }
 
-        public List<FixedConversationalRule> ApproveRuleInFixedConversationalRuleList(string ruleId, List<FixedConversationalRule> fCRulesList)
+        public void ApproveRule(string ruleId, ref List<ConversationalRule> cRule, ref List<FixedConversationalRule> fCRulesList)
+        {
+            if (ruleId.StartsWith("c"))
+            {
+                ApproveRuleInConversationalRuleList(ruleId, ref cRule);
+            }
+            else
+            {
+                ApproveRuleInFixedConversationalRuleList(ruleId, ref fCRulesList);
+            }
+        }
+
+        private void ApproveRuleInFixedConversationalRuleList(string ruleId, ref List<FixedConversationalRule> fCRulesList)
         {
             for (int x = 0; x < fCRulesList.Count; x++)
             {
@@ -101,10 +113,9 @@ namespace UTS.ScheduleSystem
                     break;
                 }
             }
-            return fCRulesList;
         }
 
-        public List<ConversationalRule> ApproveRuleInConversationalRuleList(string ruleId, List<ConversationalRule> cRulesList)
+        private void ApproveRuleInConversationalRuleList(string ruleId, ref List<ConversationalRule> cRulesList)
         {
             for (int x = 0; x < cRulesList.Count; x++)
             {
@@ -114,10 +125,21 @@ namespace UTS.ScheduleSystem
                     break;
                 }
             }
-            return cRulesList;
         }
 
-        public List<FixedConversationalRule> RejectRuleInFixedConversationalRuleList(string ruleId, List<FixedConversationalRule> fCRulesList)
+        public void RejectRule(string ruleId, ref List<ConversationalRule> cRule, ref List<FixedConversationalRule> fCRulesList)
+        {
+            if (ruleId.StartsWith("c"))
+            {
+                RejectRuleInConversationalRuleList(ruleId, ref cRule);
+            }
+            else
+            {
+                RejectRuleInFixedConversationalRuleList(ruleId, ref fCRulesList);
+            }
+        }
+
+        public void RejectRuleInFixedConversationalRuleList(string ruleId, ref List<FixedConversationalRule> fCRulesList)
         {
             for (int x = 0; x < fCRulesList.Count; x++)
             {
@@ -127,10 +149,9 @@ namespace UTS.ScheduleSystem
                     break;
                 }
             }
-            return fCRulesList;
         }
 
-        public List<ConversationalRule> RejectRuleInConversationalRuleList(string ruleId, List<ConversationalRule> cRulesList)
+        public void RejectRuleInConversationalRuleList(string ruleId, ref List<ConversationalRule> cRulesList)
         {
             for (int x = 0; x < cRulesList.Count; x++)
             {
@@ -140,7 +161,6 @@ namespace UTS.ScheduleSystem
                     break;
                 }
             }
-            return cRulesList;
         }
 
         public int ApprovedRulesNum(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)

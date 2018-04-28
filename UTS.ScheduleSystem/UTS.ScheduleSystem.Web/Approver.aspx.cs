@@ -37,6 +37,13 @@ namespace UTS.ScheduleSystem.Web
             fixedConversationalRules = controller.FixedConversationalRulesList;
         }
 
+        // Pass updated data to database
+        private void UpdateDatabase()
+        {
+            controller.ConversationalRulesList = conversationalRules;
+            controller.FixedConversationalRulesList = fixedConversationalRules;
+        }
+
         // Load pending rule list from database and bind with display
         private void DisplayPendingRuleList()
         {
@@ -45,35 +52,32 @@ namespace UTS.ScheduleSystem.Web
             PendingRuleDisplayView.DataBind();
         }
 
+        // Redirect to approver report page on button clicked
         protected void PassedRulesButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Approver_Report");
         }
 
+        // Redirect to editor report page on button clicked
         protected void EditorDashboardButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Approver_Editor_Report");
         }
 
+        // Row command function on click of "Approve" & "Reject"
         protected void PendingRuleDisplayView_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int index = Convert.ToInt32(e.CommandArgument);
             string _ruleId = PendingRuleDisplayView.Rows[index].Cells[0].Text;
-            LoadRuleList();
-
             switch (e.CommandName)
             {
                 case "Approve":
-                    if (_ruleId.StartsWith("c"))
-                        controller.ConversationalRulesList = controller.ApproverService.ApproveRuleInConversationalRuleList(_ruleId, conversationalRules);
-                    else
-                        controller.FixedConversationalRulesList = controller.ApproverService.ApproveRuleInFixedConversationalRuleList(_ruleId, fixedConversationalRules);
+                    controller.ApproverService.ApproveRule(_ruleId, ref conversationalRules, ref fixedConversationalRules);
+                    UpdateDatabase();
                     break;
                 case "Reject":
-                    if (_ruleId.StartsWith("c"))
-                        controller.ConversationalRulesList = controller.ApproverService.RejectRuleInConversationalRuleList(_ruleId, conversationalRules);
-                    else
-                        controller.FixedConversationalRulesList = controller.ApproverService.RejectRuleInFixedConversationalRuleList(_ruleId, fixedConversationalRules);
+                    controller.ApproverService.RejectRule(_ruleId, ref conversationalRules, ref fixedConversationalRules);
+                    UpdateDatabase();
                     break;
                 default:
                     break;
