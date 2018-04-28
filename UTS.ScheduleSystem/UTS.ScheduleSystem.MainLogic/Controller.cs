@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UTS.ScheduleSystem.Data.ScheduleSystemDataSetsTableAdapters;
 
-namespace UTS.ScheduleSystem
+namespace UTS.ScheduleSystem.MainLogic
 {
     public class Controller
     {
@@ -16,8 +16,8 @@ namespace UTS.ScheduleSystem
         private List<ConversationalRule> conversationalRulesList = new List<ConversationalRule>();
         private List<FixedConversationalRule> fixedConversationalRulesList = new List<FixedConversationalRule>();
         private List<MealSchedule> mealScheduleList = new List<MealSchedule>();
-        //private List<Rule> ruleList = new List<Rule>();
 
+        //private ConversationService 
         private DataMaintainerService dataMaintainerService = new DataMaintainerService();
         private EditorService editorService = new EditorService();
         private ApproverService approverService = new ApproverService();

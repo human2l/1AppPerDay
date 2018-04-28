@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Diagnostics;
+using UTS.ScheduleSystem.MainLogic;
 
 namespace UTS.ScheduleSystem.UnitTesting
 {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UTS.ScheduleSystem
+namespace UTS.ScheduleSystem.MainLogic
 {
     public static class Utils
     {

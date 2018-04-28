@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace UTS.ScheduleSystem
+namespace UTS.ScheduleSystem.MainLogic
 {
     public enum Status { Approved, Rejected, Pending }
     public abstract class Rule

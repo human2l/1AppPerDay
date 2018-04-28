@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UTS.ScheduleSystem.MainLogic
+namespace UTS.ScheduleSystem
 {
-    public static class ConversationHandler
+    public class ConversationHandler
     {
-        public static string FixedConversation(string question)
+        public string FixedConversation(string question)
         {
             //access to DB and return answer
             return "";
         }
 
-        public static string Conversation(string question)
+        public string Conversation(string question)
         {
             //access to DB and return answer
             //handle parameter({p1}{p2}....)

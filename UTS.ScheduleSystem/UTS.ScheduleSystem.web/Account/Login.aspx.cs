@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using UTS.ScheduleSystem.Web.Models;
+using UTS.ScheduleSystem.MainLogic;
 
 namespace UTS.ScheduleSystem.Web.Account
 {

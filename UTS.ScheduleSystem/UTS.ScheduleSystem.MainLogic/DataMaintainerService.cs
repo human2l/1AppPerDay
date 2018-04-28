@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace UTS.ScheduleSystem
+namespace UTS.ScheduleSystem.MainLogic
 {
     public class DataMaintainerService
     {
 
-        public void addMealSchedule(MealSchedule mealSchedule, ref List<MealSchedule> mealScheduleList)
+        public void AddMealSchedule(MealSchedule mealSchedule, ref List<MealSchedule> mealScheduleList)
         {
 
             //for datamaintainer to add meal
@@ -23,7 +23,7 @@ namespace UTS.ScheduleSystem
 
         //}
 
-        public List<MealSchedule> deleteMealSchedule(string id, List<MealSchedule> mealScheduleList)
+        public List<MealSchedule> DeleteMealSchedule(string id, List<MealSchedule> mealScheduleList)
         {
             //for datamaintainer to delete meal from mealschedule list
             foreach(MealSchedule mealSchedule in mealScheduleList)
@@ -38,7 +38,7 @@ namespace UTS.ScheduleSystem
 
         }
 
-        public List<MealSchedule> updateMealSchedule(MealSchedule ms, List<MealSchedule> mealScheduleList)
+        public List<MealSchedule> UpdateMealSchedule(MealSchedule ms, List<MealSchedule> mealScheduleList)
         {
             System.Diagnostics.Debug.WriteLine(ms);
             for(int i =0; i < mealScheduleList.Count; i++)

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using UTS.ScheduleSystem.MainLogic;
 
 namespace UTS.ScheduleSystem.Web
 {
@@ -36,7 +37,7 @@ namespace UTS.ScheduleSystem.Web
         protected void DataMaintainerGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             string id = DataMaintainerGridView.DataKeys[e.RowIndex].Value.ToString();
-            mealScheduleList = controller.DataMaintainerService.deleteMealSchedule(id, mealScheduleList);
+            mealScheduleList = controller.DataMaintainerService.DeleteMealSchedule(id, mealScheduleList);
             controller.MealScheduleList = mealScheduleList;
             UpdateGridView();
         }
@@ -89,7 +90,7 @@ namespace UTS.ScheduleSystem.Web
             //string endDate = (DataMaintainerGridView.Rows[e.RowIndex].Cells[0].Controls[6] as TextBox).Text;
             //System.Diagnostics.Debug.WriteLine("RowUpdating! id = " + id + "topic : "+topic);
             //MealSchedule ms = new MealSchedule(id, userId, topic, participants, location, startDate, endDate, "blahblah");
-            //controller.MealScheduleList = controller.DataMaintainerService.updateMealSchedule(ms, controller.MealScheduleList);
+            //controller.MealScheduleList = controller.DataMaintainerService.UpdateMealSchedule(ms, controller.MealScheduleList);
             //DataMaintainerGridView.EditIndex = -1;
             //UpdateGridView();
         }
