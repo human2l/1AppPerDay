@@ -13,23 +13,6 @@ namespace UTS.ScheduleSystem.MainLogic
 
         }
 
-        //if return null display cannot find
-        //private Rule findRule(List<ConversationalRule> conversationalRulesList, List<FixedConversationalRule> fixedConversationalRulesList, string id)
-        //{
-        //    Rule rule = null;
-        //    foreach (Rule ruleX in conversationalRulesList)
-        //    {
-        //        if (ruleX.Id.Equals(id))
-        //            rule = ruleX;
-        //    }
-        //    foreach (Rule ruleX in fixedConversationalRulesList)
-        //    {
-        //        if (ruleX.Id.Equals(id))
-        //            rule = ruleX;
-        //    }
-        //    return rule;
-        //}
-
         private List<Rule> TraversalList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList, Status status)
         {
             List<Rule> newRulesList = new List<Rule>();
