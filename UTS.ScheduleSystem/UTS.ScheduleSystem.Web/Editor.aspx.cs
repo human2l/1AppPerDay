@@ -43,18 +43,26 @@ namespace UTS.ScheduleSystem.Web
                     controller = (Controller)Session["Controller"];
                     List<FixedConversationalRule> fcRuleList = controller.FixedConversationalRulesList;
                     List<ConversationalRule> cRuleList = controller.ConversationalRulesList;
-                    if (!controller.EditorService.CheckRepeatingRule(Input.Text, fcRuleList, cRuleList))
+                    if (controller.EditorService.IsValidInput(Input.Text, Output.Text))
                     {
-                        controller.ConversationalRulesList = controller.EditorService.AddNewCRule(Input.Text, Output.Text, controller.CurrentUser.Id, cRuleList);
-                        List<Rule> rulesList = new List<Rule>();
-                        rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-                        PendingGridView.DataSource = rulesList;
-                        PendingGridView.DataBind();
+                        if (!controller.EditorService.CheckRepeatingRule(Input.Text, fcRuleList, cRuleList))
+                        {
+                            controller.ConversationalRulesList = controller.EditorService.AddNewCRule(Input.Text, Output.Text, controller.CurrentUser.Id, cRuleList);
+                            List<Rule> rulesList = new List<Rule>();
+                            rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+                            PendingGridView.DataSource = rulesList;
+                            PendingGridView.DataBind();
+                        }
+                        else
+                        {
+                            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Repeating rule" + "');", true);
+                        }
                     }
                     else
                     {
-                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Repeating rule" + "');", true);
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Invalid rule format, use following fomat: { topic }, { participants }, { location }, { startdate }, { enddate }" + "');", true);
                     }
+                   
                 }
                 else
                 {
@@ -77,18 +85,25 @@ namespace UTS.ScheduleSystem.Web
                     controller = (Controller)Session["Controller"];
                     List<FixedConversationalRule> fcRuleList = controller.FixedConversationalRulesList;
                     List<ConversationalRule> cRuleList = controller.ConversationalRulesList;
-                    if (!controller.EditorService.CheckRepeatingRule(Input.Text, fcRuleList, cRuleList))
+                    if (controller.EditorService.IsValidInput(Input.Text, Output.Text))
                     {
-                        controller.FixedConversationalRulesList = controller.EditorService.AddNewFCRule(Input.Text, Output.Text, controller.CurrentUser.Id, fcRuleList);
-                        List<Rule> rulesList = new List<Rule>();
-                        rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-                        PendingGridView.DataSource = rulesList;
-                        PendingGridView.DataBind();
+                        if (!controller.EditorService.CheckRepeatingRule(Input.Text, fcRuleList, cRuleList))
+                        {
+                            controller.FixedConversationalRulesList = controller.EditorService.AddNewFCRule(Input.Text, Output.Text, controller.CurrentUser.Id, fcRuleList);
+                            List<Rule> rulesList = new List<Rule>();
+                            rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+                            PendingGridView.DataSource = rulesList;
+                            PendingGridView.DataBind();
+                        }
+                        else
+                        {
+                            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Repeating rule" + "');", true);
+                        }
                     }
                     else
                     {
-                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Repeating rule" + "');", true);
-                    }   
+                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Invalid rule format, use following fomat: { topic }, { participants }, { location }, { startdate }, { enddate }" + "');", true);
+                    }     
                 }
                 else
                 {
