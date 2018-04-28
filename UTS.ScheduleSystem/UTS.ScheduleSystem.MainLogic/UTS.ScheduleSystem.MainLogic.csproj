@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,8 +51,10 @@
     <Compile Include="FixedConversationalRule.cs" />
     <Compile Include="LoginService.cs" />
     <Compile Include="MealSchedule.cs" />
+    <Compile Include="MealScheduleAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rule.cs" />
+    <Compile Include="RuleAdapter.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>

@@ -7,6 +7,7 @@ namespace UTS.ScheduleSystem.MainLogic
 {
     public class DataMaintainerService
     {
+        //private DatabaseAdapter databaseAdapter = new DatabaseAdapter();
 
         public void AddMealSchedule(MealSchedule mealSchedule, ref List<MealSchedule> mealScheduleList)
         {
@@ -14,6 +15,12 @@ namespace UTS.ScheduleSystem.MainLogic
             //for datamaintainer to add meal
             mealScheduleList.Add(mealSchedule);
         }
+
+        //public void Add(MealSchedule mealSchedule)
+        //{
+        //    string[] newMealSchedule = { mealSchedule.Id, mealSchedule.Topic, mealSchedule.Participants, mealSchedule.Location, mealSchedule.StartDate, mealSchedule.EndDate, mealSchedule.LastEditUserId };
+        //    databaseAdapter.AddMealSchedule(newMealSchedule);
+        //}
 
         //public void getMealSchedules(List<MealSchedule> mealScheduleList)
         //{
