@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +11,7 @@ namespace UTS.ScheduleSystem.MainLogic
 {
     class DataHandler
     {
+        private string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         ConversationalRuleTableAdapter conversationalRuleTableAdapter;
         FixedConversationalRuleTableAdapter fixedConversationalRuleTableAdapter;
         MealScheduleTableAdapter mealScheduleTableAdapter;
@@ -106,7 +109,7 @@ namespace UTS.ScheduleSystem.MainLogic
             string result;
             try
             {
-                result = "";
+                result = fixedConversationalRuleTableAdapter.GetOutput(input);
             }
             catch
             {
@@ -161,9 +164,18 @@ namespace UTS.ScheduleSystem.MainLogic
         public string FindSingleMealschedule(string inputKeyword, string outputKeyword, string parameter)
         {
             string result;
+            inputKeyword = inputKeyword.Substring(0, 1).ToUpper() + inputKeyword.Substring(1);
+            outputKeyword = outputKeyword.Substring(0, 1).ToUpper() + outputKeyword.Substring(1);
             try
             {
-                result = "";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = @"select " + outputKeyword + " from MealSchedule where " + inputKeyword + "='" + parameter + "'";
+                    var command = new SqlCommand(query, connection);
+                    result = command.ExecuteScalar().ToString();
+                    command.Dispose();
+                }
             }
             catch
             {
@@ -185,7 +197,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return result;
         }
 
-        public List<string> FindEditors()
+        public List<string> FindEditorsId()
         {
             List<string> editorsId = new List<string>();
             foreach(var editor in aspNetUsersTableAdapter.GetAllEditors().ToList())
@@ -193,6 +205,29 @@ namespace UTS.ScheduleSystem.MainLogic
                 editorsId.Add(editor.Id);
             }
             return editorsId;
+        }
+
+        public List<User> FindEditors()
+        {
+            List<User> editors = new List<User>();
+            foreach(var editor in aspNetUsersTableAdapter.GetAllEditors().ToList())
+            {
+                string id = editor.Id;
+                string name = editor.UserName;
+                string password = editor.PasswordHash;
+                string email = editor.Email;
+                string _role = editor.Role;
+                Role role = (_role.Equals(Role.A.ToString())) ? Role.A :
+                    (_role.Equals(Role.DM.ToString())) ? Role.DM :
+                    (_role.Equals(Role.DMnA.ToString())) ? Role.DMnA :
+                    (_role.Equals(Role.DMnE.ToString())) ? Role.DMnE :
+                    (_role.Equals(Role.DMnEnA.ToString())) ? Role.DMnEnA :
+                    (_role.Equals(Role.E.ToString())) ? Role.E :
+                    (_role.Equals(Role.EnA.ToString())) ? Role.EnA : Role.None;
+                User newEditor = new User(id, name, password, email, role);
+                editors.Add(newEditor);
+            }
+            return editors;
         }
     }
 }

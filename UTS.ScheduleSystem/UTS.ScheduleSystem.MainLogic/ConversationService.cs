@@ -13,15 +13,11 @@ namespace UTS.ScheduleSystem.MainLogic
     public class ConversationService
     {
         string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-        private RuleAdapter ruleAdapter;
-        private MealScheduleAdapter mealScheduleAdapter;
         private DataHandler dataHandler;
         private string answer;
 
         public ConversationService()
         {
-            ruleAdapter = new RuleAdapter();
-            mealScheduleAdapter = new MealScheduleAdapter();
             dataHandler = new DataHandler();
         }
 
@@ -41,27 +37,26 @@ namespace UTS.ScheduleSystem.MainLogic
         // Answer to fixed rule conversation
         private Boolean AnswerToFixedRuleConversation(string question)
         {
-            //answer = dataHandler.FindSingleFixedConversationalRule(question);
-            //Boolean result = (answer == null) ? false : true;
-            //return result;
-            var adapter = new FixedConversationalRuleTableAdapter();
-            var set = adapter.GetData();
-            foreach(DataRow row in set.Rows)
-            {
-                if (row[1].ToString().Equals(question))
-                {
-                    answer = row[2].ToString();
-                    adapter.Dispose();
-                    return true;
-                }   
-            }
-            return false;
+            answer = dataHandler.FindSingleFixedConversationalRule(question);
+            Boolean result = (answer == null) ? false : true;
+            return result;
+            //var adapter = new FixedConversationalRuleTableAdapter();
+            //var set = adapter.GetData();
+            //foreach(DataRow row in set.Rows)
+            //{
+            //    if (row[1].ToString().Equals(question))
+            //    {
+            //        answer = row[2].ToString();
+            //        adapter.Dispose();
+            //        return true;
+            //    }   
+            //}
+            //return false;
         }
 
         // Answer to unfixed rule conversation
         private Boolean AnswerToConversation(string question)
         {
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -81,17 +76,15 @@ namespace UTS.ScheduleSystem.MainLogic
                         string inputKeyword = inputSplit[1];
                         string outputKeyword = outputSplit[1];
                         string singleValue = FindAnswerFromMealSchedule(inputKeyword, outputKeyword, parameter);
-                        if (singleValue != "NO RESULT")
+                        if (singleValue != null)
                         {
                             answer = outputSplit[0] + singleValue + outputSplit[2];
+                            command.Dispose();
+                            return true;
                         }
-                        else
-                        {
-                            answer = "Can not find answer to the question";
-                        }
-                        return true;
                     }
                 }
+                command.Dispose();
             }
             return false;
         }
@@ -120,8 +113,7 @@ namespace UTS.ScheduleSystem.MainLogic
         // Find answer parameter from Mealschedule according to the input parameter
         private string FindAnswerFromMealSchedule(string inputKeyword, string outputKeyword, string parameter)
         {
-            //return dataHandler.FindSingleMealschedule(inputKeyword, parameter, outputKeyword);
-            return mealScheduleAdapter.FindSingleValue(inputKeyword, parameter, outputKeyword);
+            return dataHandler.FindSingleMealschedule(inputKeyword, parameter, outputKeyword);
         }
     }
 }

@@ -12,8 +12,6 @@ namespace UTS.ScheduleSystem.Web
     public partial class Approver_Editor_Report : System.Web.UI.Page
     {
         private Controller controller;
-        private List<ConversationalRule> conversationalRules;
-        private List<FixedConversationalRule> fixedConversationalRules;
         private List<User> _editorList = new List<User>();
         private User currentEditor; 
 
@@ -29,7 +27,7 @@ namespace UTS.ScheduleSystem.Web
             if (Session["Controller"] != null)
             {
                 controller = (Controller)Session["Controller"];
-                LoadRuleList();
+                //LoadRuleList();
                 DisplayEditorList(controller);
             }
             else
@@ -39,17 +37,17 @@ namespace UTS.ScheduleSystem.Web
             }
         }
 
-        // Load rule list from database
-        private void LoadRuleList()
-        {
-            conversationalRules = controller.ConversationalRulesList;
-            fixedConversationalRules = controller.FixedConversationalRulesList;
-        }
+        //// Load rule list from database
+        //private void LoadRuleList()
+        //{
+        //    conversationalRules = controller.ConversationalRulesList;
+        //    fixedConversationalRules = controller.FixedConversationalRulesList;
+        //}
 
         // Load editor list from database and bind with display
         private void DisplayEditorList(Controller controller)
         {
-            _editorList = controller.ApproverService.RequestEditorList(controller.UserList);
+            _editorList = controller.ApproverService.RequestEditorList();
             editorList.DataSource = _editorList;
             editorList.DataBind();
         }
@@ -65,26 +63,15 @@ namespace UTS.ScheduleSystem.Web
             overallSuccessRate = controller.ApproverService.OverallAveSuccessRate().ToString("0.00%");
         }
 
-        // Recognize the on selected row editor and save into on focus user
-        private void RecognizeUser(string editorId)
-        {
-            foreach (User user in _editorList)
-            {
-                if (user.Id.Equals(editorId))
-                {
-                    currentEditor = user;
-                    break;
-                }
-            }
-        }
+        
 
         // Row command function on click of "Check"
         protected void EditorList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int index = Convert.ToInt32(e.CommandArgument);
             string editorId = editorList.Rows[index].Cells[0].Text;
-            LoadRuleList();
-            RecognizeUser(editorId);
+            //LoadRuleList();
+            currentEditor = controller.ApproverService.RecognizeUser(editorId);
             switch (e.CommandName)
             {
                 case "Check":

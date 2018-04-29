@@ -20,7 +20,7 @@
             <div class="row" id="username">Username: <%=EditorUsername%></div>
             <div class="row" id="userApprovedRuleNum">Approved Rule: <%=EditorApprovedRuleNum%></div>
             <div class="row" id="userRejectedRuleNum">Rejected Rule: <%=EditorRejectedRuleNum%></div>
-            <div class="row" id="userPendingRuleNum">Pending Rule: <%=EditorSuccessRate%></div>
+            <div class="row" id="userPendingRuleNum">Pending Rule: <%=EditorPendingRuleNum%></div>
         </div>
     </div>
     <div class="row">

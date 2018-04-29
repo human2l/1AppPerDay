@@ -14,6 +14,7 @@ namespace UTS.ScheduleSystem.MainLogic
             dataHandler = new DataHandler();
         }
 
+        // Traversal and merge a conversational rule list and a fixed conversational rule list
         private List<Rule> TraversalList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
         {
             List<Rule> newRulesList = new List<Rule>();
@@ -24,17 +25,15 @@ namespace UTS.ScheduleSystem.MainLogic
             return newRulesList;
         }
 
-        public List<User> RequestEditorList(List<User> userList)
+        // Return an editors list from database
+        public List<User> RequestEditorList()
         {
             List<User> editorList = new List<User>();
-            foreach(User user in userList)
-            {
-                if (user.Role.ToString().Contains("E"))
-                    editorList.Add(user);
-            }
+            editorList = dataHandler.FindEditors();
             return editorList;
         }
 
+        // Return a number of rules related to a user in a rule list
         private int CountUserRelatedRule(string id, List<Rule> rules)
         {
             int result = 0;
@@ -46,6 +45,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return result;
         }
 
+        // Get rule list from database specified on status
         private List<Rule> GetRuleListFromDatabaseAccordingToStatus(Status status)
         {
             List<ConversationalRule> conversationalRules = dataHandler.FindConversationalRulesAccordingToStatus(status);
@@ -54,21 +54,25 @@ namespace UTS.ScheduleSystem.MainLogic
             return pRulesList;
         }
 
+        // Return pending rule list
         public List<Rule> RequestPendingRulesList()
         {
             return GetRuleListFromDatabaseAccordingToStatus(Status.Pending);
         }
 
+        // Return rejected rule list
         public List<Rule> RequestRejectedRulesList()
         {
             return GetRuleListFromDatabaseAccordingToStatus(Status.Rejected);
         }
 
+        // Return approved rule list
         public List<Rule> RequestApprovedRulesList()
         {
             return GetRuleListFromDatabaseAccordingToStatus(Status.Approved);
         }
 
+        // Approve a rule in database
         public void ApproveRule(string ruleId)
         {
             if (ruleId.StartsWith("c"))
@@ -91,6 +95,7 @@ namespace UTS.ScheduleSystem.MainLogic
             dataHandler.ChangeFixedConversationalRuleState(ruleId, Status.Approved.ToString());
         }
 
+        // Reject a rule in database
         public void RejectRule(string ruleId)
         {
             if (ruleId.StartsWith("c"))
@@ -103,16 +108,17 @@ namespace UTS.ScheduleSystem.MainLogic
             }
         }
 
-        public void RejectRuleInConversationalRuleList(string ruleId)
+        private void RejectRuleInConversationalRuleList(string ruleId)
         {
             dataHandler.ChangeConversationalRuleState(ruleId, Status.Rejected.ToString());
         }
 
-        public void RejectRuleInFixedConversationalRuleList(string ruleId)
+        private void RejectRuleInFixedConversationalRuleList(string ruleId)
         {
             dataHandler.ChangeFixedConversationalRuleState(ruleId, Status.Rejected.ToString());
         }
 
+        // Return a count number of approved rule in database
         public int ApprovedRulesNum()
         {
             int conversationalRuleNum = dataHandler.FindConversationalRuleNum(Status.Approved.ToString());
@@ -120,6 +126,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return conversationalRuleNum + fixedConversationalRuleNum;
         }
 
+        // Return a count number of rejected rule in database
         public int RejectedRulesNum()
         {
             int conversationalRuleNum = dataHandler.FindConversationalRuleNum(Status.Rejected.ToString());
@@ -127,6 +134,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return conversationalRuleNum + fixedConversationalRuleNum;
         }
 
+        // Return success rule rate
         public double SuccessRate()
         {
             double approved = ApprovedRulesNum();
@@ -136,6 +144,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return rate;
         }
 
+        // Return a count number of user related approved rule
         public int UserRelatedApprovedRulesNum(string id)
         {
             List<Rule> newList = new List<Rule>();
@@ -143,6 +152,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return CountUserRelatedRule(id, newList);
         }
 
+        // Return a count number of user related rejected rule
         public int UserRelatedRejectedRulesNum(string id)
         {
             List<Rule> newList = new List<Rule>();
@@ -150,6 +160,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return CountUserRelatedRule(id, newList);
         }
 
+        // Return a count number of user related pending rule
         public int UserRelatedPendingRulesNum(string id)
         {
             List<Rule> newList = new List<Rule>();
@@ -157,6 +168,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return CountUserRelatedRule(id, newList);
         }
 
+        // Return a success rate of user related rules
         public double UserSuccessRate(string id)
         {
             double approved = UserRelatedApprovedRulesNum(id);
@@ -166,15 +178,31 @@ namespace UTS.ScheduleSystem.MainLogic
             return rate;
         }
 
+        // Return an overall average success rate
         public double OverallAveSuccessRate()
         {
-            List<string> editorIds = dataHandler.FindEditors();
+            List<string> editorIds = dataHandler.FindEditorsId();
             double rateSum = 0;
             foreach(string id in editorIds)
             {
                 rateSum = rateSum + UserSuccessRate(id);
             }
             return rateSum / Convert.ToDouble(dataHandler.FindEditorNum());
+        }
+
+        // Recognize the on selected row editor and save into on focus user
+        public User RecognizeUser(string editorId)
+        {
+            User result = new User();
+            foreach (User user in dataHandler.FindEditors())
+            {
+                if (user.Id.Equals(editorId))
+                {
+                    result = user;
+                    break;
+                }
+            }
+            return result;
         }
     }
 }
