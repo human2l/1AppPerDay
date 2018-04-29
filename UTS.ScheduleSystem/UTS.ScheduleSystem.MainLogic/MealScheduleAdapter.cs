@@ -62,7 +62,14 @@ namespace UTS.ScheduleSystem.MainLogic
                 string query = @"select " + UpCaseTypeLetter(clueType) + " from MealSchedule where " + UpCaseTypeLetter(parameterType) + "='" + parameter + "'";
                 var command = new SqlCommand(query, connection);
                 var _result = command.ExecuteScalar();
-                result = _result.ToString();
+                if (_result != null)
+                {
+                    result = _result.ToString();
+                }
+                else
+                {
+                    result = "NO RESULT";
+                }
                 command.Dispose();
             }
             return result;

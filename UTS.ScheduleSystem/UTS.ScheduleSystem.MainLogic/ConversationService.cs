@@ -76,9 +76,15 @@ namespace UTS.ScheduleSystem.MainLogic
                         string parameter = Parameter(question, inputSplit[0], inputSplit[2]);
                         string inputKeyword = inputSplit[1];
                         string outputKeyword = outputSplit[1];
-                        answer = outputSplit[0] +
-                            FindAnswerFromMealSchedule(inputKeyword, outputKeyword, parameter) +
-                            outputSplit[2];
+                        string singleValue = FindAnswerFromMealSchedule(inputKeyword, outputKeyword, parameter);
+                        if (singleValue != "NO RESULT")
+                        {
+                            answer = outputSplit[0] + singleValue + outputSplit[2];
+                        }
+                        else
+                        {
+                            answer = "Can not find answer to the question";
+                        }
                         return true;
                     }
                 }
