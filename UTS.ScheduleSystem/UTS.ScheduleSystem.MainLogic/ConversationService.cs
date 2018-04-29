@@ -12,7 +12,7 @@ namespace UTS.ScheduleSystem.MainLogic
 {
     public class ConversationService
     {
-        //private string[] keywords = { "topic", "participants", "location", "startdate", "enddate" };
+        string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         private RuleAdapter ruleAdapter;
         private MealScheduleAdapter mealScheduleAdapter;
         private string answer;
@@ -23,6 +23,7 @@ namespace UTS.ScheduleSystem.MainLogic
             mealScheduleAdapter = new MealScheduleAdapter();
         }
 
+        // Main conversation function take question input as parameter
         public string Conversation(string question)
         {
             if (!AnswerToFixedRuleConversation(question) && !AnswerToConversation(question))
@@ -30,6 +31,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return answer;
         }
 
+        // Answer to fixed rule conversation
         private Boolean AnswerToFixedRuleConversation(string question)
         {
             var adapter = new FixedConversationalRuleTableAdapter();
@@ -46,9 +48,9 @@ namespace UTS.ScheduleSystem.MainLogic
             return false;
         }
 
+        // Answer to unfixed rule conversation
         private Boolean AnswerToConversation(string question)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -76,27 +78,10 @@ namespace UTS.ScheduleSystem.MainLogic
                     }
                 }
             }
-
-                //var set = adapter.GetData();
-                //foreach (DataRow row in set.Rows)
-                //{
-                //    string input = row[1].ToString();
-                //    string[] inputSplit = SplitRule(input);
-
-                //    if (question.Contains(inputSplit[0]) && question.Contains(inputSplit[2]))
-                //    {
-                //        string output = row[2].ToString();
-                //        string[] outputSplit = SplitRule(output);
-
-                //        string parameter = Parameter(question, inputSplit[0], inputSplit[2]);
-                //        string inputKeyword = inputSplit[1];
-                //        string outputKeyword = outputSplit[1];
-                //        answer = FindAnswerFromMealSchedule(inputKeyword, outputKeyword, parameter);
-                //    }                 
-                //}
             return false;
         }
 
+        // Split a rule into parts
         private string[] SplitRule(string str)
         {
             int left = str.IndexOf('{');
@@ -108,6 +93,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return result;
         }
 
+        // Split reference parameter from question
         private string Parameter(string question, string leftString, string rightString)
         {
             string result = question;
@@ -116,6 +102,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return result;
         }
 
+        // Find answer parameter from Mealschedule according to the input parameter
         private string FindAnswerFromMealSchedule(string inputKeyword, string outputKeyword, string parameter)
         {
             return mealScheduleAdapter.FindSingleValue(inputKeyword, parameter, outputKeyword);

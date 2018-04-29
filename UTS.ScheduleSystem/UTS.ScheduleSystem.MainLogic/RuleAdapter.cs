@@ -66,5 +66,57 @@ namespace UTS.ScheduleSystem.MainLogic
             }
             return result;
         }
+
+        //public SqlDataReader LoadApprovedRules()
+        //{
+        //    using (SqlConnection connection = new SqlConnection(connectionString))
+        //    {
+        //        connection.Open();
+        //        string query = @"select Input, Output from ConversationalRule where Status='Approved'";
+        //        SqlCommand command = new SqlCommand(query, connection);
+        //        SqlDataReader dataReader = command.ExecuteReader();
+        //        return dataReader;
+        //    }
+        //}
+
+        //public SqlDataReader LoadRules(string[] columns, string table, string parameterType, string parameter)
+        //{
+        //    string _columns = UpCaseTypeLetter(columns[0]);
+        //    for(int x = 1; x < columns.Length; x++)
+        //    {
+        //        _columns = _columns + ", " + UpCaseTypeLetter(columns[x]);
+        //    }
+        //    using (SqlConnection connection = new SqlConnection(connectionString))
+        //    {
+        //        connection.Open();
+        //        string query = @"select " + _columns + " from " + UpCaseTypeLetter(table) + " where " + UpCaseTypeLetter(parameterType) + "='" + parameter + "'";
+        //        SqlCommand command = new SqlCommand(query, connection);
+        //        SqlDataReader dataReader = command.ExecuteReader();
+        //        return dataReader;
+        //    }
+        //}
+
+        //public SqlDataReader LoadAllRules(string[] columns, string table)
+        //{
+        //    string _columns = UpCaseTypeLetter(columns[0]);
+        //    for (int x = 1; x < columns.Length; x++)
+        //    {
+        //        _columns = _columns + ", " + UpCaseTypeLetter(columns[x]);
+        //    }
+        //    using (SqlConnection connection = new SqlConnection(connectionString))
+        //    {
+        //        connection.Open();
+        //        string query = @"select " + _columns + " from " + UpCaseTypeLetter(table);
+        //        SqlCommand command = new SqlCommand(query, connection);
+        //        SqlDataReader dataReader = command.ExecuteReader();
+        //        return dataReader;
+        //    }
+        //}
+
+        private string UpCaseTypeLetter(string type)
+        {
+            string output = type.Substring(0, 1).ToUpper() + type.Substring(1);
+            return output;
+        }
     }
 }
