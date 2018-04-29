@@ -1,13 +1,14 @@
 ﻿<%@ Page Title="Editor Report Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Approver_Editor_Report.aspx.cs" Inherits="UTS.ScheduleSystem.Web.Approver_Editor_Report" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <br />
     <div class="row">
         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Approver">< Go back  </asp:HyperLink>
         <b>Editor Individual Rule Report:</b>
     </div>
     <div class="row">
         <div class="col-md-4">
-            <asp:GridView ID="editorList" runat="server" AutoGenerateColumns="false" OnRowCommand="EditorList_RowCommand">
+            <asp:GridView ID="editorList" runat="server" AutoGenerateColumns="false" OnRowCommand="EditorList_RowCommand" CellPadding="7">
                 <Columns>
                     <asp:BoundField DataField="Id" HeaderText="ID" />
                     <asp:BoundField DataField="Name" HeaderText="Name" />

@@ -3,6 +3,9 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div id="container">
+        
+        <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/logo.bmp" Height="200px" Width="200px"/><br />
+        <br />
         <br />
                 <asp:TextBox ID="question" runat="server" Height="40px" Width="400px" Font-Size="Medium" ></asp:TextBox>
 

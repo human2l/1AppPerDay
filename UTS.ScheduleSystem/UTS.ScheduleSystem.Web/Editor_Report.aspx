@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="Editor Report Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Editor_Report.aspx.cs" Inherits="UTS.ScheduleSystem.Web.Editor_Report" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <br />
         <div class="row">
         <div class="col-md-8">
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Editor">< Go back  </asp:HyperLink>
@@ -9,7 +10,7 @@
             Summary:
         </div>
         <div class="col-md-8">
-            <asp:GridView ID="EditorReportGridView" runat="server" AutoGenerateColumns="false">
+            <asp:GridView ID="EditorReportGridView" runat="server" AutoGenerateColumns="false" CellPadding="7">
                 <Columns>
                     <asp:BoundField DataField="ID" HeaderText="ID" />
                     <asp:BoundField DataField="Input" HeaderText="Input" />

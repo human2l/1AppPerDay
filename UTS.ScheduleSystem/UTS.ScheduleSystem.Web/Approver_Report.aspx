@@ -2,6 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
+        <br />
         <div class="row">
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Approver">< Go back  </asp:HyperLink>
             <b>Approver Rule Report:</b>
@@ -13,7 +14,7 @@
         </div>
         <div class="row justify-content-start">
             <div class="col-md-10">
-                <asp:GridView ID="ApprovedRulesDisplayView" runat="server" AutoGenerateColumns="false">
+                <asp:GridView ID="ApprovedRulesDisplayView" runat="server" AutoGenerateColumns="false" CellPadding="7">
                     <Columns>
                         <asp:BoundField DataField="Id" HeaderText="ID" />
                         <asp:BoundField DataField="Input" HeaderText="Input" />

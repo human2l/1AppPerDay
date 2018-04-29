@@ -14,7 +14,7 @@
             Add new rule
         </div>
         <div class="col-md-8">
-            <asp:GridView ID="PendingGridView" runat="server" Visible="true" AutoGenerateColumns="false" DataKeyNames="Id" OnRowEditing="PendingGridView_RowEditing" OnRowDeleting="PendingGridView_RowDeleting" >
+            <asp:GridView ID="PendingGridView" runat="server" Visible="true" AutoGenerateColumns="false" DataKeyNames="Id" OnRowEditing="PendingGridView_RowEditing" OnRowDeleting="PendingGridView_RowDeleting" CellPadding="7">
                 <Columns>
                     <asp:BoundField DataField="Id" HeaderText="ID" />
                     <asp:BoundField DataField="Input" HeaderText="Input" />
@@ -25,7 +25,7 @@
                 </Columns>
             </asp:GridView>
             <br />
-            <asp:GridView ID="RejectedGridView" runat="server" AutoGenerateColumns="false" Visible="false">
+            <asp:GridView ID="RejectedGridView" runat="server" AutoGenerateColumns="false" Visible="false" CellPadding="7">
                 <Columns>
                     <asp:BoundField DataField="Id" HeaderText="ID" />
                     <asp:BoundField DataField="Input" HeaderText="Input" />
