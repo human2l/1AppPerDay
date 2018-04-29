@@ -58,11 +58,11 @@ namespace UTS.ScheduleSystem.Web
         private void DisplayStatisticsData()
         {
             editorUsername = currentEditor.Name;
-            editorApprovedRuleNum = controller.ApproverService.UserRelatedApprovedRulesNum(currentEditor).ToString();
-            editorRejectedRuleNum = controller.ApproverService.UserRelatedRejectedRulesNum(currentEditor).ToString();
-            editorPendingRuleNum = controller.ApproverService.UserRelatedPendingRulesNum(currentEditor).ToString();
-            editorSuccessRate = controller.ApproverService.UserSuccessRate(currentEditor).ToString("0.00%");
-            overallSuccessRate = controller.ApproverService.OverallAveSuccessRate(_editorList, conversationalRules, fixedConversationalRules).ToString("0.00%");
+            editorApprovedRuleNum = controller.ApproverService.UserRelatedApprovedRulesNum(currentEditor.Id).ToString();
+            editorRejectedRuleNum = controller.ApproverService.UserRelatedRejectedRulesNum(currentEditor.Id).ToString();
+            editorPendingRuleNum = controller.ApproverService.UserRelatedPendingRulesNum(currentEditor.Id).ToString();
+            editorSuccessRate = controller.ApproverService.UserSuccessRate(currentEditor.Id).ToString("0.00%");
+            overallSuccessRate = controller.ApproverService.OverallAveSuccessRate().ToString("0.00%");
         }
 
         // Recognize the on selected row editor and save into on focus user

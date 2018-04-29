@@ -21,21 +21,7 @@ namespace UTS.ScheduleSystem.MainLogic
                 newRulesList.Add(rule);
             foreach (Rule rule in fCRulesList)
                 newRulesList.Add(rule);
-            //{
-            //    if (rule.Status.Equals(status))
-            //        newRulesList.Add(rule);
-            //}
-            //foreach (Rule rule in fCRulesList)
-            //{
-            //    if (rule.Status.Equals(status))
-            //        newRulesList.Add(rule);
-            //}
             return newRulesList;
-        }
-
-        private string GetLastUser(Rule rule)
-        {
-            return rule.LastRelatedUserID;
         }
 
         public List<User> RequestEditorList(List<User> userList)
@@ -49,12 +35,12 @@ namespace UTS.ScheduleSystem.MainLogic
             return editorList;
         }
 
-        private int CountUserRelatedRule(User user, List<Rule> rules)
+        private int CountUserRelatedRule(string id, List<Rule> rules)
         {
             int result = 0;
             foreach (Rule rule in rules)
             {
-                if (rule.RelatedUsersId.Contains(user.Id))
+                if (rule.RelatedUsersId.Contains(id))
                     result++;
             }
             return result;
@@ -88,41 +74,21 @@ namespace UTS.ScheduleSystem.MainLogic
             if (ruleId.StartsWith("c"))
             {
                 ApproveRuleInConversationalRuleList(ruleId);
-                //dataHandler.ChangeOnConversationalRule(string ruleId);
-                //ApproveRuleInConversationalRuleList(ruleId, ref cRule);
             }
             else
             {
                 ApproveRuleInFixedConversationalRuleList(ruleId);
-                //dataHandler.ChangeOnFixedConversationalRule(string ruleId);
-                //ApproveRuleInFixedConversationalRuleList(ruleId, ref fCRulesList);
             }
         }
 
         private void ApproveRuleInConversationalRuleList(string ruleId)
         {
             dataHandler.ChangeConversationalRuleState(ruleId, Status.Approved.ToString());
-            //for (int x = 0; x < fCRulesList.Count; x++)
-            //{
-            //    if (fCRulesList[x].Id.Equals(ruleId))
-            //    {
-            //        fCRulesList[x].Status = Status.Approved;
-            //        break;
-            //    }
-            //}
         }
 
         private void ApproveRuleInFixedConversationalRuleList(string ruleId)
         {
             dataHandler.ChangeFixedConversationalRuleState(ruleId, Status.Approved.ToString());
-            //for (int x = 0; x < cRulesList.Count; x++)
-            //{
-            //    if (cRulesList[x].Id.Equals(ruleId))
-            //    {
-            //        cRulesList[x].Status = Status.Approved;
-            //        break;
-            //    }
-            //}
         }
 
         public void RejectRule(string ruleId)
@@ -140,27 +106,11 @@ namespace UTS.ScheduleSystem.MainLogic
         public void RejectRuleInConversationalRuleList(string ruleId)
         {
             dataHandler.ChangeConversationalRuleState(ruleId, Status.Rejected.ToString());
-            //for (int x = 0; x < fCRulesList.Count; x++)
-            //{
-            //    if (fCRulesList[x].Id.Equals(ruleId))
-            //    {
-            //        fCRulesList[x].Status = Status.Rejected;
-            //        break;
-            //    }
-            //}
         }
 
         public void RejectRuleInFixedConversationalRuleList(string ruleId)
         {
             dataHandler.ChangeFixedConversationalRuleState(ruleId, Status.Rejected.ToString());
-            //for (int x = 0; x < cRulesList.Count; x++)
-            //{
-            //    if (cRulesList[x].Id.Equals(ruleId))
-            //    {
-            //        cRulesList[x].Status = Status.Rejected;
-            //        break;
-            //    }
-            //}
         }
 
         public int ApprovedRulesNum()
@@ -168,8 +118,6 @@ namespace UTS.ScheduleSystem.MainLogic
             int conversationalRuleNum = dataHandler.FindConversationalRuleNum(Status.Approved.ToString());
             int fixedConversationalRuleNum = dataHandler.FindFixedConversationalRuleNum(Status.Approved.ToString());
             return conversationalRuleNum + fixedConversationalRuleNum;
-            //List<Rule> approvedRulesList = RequestApprovedRulesList();
-            //return approvedRulesList.Count;
         }
 
         public int RejectedRulesNum()
@@ -177,8 +125,6 @@ namespace UTS.ScheduleSystem.MainLogic
             int conversationalRuleNum = dataHandler.FindConversationalRuleNum(Status.Rejected.ToString());
             int fixedConversationalRuleNum = dataHandler.FindFixedConversationalRuleNum(Status.Rejected.ToString());
             return conversationalRuleNum + fixedConversationalRuleNum;
-            //List<Rule> rejectedRulesList = RequestRejectedRulesList();
-            //return rejectedRulesList.Count;
         }
 
         public double SuccessRate()
@@ -190,44 +136,45 @@ namespace UTS.ScheduleSystem.MainLogic
             return rate;
         }
 
-        public int UserRelatedApprovedRulesNum(User user)
+        public int UserRelatedApprovedRulesNum(string id)
         {
             List<Rule> newList = new List<Rule>();
             newList = RequestApprovedRulesList();
-            return CountUserRelatedRule(user, newList);
+            return CountUserRelatedRule(id, newList);
         }
 
-        public int UserRelatedRejectedRulesNum(User user)
+        public int UserRelatedRejectedRulesNum(string id)
         {
             List<Rule> newList = new List<Rule>();
             newList = RequestRejectedRulesList();
-            return CountUserRelatedRule(user, newList);
+            return CountUserRelatedRule(id, newList);
         }
 
-        public int UserRelatedPendingRulesNum(User user)
+        public int UserRelatedPendingRulesNum(string id)
         {
             List<Rule> newList = new List<Rule>();
             newList = RequestPendingRulesList();
-            return CountUserRelatedRule(user, newList);
+            return CountUserRelatedRule(id, newList);
         }
 
-        public double UserSuccessRate(User user)
+        public double UserSuccessRate(string id)
         {
-            double approved = UserRelatedApprovedRulesNum(user);
-            double rejected = UserRelatedRejectedRulesNum(user);
+            double approved = UserRelatedApprovedRulesNum(id);
+            double rejected = UserRelatedRejectedRulesNum(id);
             double rate;
             rate = (approved + rejected) == 0 ? 0 : approved / (approved + rejected);
             return rate;
         }
 
-        public double OverallAveSuccessRate(List<User> userList, List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
+        public double OverallAveSuccessRate()
         {
+            List<string> editorIds = dataHandler.FindEditors();
             double rateSum = 0;
-            foreach(User user in userList)
+            foreach(string id in editorIds)
             {
-                rateSum = rateSum + UserSuccessRate(user);
+                rateSum = rateSum + UserSuccessRate(id);
             }
-            return rateSum / Convert.ToDouble(userList.Count);
+            return rateSum / Convert.ToDouble(dataHandler.FindEditorNum());
         }
     }
 }
