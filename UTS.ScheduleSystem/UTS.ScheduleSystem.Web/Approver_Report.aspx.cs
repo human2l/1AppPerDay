@@ -45,7 +45,7 @@ namespace UTS.ScheduleSystem.Web
         // Load approved rule list from database and bind with display
         private void DisplayApprovedRuleList()
         {
-            approvedList = controller.ApproverService.RequestApprovedRulesList(conversationalRules, fixedConversationalRules);
+            approvedList = controller.ApproverService.RequestApprovedRulesList();
             ApprovedRulesDisplayView.DataSource = approvedList;
             ApprovedRulesDisplayView.DataBind();
         }
@@ -53,9 +53,9 @@ namespace UTS.ScheduleSystem.Web
         // Refresh statistics data from database and refresh on display table
         private void DisplayStatisticsData()
         {
-            approvedRuleNum = controller.ApproverService.ApprovedRulesNum(conversationalRules, fixedConversationalRules).ToString();
-            rejectedRuleNum = controller.ApproverService.RejectedRulesNum(conversationalRules, fixedConversationalRules).ToString();
-            successRate = controller.ApproverService.SuccessRate(conversationalRules, fixedConversationalRules).ToString("0.00%");
+            approvedRuleNum = controller.ApproverService.ApprovedRulesNum().ToString();
+            rejectedRuleNum = controller.ApproverService.RejectedRulesNum().ToString();
+            successRate = controller.ApproverService.SuccessRate().ToString("0.00%");
         }
 
         public string ApprovedRuleNum

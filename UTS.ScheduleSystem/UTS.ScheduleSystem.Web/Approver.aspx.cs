@@ -48,7 +48,7 @@ namespace UTS.ScheduleSystem.Web
         // Load pending rule list from database and bind with display
         private void DisplayPendingRuleList()
         {
-            pendingList = controller.ApproverService.RequestPendingRulesList(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
+            pendingList = controller.ApproverService.RequestPendingRulesList();
             PendingRuleDisplayView.DataSource = pendingList;
             PendingRuleDisplayView.DataBind();
         }
@@ -73,11 +73,11 @@ namespace UTS.ScheduleSystem.Web
             switch (e.CommandName)
             {
                 case "Approve":
-                    controller.ApproverService.ApproveRule(_ruleId, ref conversationalRules, ref fixedConversationalRules);
+                    controller.ApproverService.ApproveRule(_ruleId);
                     UpdateDatabase();
                     break;
                 case "Reject":
-                    controller.ApproverService.RejectRule(_ruleId, ref conversationalRules, ref fixedConversationalRules);
+                    controller.ApproverService.RejectRule(_ruleId);
                     UpdateDatabase();
                     break;
                 default:
