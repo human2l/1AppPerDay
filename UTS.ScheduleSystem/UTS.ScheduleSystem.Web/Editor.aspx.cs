@@ -12,6 +12,8 @@ namespace UTS.ScheduleSystem.Web
     public partial class Editor : System.Web.UI.Page
     {
         Controller controller;
+
+        // Initial two rules tables
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Controller"] != null)
@@ -34,6 +36,7 @@ namespace UTS.ScheduleSystem.Web
             }
         }
 
+        // Handle add conversion rule action, check format, check the validation
         protected void Add_rule_Click(object sender, EventArgs e)
         {
             if (Input.Text != "" && Output.Text != "")
@@ -43,8 +46,12 @@ namespace UTS.ScheduleSystem.Web
                     controller = (Controller)Session["Controller"];
                     List<FixedConversationalRule> fcRuleList = controller.FixedConversationalRulesList;
                     List<ConversationalRule> cRuleList = controller.ConversationalRulesList;
+
+                    // Check validation
                     if (controller.EditorService.IsValidInput(Input.Text, Output.Text))
                     {
+
+                        // Check whether the input is existed or not
                         if (!controller.EditorService.CheckRepeatingRule(Input.Text, fcRuleList, cRuleList))
                         {
                             controller.ConversationalRulesList = controller.EditorService.AddNewCRule(Input.Text, Output.Text, controller.CurrentUser.Id, cRuleList);
@@ -55,27 +62,32 @@ namespace UTS.ScheduleSystem.Web
                         }
                         else
                         {
+                            // Show error message to the user
                             ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Repeating rule" + "');", true);
                         }
                     }
                     else
                     {
+                        // Show error message to the user
                         ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Invalid rule format, use following fomat: { topic }, { participants }, { location }, { startdate }, { enddate }" + "');", true);
                     }
                    
                 }
                 else
                 {
+                    // Show error message to the user
                     ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Error" + "');", true);
                 }
             }
             else
             {
+                // Show error message to the user
                 ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Invalid input" + "');", true);
             }
             
         }
 
+        // Handle add fixed conversion rule action, check format, check the validation
         protected void Add_fixed_rule_Click(object sender, EventArgs e)
         {
             if (Input.Text != "" && Output.Text != "")
@@ -85,8 +97,12 @@ namespace UTS.ScheduleSystem.Web
                     controller = (Controller)Session["Controller"];
                     List<FixedConversationalRule> fcRuleList = controller.FixedConversationalRulesList;
                     List<ConversationalRule> cRuleList = controller.ConversationalRulesList;
+
+                    // Check validation
                     if (controller.EditorService.IsValidInput(Input.Text, Output.Text))
                     {
+
+                        // Check whether the input is existed or not
                         if (!controller.EditorService.CheckRepeatingRule(Input.Text, fcRuleList, cRuleList))
                         {
                             controller.FixedConversationalRulesList = controller.EditorService.AddNewFCRule(Input.Text, Output.Text, controller.CurrentUser.Id, fcRuleList);
@@ -97,25 +113,30 @@ namespace UTS.ScheduleSystem.Web
                         }
                         else
                         {
+                            // Show error message to the user
                             ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Repeating rule" + "');", true);
                         }
                     }
                     else
                     {
+                        // Show error message to the user
                         ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Invalid rule format, use following fomat: { topic }, { participants }, { location }, { startdate }, { enddate }" + "');", true);
                     }     
                 }
                 else
                 {
+                    // Show error message to the user
                     ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Error" + "');", true);
                 }
             }
             else
             {
+                // Show error message to the user
                 ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Invalid input" + "');", true);
             }
         }
 
+        // Handle delete rule action, delete the selected rule from the database and the table
         protected void PendingGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             string id = PendingGridView.DataKeys[e.RowIndex].Value.ToString();
@@ -128,12 +149,14 @@ namespace UTS.ScheduleSystem.Web
             PendingGridView.DataBind();
         }
 
+        // Handle edit rule action, jump to another page to edit selected rule
         protected void PendingGridView_RowEditing(object sender, GridViewEditEventArgs e)
         {
             string id = (string)PendingGridView.DataKeys[e.NewEditIndex].Value;
             Response.Redirect("~/Editor_Edit.aspx?ID=" + id);
         }
 
+        // Handle dropdown list click
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (DropDownList1.SelectedValue == "Pending")

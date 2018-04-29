@@ -8,25 +8,15 @@ namespace UTS.ScheduleSystem.MainLogic
     public class EditorService
     {
 
+        // Add a fixed conversation rule
         public List<FixedConversationalRule> AddNewFCRule(string input, string output, string userId, List<FixedConversationalRule> fCRulesList)
         {
             FixedConversationalRule rule = new FixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", fCRulesList), input, output, userId, Status.Pending);
-            //bool repeated = false;
-            //foreach (FixedConversationalRule r in fCRulesList)
-            //{
-            //    if (rule.Input == r.Input)
-            //    {
-            //        repeated = true;
-            //    }
-            //}
-            //if (!repeated)
-            //{
-                fCRulesList.Add(rule);
-            //}
-            
+            fCRulesList.Add(rule);
             return fCRulesList;
         }
 
+        // Add a conversation rule
         public List<ConversationalRule> AddNewCRule(string input, string output, string userId, List<ConversationalRule> cRulesList)
         {
             ConversationalRule rule = new ConversationalRule(Utils.CreateIdByType("ConversationalRule", cRulesList), input, output, userId, Status.Pending);
@@ -34,6 +24,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return cRulesList;
         }
 
+        // Show all pending rules stored in the database
         public List<Rule> ShowAllPendingRules(List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
             List<Rule> pendingRulesList = new List<Rule>();
@@ -54,6 +45,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return pendingRulesList;
         }
 
+        // Show all rejected rules stored in the database
         public List<Rule> ShowAllRejectedRules(List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
             List<Rule> rejectedRulesList = new List<Rule>();
@@ -74,59 +66,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return rejectedRulesList;
         }
 
-        //public List<FixedConversationalRule> ShowAllPendingFCRules(List<FixedConversationalRule> fixedConversationalRulesList)
-        //{
-        //    List<FixedConversationalRule> pendingFCRulesList = new List<FixedConversationalRule>();
-        //    foreach(FixedConversationalRule fCRule in fixedConversationalRulesList)
-        //    {
-        //        if(fCRule.Status == Status.Pending)
-        //        {
-        //            pendingFCRulesList.Add(fCRule);
-        //        }
-        //    }
-        //    return pendingFCRulesList;
-        //}
-
-        //public List<ConversationalRule> ShowAllPendingCRules(List<ConversationalRule> conversationalRulesList)
-        //{
-        //    List<ConversationalRule> pendingCRulesList = new List<ConversationalRule>();
-        //    foreach(ConversationalRule cRule in conversationalRulesList)
-        //    {
-        //        if(cRule.Status == Status.Pending)
-        //        {
-        //            pendingCRulesList.Add(cRule);
-        //        }
-        //    }
-        //    return pendingCRulesList;
-        //}
-
-        //public List<FixedConversationalRule> ShowAllRejectedFCRules(List<FixedConversationalRule> fixedConversationalRulesList)
-        //{
-        //    List<FixedConversationalRule> rejectedFCRulesList = new List<FixedConversationalRule>();
-        //    foreach (FixedConversationalRule fCRule in fixedConversationalRulesList)
-        //    {
-        //        if (fCRule.Status == Status.Rejected)
-        //        {
-        //            rejectedFCRulesList.Add(fCRule);
-        //        }
-        //    }
-        //    return rejectedFCRulesList;
-        //}
-
-        //public List<ConversationalRule> ShowAllRejectedCRules(List<ConversationalRule> conversationalRulesList)
-        //{
-        //    List<ConversationalRule> rejectedCRulesList = new List<ConversationalRule>();
-        //    foreach (ConversationalRule cRule in conversationalRulesList)
-        //    {
-        //        if (cRule.Status == Status.Rejected)
-        //        {
-        //            rejectedCRulesList.Add(cRule);
-        //        }
-        //    }
-        //    return rejectedCRulesList;
-        //}
-
-        //Not sure about input and output format
+        // Change a rule
         public Tuple<List<FixedConversationalRule>, List<ConversationalRule>> EditPendingRule(string userId, string ruleId, string ruleInput, string ruleOutput, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
             bool valueChanged = false;
@@ -153,24 +93,10 @@ namespace UTS.ScheduleSystem.MainLogic
                     }
                 }
             }
-            //FixedConversationalRule fCRule = FindFCRule(ruleId, fixedConversationalRulesList);
-            //fCRule.Input = ruleInput;
-            //fCRule.Output = ruleOutput;
-            //DeletePendingFCRule(ruleId, ref fixedConversationalRulesList);
-            //fixedConversationalRulesList.Add(fCRule);
             return Tuple.Create(fCRulesList, cRulesList);
         }
 
-        //Not sure about input and output format
-        //public void EditPendingCRule(string ruleId, string ruleInput, string ruleOutput, ref List<ConversationalRule> conversationalRulesList)
-        //{
-        //    ConversationalRule cRule = FindCRule(ruleId, conversationalRulesList);
-        //    cRule.Input = ruleInput;
-        //    cRule.Output = ruleOutput;
-        //    DeletePendingCRule(ruleId, ref conversationalRulesList);
-        //    conversationalRulesList.Add(cRule);
-        //}
-
+        // Delete a rule
         public Tuple<List<FixedConversationalRule>, List<ConversationalRule>> DeletePendingRule(string ruleId, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
             FixedConversationalRule fCRule = FindFCRule(ruleId, fCRulesList);
@@ -189,15 +115,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return Tuple.Create(fCRulesList, cRulesList);
         }
 
-        //public void DeletePendingCRule(string ruleId, ref List<ConversationalRule> conversationalRulesList)
-        //{
-        //    ConversationalRule rule = FindCRule(ruleId, conversationalRulesList);
-        //    if (rule != null)
-        //    {
-        //        conversationalRulesList.Remove(rule);
-        //    }
-        //}
-
+        // Show a user's approved rules
         public List<Rule> ShowCurrentUserApprovedRules(User user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
             List<Rule> userRelatedRules = new List<Rule>();
@@ -232,6 +150,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return userRelatedRules;
         }
 
+        // Show a user's rejected rules
         public List<Rule> ShowCurrentUserRejectedRules(User user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
             List<Rule> userRelatedRules = new List<Rule>();
@@ -266,6 +185,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return userRelatedRules;
         }
 
+        // Show a user's pengding rules
         public List<Rule> ShowCurrentUserPendingRules(User user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
             List<Rule> userRelatedRules = new List<Rule>();
@@ -300,29 +220,28 @@ namespace UTS.ScheduleSystem.MainLogic
             return userRelatedRules;
         }
 
-        //public List<ConversationalRule> ShowCurrentUserApprovedCRules(User user)
-        //{
-        //    return null;
-        //}
-
+        // Show the count of a user's approved rules
         public int ShowCurrentUserApprovedRulesCount(User user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
             int count = ShowCurrentUserApprovedRules(user, fCRulesList, cRulesList).Count;
             return count;
         }
 
+        // Show the count of a user's rejected rules
         public int ShowCurrentUserRejectedRulesCount(User user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
             int count = ShowCurrentUserRejectedRules(user, fCRulesList, cRulesList).Count;
             return count;
         }
 
+        // Show the count of a user's pending rules
         public int ShowCurrentUserPendingRulesCount(User user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
             int count = ShowCurrentUserPendingRules(user, fCRulesList, cRulesList).Count;
             return count;
         }
 
+        // Show the percentage of a user's approved rules
         public double ShowCurrentUserSuccessRate(User user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
             double approvedCount = ShowCurrentUserApprovedRulesCount(user, fCRulesList, cRulesList);
@@ -336,6 +255,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return 0;
         }
 
+        // Check the input validation
         public bool IsValidInput (string input, string output)
         {
             if (!input.Contains("{") && !input.Contains("}") && !output.Contains("{") && !output.Contains("}"))
@@ -349,6 +269,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return false;
         }
 
+        // Make sure the input only contains one coloum
         private bool CheckInput (string input)
         {
             string[] phrase1;
@@ -370,7 +291,8 @@ namespace UTS.ScheduleSystem.MainLogic
             
             return false;
         }
-
+        
+        
         private FixedConversationalRule FindFCRule(string ruleId, List<FixedConversationalRule> rulesList)
         {
             foreach (FixedConversationalRule rule in rulesList)
@@ -395,6 +317,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return null;
         }
 
+        // Check whether a rule is already existed in the database or not
         public bool CheckRepeatingRule(string input, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
             char[] WhiteSpace = new char[] { ' ' };
@@ -421,22 +344,3 @@ namespace UTS.ScheduleSystem.MainLogic
 
     }
 }
-
-//foreach(Rule rule in rulesList)
-//{
-//    ConversationalRule cr = rule as ConversationalRule;
-//    if(cr != null)
-//    {
-//        if (cr.Id == ruleId)
-//        {
-//            return cr;
-//        }
-//    }
-//    else{
-//        FixedConversationalRule fr = rule as FixedConversationalRule;
-//        if (fr.Id == ruleId)
-//        {
-//            return fr;
-//        }
-//    }
-//}
