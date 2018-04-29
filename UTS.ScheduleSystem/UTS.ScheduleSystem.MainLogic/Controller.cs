@@ -28,25 +28,9 @@ namespace UTS.ScheduleSystem.MainLogic
         
         public Controller()
         {
-            //initialization();
-            
+            test();
         }
 
-
-        
-
-        public FakeDB FakeDB
-        {
-            get
-            {
-                return fakeDB;
-            }
-
-            set
-            {
-                fakeDB = value;
-            }
-        }
 
         public DataMaintainerService DataMaintainerService
         {
@@ -320,7 +304,14 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         
-
+        public void test()
+        {
+            AspNetUsersTableAdapter a = new AspNetUsersTableAdapter();
+            System.Diagnostics.Debug.WriteLine(a.CountQuary());
+            ConversationalRuleTableAdapter b = new ConversationalRuleTableAdapter();
+            System.Diagnostics.Debug.WriteLine(b.GetAllCRulesByStatus("Rejected").ToList().First().Id);
+            System.Diagnostics.Debug.WriteLine(b.GetAllInputsAndOutputs());
+        }
 
 
 
