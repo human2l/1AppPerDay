@@ -22,6 +22,8 @@ namespace UTS.ScheduleSystem.MainLogic
             aspNetUsersTableAdapter = new AspNetUsersTableAdapter();
         }
 
+
+        // Conversational rule
         public void AddConversationalRule()
         {
 
@@ -73,9 +75,12 @@ namespace UTS.ScheduleSystem.MainLogic
 
         public int FindConversationalRuleNum(string status)
         {
-            return 0;
+            int result = Convert.ToInt32(conversationalRuleTableAdapter.GetRulesCountByStatus(status));
+            return result;
         }
 
+
+        // Fixed conversational rule
         public void AddFixedConversationalRule()
         {
 
@@ -132,9 +137,12 @@ namespace UTS.ScheduleSystem.MainLogic
 
         public int FindFixedConversationalRuleNum(string status)
         {
-            return 0;
+            int result = Convert.ToInt32(fixedConversationalRuleTableAdapter.GetRulesCountByStatus(status));
+            return result;
         }
 
+
+        // Mealschedule
         public void AddMealschedule()
         {
 
@@ -169,9 +177,22 @@ namespace UTS.ScheduleSystem.MainLogic
 
         }
 
+
+        // User
         public int FindEditorNum()
         {
-            return 0;
+            int result = Convert.ToInt32(aspNetUsersTableAdapter.GetUsersCountByRoleEditor());
+            return result;
+        }
+
+        public List<string> FindEditors()
+        {
+            List<string> editorsId = new List<string>();
+            foreach(var editor in aspNetUsersTableAdapter.GetAllEditors().ToList())
+            {
+                editorsId.Add(editor.Id);
+            }
+            return editorsId;
         }
     }
 }

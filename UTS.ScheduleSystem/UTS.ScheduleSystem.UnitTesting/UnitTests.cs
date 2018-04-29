@@ -95,7 +95,7 @@ namespace UTS.ScheduleSystem.UnitTesting
                 
                 correctPRulesList.Add(cFRule1);
                 
-                List<Rule> rulesList = controller.ApproverService.RequestPendingRulesList(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
+                List<Rule> rulesList = controller.ApproverService.RequestPendingRulesList();
                 CollectionAssert.AreEqual(correctPRulesList,rulesList);
                 //clear();
             }
@@ -114,7 +114,7 @@ namespace UTS.ScheduleSystem.UnitTesting
                 
                 correctPRulesList.Add(cFRule2);
                 
-                List<Rule> rulesList = controller.ApproverService.RequestApprovedRulesList(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
+                List<Rule> rulesList = controller.ApproverService.RequestApprovedRulesList();
                 CollectionAssert.AreEqual(correctPRulesList, rulesList);
                 clear();
             }
