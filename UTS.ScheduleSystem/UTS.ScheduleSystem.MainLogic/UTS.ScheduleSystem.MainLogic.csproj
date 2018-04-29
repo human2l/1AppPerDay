@@ -45,6 +45,7 @@
     <Compile Include="Controller.cs" />
     <Compile Include="ConversationalRule.cs" />
     <Compile Include="ConversationService.cs" />
+    <Compile Include="DataHandler.cs" />
     <Compile Include="DataMaintainerService.cs" />
     <Compile Include="EditorService.cs" />
     <Compile Include="FixedConversationalRule.cs" />
