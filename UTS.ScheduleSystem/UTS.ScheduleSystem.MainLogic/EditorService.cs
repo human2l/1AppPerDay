@@ -268,6 +268,8 @@ namespace UTS.ScheduleSystem.MainLogic
         // Make sure the input only contains one coloum
         public bool IsRuleValid(string input)
         {
+            //string compactedString = IgnoreWhiteSpace(input);
+
             string[] phrase1;
             string[] phrase2;
             phrase1 = input.Split('{');
@@ -316,10 +318,7 @@ namespace UTS.ScheduleSystem.MainLogic
         // Check whether a rule is already existed in the database or not
         public bool CheckRepeatingRule(string input, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
-            char[] WhiteSpace = new char[] { ' ' };
-            string longString = input;
-            string[] split = longString.Split(WhiteSpace, StringSplitOptions.RemoveEmptyEntries);
-            string compactedString = string.Join(" ", split);
+            string compactedString = IgnoreWhiteSpace(input);
 
             foreach (FixedConversationalRule r in fCRulesList)
             {
@@ -338,5 +337,13 @@ namespace UTS.ScheduleSystem.MainLogic
             return false;
         }
 
+        protected string IgnoreWhiteSpace (string input)
+        {
+            char[] WhiteSpace = new char[] { ' ' };
+            string longString = input;
+            string[] split = longString.Split(WhiteSpace, StringSplitOptions.RemoveEmptyEntries);
+            string compactedString = string.Join(" ", split);
+            return compactedString;
+        }
     }
 }

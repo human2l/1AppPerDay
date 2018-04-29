@@ -24,14 +24,14 @@ namespace UTS.ScheduleSystem.MainLogic
 
 
         // Conversational rule
-        public void AddConversationalRule()
+        public void AddConversationalRule(string id, string input, string output, string relatedUserId, string status)
         {
-
+            conversationalRuleTableAdapter.InsertQuery(id, input, output, relatedUserId, status);
         }
 
-        public void RemoveConversationalRule()
+        public void RemoveConversationalRule(string id)
         {
-
+            conversationalRuleTableAdapter.DeleteQuery(id);
         }
 
         public void ChangeOnConversationalRule(string input, string output, string relatedUserId, string status, string ruleId)
@@ -81,14 +81,14 @@ namespace UTS.ScheduleSystem.MainLogic
 
 
         // Fixed conversational rule
-        public void AddFixedConversationalRule()
+        public void AddFixedConversationalRule(string id, string input, string output, string relatedUserId, string status)
         {
-
+            fixedConversationalRuleTableAdapter.InsertQuery(id, input, output, relatedUserId, status);
         }
 
-        public void RemoveFixedConversationalRule()
+        public void RemoveFixedConversationalRule(string id)
         {
-
+            fixedConversationalRuleTableAdapter.DeleteQuery(id);
         }
 
         public void ChangeOnFixedConversationalRule(string input, string output, string relatedUserId, string status, string ruleId)

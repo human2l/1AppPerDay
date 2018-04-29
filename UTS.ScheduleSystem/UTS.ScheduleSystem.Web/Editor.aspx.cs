@@ -22,12 +22,14 @@ namespace UTS.ScheduleSystem.Web
                 List<Rule> rulesList = new List<Rule>();
                 List<FixedConversationalRule> fcRuleList = controller.FixedConversationalRulesList;
                 List<ConversationalRule> cRuleList = controller.ConversationalRulesList;
-                rulesList = controller.EditorService.ShowAllPendingRules(fcRuleList, cRuleList);
-                PendingGridView.DataSource = rulesList;
-                PendingGridView.DataBind();
-                rulesList = controller.EditorService.ShowAllRejectedRules(fcRuleList, cRuleList);
-                RejectedGridView.DataSource = rulesList;
-                RejectedGridView.DataBind();
+                BindDataToPtable(fcRuleList, cRuleList);
+                BindDataToRtable(fcRuleList, cRuleList);
+                //rulesList = controller.EditorService.ShowAllPendingRules(fcRuleList, cRuleList);
+                //PendingGridView.DataSource = rulesList;
+                //PendingGridView.DataBind();
+                //rulesList = controller.EditorService.ShowAllRejectedRules(fcRuleList, cRuleList);
+                //RejectedGridView.DataSource = rulesList;
+                //RejectedGridView.DataBind();
             }
             else
             {
@@ -55,34 +57,31 @@ namespace UTS.ScheduleSystem.Web
                         if (!controller.EditorService.CheckRepeatingRule(Input.Text, fcRuleList, cRuleList))
                         {
                             controller.ConversationalRulesList = controller.EditorService.AddNewCRule(Input.Text, Output.Text, controller.CurrentUser.Id, cRuleList);
-                            List<Rule> rulesList = new List<Rule>();
-                            rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-                            PendingGridView.DataSource = rulesList;
-                            PendingGridView.DataBind();
+                            BindDataToPtable(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
                         }
                         else
                         {
                             // Show error message to the user
-                            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Repeating rule" + "');", true);
+                            RepeatingRuleError();
                         }
                     }
                     else
                     {
                         // Show error message to the user
-                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Invalid rule format, use following fomat: { topic }, { participants }, { location }, { startdate }, { enddate }" + "');", true);
+                        InvalidFormatError();
                     }
                    
                 }
                 else
                 {
                     // Show error message to the user
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Error" + "');", true);
+                    UnknowError();
                 }
             }
             else
             {
                 // Show error message to the user
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Invalid input" + "');", true);
+                InvalidInputError();
             }
             
         }
@@ -106,33 +105,30 @@ namespace UTS.ScheduleSystem.Web
                         if (!controller.EditorService.CheckRepeatingRule(Input.Text, fcRuleList, cRuleList))
                         {
                             controller.FixedConversationalRulesList = controller.EditorService.AddNewFCRule(Input.Text, Output.Text, controller.CurrentUser.Id, fcRuleList);
-                            List<Rule> rulesList = new List<Rule>();
-                            rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-                            PendingGridView.DataSource = rulesList;
-                            PendingGridView.DataBind();
+                            BindDataToPtable(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
                         }
                         else
                         {
                             // Show error message to the user
-                            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Repeating rule" + "');", true);
+                            RepeatingRuleError();
                         }
                     }
                     else
                     {
                         // Show error message to the user
-                        ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Invalid rule format, use following fomat: { topic }, { participants }, { location }, { startdate }, { enddate }" + "');", true);
+                        InvalidFormatError();
                     }     
                 }
                 else
                 {
                     // Show error message to the user
-                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Error" + "');", true);
+                    UnknowError();
                 }
             }
             else
             {
                 // Show error message to the user
-                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Invalid input" + "');", true);
+                InvalidInputError();
             }
         }
 
@@ -143,10 +139,7 @@ namespace UTS.ScheduleSystem.Web
             var lists = controller.EditorService.DeletePendingRule(id, controller.FixedConversationalRulesList, controller.ConversationalRulesList);
             controller.FixedConversationalRulesList = lists.Item1;
             controller.ConversationalRulesList = lists.Item2;
-            List<Rule> rulesList = new List<Rule>();
-            rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-            PendingGridView.DataSource = rulesList;
-            PendingGridView.DataBind();
+            BindDataToPtable(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
         }
 
         // Handle edit rule action, jump to another page to edit selected rule
@@ -161,23 +154,53 @@ namespace UTS.ScheduleSystem.Web
         {
             if (DropDownList1.SelectedValue == "Pending")
             {
-                List<Rule> rulesList = new List<Rule>();
-                rulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+                BindDataToPtable(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
                 PendingGridView.Visible = true;
                 RejectedGridView.Visible = false;
-                PendingGridView.DataSource = rulesList;
-                PendingGridView.DataBind();
             }
             else if (DropDownList1.SelectedValue == "Rejected")
             {
-                List<Rule> rulesList = new List<Rule>();
-                rulesList = controller.EditorService.ShowAllRejectedRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+                BindDataToRtable(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
                 PendingGridView.Visible = false;
                 RejectedGridView.Visible = true;
-                RejectedGridView.DataSource = rulesList;
-                RejectedGridView.DataBind();
-                
             }
+        }
+
+        protected void BindDataToPtable (List<FixedConversationalRule> fcRuleList, List<ConversationalRule> cRuleList)
+        {
+            List<Rule> rulesList = new List<Rule>();
+            rulesList = controller.EditorService.ShowAllPendingRules(fcRuleList, cRuleList);
+            PendingGridView.DataSource = rulesList;
+            PendingGridView.DataBind();
+        }
+
+        protected void BindDataToRtable(List<FixedConversationalRule> fcRuleList, List<ConversationalRule> cRuleList)
+        {
+            List<Rule> rulesList = new List<Rule>();
+            rulesList = controller.EditorService.ShowAllRejectedRules(fcRuleList, cRuleList);
+            RejectedGridView.DataSource = rulesList;
+            RejectedGridView.DataBind();
+        }
+
+        protected void InvalidInputError ()
+        {
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Invalid input" + "');", true);
+        }
+
+        protected void RepeatingRuleError ()
+        {
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Repeating rule" + "');", true);
+        }
+
+        protected void InvalidFormatError ()
+        {
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Invalid rule format, " +
+                "use following fomat: { topic }, { participants }, { location }, { startdate }, { enddate }" + "');", true);
+        }
+
+        protected void UnknowError ()
+        {
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Unknow error" + "');", true);
         }
     }
 }
