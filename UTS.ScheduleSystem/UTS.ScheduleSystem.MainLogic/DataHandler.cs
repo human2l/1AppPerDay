@@ -15,7 +15,7 @@ namespace UTS.ScheduleSystem.MainLogic
 
         public void AddConversationalRule()
         {
-            
+
         }
 
         public void RemoveConversationalRule()
