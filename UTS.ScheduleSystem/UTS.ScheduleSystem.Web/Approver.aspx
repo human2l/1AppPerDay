@@ -2,9 +2,10 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
+        <br />
         <div class="col-md-8">Pending Rules:</div>
         <div class="col-md-4">
-            <asp:Button ID="PassedRulesButton" runat="server" Text="ApprovedRules" onclick="PassedRulesButton_Click"/>
+            <asp:Button ID="PassedRulesButton" runat="server" Text="ApprovedRules" onclick="PassedRulesButton_Click" CssClass="btn btn-default"/>
         </div>
     </div>
     <div class="row">
@@ -22,7 +23,7 @@
             </asp:GridView>
         </div>
         <div class="col-md-4">
-            <asp:Button ID="EditorDashboardButton" runat="server" Text="Editor Dashboard" onclick="EditorDashboardButton_Click"/>
+            <asp:Button ID="EditorDashboardButton" runat="server" Text="Editor Dashboard" onclick="EditorDashboardButton_Click" CssClass="btn btn-default"/>
         </div>
     </div>
 </asp:Content>

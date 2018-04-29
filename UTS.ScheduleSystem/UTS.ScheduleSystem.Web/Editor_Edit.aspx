@@ -1,42 +1,32 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Editor_Edit.aspx.cs" Inherits="UTS.ScheduleSystem.Web.Editor_Edit" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Editor_Edit.aspx.cs" Inherits="UTS.ScheduleSystem.Web.Editor_Edit" %>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="MainForm" runat="server">
+
+    <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
+    <div id="container">
+
         <div>
             <h2>Edit rule: <asp:Label ID="ModeLabel" runat="server"/></h2>
-            <table>
-                <tr>
-                    <td>
+            
                         <label for="InputTextBox">Input:</label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="InputTextBox" runat="server"/>
+                    
+                        <asp:TextBox ID="InputTextBox" runat="server"/><br />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="InputTextBox" ErrorMessage="Input is required" Text="[Required]" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
+                    <br />
                         <label for="OutputTextBox">Output:</label>
-                    </td>
-                    <td>
-                        <asp:TextBox ID="OutputTextBox" runat="server" />
+                   
+                        <asp:TextBox ID="OutputTextBox" runat="server" /><br />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="OutputTextBox" ErrorMessage="Output is required" Text="[Required]" />
-                    </td>
-                </tr>
-                
-            </table>
+                   
             <asp:ValidationSummary runat="server" />
             <div>
-                <asp:Button ID="SaveButton" runat="server" OnClick="SaveButton_Click" Text="Save"/>
-                <asp:Button ID="CancelButton" runat="server" OnClick="CancelButton_Click" CausesValidation="false" Text="Cancel"/>
+                <asp:Button ID="SaveButton" runat="server" OnClick="SaveButton_Click" Text="Save" CssClass="btn btn-default"/>
+                <asp:Button ID="CancelButton" runat="server" OnClick="CancelButton_Click" CausesValidation="false" Text="Cancel" CssClass="btn btn-default"/>
             </div>
         </div>
-    </form>
-</body>
-</html>
+
+        </div>
+
+
+        </asp:Content>

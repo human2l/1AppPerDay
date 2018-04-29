@@ -48,7 +48,7 @@ namespace UTS.ScheduleSystem.Web
                     List<ConversationalRule> cRuleList = controller.ConversationalRulesList;
 
                     // Check validation
-                    if (controller.EditorService.IsValidInput(Input.Text, Output.Text))
+                    if (controller.EditorService.IsRuleValid(Input.Text) && controller.EditorService.IsRuleValid(Output.Text))
                     {
 
                         // Check whether the input is existed or not
@@ -99,7 +99,7 @@ namespace UTS.ScheduleSystem.Web
                     List<ConversationalRule> cRuleList = controller.ConversationalRulesList;
 
                     // Check validation
-                    if (controller.EditorService.IsValidInput(Input.Text, Output.Text))
+                    if (controller.EditorService.IsFixedRuleValid(Input.Text, Output.Text))
                     {
 
                         // Check whether the input is existed or not

@@ -2,8 +2,9 @@
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
-                <asp:TextBox ID="question" runat="server" Height="20px" Width="300px"></asp:TextBox>
+    <div id="container">
+        <br />
+                <asp:TextBox ID="question" runat="server" Height="40px" Width="400px" Font-Size="Medium" ></asp:TextBox>
 
     <%--<div class="container">
         <div class="row">
@@ -49,7 +50,11 @@
             </p>
         </div>
     </div>--%>
-                <asp:Button ID="submit" runat="server" OnClick="Submit_Click" Text="Submit" />
+                <asp:Button ID="submit" runat="server" OnClick="Submit_Click" Text="Check"  Height="40px" CssClass="btn btn-default" />
                 <br />
-                <asp:TextBox ID="answer" runat="server" Height="329px" ReadOnly="True" TextMode="MultiLine" Width="366px"></asp:TextBox>
+        <br />
+        <br />
+                <asp:TextBox ID="answer" runat="server" Height="300px" ReadOnly="True" TextMode="MultiLine" Width="300px" BorderWidth="0px" Font-Size="Larger"></asp:TextBox>
+</div>
 </asp:Content>
+    

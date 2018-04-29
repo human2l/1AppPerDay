@@ -132,7 +132,7 @@ WHERE        (Role = 'E') OR
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="aspnet_UTS_ScheduleSystem_Web_20180415025446ConnectionString1 (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="GetUsersCountByRoleEditor" Modifier="Public" Name="GetUsersCountByRoleEditor" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="GetUsersCountByRoleEditor">
+              <DbSource ConnectionRef="aspnet_UTS_ScheduleSystem_Web_20180415025446ConnectionString1 (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="GetUsersCountByRoleEditor" Modifier="Public" Name="GetUsersCountByRoleEditor" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="GetUsersCountByRoleEditor">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        COUNT(*)
@@ -145,7 +145,7 @@ WHERE        (Role = 'E') OR
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="aspnet_UTS_ScheduleSystem_Web_20180415025446ConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery" Modifier="Public" Name="InsertQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertQuery">
+              <DbSource ConnectionRef="aspnet_UTS_ScheduleSystem_Web_20180415025446ConnectionString1 (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery" Modifier="Public" Name="InsertQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertQuery">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName], [Role]) VALUES (@Id, @Email, @EmailConfirmed, @PasswordHash, @SecurityStamp, @PhoneNumber, @PhoneNumberConfirmed, @TwoFactorEnabled, @LockoutEndDateUtc, @LockoutEnabled, @AccessFailedCount, @UserName, @Role);
@@ -689,7 +689,7 @@ SELECT Id, Topic, Participants, Location, StartDate, EndDate, LastEditUserId FRO
   <xs:element name="ScheduleSystemDataSets" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ScheduleSystemDataSets" msprop:Generator_UserDSName="ScheduleSystemDataSets">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="AspNetUsers" msprop:Generator_TableClassName="AspNetUsersDataTable" msprop:Generator_TableVarName="tableAspNetUsers" msprop:Generator_TablePropName="AspNetUsers" msprop:Generator_RowDeletingName="AspNetUsersRowDeleting" msprop:Generator_RowChangingName="AspNetUsersRowChanging" msprop:Generator_RowEvHandlerName="AspNetUsersRowChangeEventHandler" msprop:Generator_RowDeletedName="AspNetUsersRowDeleted" msprop:Generator_UserTableName="AspNetUsers" msprop:Generator_RowChangedName="AspNetUsersRowChanged" msprop:Generator_RowEvArgName="AspNetUsersRowChangeEvent" msprop:Generator_RowClassName="AspNetUsersRow">
+        <xs:element name="AspNetUsers" msprop:Generator_TableClassName="AspNetUsersDataTable" msprop:Generator_TableVarName="tableAspNetUsers" msprop:Generator_RowChangedName="AspNetUsersRowChanged" msprop:Generator_TablePropName="AspNetUsers" msprop:Generator_RowDeletingName="AspNetUsersRowDeleting" msprop:Generator_RowChangingName="AspNetUsersRowChanging" msprop:Generator_RowEvHandlerName="AspNetUsersRowChangeEventHandler" msprop:Generator_RowDeletedName="AspNetUsersRowDeleted" msprop:Generator_RowClassName="AspNetUsersRow" msprop:Generator_UserTableName="AspNetUsers" msprop:Generator_RowEvArgName="AspNetUsersRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id">
@@ -750,7 +750,7 @@ SELECT Id, Topic, Participants, Location, StartDate, EndDate, LastEditUserId FRO
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ConversationalRule" msprop:Generator_TableClassName="ConversationalRuleDataTable" msprop:Generator_TableVarName="tableConversationalRule" msprop:Generator_TablePropName="ConversationalRule" msprop:Generator_RowDeletingName="ConversationalRuleRowDeleting" msprop:Generator_RowChangingName="ConversationalRuleRowChanging" msprop:Generator_RowEvHandlerName="ConversationalRuleRowChangeEventHandler" msprop:Generator_RowDeletedName="ConversationalRuleRowDeleted" msprop:Generator_UserTableName="ConversationalRule" msprop:Generator_RowChangedName="ConversationalRuleRowChanged" msprop:Generator_RowEvArgName="ConversationalRuleRowChangeEvent" msprop:Generator_RowClassName="ConversationalRuleRow">
+        <xs:element name="ConversationalRule" msprop:Generator_TableClassName="ConversationalRuleDataTable" msprop:Generator_TableVarName="tableConversationalRule" msprop:Generator_RowChangedName="ConversationalRuleRowChanged" msprop:Generator_TablePropName="ConversationalRule" msprop:Generator_RowDeletingName="ConversationalRuleRowDeleting" msprop:Generator_RowChangingName="ConversationalRuleRowChanging" msprop:Generator_RowEvHandlerName="ConversationalRuleRowChangeEventHandler" msprop:Generator_RowDeletedName="ConversationalRuleRowDeleted" msprop:Generator_RowClassName="ConversationalRuleRow" msprop:Generator_UserTableName="ConversationalRule" msprop:Generator_RowEvArgName="ConversationalRuleRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id">
@@ -791,7 +791,7 @@ SELECT Id, Topic, Participants, Location, StartDate, EndDate, LastEditUserId FRO
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="FixedConversationalRule" msprop:Generator_TableClassName="FixedConversationalRuleDataTable" msprop:Generator_TableVarName="tableFixedConversationalRule" msprop:Generator_TablePropName="FixedConversationalRule" msprop:Generator_RowDeletingName="FixedConversationalRuleRowDeleting" msprop:Generator_RowChangingName="FixedConversationalRuleRowChanging" msprop:Generator_RowEvHandlerName="FixedConversationalRuleRowChangeEventHandler" msprop:Generator_RowDeletedName="FixedConversationalRuleRowDeleted" msprop:Generator_UserTableName="FixedConversationalRule" msprop:Generator_RowChangedName="FixedConversationalRuleRowChanged" msprop:Generator_RowEvArgName="FixedConversationalRuleRowChangeEvent" msprop:Generator_RowClassName="FixedConversationalRuleRow">
+        <xs:element name="FixedConversationalRule" msprop:Generator_TableClassName="FixedConversationalRuleDataTable" msprop:Generator_TableVarName="tableFixedConversationalRule" msprop:Generator_RowChangedName="FixedConversationalRuleRowChanged" msprop:Generator_TablePropName="FixedConversationalRule" msprop:Generator_RowDeletingName="FixedConversationalRuleRowDeleting" msprop:Generator_RowChangingName="FixedConversationalRuleRowChanging" msprop:Generator_RowEvHandlerName="FixedConversationalRuleRowChangeEventHandler" msprop:Generator_RowDeletedName="FixedConversationalRuleRowDeleted" msprop:Generator_RowClassName="FixedConversationalRuleRow" msprop:Generator_UserTableName="FixedConversationalRule" msprop:Generator_RowEvArgName="FixedConversationalRuleRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id">
@@ -832,7 +832,7 @@ SELECT Id, Topic, Participants, Location, StartDate, EndDate, LastEditUserId FRO
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MealSchedule" msprop:Generator_TableClassName="MealScheduleDataTable" msprop:Generator_TableVarName="tableMealSchedule" msprop:Generator_RowChangedName="MealScheduleRowChanged" msprop:Generator_TablePropName="MealSchedule" msprop:Generator_RowDeletingName="MealScheduleRowDeleting" msprop:Generator_RowChangingName="MealScheduleRowChanging" msprop:Generator_RowEvHandlerName="MealScheduleRowChangeEventHandler" msprop:Generator_RowDeletedName="MealScheduleRowDeleted" msprop:Generator_RowClassName="MealScheduleRow" msprop:Generator_UserTableName="MealSchedule" msprop:Generator_RowEvArgName="MealScheduleRowChangeEvent">
+        <xs:element name="MealSchedule" msprop:Generator_TableClassName="MealScheduleDataTable" msprop:Generator_TableVarName="tableMealSchedule" msprop:Generator_TablePropName="MealSchedule" msprop:Generator_RowDeletingName="MealScheduleRowDeleting" msprop:Generator_RowChangingName="MealScheduleRowChanging" msprop:Generator_RowEvHandlerName="MealScheduleRowChangeEventHandler" msprop:Generator_RowDeletedName="MealScheduleRowDeleted" msprop:Generator_UserTableName="MealSchedule" msprop:Generator_RowChangedName="MealScheduleRowChanged" msprop:Generator_RowEvArgName="MealScheduleRowChangeEvent" msprop:Generator_RowClassName="MealScheduleRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id">

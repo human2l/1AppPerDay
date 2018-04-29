@@ -256,13 +256,9 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         // Check the input validation
-        public bool IsValidInput (string input, string output)
+        public bool IsFixedRuleValid (string input, string output)
         {
             if (!input.Contains("{") && !input.Contains("}") && !output.Contains("{") && !output.Contains("}"))
-            {
-                return true;
-            }
-            else if (CheckInput(input) && CheckInput(output))
             {
                 return true;
             }
@@ -270,7 +266,7 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         // Make sure the input only contains one coloum
-        private bool CheckInput (string input)
+        public bool IsRuleValid(string input)
         {
             string[] phrase1;
             string[] phrase2;
