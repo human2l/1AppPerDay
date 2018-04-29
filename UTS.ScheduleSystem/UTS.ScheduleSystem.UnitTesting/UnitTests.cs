@@ -13,19 +13,32 @@ namespace UTS.ScheduleSystem.UnitTesting
         public class UnitTest
         {
             Controller controller = new Controller();
-            //controller = new Controller();
-            //controller.initialization();
-            User frank = new User("u002", "FRANK", "wtf", "FRANK@wtf.com", Role.DMnEnA);
-            User kaikai = new User("u003", "KAI", "mmp", "KAIQ@mmp.com", Role.DMnEnA);
-            ConversationalRule cRule1 = new ConversationalRule("c001", "When will I have meal with {p1}", "It's {p1}", "u001 u002", Status.Pending);
-            ConversationalRule cRule2 = new ConversationalRule("c002", "Who will I have meal with on {p1}", "It's {p1}", "u001 u002", Status.Approved);
-            ConversationalRule cRule3 = new ConversationalRule("c003", "What will I surpose to eat on {p1}", "{p1}", "u001 u002", Status.Rejected);
-            FixedConversationalRule cFRule1 = new FixedConversationalRule("fc001", "How do you do", "I'm fine, fuck you, and you?", "u001", Status.Pending);
-            FixedConversationalRule cFRule2 = new FixedConversationalRule("fc002", "What is your name", "Are you flirting with me?", "u001", Status.Approved);
-            FixedConversationalRule cFRule3 = new FixedConversationalRule("fc003", "I'm not good", "So go fuck yourself", "u001", Status.Rejected);
             [TestInitialize]
             public void Setup()
             {
+                User frank = new User("u1", "FRANK", "wtf", "FRANK@wtf.com", Role.DMnEnA);
+                User frank2 = new User("u2", "FRANK2", "222", "FRANK@2.com", Role.DMnEnA);
+                User frank3 = new User("u3", "FRANK2333", "2333", "FRANK@2333.com", Role.DMnEnA);
+                User DM = new User("uDM", "DM", "DM", "DM@DM.com", Role.DM);
+                User E = new User("uE", "E", "E", "E@E.com", Role.E);
+                User A = new User("uA", "A", "A", "A@A.com", Role.A);
+                User DMnE = new User("uDMnE", "DMnE", "DMnE", "DMnE@DMnE.com", Role.DMnE);
+                User DMnA = new User("uDMnA", "DMnA", "DMnA", "DMnA@DMnA.com", Role.DMnA);
+                User EnA = new User("uEnA", "EnA", "EnA", "EnA@EnA.com", Role.EnA);
+                User DMnEnA = new User("uDMnEnA", "DMnEnA", "DMnEnA", "DMnEnA@DMnEnA.com", Role.DMnEnA);
+                User None = new User("uNone", "None", "None", "None@None.com", Role.None);
+                ConversationalRule cRule1 = new ConversationalRule("c1", "When will I have meal with {p1}", "It's {p1}", "u001 u002", Status.Pending);
+                ConversationalRule cRule11 = new ConversationalRule("c11", "When will I have meal with {p1}", "It's {p1}", "u001 u002", Status.Pending);
+                ConversationalRule cRule2 = new ConversationalRule("c2", "Who will I have meal with on {p1}", "It's {p1}", "u001 u002", Status.Approved);
+                ConversationalRule cRule21 = new ConversationalRule("c21", "Who will I have meal with on {p1}", "It's {p1}", "u001 u002", Status.Approved);
+                ConversationalRule cRule3 = new ConversationalRule("c3", "What will I surpose to eat on {p1}", "{p1}", "u001 u002", Status.Rejected);
+                ConversationalRule cRule31 = new ConversationalRule("c31", "What will I surpose to eat on {p1}", "{p1}", "u001 u002", Status.Rejected);
+                FixedConversationalRule cFRule1 = new FixedConversationalRule("fc1", "How do you do", "I'm fine, fuck you, and you?", "u001", Status.Pending);
+                FixedConversationalRule cFRule11 = new FixedConversationalRule("fc11", "How do you do", "I'm fine, fuck you, and you?", "u001", Status.Pending);
+                FixedConversationalRule cFRule2 = new FixedConversationalRule("fc2", "What is your name", "Are you flirting with me?", "u001", Status.Approved);
+                FixedConversationalRule cFRule21 = new FixedConversationalRule("fc21", "What is your name", "Are you flirting with me?", "u001", Status.Approved);
+                FixedConversationalRule cFRule3 = new FixedConversationalRule("fc3", "I'm not good", "So go fuck yourself", "u001", Status.Rejected);
+                FixedConversationalRule cFRule31 = new FixedConversationalRule("fc31", "I'm not good", "So go fuck yourself", "u001", Status.Rejected);
                 controller.ConversationalRulesList.Add(cRule1);
                 controller.ConversationalRulesList.Add(cRule2);
                 controller.ConversationalRulesList.Add(cRule3);
@@ -33,11 +46,13 @@ namespace UTS.ScheduleSystem.UnitTesting
                 controller.FixedConversationalRulesList.Add(cFRule2);
                 controller.FixedConversationalRulesList.Add(cFRule3);
             }
-            //[TestMethod]
-            //public void ControllerLists_OnInitialization_NotNull()
-            //{
-            //    //print controller
-            //}
+
+            private void clear()
+            {
+                controller.ConversationalRulesList = new List<ConversationalRule>();
+                controller.FixedConversationalRulesList = new List<FixedConversationalRule>();
+                controller.MealScheduleList = new List<MealSchedule>();
+            }
 
             [TestMethod]
 

@@ -12,8 +12,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.MainLogi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.UnitTesting", "UTS.ScheduleSystem.UnitTesting\UTS.ScheduleSystem.UnitTesting.csproj", "{5DF83E4F-08F1-42B6-82B6-3BB0327C9805}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.Console", "UTS.ScheduleSystem.Console\UTS.ScheduleSystem.Console.csproj", "{3B18EDE9-44C3-45E8-A018-127AB918C35A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.Web", "UTS.ScheduleSystem.Web\UTS.ScheduleSystem.Web.csproj", "{A0DC9F22-DF6B-48A7-9844-73F492C889CE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.Data", "UTS.ScheduleSystem.Data\UTS.ScheduleSystem.Data.csproj", "{A1CC7AA4-9723-4257-98F4-8F5EE299A818}"
@@ -32,10 +30,6 @@ Global
 		{5DF83E4F-08F1-42B6-82B6-3BB0327C9805}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DF83E4F-08F1-42B6-82B6-3BB0327C9805}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DF83E4F-08F1-42B6-82B6-3BB0327C9805}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3B18EDE9-44C3-45E8-A018-127AB918C35A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3B18EDE9-44C3-45E8-A018-127AB918C35A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3B18EDE9-44C3-45E8-A018-127AB918C35A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3B18EDE9-44C3-45E8-A018-127AB918C35A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A0DC9F22-DF6B-48A7-9844-73F492C889CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A0DC9F22-DF6B-48A7-9844-73F492C889CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0DC9F22-DF6B-48A7-9844-73F492C889CE}.Release|Any CPU.ActiveCfg = Release|Any CPU

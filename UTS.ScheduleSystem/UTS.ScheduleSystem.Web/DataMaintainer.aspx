@@ -3,7 +3,6 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <asp:GridView ID="DataMaintainerGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" 
-        OnRowCancelingEdit ="DataMaintainerGridView_RowCancelingEdit"
         OnRowDeleting="DataMaintainerGridView_RowDeleting" OnRowEditing="DataMaintainerGridView_RowEditing" >
         <Columns>
             <asp:BoundField DataField="Id" HeaderText="Id" />

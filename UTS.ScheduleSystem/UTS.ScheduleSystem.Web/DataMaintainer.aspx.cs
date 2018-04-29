@@ -12,7 +12,7 @@ namespace UTS.ScheduleSystem.Web
     public partial class DataMaintainer : System.Web.UI.Page
     {
         Controller controller;
-        List<MealSchedule> mealScheduleList;//added
+        List<MealSchedule> mealScheduleList;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,10 +21,7 @@ namespace UTS.ScheduleSystem.Web
             {
 
                 controller = (Controller)Session["Controller"];
-                //System.Diagnostics.Debug.WriteLine("load:front mealList Count: " + mealScheduleList.Count);
-
-                mealScheduleList = controller.MealScheduleList;//added
-                System.Diagnostics.Debug.WriteLine("loadafter:front mealList Count: " + mealScheduleList.Count);
+                mealScheduleList = controller.MealScheduleList;
                 UpdateGridView();
             }
             else
@@ -34,6 +31,7 @@ namespace UTS.ScheduleSystem.Web
             }
         }
 
+        //Delet selected row after delete button clicked
         protected void DataMaintainerGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             string id = DataMaintainerGridView.DataKeys[e.RowIndex].Value.ToString();
@@ -42,28 +40,23 @@ namespace UTS.ScheduleSystem.Web
             UpdateGridView();
         }
 
+        //After edit button clicked, redirect to edit page
         protected void DataMaintainerGridView_RowEditing(object sender, GridViewEditEventArgs e)
         {
             string id = (string)DataMaintainerGridView.DataKeys[e.NewEditIndex].Value;
             Response.Redirect("~/Datamaintainer_Edit.aspx?ID=" + id);
-            //System.Diagnostics.Debug.WriteLine("RowEditing!");
-            //DataMaintainerGridView.EditIndex = e.NewEditIndex;
-            //UpdateGridView();
         }
 
+        //reuseful function to refresh gridview data
         private void UpdateGridView()
         {
-            //DataMaintainerGridView.Columns[0].Visible = false;
-            //DataMaintainerGridView.DataSource = controller.MealScheduleList;
-
-            DataMaintainerGridView.DataSource = mealScheduleList;//changed
+            DataMaintainerGridView.DataSource = mealScheduleList;
             DataMaintainerGridView.DataBind();
         }
 
+        //Add new MealSchedule after "Add" button clicked
         protected void Button1_Click(object sender, EventArgs e)
         {
-
-
             string topic = TopicTB.Text;
             string participants = ParticipantsTB.Text;
             string location = LocationTB.Text;
@@ -76,30 +69,5 @@ namespace UTS.ScheduleSystem.Web
             UpdateGridView();
 
         }
-
-        protected void DataMaintainerGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            //System.Diagnostics.Debug.WriteLine("RowUpdating!");
-            //string id = (DataMaintainerGridView.Rows[e.RowIndex].Cells[0].Controls[0] as TextBox).Text;
-            //string topic = (DataMaintainerGridView.Rows[e.RowIndex].Cells[0].Controls[1] as TextBox).Text;
-            //string userId = (DataMaintainerGridView.Rows[e.RowIndex].Cells[0].Controls[2] as TextBox).Text;
-            //string participants = (DataMaintainerGridView.Rows[e.RowIndex].Cells[0].Controls[3] as TextBox).Text;
-            //string location = (DataMaintainerGridView.Rows[e.RowIndex].Cells[0].Controls[4] as TextBox).Text;
-            //string startDate = (DataMaintainerGridView.Rows[e.RowIndex].Cells[0].Controls[5] as TextBox).Text;
-            //string endDate = (DataMaintainerGridView.Rows[e.RowIndex].Cells[0].Controls[6] as TextBox).Text;
-            //System.Diagnostics.Debug.WriteLine("RowUpdating! id = " + id + "topic : "+topic);
-            //MealSchedule ms = new MealSchedule(id, userId, topic, participants, location, startDate, endDate, "blahblah");
-            //controller.MealScheduleList = controller.DataMaintainerService.UpdateMealSchedule(ms, controller.MealScheduleList);
-            //DataMaintainerGridView.EditIndex = -1;
-            //UpdateGridView();
-        }
-
-        protected void DataMaintainerGridView_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        {
-            System.Diagnostics.Debug.WriteLine("RowCancelling!");
-            DataMaintainerGridView.EditIndex = -1;
-            UpdateGridView();
-        }
-
     }
 }
