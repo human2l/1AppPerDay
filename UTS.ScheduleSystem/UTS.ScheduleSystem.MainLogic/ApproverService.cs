@@ -7,32 +7,30 @@ namespace UTS.ScheduleSystem.MainLogic
 {
     public class ApproverService
     {
-       
+        private DataHandler dataHandler;
+
         public ApproverService()
         {
-
+            dataHandler = new DataHandler();
         }
 
-        private List<Rule> TraversalList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList, Status status)
+        private List<Rule> TraversalList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
         {
             List<Rule> newRulesList = new List<Rule>();
             foreach (Rule rule in cRulesList)
-            {
-                if (rule.Status.Equals(status))
-                    newRulesList.Add(rule);
-            }
+                newRulesList.Add(rule);
             foreach (Rule rule in fCRulesList)
-            {
-                if (rule.Status.Equals(status))
-                    newRulesList.Add(rule);
-            }
+                newRulesList.Add(rule);
+            //{
+            //    if (rule.Status.Equals(status))
+            //        newRulesList.Add(rule);
+            //}
+            //foreach (Rule rule in fCRulesList)
+            //{
+            //    if (rule.Status.Equals(status))
+            //        newRulesList.Add(rule);
+            //}
             return newRulesList;
-        }
-
-        public List<Rule> RequestRejectedRulesList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
-        {
-            List<Rule> rjRulesList = TraversalList(cRulesList, fCRulesList, Status.Rejected);
-            return rjRulesList;
         }
 
         private string GetLastUser(Rule rule)
@@ -42,6 +40,7 @@ namespace UTS.ScheduleSystem.MainLogic
 
         public List<User> RequestEditorList(List<User> userList)
         {
+
             List<User> editorList = new List<User>();
             foreach(User user in userList)
             {
@@ -62,27 +61,45 @@ namespace UTS.ScheduleSystem.MainLogic
             return result;
         }
 
+        private List<Rule> GetRuleListFromDatabase(Status status)
+        {
+            List<ConversationalRule> conversationalRules = dataHandler.FindConversationalRulesAccordingToStatus(status);
+            List<FixedConversationalRule> fixedConversationalRules = dataHandler.FindFixedConversationalRulesAccordingToStatus(status);
+            List<Rule> pRulesList = TraversalList(conversationalRules, fixedConversationalRules);
+            return pRulesList;
+        }
+
         public List<Rule> RequestPendingRulesList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
         {
-            List<Rule> pRulesList = TraversalList(cRulesList, fCRulesList, Status.Pending);
-            return pRulesList;
+            return GetRuleListFromDatabase(Status.Pending);
+            //List<Rule> pRulesList = TraversalList(cRulesList, fCRulesList, Status.Pending);
+            //return pRulesList;
+        }
+
+        public List<Rule> RequestRejectedRulesList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
+        {
+            return GetRuleListFromDatabase(Status.Rejected);
+            //List<Rule> rjRulesList = TraversalList(cRulesList, fCRulesList, Status.Rejected);
+            //return rjRulesList;
         }
 
         public List<Rule> RequestApprovedRulesList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
         {
-            List<Rule> apvRulesList = TraversalList(cRulesList, fCRulesList, Status.Approved);
-            return apvRulesList;
+            return GetRuleListFromDatabase(Status.Approved);
+            //List<Rule> apvRulesList = TraversalList(cRulesList, fCRulesList, Status.Approved);
+            //return apvRulesList;
         }
 
         public void ApproveRule(string ruleId, ref List<ConversationalRule> cRule, ref List<FixedConversationalRule> fCRulesList)
         {
             if (ruleId.StartsWith("c"))
             {
-                ApproveRuleInConversationalRuleList(ruleId, ref cRule);
+                dataHandler.ChangeOnConversationalRule();
+                //ApproveRuleInConversationalRuleList(ruleId, ref cRule);
             }
             else
             {
-                ApproveRuleInFixedConversationalRuleList(ruleId, ref fCRulesList);
+                //ApproveRuleInFixedConversationalRuleList(ruleId, ref fCRulesList);
             }
         }
 

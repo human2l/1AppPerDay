@@ -15,12 +15,14 @@ namespace UTS.ScheduleSystem.MainLogic
         string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         private RuleAdapter ruleAdapter;
         private MealScheduleAdapter mealScheduleAdapter;
+        private DataHandler dataHandler;
         private string answer;
 
         public ConversationService()
         {
             ruleAdapter = new RuleAdapter();
             mealScheduleAdapter = new MealScheduleAdapter();
+            dataHandler = new DataHandler();
         }
 
         // Main conversation function take question input as parameter
@@ -39,6 +41,9 @@ namespace UTS.ScheduleSystem.MainLogic
         // Answer to fixed rule conversation
         private Boolean AnswerToFixedRuleConversation(string question)
         {
+            //answer = dataHandler.FindSingleFixedConversationalRule(question);
+            //Boolean result = (answer == null) ? false : true;
+            //return result;
             var adapter = new FixedConversationalRuleTableAdapter();
             var set = adapter.GetData();
             foreach(DataRow row in set.Rows)
@@ -56,6 +61,7 @@ namespace UTS.ScheduleSystem.MainLogic
         // Answer to unfixed rule conversation
         private Boolean AnswerToConversation(string question)
         {
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -66,8 +72,6 @@ namespace UTS.ScheduleSystem.MainLogic
                 {
                     string input = dataReader["Input"].ToString();
                     string[] inputSplit = SplitRule(input);
-                    Boolean first = question.StartsWith(inputSplit[0]);
-                    Boolean second = question.EndsWith(inputSplit[2]);
                     if (question.StartsWith(inputSplit[0]) && question.EndsWith(inputSplit[2]))
                     {
                         string output = dataReader["Output"].ToString();
@@ -116,6 +120,7 @@ namespace UTS.ScheduleSystem.MainLogic
         // Find answer parameter from Mealschedule according to the input parameter
         private string FindAnswerFromMealSchedule(string inputKeyword, string outputKeyword, string parameter)
         {
+            //return dataHandler.FindSingleMealschedule(inputKeyword, parameter, outputKeyword);
             return mealScheduleAdapter.FindSingleValue(inputKeyword, parameter, outputKeyword);
         }
     }
