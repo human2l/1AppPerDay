@@ -52,7 +52,7 @@ namespace UTS.ScheduleSystem.MainLogic
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = @"select Input, Output from ConversationalRule";
+                string query = @"select Input, Output from ConversationalRule where Status='Approved'";
                 SqlCommand command = new SqlCommand(query, connection);
                 SqlDataReader dataReader = command.ExecuteReader();
                 while (dataReader.Read())
@@ -111,8 +111,8 @@ namespace UTS.ScheduleSystem.MainLogic
         private string Parameter(string question, string leftString, string rightString)
         {
             string result = question;
-            result.Replace(leftString, "");
-            result.Replace(rightString, "");
+            if(leftString != "") result = result.Replace(leftString, "");
+            if(rightString != "") result = result.Replace(rightString, "");
             return result;
         }
 

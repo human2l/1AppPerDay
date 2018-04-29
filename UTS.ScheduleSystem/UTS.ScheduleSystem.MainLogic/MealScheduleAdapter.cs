@@ -59,12 +59,19 @@ namespace UTS.ScheduleSystem.MainLogic
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = @"select " + clueType + " from MealSchedule where " + parameterType + "='" + parameter;
+                string query = @"select " + UpCaseTypeLetter(clueType) + " from MealSchedule where " + UpCaseTypeLetter(parameterType) + "='" + parameter + "'";
                 var command = new SqlCommand(query, connection);
-                result = command.ExecuteScalar().ToString();
+                var _result = command.ExecuteScalar();
+                result = _result.ToString();
                 command.Dispose();
             }
             return result;
+        }
+
+        private string UpCaseTypeLetter(string type)
+        {
+            string output = type.Substring(0, 1).ToUpper() + type.Substring(1);
+            return output;
         }
 
 
