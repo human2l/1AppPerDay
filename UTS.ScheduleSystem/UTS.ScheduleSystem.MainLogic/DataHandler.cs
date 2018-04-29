@@ -3,14 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UTS.ScheduleSystem.Data.ScheduleSystemDataSetsTableAdapters;
 
 namespace UTS.ScheduleSystem.MainLogic
 {
     class DataHandler
     {
+        ConversationalRuleTableAdapter conversationalRuleTableAdapter;
+        FixedConversationalRuleTableAdapter fixedConversationalRuleTableAdapter;
+        MealScheduleTableAdapter mealScheduleTableAdapter;
+
         public DataHandler()
         {
-
+            conversationalRuleTableAdapter = new ConversationalRuleTableAdapter();
+            fixedConversationalRuleTableAdapter = new FixedConversationalRuleTableAdapter();
+            mealScheduleTableAdapter = new MealScheduleTableAdapter();
         }
 
         public void AddConversationalRule()
@@ -23,9 +30,14 @@ namespace UTS.ScheduleSystem.MainLogic
 
         }
 
-        public void ChangeOnConversationalRule()
+        public void ChangeOnConversationalRule(string input, string output, string relatedUserId, string status, string ruleId)
         {
+            conversationalRuleTableAdapter.UpdateQuery(input, output, relatedUserId, status, ruleId);
+        }
 
+        public void ChangeConversationalRuleState(string id, string status)
+        {
+            //conversationalRuleTableAdapter
         }
 
         public string FindSingleConversationalRule(string input)
@@ -45,14 +57,23 @@ namespace UTS.ScheduleSystem.MainLogic
         public List<ConversationalRule> FindConversationalRulesAccordingToStatus(Status status)
         {
             List<ConversationalRule> result = new List<ConversationalRule>();
+            foreach(var x in conversationalRuleTableAdapter.GetAllCRulesByStatus(status.ToString()).ToList())
+            {
+                string id = x.Id;
+                string input = x.Input;
+                string output = x.Output;
+                string relatedUserId = x.RelatedUsersId;
+                ConversationalRule conversationalRule = new ConversationalRule(id, input, output, relatedUserId, status);
+                result.Add(conversationalRule);
+            }
             return result;
         }
 
-        public Object GetInputFromConversationalRule()
-        {
-            Object inputColumn = new Object();
-            return inputColumn;
-        }
+        //public List<> GetInputFromConversationalRule()
+        //{
+            
+        //    return inputColumn;
+        //}
 
         public void AddFixedConversationalRule()
         {
@@ -64,7 +85,12 @@ namespace UTS.ScheduleSystem.MainLogic
 
         }
 
-        public void ChangeOnFixedConversationalRule()
+        public void ChangeOnFixedConversationalRule(string input, string output, string relatedUserId, string status, string ruleId)
+        {
+            fixedConversationalRuleTableAdapter.UpdateQuery(input, output, relatedUserId, status, ruleId);
+        }
+
+        public void ChangeFixedConversationalRuleState(string id, string status)
         {
 
         }
@@ -86,6 +112,15 @@ namespace UTS.ScheduleSystem.MainLogic
         public List<FixedConversationalRule> FindFixedConversationalRulesAccordingToStatus(Status status)
         {
             List<FixedConversationalRule> result = new List<FixedConversationalRule>();
+            foreach (var x in fixedConversationalRuleTableAdapter.GetAllFCRulesByStatus(status.ToString()).ToList())
+            {
+                string id = x.Id;
+                string input = x.Input;
+                string output = x.Output;
+                string relatedUserId = x.RelatedUsersId;
+                FixedConversationalRule conversationalRule = new FixedConversationalRule(id, input, output, relatedUserId, status);
+                result.Add(conversationalRule);
+            }
             return result;
         }
 
