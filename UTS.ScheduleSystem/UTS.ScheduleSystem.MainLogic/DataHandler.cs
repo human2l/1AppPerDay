@@ -12,12 +12,14 @@ namespace UTS.ScheduleSystem.MainLogic
         ConversationalRuleTableAdapter conversationalRuleTableAdapter;
         FixedConversationalRuleTableAdapter fixedConversationalRuleTableAdapter;
         MealScheduleTableAdapter mealScheduleTableAdapter;
+        AspNetUsersTableAdapter aspNetUsersTableAdapter;
 
         public DataHandler()
         {
             conversationalRuleTableAdapter = new ConversationalRuleTableAdapter();
             fixedConversationalRuleTableAdapter = new FixedConversationalRuleTableAdapter();
             mealScheduleTableAdapter = new MealScheduleTableAdapter();
+            aspNetUsersTableAdapter = new AspNetUsersTableAdapter();
         }
 
         public void AddConversationalRule()
@@ -37,7 +39,7 @@ namespace UTS.ScheduleSystem.MainLogic
 
         public void ChangeConversationalRuleState(string id, string status)
         {
-            //conversationalRuleTableAdapter
+            conversationalRuleTableAdapter.UpdateRuleStatus(status, id);
         }
 
         public string FindSingleConversationalRule(string input)
@@ -69,11 +71,10 @@ namespace UTS.ScheduleSystem.MainLogic
             return result;
         }
 
-        //public List<> GetInputFromConversationalRule()
-        //{
-            
-        //    return inputColumn;
-        //}
+        public int FindConversationalRuleNum(string status)
+        {
+            return 0;
+        }
 
         public void AddFixedConversationalRule()
         {
@@ -92,7 +93,7 @@ namespace UTS.ScheduleSystem.MainLogic
 
         public void ChangeFixedConversationalRuleState(string id, string status)
         {
-
+            fixedConversationalRuleTableAdapter.UpdateRuleStatus(status, id);
         }
 
         public string FindSingleFixedConversationalRule(string input)
@@ -129,6 +130,11 @@ namespace UTS.ScheduleSystem.MainLogic
 
         }
 
+        public int FindFixedConversationalRuleNum(string status)
+        {
+            return 0;
+        }
+
         public void AddMealschedule()
         {
 
@@ -161,6 +167,11 @@ namespace UTS.ScheduleSystem.MainLogic
         public void FindMealschedules()
         {
 
+        }
+
+        public int FindEditorNum()
+        {
+            return 0;
         }
     }
 }

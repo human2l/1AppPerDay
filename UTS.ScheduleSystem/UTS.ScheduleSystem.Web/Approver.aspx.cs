@@ -74,11 +74,11 @@ namespace UTS.ScheduleSystem.Web
             {
                 case "Approve":
                     controller.ApproverService.ApproveRule(_ruleId);
-                    UpdateDatabase();
+                    //UpdateDatabase();
                     break;
                 case "Reject":
                     controller.ApproverService.RejectRule(_ruleId);
-                    UpdateDatabase();
+                    //UpdateDatabase();
                     break;
                 default:
                     break;

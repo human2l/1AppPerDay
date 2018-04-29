@@ -165,14 +165,20 @@ namespace UTS.ScheduleSystem.MainLogic
 
         public int ApprovedRulesNum()
         {
-            List<Rule> approvedRulesList = RequestApprovedRulesList();
-            return approvedRulesList.Count;
+            int conversationalRuleNum = dataHandler.FindConversationalRuleNum(Status.Approved.ToString());
+            int fixedConversationalRuleNum = dataHandler.FindFixedConversationalRuleNum(Status.Approved.ToString());
+            return conversationalRuleNum + fixedConversationalRuleNum;
+            //List<Rule> approvedRulesList = RequestApprovedRulesList();
+            //return approvedRulesList.Count;
         }
 
         public int RejectedRulesNum()
         {
-            List<Rule> rejectedRulesList = RequestRejectedRulesList();
-            return rejectedRulesList.Count;
+            int conversationalRuleNum = dataHandler.FindConversationalRuleNum(Status.Rejected.ToString());
+            int fixedConversationalRuleNum = dataHandler.FindFixedConversationalRuleNum(Status.Rejected.ToString());
+            return conversationalRuleNum + fixedConversationalRuleNum;
+            //List<Rule> rejectedRulesList = RequestRejectedRulesList();
+            //return rejectedRulesList.Count;
         }
 
         public double SuccessRate()
