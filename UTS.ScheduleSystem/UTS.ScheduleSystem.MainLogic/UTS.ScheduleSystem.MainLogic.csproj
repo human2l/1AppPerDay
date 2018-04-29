@@ -47,9 +47,7 @@
     <Compile Include="ConversationService.cs" />
     <Compile Include="DataMaintainerService.cs" />
     <Compile Include="EditorService.cs" />
-    <Compile Include="FakeDB.cs" />
     <Compile Include="FixedConversationalRule.cs" />
-    <Compile Include="LoginService.cs" />
     <Compile Include="MealSchedule.cs" />
     <Compile Include="MealScheduleAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

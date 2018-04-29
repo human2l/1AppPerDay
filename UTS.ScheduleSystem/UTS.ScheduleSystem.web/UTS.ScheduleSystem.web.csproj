@@ -174,7 +174,6 @@
     <Content Include="Approver.aspx" />
     <Content Include="Approver_Editor_Report.aspx" />
     <Content Include="Approver_Report.aspx" />
-    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -374,13 +373,6 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
     <Compile Include="DataMaintainer.aspx.cs">
       <DependentUpon>DataMaintainer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -8,11 +8,14 @@ namespace UTS.ScheduleSystem.MainLogic
 {
     public static class Utils
     {
+        //create if for different objects
+        //params: String:type of object, List: the list which contains that type of objects
         public static string CreateIdByType<T>(string objType, List<T> list)
         {
             switch (objType)
             {
                 case "User":
+                    //Currently it doesn't need to create id for user
                     //return "u" + (int.Parse(GetLastId(list).Substring(1))+1);
                     return "uuu";
                 case "ConversationalRule":
@@ -26,8 +29,7 @@ namespace UTS.ScheduleSystem.MainLogic
             }
         }
 
-        
-
+        //return the object has the larest ID
         public static string GetLastId<T>(List<T> list)
         {
             if(typeof(T).Equals(typeof(User)))
@@ -104,7 +106,7 @@ namespace UTS.ScheduleSystem.MainLogic
                 return null;
         }
 
-
+        //return corresponding Role of input string
         public static Role GetRole(string role)
         {
             switch (role)
@@ -123,7 +125,6 @@ namespace UTS.ScheduleSystem.MainLogic
                     return Role.A;
                 case "DM":
                     return Role.DM;
-
                 default:
                     return Role.None;
             }

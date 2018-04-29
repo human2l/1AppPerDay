@@ -10,27 +10,17 @@ namespace UTS.ScheduleSystem.MainLogic
 {
     public class Controller
     {
-        private FakeDB fakeDB = new FakeDB();
         private User currentUser;
         private List<User> userList = new List<User>();
         private List<ConversationalRule> conversationalRulesList = new List<ConversationalRule>();
         private List<FixedConversationalRule> fixedConversationalRulesList = new List<FixedConversationalRule>();
         private List<MealSchedule> mealScheduleList = new List<MealSchedule>();
-
-        //private ConversationService
         private ConversationService conversationService = new ConversationService();
         private DataMaintainerService dataMaintainerService = new DataMaintainerService();
         private EditorService editorService = new EditorService();
         private ApproverService approverService = new ApproverService();
-
-         
-
         
-        public Controller()
-        {
-            test();
-        }
-
+        public Controller(){}
 
         public DataMaintainerService DataMaintainerService
         {
@@ -86,31 +76,9 @@ namespace UTS.ScheduleSystem.MainLogic
                     set.RemoveAspNetUsersRow(set.First());
                     u.Add(user);
                 }
-
                 userList = u;
-
-                //if(set.Count >= 1)
-                //{
-                //    User DMnEnA = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, GetRole(set.First().Role));
-                //    set.RemoveAspNetUsersRow(set.First());
-                //    userList.Add(DMnEnA);
-                //}
-                //if(set.Count >= 3)
-                //{
-                //    User DM = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, GetRole(set.First().Role));
-                //    set.RemoveAspNetUsersRow(set.First());
-                //    User E = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, GetRole(set.First().Role));
-                //    set.RemoveAspNetUsersRow(set.First());
-                //    User A = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, GetRole(set.First().Role));
-                //    set.RemoveAspNetUsersRow(set.First());
-                //    userList.Add(DM);
-                //    userList.Add(E);
-                //    userList.Add(A);
-                //}
-                
                 return userList;
             }
-
             set
             {
                 userList = value;
@@ -126,10 +94,6 @@ namespace UTS.ScheduleSystem.MainLogic
                 adapter.Dispose();
                 List<ConversationalRule> list = new List<ConversationalRule>();
                 conversationalRulesList = list;
-                //for (var i = 0; i < conversationalRulesList.Count; i++)
-                //{
-                //    conversationalRulesList.RemoveAt(i);
-                //}
                 while (set.Count != 0)
                 {
                     ConversationalRule cRule = new ConversationalRule(set.First().Id, set.First().Input, set.First().Output, set.First().RelatedUsersId,
@@ -159,7 +123,7 @@ namespace UTS.ScheduleSystem.MainLogic
                     adapter.Insert(ms.Id, ms.Input, ms.Output, ms.RelatedUsersId, ms.Status.ToString());
                 }
                 adapter.Dispose();
-                //conversationalRulesList = value;
+                conversationalRulesList = value;
             }
         }
 
@@ -172,10 +136,6 @@ namespace UTS.ScheduleSystem.MainLogic
                 adapter.Dispose();
                 List<FixedConversationalRule> list = new List<FixedConversationalRule>();
                 fixedConversationalRulesList = list;
-                //for (var i = 0; i < fixedConversationalRulesList.Count; i++)
-                //{
-                //    fixedConversationalRulesList.RemoveAt(i);
-                //}
                 while (set.Count != 0)
                 {
                     FixedConversationalRule fcRule = new FixedConversationalRule(set.First().Id, set.First().Input, set.First().Output, set.First().RelatedUsersId,
@@ -202,7 +162,7 @@ namespace UTS.ScheduleSystem.MainLogic
                     adapter.Insert(rule.Id, rule.Input, rule.Output, rule.RelatedUsersId, rule.Status.ToString());
                 }
                 adapter.Dispose();
-                //fixedConversationalRulesList = value;
+                fixedConversationalRulesList = value;
             }
         }
 
@@ -213,10 +173,6 @@ namespace UTS.ScheduleSystem.MainLogic
                 var adapter = new MealScheduleTableAdapter();
                 var set = adapter.GetData();
                 adapter.Dispose();
-                //for (var i = 0; i < mealScheduleList.Count; i++)
-                //{
-                //    mealScheduleList.RemoveAt(i);
-                //}
                 mealScheduleList = new List<MealSchedule>();
                 while (set.Count != 0)
                 {
@@ -246,6 +202,7 @@ namespace UTS.ScheduleSystem.MainLogic
                     adapter.Insert(ms.Id, ms.Topic, ms.Participants, ms.Location, ms.StartDate, ms.EndDate, ms.LastEditUserId); ;
                 }
                 adapter.Dispose();
+                mealScheduleList = value;
             }
         }
 
@@ -263,64 +220,6 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         public ConversationService ConversationService { get => conversationService; set => conversationService = value; }
-
-        //public void initialization()
-        //{
-        //    User frank = new User("u001", "Frank", "frank", "frank@frank.com", Role.DMnA);
-        //    ConversationalRule weatherRule1 = new ConversationalRule("c001", "How is the weather on ", "The weather on {p1} is {p2}", "u001 u002", Status.Approved);
-        //    FixedConversationalRule weatherFRule1 = new FixedConversationalRule("fc001", "How do you do", "I'm fine, fuck you, and you?", "u001", Status.Rejected);
-        //    FixedConversationalRule weatherFRule2 = new FixedConversationalRule("fc002", "qwerty", "asdfgg", "u001", Status.Pending);
-        //    MealSchedule mealSchedule1 = new MealSchedule("ms1","u001", "dinner", "Michael Bay,Donald Trump", "Sydney", "08/04/2018 3:12:18 PM", "08/04/2018 4:15:00 PM", "u001 u002");
-        //    MealSchedule ms1 = new MealSchedule("ms2", "userId-s", "topic-s", "participants-s", "location-s", "startDate-s", "endDate-s", "lastEditUserId-s");
-        //    MealSchedule ms2 = new MealSchedule("ms3", "userId-s", "topic-s", "participants-s", "location-s", "startDate-s", "endDate-s", "lastEditUserId-s");
-        //    //fakeDB.UserTbl.Add(frank);
-        //    //fakeDB.CRulesTbl.Add(weatherRule1);
-        //    //fakeDB.FCRulesTbl.Add(weatherFRule1);
-        //    //fakeDB.MealScheduleTbl.Add(mealSchedule1);
-        //    UserList.Add(frank);
-        //    conversationalRulesList.Add(weatherRule1);
-        //    fixedConversationalRulesList.Add(weatherFRule1);
-        //    fixedConversationalRulesList.Add(weatherFRule2);
-        //    MealScheduleList.Add(mealSchedule1);
-        //    MealScheduleList.Add(ms1);
-        //    MealScheduleList.Add(ms2);
-
-
-        //    //codes for read database and update all lists
-
-
-        //}
-
-        //main process
-        public void maintaining()
-        {
-
-        }
-
-
-        public bool handleConversation(string userInput)
-        {
-            return false;
-        }
-
-        
-        public void test()
-        {
-            AspNetUsersTableAdapter a = new AspNetUsersTableAdapter();
-            System.Diagnostics.Debug.WriteLine(a.CountQuary());
-            ConversationalRuleTableAdapter b = new ConversationalRuleTableAdapter();
-            System.Diagnostics.Debug.WriteLine(b.GetAllCRulesByStatus("Rejected").ToList().First().Id);
-            System.Diagnostics.Debug.WriteLine(b.GetAllInputsAndOutputs());
-        }
-
-
-
-
-
-
-
-
-
 
     }
 }
