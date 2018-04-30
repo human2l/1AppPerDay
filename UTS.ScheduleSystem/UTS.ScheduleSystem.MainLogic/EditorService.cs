@@ -7,11 +7,17 @@ namespace UTS.ScheduleSystem.MainLogic
 {
     public class EditorService
     {
+        private DataHandler dataHandler;
+
+        public EditorService()
+        {
+            dataHandler = new DataHandler();
+        }
 
         // Add a fixed conversation rule
         public List<FixedConversationalRule> AddNewFCRule(string input, string output, string userId, List<FixedConversationalRule> fCRulesList)
         {
-            FixedConversationalRule rule = new FixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", fCRulesList), input, output, userId, Status.Pending);
+            FixedConversationalRule rule = new FixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", dataHandler.FindLastFixedConversationalRuleId()), input, output, userId, Status.Pending);
             fCRulesList.Add(rule);
             return fCRulesList;
         }
@@ -19,7 +25,7 @@ namespace UTS.ScheduleSystem.MainLogic
         // Add a conversation rule
         public List<ConversationalRule> AddNewCRule(string input, string output, string userId, List<ConversationalRule> cRulesList)
         {
-            ConversationalRule rule = new ConversationalRule(Utils.CreateIdByType("ConversationalRule", cRulesList), input, output, userId, Status.Pending);
+            ConversationalRule rule = new ConversationalRule(Utils.CreateIdByType("ConversationalRule", dataHandler.FindLastConversationalRuleId()), input, output, userId, Status.Pending);
             cRulesList.Add(rule);
             return cRulesList;
         }

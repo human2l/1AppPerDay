@@ -40,18 +40,6 @@ namespace UTS.ScheduleSystem.MainLogic
             answer = dataHandler.FindSingleFixedConversationalRule(question);
             Boolean result = (answer == null) ? false : true;
             return result;
-            //var adapter = new FixedConversationalRuleTableAdapter();
-            //var set = adapter.GetData();
-            //foreach(DataRow row in set.Rows)
-            //{
-            //    if (row[1].ToString().Equals(question))
-            //    {
-            //        answer = row[2].ToString();
-            //        adapter.Dispose();
-            //        return true;
-            //    }   
-            //}
-            //return false;
         }
 
         // Answer to unfixed rule conversation

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -76,6 +77,37 @@ namespace UTS.ScheduleSystem.MainLogic
             return result;
         }
 
+        public string FindLastConversationalRuleId()
+        {
+            string result = "c1";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = @"SELECT Id FROM ConversationalRule";
+                    var command = new SqlCommand(query, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string currentId = reader.GetString(0);
+                        int id = Convert.ToInt32(currentId.Substring(1));
+                        if (id > Convert.ToInt32(result.Substring(1)))
+                        {
+                            result = currentId;
+                        }
+
+                    }
+                    command.Dispose();
+                }
+            }
+            catch
+            {
+                result = null;
+            }
+            return result;
+        }
+
         public int FindConversationalRuleNum(string status)
         {
             int result = Convert.ToInt32(conversationalRuleTableAdapter.GetRulesCountByStatus(status));
@@ -138,6 +170,37 @@ namespace UTS.ScheduleSystem.MainLogic
 
         }
 
+        public string FindLastFixedConversationalRuleId()
+        {
+            string result = "fc1";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = @"SELECT Id FROM FixedConversationalRule";
+                    var command = new SqlCommand(query, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string currentId = reader.GetString(0);
+                        int id = Convert.ToInt32(currentId.Substring(2));
+                        if (id > Convert.ToInt32(result.Substring(2)))
+                        {
+                            result = currentId;
+                        }
+
+                    }
+                    command.Dispose();
+                }
+            }
+            catch
+            {
+                result = null;
+            }
+            return result;
+        }
+
         public int FindFixedConversationalRuleNum(string status)
         {
             int result = Convert.ToInt32(fixedConversationalRuleTableAdapter.GetRulesCountByStatus(status));
@@ -146,19 +209,19 @@ namespace UTS.ScheduleSystem.MainLogic
 
 
         // Mealschedule
-        public void AddMealschedule()
+        public void AddMealschedule(string id, string topic, string participants, string location, string startDate, string endDate, string lastEditUserId)
         {
-
+            mealScheduleTableAdapter.Insert(id, topic, participants, location, startDate, endDate, lastEditUserId);
         }
 
-        public void RemoveMealschedule()
+        public void DeleteMealschedule(string Id)
         {
-
+            mealScheduleTableAdapter.DeleteQuery(Id);
         }
 
-        public void ChangeOnMealschedule()
+        public void ChangeOnMealschedule(string id, string topic, string participants, string location, string startDate, string endDate, string lastEditUserId)
         {
-
+            mealScheduleTableAdapter.UpdateQuery(topic, participants, location, startDate, endDate, lastEditUserId, id);
         }
 
         public string FindSingleMealschedule(string inputKeyword, string outputKeyword, string parameter)
@@ -184,11 +247,54 @@ namespace UTS.ScheduleSystem.MainLogic
             return result;
         }
 
-        public void FindMealschedules()
+        public List<MealSchedule> FindMealSchedules()
         {
-
+            List<MealSchedule> result = new List<MealSchedule>();
+            foreach (var x in mealScheduleTableAdapter.GetData().ToList())
+            {
+                string id = x.Id;
+                string topic = x.Topic;
+                string participants = x.Participants;
+                string location = x.Location;
+                string startDate = x.StartDate;
+                string endDate = x.EndDate;
+                string lastEditorUserId = x.LastEditUserId;
+                MealSchedule mealSchedule = new MealSchedule(id, topic, participants, location, startDate, endDate, lastEditorUserId);
+                result.Add(mealSchedule);
+            }
+            return result;
         }
 
+        public string FindLastMealscheduleId()
+        {
+            string result = "ms1";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = @"select Id from MealSchedule";
+                    var command = new SqlCommand(query, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string currentId = reader.GetString(0);
+                        int id = Convert.ToInt32(currentId.Substring(2));
+                        if (id > Convert.ToInt32(result.Substring(2)))
+                        {
+                            result = currentId;
+                        }
+                            
+                    }
+                    command.Dispose();
+                }
+            }
+            catch
+            {
+                result = null;
+            }
+            return result;
+        }
 
         // User
         public int FindEditorNum()
