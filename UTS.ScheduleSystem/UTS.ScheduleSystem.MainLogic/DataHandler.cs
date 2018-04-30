@@ -48,19 +48,19 @@ namespace UTS.ScheduleSystem.MainLogic
             conversationalRuleTableAdapter.UpdateRuleStatus(status, id);
         }
 
-        public string FindSingleConversationalRule(string input)
-        {
-            string result;
-            try
-            {
-                result = "";
-            }
-            catch
-            {
-                result = null;
-            }
-            return result;
-        }
+        //public string FindSingleConversationalRule(string input)
+        //{
+        //    string result;
+        //    try
+        //    {
+        //        result = "";
+        //    }
+        //    catch
+        //    {
+        //        result = null;
+        //    }
+        //    return result;
+        //}
 
         public List<ConversationalRule> FindConversationalRulesAccordingToStatus(Status status)
         {
@@ -165,11 +165,6 @@ namespace UTS.ScheduleSystem.MainLogic
             return result;
         }
 
-        public void FindFixedConversationalRules()
-        {
-
-        }
-
         public string FindLastFixedConversationalRuleId()
         {
             string result = "fc1";
@@ -247,24 +242,6 @@ namespace UTS.ScheduleSystem.MainLogic
             return result;
         }
 
-        public List<MealSchedule> FindMealSchedules()
-        {
-            List<MealSchedule> result = new List<MealSchedule>();
-            foreach (var x in mealScheduleTableAdapter.GetData().ToList())
-            {
-                string id = x.Id;
-                string topic = x.Topic;
-                string participants = x.Participants;
-                string location = x.Location;
-                string startDate = x.StartDate;
-                string endDate = x.EndDate;
-                string lastEditorUserId = x.LastEditUserId;
-                MealSchedule mealSchedule = new MealSchedule(id, topic, participants, location, startDate, endDate, lastEditorUserId);
-                result.Add(mealSchedule);
-            }
-            return result;
-        }
-
         public string FindLastMealscheduleId()
         {
             string result = "ms1";
@@ -311,29 +288,6 @@ namespace UTS.ScheduleSystem.MainLogic
                 editorsId.Add(editor.Id);
             }
             return editorsId;
-        }
-
-        public List<User> FindEditors()
-        {
-            List<User> editors = new List<User>();
-            foreach(var editor in aspNetUsersTableAdapter.GetAllEditors().ToList())
-            {
-                string id = editor.Id;
-                string name = editor.UserName;
-                string password = editor.PasswordHash;
-                string email = editor.Email;
-                string _role = editor.Role;
-                Role role = (_role.Equals(Role.A.ToString())) ? Role.A :
-                    (_role.Equals(Role.DM.ToString())) ? Role.DM :
-                    (_role.Equals(Role.DMnA.ToString())) ? Role.DMnA :
-                    (_role.Equals(Role.DMnE.ToString())) ? Role.DMnE :
-                    (_role.Equals(Role.DMnEnA.ToString())) ? Role.DMnEnA :
-                    (_role.Equals(Role.E.ToString())) ? Role.E :
-                    (_role.Equals(Role.EnA.ToString())) ? Role.EnA : Role.None;
-                User newEditor = new User(id, name, password, email, role);
-                editors.Add(newEditor);
-            }
-            return editors;
         }
     }
 }

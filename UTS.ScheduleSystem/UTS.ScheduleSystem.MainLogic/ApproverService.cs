@@ -26,10 +26,14 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         // Return an editors list from database
-        public List<User> RequestEditorList()
+        public List<User> RequestEditorList(List<User> users)
         {
             List<User> editorList = new List<User>();
-            editorList = dataHandler.FindEditors();
+            foreach(User user in users)
+            {
+                if (user.Role.ToString().Contains("E"))
+                    editorList.Add(user);
+            }
             return editorList;
         }
 
@@ -191,10 +195,10 @@ namespace UTS.ScheduleSystem.MainLogic
         }
         
         // Recognize the on selected row editor and save into on focus user
-        public User RecognizeUser(string editorId)
+        public User RecognizeUser(string editorId, List<User> editorList)
         {
             User result = new User();
-            foreach (User user in dataHandler.FindEditors())
+            foreach (User user in editorList)
             {
                 if (user.Id.Equals(editorId))
                 {

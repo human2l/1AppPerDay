@@ -15,6 +15,7 @@ namespace UTS.ScheduleSystem.MainLogic
             dataHandler = new DataHandler();
         }
 
+        // Add a new mealschedule to database
         public void AddMealSchedule(string topic, string participants, string location, string startDate, string endDate, string lastEditorUserId)
         {
 
@@ -39,6 +40,7 @@ namespace UTS.ScheduleSystem.MainLogic
 
         //}
 
+        // Delete a mealschedule from database due to id
         public void DeleteMealSchedule(string id)
         {
             //for datamaintainer to delete meal from mealschedule list
@@ -68,6 +70,7 @@ namespace UTS.ScheduleSystem.MainLogic
         //    return mealScheduleList;
         //}
 
+        // Save edit on a mealschedule to database
         public void EditMealSchedule(string id, string topic, string participants, string location, string startDate, string endDate, string laseEditor)
         {
             //System.Diagnostics.Debug.WriteLine(ms);
@@ -85,11 +88,6 @@ namespace UTS.ScheduleSystem.MainLogic
             //    }
             //}
             //return mealScheduleList;
-        }
-
-        public List<MealSchedule> RequestMealScheduleList()
-        {
-            return dataHandler.FindMealSchedules();
         }
     }
 }

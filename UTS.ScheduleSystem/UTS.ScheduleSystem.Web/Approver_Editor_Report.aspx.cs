@@ -27,7 +27,6 @@ namespace UTS.ScheduleSystem.Web
             if (Session["Controller"] != null)
             {
                 controller = (Controller)Session["Controller"];
-                //LoadRuleList();
                 DisplayEditorList(controller);
             }
             else
@@ -37,17 +36,10 @@ namespace UTS.ScheduleSystem.Web
             }
         }
 
-        //// Load rule list from database
-        //private void LoadRuleList()
-        //{
-        //    conversationalRules = controller.ConversationalRulesList;
-        //    fixedConversationalRules = controller.FixedConversationalRulesList;
-        //}
-
         // Load editor list from database and bind with display
         private void DisplayEditorList(Controller controller)
         {
-            _editorList = controller.ApproverService.RequestEditorList();
+            _editorList = controller.ApproverService.RequestEditorList(controller.UserList);
             editorList.DataSource = _editorList;
             editorList.DataBind();
         }
@@ -63,15 +55,13 @@ namespace UTS.ScheduleSystem.Web
             overallSuccessRate = controller.ApproverService.OverallAveSuccessRate().ToString("0.00%");
         }
 
-        
-
         // Row command function on click of "Check"
         protected void EditorList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int index = Convert.ToInt32(e.CommandArgument);
             string editorId = editorList.Rows[index].Cells[0].Text;
             //LoadRuleList();
-            currentEditor = controller.ApproverService.RecognizeUser(editorId);
+            currentEditor = controller.ApproverService.RecognizeUser(editorId, _editorList);
             switch (e.CommandName)
             {
                 case "Check":
