@@ -24,10 +24,7 @@ namespace UTS.ScheduleSystem.MainLogic
         // Main conversation function take question input as parameter
         public string Conversation(string question)
         {
-            char[] WhiteSpace = new char[] { ' ' };
-            string longString = question;
-            string[] split = longString.Split(WhiteSpace, StringSplitOptions.RemoveEmptyEntries);
-            string compactedString = string.Join(" ", split);
+            string compactedString = Utils.IgnoreWhiteSpace(question);
 
             if (!AnswerToFixedRuleConversation(compactedString) && !AnswerToConversation(compactedString))
                 answer = "Can not find answer to the question";

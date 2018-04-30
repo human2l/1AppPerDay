@@ -129,5 +129,14 @@ namespace UTS.ScheduleSystem.MainLogic
                     return Role.None;
             }
         }
+
+        public static string IgnoreWhiteSpace(string input)
+        {
+            char[] WhiteSpace = new char[] { ' ' };
+            string longString = input;
+            string[] split = longString.Split(WhiteSpace, StringSplitOptions.RemoveEmptyEntries);
+            string compactedString = string.Join(" ", split);
+            return compactedString;
+        }
     }
 }
