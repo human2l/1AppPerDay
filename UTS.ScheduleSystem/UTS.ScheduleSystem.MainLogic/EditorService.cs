@@ -15,19 +15,21 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         // Add a fixed conversation rule
-        public List<FixedConversationalRule> AddNewFCRule(string input, string output, string userId, List<FixedConversationalRule> fCRulesList)
+        public void AddNewFCRule(string input, string output, string userId, List<FixedConversationalRule> fCRulesList)
         {
-            FixedConversationalRule rule = new FixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", dataHandler.FindLastFixedConversationalRuleId()), input, output, userId, Status.Pending);
-            fCRulesList.Add(rule);
-            return fCRulesList;
+            //FixedConversationalRule rule = new FixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", fCRulesList), input, output, userId, Status.Pending);
+            //fCRulesList.Add(rule);
+            //return fCRulesList;
+            dataHandler.AddFixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", fCRulesList), input, output, userId, "Pending");
         }
 
         // Add a conversation rule
-        public List<ConversationalRule> AddNewCRule(string input, string output, string userId, List<ConversationalRule> cRulesList)
+        public void AddNewCRule(string input, string output, string userId, List<ConversationalRule> cRulesList)
         {
-            ConversationalRule rule = new ConversationalRule(Utils.CreateIdByType("ConversationalRule", dataHandler.FindLastConversationalRuleId()), input, output, userId, Status.Pending);
-            cRulesList.Add(rule);
-            return cRulesList;
+            //ConversationalRule rule = new ConversationalRule(Utils.CreateIdByType("ConversationalRule", cRulesList), input, output, userId, Status.Pending);
+            //cRulesList.Add(rule);
+            //return cRulesList;
+            dataHandler.AddConversationalRule(Utils.CreateIdByType("ConversationalRule", cRulesList), input, output, userId, "Pending");
         }
 
         // Show all pending rules stored in the database
@@ -73,55 +75,78 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         // Change a rule
-        public Tuple<List<FixedConversationalRule>, List<ConversationalRule>> EditPendingRule(string userId, string ruleId, string ruleInput, string ruleOutput, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
+        public void EditPendingRule(string userId, string ruleId, string ruleInput, string ruleOutput, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
-            bool valueChanged = false;
-            for(int i=0; i<fCRulesList.Count; i++)
+            string relatedUserId = userId;
+
+            if (ruleId.Contains("fc"))
             {
-                if(fCRulesList[i].Id == ruleId)
+                for (int i = 0; i < fCRulesList.Count; i++)
                 {
-                    fCRulesList[i].Input = ruleInput;
-                    fCRulesList[i].Output = ruleOutput;
-                    fCRulesList[i].LastRelatedUserID = userId;
-                    fCRulesList[i].RelatedUsersId += " " + userId;
-                    valueChanged = true;
-                    break;
+                    if (fCRulesList[i].Id == ruleId)
+                    {
+                        relatedUserId = fCRulesList[i].RelatedUsersId + " " + userId;
+                        break;
+                    }
                 }
+                    dataHandler.ChangeOnFixedConversationalRule(ruleInput, ruleOutput, relatedUserId, "Pending", ruleId);
             }
-            if (!valueChanged)
+            else if (ruleId.Contains("c"))
             {
                 for (int i = 0; i < cRulesList.Count; i++)
                 {
                     if (cRulesList[i].Id == ruleId)
                     {
-                        cRulesList[i].Input = ruleInput;
-                        cRulesList[i].Output = ruleOutput;
-                        cRulesList[i].LastRelatedUserID = userId;
-                        cRulesList[i].RelatedUsersId += " " + userId;
+                        relatedUserId = cRulesList[i].RelatedUsersId + " " + userId;
                         break;
                     }
                 }
+                dataHandler.ChangeOnConversationalRule(ruleInput, ruleOutput, userId, "Pending", ruleId);
             }
-            return Tuple.Create(fCRulesList, cRulesList);
+            //bool valueChanged = false;
+            //for (int i = 0; i < fCRulesList.Count; i++)
+            //{
+            //    if (fCRulesList[i].Id == ruleId)
+            //    {
+            //        fCRulesList[i].Input = ruleInput;
+            //        fCRulesList[i].Output = ruleOutput;
+            //        fCRulesList[i].LastRelatedUserID = userId;
+            //        fCRulesList[i].RelatedUsersId += " " + userId;
+            //        valueChanged = true;
+            //        break;
+            //    }
+            //}
+            //if (!valueChanged)
+            //{
+            //    for (int i = 0; i < cRulesList.Count; i++)
+            //    {
+            //        if (cRulesList[i].Id == ruleId)
+            //        {
+            //            cRulesList[i].Input = ruleInput;
+            //            cRulesList[i].Output = ruleOutput;
+            //            cRulesList[i].LastRelatedUserID = userId;
+            //            cRulesList[i].RelatedUsersId += " " + userId;
+            //            break;
+            //        }
+            //    }
+            //}
+            //return Tuple.Create(fCRulesList, cRulesList);
         }
 
         // Delete a rule
-        public Tuple<List<FixedConversationalRule>, List<ConversationalRule>> DeletePendingRule(string ruleId, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
+        public void DeletePendingRule(string ruleId)
         {
-            FixedConversationalRule fCRule = FindFCRule(ruleId, fCRulesList);
-            if (fCRule != null)
+            if (ruleId.Contains("fc"))
             {
-                fCRulesList.Remove(fCRule);
+                dataHandler.RemoveFixedConversationalRule(ruleId);
             }
             else
             {
-                ConversationalRule cRule = FindCRule(ruleId, cRulesList);
-                if (cRule != null)
+                if (ruleId.Contains("c"))
                 {
-                    cRulesList.Remove(cRule);
+                    dataHandler.RemoveConversationalRule(ruleId);
                 }
             }
-            return Tuple.Create(fCRulesList, cRulesList);
         }
 
         // Show a user's approved rules
@@ -327,7 +352,7 @@ namespace UTS.ScheduleSystem.MainLogic
         // Check whether a rule is already existed in the database or not
         public bool CheckRepeatingRule(string input, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
-            string compactedString = IgnoreWhiteSpace(input);
+            string compactedString = Utils.IgnoreWhiteSpace(input);
 
             foreach (FixedConversationalRule r in fCRulesList)
             {
@@ -344,15 +369,6 @@ namespace UTS.ScheduleSystem.MainLogic
                 }
             }
             return false;
-        }
-
-        protected string IgnoreWhiteSpace (string input)
-        {
-            char[] WhiteSpace = new char[] { ' ' };
-            string longString = input;
-            string[] split = longString.Split(WhiteSpace, StringSplitOptions.RemoveEmptyEntries);
-            string compactedString = string.Join(" ", split);
-            return compactedString;
         }
     }
 }
