@@ -56,7 +56,7 @@ namespace UTS.ScheduleSystem.Web
                         // Check whether the input is existed or not
                         if (!controller.EditorService.CheckRepeatingRule(Input.Text, fcRuleList, cRuleList))
                         {
-                            controller.EditorService.AddNewCRule(Input.Text, Output.Text, controller.CurrentUser.Id, cRuleList);
+                            controller.EditorService.AddNewCRule(Input.Text, Output.Text, controller.CurrentUser.Id);
                             BindDataToPtable(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
                         }
                         else
@@ -105,7 +105,7 @@ namespace UTS.ScheduleSystem.Web
                         if (!controller.EditorService.CheckRepeatingRule(Input.Text, fcRuleList, cRuleList))
                         {
                             //controller.FixedConversationalRulesList = controller.EditorService.AddNewFCRule(Input.Text, Output.Text, controller.CurrentUser.Id, fcRuleList);
-                            controller.EditorService.AddNewFCRule(Input.Text, Output.Text, controller.CurrentUser.Id, fcRuleList);
+                            controller.EditorService.AddNewFCRule(Input.Text, Output.Text, controller.CurrentUser.Id);
                             BindDataToPtable(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
                         }
                         else

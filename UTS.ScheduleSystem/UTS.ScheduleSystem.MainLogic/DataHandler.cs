@@ -48,20 +48,6 @@ namespace UTS.ScheduleSystem.MainLogic
             conversationalRuleTableAdapter.UpdateRuleStatus(status, id);
         }
 
-        //public string FindSingleConversationalRule(string input)
-        //{
-        //    string result;
-        //    try
-        //    {
-        //        result = "";
-        //    }
-        //    catch
-        //    {
-        //        result = null;
-        //    }
-        //    return result;
-        //}
-
         public List<ConversationalRule> FindConversationalRulesAccordingToStatus(Status status)
         {
             List<ConversationalRule> result = new List<ConversationalRule>();

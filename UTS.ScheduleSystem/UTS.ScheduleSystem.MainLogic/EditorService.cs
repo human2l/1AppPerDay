@@ -15,7 +15,7 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         // Add a fixed conversation rule
-        public void AddNewFCRule(string input, string output, string userId, List<FixedConversationalRule> fCRulesList)
+        public void AddNewFCRule(string input, string output, string userId)
         {
             //FixedConversationalRule rule = new FixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", fCRulesList), input, output, userId, Status.Pending);
             //fCRulesList.Add(rule);
@@ -24,7 +24,7 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         // Add a conversation rule
-        public void AddNewCRule(string input, string output, string userId, List<ConversationalRule> cRulesList)
+        public void AddNewCRule(string input, string output, string userId)
         {
             //ConversationalRule rule = new ConversationalRule(Utils.CreateIdByType("ConversationalRule", cRulesList), input, output, userId, Status.Pending);
             //cRulesList.Add(rule);
@@ -325,29 +325,29 @@ namespace UTS.ScheduleSystem.MainLogic
         }
         
         
-        private FixedConversationalRule FindFCRule(string ruleId, List<FixedConversationalRule> rulesList)
-        {
-            foreach (FixedConversationalRule rule in rulesList)
-            {
-                if (rule.Id == ruleId)
-                {
-                    return rule;
-                }
-            }
-            return null;
-        }
+        //private FixedConversationalRule FindFCRule(string ruleId, List<FixedConversationalRule> rulesList)
+        //{
+        //    foreach (FixedConversationalRule rule in rulesList)
+        //    {
+        //        if (rule.Id == ruleId)
+        //        {
+        //            return rule;
+        //        }
+        //    }
+        //    return null;
+        //}
 
-        private ConversationalRule FindCRule(string ruleId, List<ConversationalRule> rulesList)
-        {
-            foreach (ConversationalRule rule in rulesList)
-            {
-                if (rule.Id == ruleId)
-                {
-                    return rule;
-                }
-            }
-            return null;
-        }
+        //private ConversationalRule FindCRule(string ruleId, List<ConversationalRule> rulesList)
+        //{
+        //    foreach (ConversationalRule rule in rulesList)
+        //    {
+        //        if (rule.Id == ruleId)
+        //        {
+        //            return rule;
+        //        }
+        //    }
+        //    return null;
+        //}
 
         // Check whether a rule is already existed in the database or not
         public bool CheckRepeatingRule(string input, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
