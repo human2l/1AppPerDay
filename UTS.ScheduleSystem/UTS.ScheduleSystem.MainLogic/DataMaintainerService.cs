@@ -7,13 +7,22 @@ namespace UTS.ScheduleSystem.MainLogic
 {
     public class DataMaintainerService
     {
+        private DataHandler dataHandler;
         //private DatabaseAdapter databaseAdapter = new DatabaseAdapter();
 
-        public void AddMealSchedule(MealSchedule mealSchedule, ref List<MealSchedule> mealScheduleList)
+        public DataMaintainerService()
+        {
+            dataHandler = new DataHandler();
+        }
+
+        public void AddMealSchedule(string topic, string participants, string location, string startDate, string endDate, string lastEditorUserId)
         {
 
             //for datamaintainer to add meal
-            mealScheduleList.Add(mealSchedule);
+            MealSchedule ms = new MealSchedule(Utils.CreateIdByType("MealSchedule", dataHandler.FindLastMealscheduleId()), topic, participants, location, startDate, endDate, lastEditorUserId);
+            dataHandler.AddMealschedule(ms.Id, ms.Topic, ms.Participants, ms.Location, ms.StartDate, ms.EndDate, ms.LastEditUserId);
+            //mealScheduleList.Add(mealSchedule);
+
         }
 
         //public void Add(MealSchedule mealSchedule)
@@ -30,51 +39,57 @@ namespace UTS.ScheduleSystem.MainLogic
 
         //}
 
-        public List<MealSchedule> DeleteMealSchedule(string id, List<MealSchedule> mealScheduleList)
+        public void DeleteMealSchedule(string id)
         {
             //for datamaintainer to delete meal from mealschedule list
-            foreach(MealSchedule mealSchedule in mealScheduleList)
-            {
-                if(mealSchedule.Id == id)
-                {
-                    mealScheduleList.Remove(mealSchedule);
-                    return mealScheduleList;
-                }
-            }
-            return mealScheduleList;
-
+            dataHandler.DeleteMealschedule(id);
+            //foreach(MealSchedule mealSchedule in mealScheduleList)
+            //{
+            //    if(mealSchedule.Id == id)
+            //    {
+            //        mealScheduleList.Remove(mealSchedule);
+            //        return mealScheduleList;
+            //    }
+            //}
+            //return mealScheduleList;
         }
 
-        public List<MealSchedule> UpdateMealSchedule(MealSchedule ms, List<MealSchedule> mealScheduleList)
-        {
-            System.Diagnostics.Debug.WriteLine(ms);
-            for(int i =0; i < mealScheduleList.Count; i++)
-            {
-                if(mealScheduleList[i].Id == ms.Id)
-                {
-                    System.Diagnostics.Debug.WriteLine("Updated record!");
-                    mealScheduleList[i] = ms;
-                }
-            }
-            return mealScheduleList;
-        }
+        //public List<MealSchedule> UpdateMealSchedule(MealSchedule ms, List<MealSchedule> mealScheduleList)
+        //{
+        //    System.Diagnostics.Debug.WriteLine(ms);
+        //    for(int i =0; i < mealScheduleList.Count; i++)
+        //    {
+        //        if(mealScheduleList[i].Id == ms.Id)
+        //        {
+        //            System.Diagnostics.Debug.WriteLine("Updated record!");
+        //            mealScheduleList[i] = ms;
+        //        }
+        //    }
+        //    return mealScheduleList;
+        //}
 
-        public List<MealSchedule> EditMealSchedule(string id, string topic, string participants, string location, string startDate, string endDate, string laseEditor, List<MealSchedule> mealScheduleList)
+        public void EditMealSchedule(string id, string topic, string participants, string location, string startDate, string endDate, string laseEditor)
         {
             //System.Diagnostics.Debug.WriteLine(ms);
-            for (int i = 0; i < mealScheduleList.Count; i++)
-            {
-                if (mealScheduleList[i].Id == id)
-                {
-                    System.Diagnostics.Debug.WriteLine("Updated record!");
-                    mealScheduleList[i].Topic = topic;
-                    mealScheduleList[i].Participants = participants;
-                    mealScheduleList[i].Location = location;
-                    mealScheduleList[i].StartDate = startDate;
-                    mealScheduleList[i].EndDate = endDate;
-                }
-            }
-            return mealScheduleList;
+            dataHandler.ChangeOnMealschedule(id, topic, participants, location, startDate, endDate, laseEditor);
+            //for (int i = 0; i < mealScheduleList.Count; i++)
+            //{
+            //    if (mealScheduleList[i].Id == id)
+            //    {
+            //        System.Diagnostics.Debug.WriteLine("Updated record!");
+            //        mealScheduleList[i].Topic = topic;
+            //        mealScheduleList[i].Participants = participants;
+            //        mealScheduleList[i].Location = location;
+            //        mealScheduleList[i].StartDate = startDate;
+            //        mealScheduleList[i].EndDate = endDate;
+            //    }
+            //}
+            //return mealScheduleList;
+        }
+
+        public List<MealSchedule> RequestMealScheduleList()
+        {
+            return dataHandler.FindMealSchedules();
         }
     }
 }

@@ -66,10 +66,10 @@ namespace UTS.ScheduleSystem.Web
                 // Edit
                 // Find the Contact
                 // Save Changes
-                var lists = controller.EditorService.EditPendingRule(controller.CurrentUser.Id, currentId,
+                controller.EditorService.EditPendingRule(controller.CurrentUser.Id, currentId,
                     InputTextBox.Text, OutputTextBox.Text, controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-                controller.FixedConversationalRulesList = lists.Item1;
-                controller.ConversationalRulesList = lists.Item2;
+                //controller.FixedConversationalRulesList = lists.Item1;
+                //controller.ConversationalRulesList = lists.Item2;
             }
             else
             {

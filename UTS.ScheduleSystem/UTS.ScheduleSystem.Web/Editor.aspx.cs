@@ -56,7 +56,7 @@ namespace UTS.ScheduleSystem.Web
                         // Check whether the input is existed or not
                         if (!controller.EditorService.CheckRepeatingRule(Input.Text, fcRuleList, cRuleList))
                         {
-                            controller.ConversationalRulesList = controller.EditorService.AddNewCRule(Input.Text, Output.Text, controller.CurrentUser.Id, cRuleList);
+                            controller.EditorService.AddNewCRule(Input.Text, Output.Text, controller.CurrentUser.Id, cRuleList);
                             BindDataToPtable(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
                         }
                         else
@@ -104,7 +104,8 @@ namespace UTS.ScheduleSystem.Web
                         // Check whether the input is existed or not
                         if (!controller.EditorService.CheckRepeatingRule(Input.Text, fcRuleList, cRuleList))
                         {
-                            controller.FixedConversationalRulesList = controller.EditorService.AddNewFCRule(Input.Text, Output.Text, controller.CurrentUser.Id, fcRuleList);
+                            //controller.FixedConversationalRulesList = controller.EditorService.AddNewFCRule(Input.Text, Output.Text, controller.CurrentUser.Id, fcRuleList);
+                            controller.EditorService.AddNewFCRule(Input.Text, Output.Text, controller.CurrentUser.Id, fcRuleList);
                             BindDataToPtable(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
                         }
                         else
@@ -136,9 +137,9 @@ namespace UTS.ScheduleSystem.Web
         protected void PendingGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             string id = PendingGridView.DataKeys[e.RowIndex].Value.ToString();
-            var lists = controller.EditorService.DeletePendingRule(id, controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-            controller.FixedConversationalRulesList = lists.Item1;
-            controller.ConversationalRulesList = lists.Item2;
+            controller.EditorService.DeletePendingRule(id);
+            //controller.FixedConversationalRulesList = lists.Item1;
+            //controller.ConversationalRulesList = lists.Item2;
             BindDataToPtable(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
         }
 

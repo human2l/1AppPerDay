@@ -189,7 +189,7 @@ namespace UTS.ScheduleSystem.MainLogic
             }
             return rateSum / Convert.ToDouble(dataHandler.FindEditorNum());
         }
-
+        
         // Recognize the on selected row editor and save into on focus user
         public User RecognizeUser(string editorId)
         {

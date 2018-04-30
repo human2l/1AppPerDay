@@ -66,8 +66,7 @@ namespace UTS.ScheduleSystem.Web
                 // Edit
                 // Find the Contact
                 // Save Changes
-                controller.MealScheduleList = controller.DataMaintainerService.EditMealSchedule(currentId, TopicTextBox.Text, ParticipantsTextBox.Text, 
-                    LocationTextBox.Text, StartDateTextBox.Text, EndDateTextBox.Text, controller.CurrentUser.Id, controller.MealScheduleList);
+                controller.DataMaintainerService.EditMealSchedule(currentId, TopicTextBox.Text, ParticipantsTextBox.Text, LocationTextBox.Text, StartDateTextBox.Text, EndDateTextBox.Text, controller.CurrentUser.Id);
             }
             else
             {

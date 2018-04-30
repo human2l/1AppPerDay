@@ -48,7 +48,7 @@
         <br />
         
         
-        <asp:Button ID="Button1" runat="server" Text="Add" OnClick="Button1_Click" CssClass="btn btn-default"/>
+        <asp:Button ID="Add" runat="server" Text="Add" OnClick="Add_Click" CssClass="btn btn-default"/>
             </div>
         </div>
 </asp:Content>
