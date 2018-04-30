@@ -76,7 +76,8 @@ namespace UTS.ScheduleSystem.MainLogic
                 {
                     fCRulesList[i].Input = ruleInput;
                     fCRulesList[i].Output = ruleOutput;
-                    fCRulesList[i].LastRelatedUserID += " " + userId;
+                    fCRulesList[i].LastRelatedUserID = userId;
+                    fCRulesList[i].RelatedUsersId += " " + userId;
                     valueChanged = true;
                     break;
                 }
@@ -89,6 +90,8 @@ namespace UTS.ScheduleSystem.MainLogic
                     {
                         cRulesList[i].Input = ruleInput;
                         cRulesList[i].Output = ruleOutput;
+                        cRulesList[i].LastRelatedUserID = userId;
+                        cRulesList[i].RelatedUsersId += " " + userId;
                         break;
                     }
                 }
