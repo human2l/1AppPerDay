@@ -20,7 +20,7 @@ namespace UTS.ScheduleSystem.MainLogic
             //FixedConversationalRule rule = new FixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", fCRulesList), input, output, userId, Status.Pending);
             //fCRulesList.Add(rule);
             //return fCRulesList;
-            dataHandler.AddFixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", fCRulesList), input, output, userId, "Pending");
+            dataHandler.AddFixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", dataHandler.FindLastFixedConversationalRuleId()), input, output, userId, "Pending");
         }
 
         // Add a conversation rule
@@ -29,7 +29,7 @@ namespace UTS.ScheduleSystem.MainLogic
             //ConversationalRule rule = new ConversationalRule(Utils.CreateIdByType("ConversationalRule", cRulesList), input, output, userId, Status.Pending);
             //cRulesList.Add(rule);
             //return cRulesList;
-            dataHandler.AddConversationalRule(Utils.CreateIdByType("ConversationalRule", cRulesList), input, output, userId, "Pending");
+            dataHandler.AddConversationalRule(Utils.CreateIdByType("ConversationalRule", dataHandler.FindLastConversationalRuleId()), input, output, userId, "Pending");
         }
 
         // Show all pending rules stored in the database
