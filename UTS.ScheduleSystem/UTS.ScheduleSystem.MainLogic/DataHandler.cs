@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UTS.ScheduleSystem.Data.ScheduleSystemDataSetsTableAdapters;
 
 namespace UTS.ScheduleSystem.MainLogic
 {
-    class DataHandler
+    public class DataHandler
     {
-        private string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        string connectionString = "Data Source=(LocalDb)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\aspnet-UTS.ScheduleSystem.Web-20180415025446.mdf;Initial Catalog=aspnet-UTS.ScheduleSystem.Web-20180415025446;Integrated Security=True";
         ConversationalRuleTableAdapter conversationalRuleTableAdapter;
         FixedConversationalRuleTableAdapter fixedConversationalRuleTableAdapter;
         MealScheduleTableAdapter mealScheduleTableAdapter;
@@ -28,9 +24,9 @@ namespace UTS.ScheduleSystem.MainLogic
 
 
         // Conversational rule
-        public void AddConversationalRule(string id, string input, string output, string relatedUserId, string status)
+        public void AddConversationalRule(Rule rule)
         {
-            conversationalRuleTableAdapter.InsertQuery(id, input, output, relatedUserId, status);
+            conversationalRuleTableAdapter.InsertQuery(rule.Id, rule.Input, rule.Output, rule.RelatedUsersId, rule.Status.ToString());
         }
 
         public void RemoveConversationalRule(string id)
@@ -102,9 +98,9 @@ namespace UTS.ScheduleSystem.MainLogic
 
 
         // Fixed conversational rule
-        public void AddFixedConversationalRule(string id, string input, string output, string relatedUserId, string status)
+        public void AddFixedConversationalRule(Rule rule)
         {
-            fixedConversationalRuleTableAdapter.InsertQuery(id, input, output, relatedUserId, status);
+            fixedConversationalRuleTableAdapter.InsertQuery(rule.Id, rule.Input, rule.Output, rule.RelatedUsersId, rule.Status.ToString());
         }
 
         public void RemoveFixedConversationalRule(string id)

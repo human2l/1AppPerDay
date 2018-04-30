@@ -17,19 +17,20 @@ namespace UTS.ScheduleSystem.MainLogic
         // Add a fixed conversation rule
         public void AddNewFCRule(string input, string output, string userId)
         {
-            //FixedConversationalRule rule = new FixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", fCRulesList), input, output, userId, Status.Pending);
+            FixedConversationalRule rule = new FixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", dataHandler.FindLastFixedConversationalRuleId()), input, output, userId, Status.Pending);
             //fCRulesList.Add(rule);
             //return fCRulesList;
-            dataHandler.AddFixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", dataHandler.FindLastFixedConversationalRuleId()), input, output, userId, "Pending");
+
+            dataHandler.AddFixedConversationalRule(rule);
         }
 
         // Add a conversation rule
         public void AddNewCRule(string input, string output, string userId)
         {
-            //ConversationalRule rule = new ConversationalRule(Utils.CreateIdByType("ConversationalRule", cRulesList), input, output, userId, Status.Pending);
+            ConversationalRule rule = new ConversationalRule(Utils.CreateIdByType("ConversationalRule", dataHandler.FindLastConversationalRuleId()), input, output, userId, Status.Pending);
             //cRulesList.Add(rule);
             //return cRulesList;
-            dataHandler.AddConversationalRule(Utils.CreateIdByType("ConversationalRule", dataHandler.FindLastConversationalRuleId()), input, output, userId, "Pending");
+            dataHandler.AddConversationalRule(rule);
         }
 
         // Show all pending rules stored in the database

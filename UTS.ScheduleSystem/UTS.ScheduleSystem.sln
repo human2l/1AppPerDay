@@ -11,6 +11,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.MainLogic", "UTS.ScheduleSystem.MainLogic\UTS.ScheduleSystem.MainLogic.csproj", "{55BE9C1E-B8A9-4AAD-8C16-07D12E120878}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.UnitTesting", "UTS.ScheduleSystem.UnitTesting\UTS.ScheduleSystem.UnitTesting.csproj", "{5DF83E4F-08F1-42B6-82B6-3BB0327C9805}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A1CC7AA4-9723-4257-98F4-8F5EE299A818} = {A1CC7AA4-9723-4257-98F4-8F5EE299A818}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.Web", "UTS.ScheduleSystem.Web\UTS.ScheduleSystem.Web.csproj", "{A0DC9F22-DF6B-48A7-9844-73F492C889CE}"
 EndProject

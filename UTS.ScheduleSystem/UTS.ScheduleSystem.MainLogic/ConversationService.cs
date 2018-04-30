@@ -12,7 +12,7 @@ namespace UTS.ScheduleSystem.MainLogic
 {
     public class ConversationService
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        string connectionString = "Data Source=(LocalDb)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\aspnet-UTS.ScheduleSystem.Web-20180415025446.mdf;Initial Catalog=aspnet-UTS.ScheduleSystem.Web-20180415025446;Integrated Security=True";
         private DataHandler dataHandler;
         private string answer;
 
