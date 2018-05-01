@@ -34,6 +34,11 @@ namespace UTS.ScheduleSystem.MainLogic
             conversationalRuleTableAdapter.DeleteQuery(id);
         }
 
+        public void RemoveAllConversationalRule()
+        {
+            conversationalRuleTableAdapter.DeleteAllQuery();
+        }
+
         public void ChangeOnConversationalRule(string input, string output, string relatedUserId, string status, string ruleId)
         {
             conversationalRuleTableAdapter.UpdateQuery(input, output, relatedUserId, status, ruleId);
@@ -106,6 +111,11 @@ namespace UTS.ScheduleSystem.MainLogic
         public void RemoveFixedConversationalRule(string id)
         {
             fixedConversationalRuleTableAdapter.DeleteQuery(id);
+        }
+
+        public void RemoveAllFixedConversationalRule()
+        {
+            fixedConversationalRuleTableAdapter.DeleteAllQuery();
         }
 
         public void ChangeOnFixedConversationalRule(string input, string output, string relatedUserId, string status, string ruleId)
@@ -194,6 +204,11 @@ namespace UTS.ScheduleSystem.MainLogic
         public void DeleteMealschedule(string Id)
         {
             mealScheduleTableAdapter.DeleteQuery(Id);
+        }
+
+        public void RemoveAllMealschedule()
+        {
+            mealScheduleTableAdapter.DeleteAllQuery();
         }
 
         public void ChangeOnMealschedule(string id, string topic, string participants, string location, string startDate, string endDate, string lastEditUserId)
