@@ -120,12 +120,6 @@ namespace UTS.ScheduleSystem.UnitTesting
         //    controller.MealScheduleList = new List<MealSchedule>();
         //}
 
-        private Boolean statusIsCorrect(Rule rule, Status status)
-        {
-            Boolean isCorrect = (rule.Status == status) ? true : false;
-            return isCorrect;
-        }
-
         private Boolean compareTwoRules(Rule rule1, Rule rule2)
         {
             Boolean isSame = (rule1.Id.Equals(rule2.Id) &&
@@ -157,12 +151,10 @@ namespace UTS.ScheduleSystem.UnitTesting
             //correctPRulesList.Add(cFRule1);
             //CollectionAssert.AreEqual(correctPRulesList, rulesList);
             List<Rule> pendingList = controller.ApproverService.RequestPendingRulesList();
-            Boolean result = true;
             foreach(Rule rule in pendingList)
             {
-                result = statusIsCorrect(rule, Status.Pending);
+                Assert.AreEqual<Status>(Status.Pending, rule.Status);
             }
-            Assert.IsTrue(result);
         }
 
         [TestMethod]
@@ -188,12 +180,10 @@ namespace UTS.ScheduleSystem.UnitTesting
             //List<Rule> rulesList = controller.ApproverService.RequestApprovedRulesList();
             //CollectionAssert.AreEqual(correctPRulesList, rulesList);
             List<Rule> approvedList = controller.ApproverService.RequestApprovedRulesList();
-            Boolean result = true;
             foreach (Rule rule in approvedList)
             {
-                result = statusIsCorrect(rule, Status.Approved);
+                Assert.AreEqual<Status>(Status.Approved, rule.Status);
             }
-            Assert.IsTrue(result);
         }
 
         [TestMethod]
@@ -213,61 +203,87 @@ namespace UTS.ScheduleSystem.UnitTesting
             //List<Rule> rulesList = controller.ApproverService.RequestRejectedRulesList(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
             //CollectionAssert.AreEqual(correctPRulesList, rulesList);
             List<Rule> rejectedList = controller.ApproverService.RequestRejectedRulesList();
-            Boolean result = true;
             foreach (Rule rule in rejectedList)
             {
-                result = statusIsCorrect(rule, Status.Rejected);
+                Assert.AreEqual<Status>(Status.Rejected, rule.Status);
             }
-            Assert.IsTrue(result);
         }
 
-        ////[TestMethod]
-        ////public void ApproverService_ApproveRule_CorrectApprovedRules()
-        ////{
-        ////    List<ConversationalRule> CRulesList = new List<ConversationalRule>();
-        ////    List<FixedConversationalRule> FCRulesList = new List<FixedConversationalRule>();
-        ////    CRulesList.Add(cRule1);
-        ////    FCRulesList.Add(cFRule1);
-        ////    controller.ApproverService.ApproveRule(cRule1.Id, ref CRulesList, ref FCRulesList);
-        ////    controller.ApproverService.ApproveRule(cFRule1.Id, ref CRulesList, ref FCRulesList);
-        ////    Assert.AreEqual<Status>(Status.Approved, CRulesList[0].Status);
-        ////    Assert.AreEqual<Status>(Status.Approved, FCRulesList[0].Status);
+        [TestMethod]
+        public void ApproverService_ApproveRule_CorrectApprovedRules()
+        {
+            dataHandler.AddConversationalRule(cRule1);
+            dataHandler.AddFixedConversationalRule(cFRule1);
+            controller.ApproverService.ApproveRule(cRule1.Id);
+            controller.ApproverService.ApproveRule(cFRule1.Id);
+            testCRule = dataHandler.FindConversationalRuleById(cRule1.Id);
+            testFCRule = dataHandler.FindFixedConversationalRuleById(cFRule1.Id);
+            Assert.AreEqual<Status>(Status.Approved, testCRule.Status);
+            Assert.AreEqual<Status>(Status.Approved, testFCRule.Status);
+            //List<ConversationalRule> CRulesList = new List<ConversationalRule>();
+            //List<FixedConversationalRule> FCRulesList = new List<FixedConversationalRule>();
+            //CRulesList.Add(cRule1);
+            //FCRulesList.Add(cFRule1);
+            //controller.ApproverService.ApproveRule(cRule1.Id, ref CRulesList, ref FCRulesList);
+            //controller.ApproverService.ApproveRule(cFRule1.Id, ref CRulesList, ref FCRulesList);
+            //Assert.AreEqual<Status>(Status.Approved, CRulesList[0].Status);
+            //Assert.AreEqual<Status>(Status.Approved, FCRulesList[0].Status);
 
-        ////}
+        }
 
-        ////[TestMethod]
-        ////public void ApproverService_RejectRule_CorrectRejectedRules()
-        ////{
-        ////    List<ConversationalRule> CRulesList = new List<ConversationalRule>();
-        ////    List<FixedConversationalRule> FCRulesList = new List<FixedConversationalRule>();
-        ////    CRulesList.Add(cRule1);
-        ////    FCRulesList.Add(cFRule1);
-        ////    controller.ApproverService.RejectRule(cRule1.Id, ref CRulesList, ref FCRulesList);
-        ////    controller.ApproverService.RejectRule(cFRule1.Id, ref CRulesList, ref FCRulesList);
-        ////    Assert.AreEqual<Status>(Status.Rejected, CRulesList[0].Status);
-        ////    Assert.AreEqual<Status>(Status.Rejected, FCRulesList[0].Status);
-        ////}
+        [TestMethod]
+        public void ApproverService_RejectRule_CorrectRejectedRules()
+        {
+            dataHandler.AddConversationalRule(cRule1);
+            dataHandler.AddFixedConversationalRule(cFRule1);
+            controller.ApproverService.RejectRule(cRule1.Id);
+            controller.ApproverService.RejectRule(cFRule1.Id);
+            testCRule = dataHandler.FindConversationalRuleById(cRule1.Id);
+            testFCRule = dataHandler.FindFixedConversationalRuleById(cFRule1.Id);
+            Assert.AreEqual<Status>(Status.Rejected, testCRule.Status);
+            Assert.AreEqual<Status>(Status.Rejected, testFCRule.Status);
+            //List<ConversationalRule> CRulesList = new List<ConversationalRule>();
+            //List<FixedConversationalRule> FCRulesList = new List<FixedConversationalRule>();
+            //CRulesList.Add(cRule1);
+            //FCRulesList.Add(cFRule1);
+            //controller.ApproverService.RejectRule(cRule1.Id, ref CRulesList, ref FCRulesList);
+            //controller.ApproverService.RejectRule(cFRule1.Id, ref CRulesList, ref FCRulesList);
+            //Assert.AreEqual<Status>(Status.Rejected, CRulesList[0].Status);
+            //Assert.AreEqual<Status>(Status.Rejected, FCRulesList[0].Status);
+        }
 
-        //[TestMethod]
-        //public void ApproverService_ApprovedRulesNum_ReturnCorrectNumberOfApprovedRules()
-        //{
-        //    int approvedRuleNum = controller.ApproverService.ApprovedRulesNum(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
-        //    Assert.AreEqual(2, approvedRuleNum);
-        //}
+        [TestMethod]
+        public void ApproverService_ApprovedRulesNum_ReturnCorrectNumberOfApprovedRules()
+        {
+            dataHandler.AddConversationalRule(cRule1);
+            dataHandler.AddConversationalRule(cRule2);
+            dataHandler.AddConversationalRule(cRule3);
+            dataHandler.AddFixedConversationalRule(cFRule1);
+            dataHandler.AddFixedConversationalRule(cFRule2);
+            dataHandler.AddFixedConversationalRule(cFRule3);
+            int approvedRuleNum = controller.ApproverService.ApprovedRulesNum();
+            Assert.AreEqual(2, approvedRuleNum);
+        }
 
-        //[TestMethod]
-        //public void ApproverService_RejectedRulesNum_ReturnCorrectNumberOfRejectedRules()
-        //{
-        //    int rejectedRuleNum = controller.ApproverService.RejectedRulesNum(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
-        //    Assert.AreEqual(2, rejectedRuleNum);
-        //}
+        [TestMethod]
+        public void ApproverService_RejectedRulesNum_ReturnCorrectNumberOfRejectedRules()
+        {
+            dataHandler.AddConversationalRule(cRule1);
+            dataHandler.AddConversationalRule(cRule2);
+            dataHandler.AddConversationalRule(cRule3);
+            dataHandler.AddFixedConversationalRule(cFRule1);
+            dataHandler.AddFixedConversationalRule(cFRule2);
+            dataHandler.AddFixedConversationalRule(cFRule3);
+            int rejectedRuleNum = controller.ApproverService.RejectedRulesNum();
+            Assert.AreEqual(2, rejectedRuleNum);
+        }
 
-        //[TestMethod]
-        //public void ApproverService_SuccessRate_ReturnCorrectSuccessRate()
-        //{
-        //    double successRate = controller.ApproverService.SuccessRate(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
-        //    Assert.AreEqual(0.5, successRate);
-        //}
+        [TestMethod]
+        public void ApproverService_SuccessRate_ReturnCorrectSuccessRate()
+        {
+            double successRate = controller.ApproverService.SuccessRate(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
+            Assert.AreEqual(0.5, successRate);
+        }
 
         //[TestMethod]
         //public void ApproverService_UserRelatedApprovedRulesNum_ReturnCorrectNumberOfApprovedRulesByUser()
@@ -356,30 +372,50 @@ namespace UTS.ScheduleSystem.UnitTesting
         [TestMethod]
         public void EditorService_ShowAllPendingRules_ReturnCorrectList()
         {
-
             dataHandler.AddConversationalRule(cRule1);
             dataHandler.AddConversationalRule(cRule2);
             dataHandler.AddConversationalRule(cRule3);
             dataHandler.AddFixedConversationalRule(cFRule1);
             dataHandler.AddFixedConversationalRule(cFRule2);
             dataHandler.AddFixedConversationalRule(cFRule3);
-            List<Rule> pendingRulesList = new List<Rule>();
-            List<Rule> correctRulesList = new List<Rule>();
-            correctRulesList.Add(cFRule1);
-            correctRulesList.Add(cRule1);
-            pendingRulesList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-            //CollectionAssert.AreEqual(correctRulesList, pendingRulesList);
+            //controller.ConversationalRulesList.Add(cRule1);
+            //controller.ConversationalRulesList.Add(cRule2);
+            //controller.ConversationalRulesList.Add(cRule3);
+            //controller.FixedConversationalRulesList.Add(cFRule1);
+            //controller.FixedConversationalRulesList.Add(cFRule2);
+            //controller.FixedConversationalRulesList.Add(cFRule3);
+            //List<Rule> correctPRulesList = new List<Rule>();
+            //correctPRulesList.Add(cRule1);
+
+            //correctPRulesList.Add(cFRule1);
+            //CollectionAssert.AreEqual(correctPRulesList, rulesList);
+            List<Rule> pendingList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+            foreach (Rule rule in pendingList)
+            {
+                Assert.AreEqual<Status>(Status.Pending, rule.Status);
+            }
         }
-        //[TestMethod]
-        //public void EditorService_ShowAllRejectedRules_ReturnCorrectList()
-        //{
-        //    List<Rule> rejectedRulesList = new List<Rule>();
-        //    List<Rule> correctRulesList = new List<Rule>();
-        //    correctRulesList.Add(cFRule3);
-        //    correctRulesList.Add(cRule3);
-        //    rejectedRulesList = controller.EditorService.ShowAllRejectedRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-        //    CollectionAssert.AreEqual(correctRulesList, rejectedRulesList);
-        //}
+        [TestMethod]
+        public void EditorService_ShowAllRejectedRules_ReturnCorrectList()
+        {
+            dataHandler.AddConversationalRule(cRule1);
+            dataHandler.AddConversationalRule(cRule2);
+            dataHandler.AddConversationalRule(cRule3);
+            dataHandler.AddFixedConversationalRule(cFRule1);
+            dataHandler.AddFixedConversationalRule(cFRule2);
+            dataHandler.AddFixedConversationalRule(cFRule3);
+            List<Rule> rejectedList = controller.EditorService.ShowAllRejectedRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+            foreach (Rule rule in rejectedList)
+            {
+                Assert.AreEqual<Status>(Status.Rejected, rule.Status);
+            }
+            //List<Rule> rejectedRulesList = new List<Rule>();
+            //List<Rule> correctRulesList = new List<Rule>();
+            //correctRulesList.Add(cFRule3);
+            //correctRulesList.Add(cRule3);
+            //rejectedRulesList = controller.EditorService.ShowAllRejectedRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+            //CollectionAssert.AreEqual(correctRulesList, rejectedRulesList);
+        }
         //[TestMethod]
         //public void EditorService_EditPendingRule_PendingRuleSuccessEdited()
         //{
