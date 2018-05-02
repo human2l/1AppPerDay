@@ -20,6 +20,7 @@ namespace UTS.ScheduleSystem.MainLogic
         {
 
             //for datamaintainer to add meal
+
             MealSchedule ms = new MealSchedule(Utils.CreateIdByType("MealSchedule", dataHandler.FindLastMealscheduleId()), topic, participants, location, startDate, endDate, lastEditorUserId);
             dataHandler.AddMealschedule(ms.Id, ms.Topic, ms.Participants, ms.Location, ms.StartDate, ms.EndDate, ms.LastEditUserId);
             //mealScheduleList.Add(mealSchedule);

@@ -51,6 +51,13 @@ namespace UTS.ScheduleSystem.MainLogic
             conversationalRuleTableAdapter.UpdateRuleStatus(status, id);
         }
 
+        public ConversationalRule FindConversationalRuleById(string id)
+        {
+            var x = conversationalRuleTableAdapter.FindConversationalRuleById(id).ToList().First();
+            ConversationalRule newRule = new ConversationalRule(x.Id, x.Input, x.Output, x.RelatedUsersId, Utils.GetStatus(x.Status));
+            return newRule;
+        }
+
         public List<ConversationalRule> FindConversationalRulesAccordingToStatus(Status status)
         {
             List<ConversationalRule> result = new List<ConversationalRule>();
@@ -68,34 +75,37 @@ namespace UTS.ScheduleSystem.MainLogic
 
         public string FindLastConversationalRuleId()
         {
-            string result = "c1";
-            try
-            {
-                //result = conversationalRuleTableAdapter.FindLastIdQuery();
-                //using (SqlConnection connection = new SqlConnection(connectionString))
-                //{
-                //    connection.Open();
-                //    string query = @"SELECT Id FROM ConversationalRule";
-                //    var command = new SqlCommand(query, connection);
-                //    SqlDataReader reader = command.ExecuteReader();
-                //    while (reader.Read())
-                //    {
-                //        string currentId = reader.GetString(0);
-                //        int id = Convert.ToInt32(currentId.Substring(1));
-                //        if (id > Convert.ToInt32(result.Substring(1)))
-                //        {
-                //            result = currentId;
-                //        }
-
-                //    }
-                //    command.Dispose();
-                //}
-            }
-            catch
-            {
-                result = null;
-            }
+            string result = conversationalRuleTableAdapter.FindLastIdQuery();
             return result;
+            //string result = "c1";
+            //try
+            //{
+            //    result = conversationalRuleTableAdapter.FindLastIdQuery();
+            //    result = conversationalRuleTableAdapter.FindLastIdQuery();
+            //    using (SqlConnection connection = new SqlConnection(connectionString))
+            //    {
+            //        connection.Open();
+            //        string query = @"SELECT Id FROM ConversationalRule";
+            //        var command = new SqlCommand(query, connection);
+            //        SqlDataReader reader = command.ExecuteReader();
+            //        while (reader.Read())
+            //        {
+            //            string currentId = reader.GetString(0);
+            //            int id = Convert.ToInt32(currentId.Substring(1));
+            //            if (id > Convert.ToInt32(result.Substring(1)))
+            //            {
+            //                result = currentId;
+            //            }
+
+            //        }
+            //        command.Dispose();
+            //    }
+            //}
+            //catch
+            //{
+            //    result = null;
+            //}
+            //return result;
         }
 
         public int FindConversationalRuleNum(string status)
@@ -145,6 +155,13 @@ namespace UTS.ScheduleSystem.MainLogic
             return result;
         }
 
+        public FixedConversationalRule FindFixedConversationalRuleById(string id)
+        {
+            var x = fixedConversationalRuleTableAdapter.FindFixedConversationalRuleById(id).ToList().First();
+            FixedConversationalRule newRule = new FixedConversationalRule(x.Id, x.Input, x.Output, x.RelatedUsersId, Utils.GetStatus(x.Status));
+            return newRule;
+        }
+
         public List<FixedConversationalRule> FindFixedConversationalRulesAccordingToStatus(Status status)
         {
             List<FixedConversationalRule> result = new List<FixedConversationalRule>();
@@ -162,34 +179,36 @@ namespace UTS.ScheduleSystem.MainLogic
 
         public string FindLastFixedConversationalRuleId()
         {
-            string result = "fc1";
-            try
-            {
-                result = fixedConversationalRuleTableAdapter.FindLastIdQuery();
-                //using (SqlConnection connection = new SqlConnection(connectionString))
-                //{
-                //    connection.Open();
-                //    string query = @"SELECT Id FROM FixedConversationalRule";
-                //    var command = new SqlCommand(query, connection);
-                //    SqlDataReader reader = command.ExecuteReader();
-                //    while (reader.Read())
-                //    {
-                //        string currentId = reader.GetString(0);
-                //        int id = Convert.ToInt32(currentId.Substring(2));
-                //        if (id > Convert.ToInt32(result.Substring(2)))
-                //        {
-                //            result = currentId;
-                //        }
-
-                //    }
-                //    command.Dispose();
-                //}
-            }
-            catch
-            {
-                result = null;
-            }
+            string result = fixedConversationalRuleTableAdapter.FindLastIdQuery();
             return result;
+            //string result = "fc1";
+            //try
+            //{
+
+            //    using (SqlConnection connection = new SqlConnection(connectionString))
+            //    {
+            //        connection.Open();
+            //        string query = @"SELECT Id FROM FixedConversationalRule";
+            //        var command = new SqlCommand(query, connection);
+            //        SqlDataReader reader = command.ExecuteReader();
+            //        while (reader.Read())
+            //        {
+            //            string currentId = reader.GetString(0);
+            //            int id = Convert.ToInt32(currentId.Substring(2));
+            //            if (id > Convert.ToInt32(result.Substring(2)))
+            //            {
+            //                result = currentId;
+            //            }
+
+            //        }
+            //        command.Dispose();
+            //    }
+            //}
+            //catch
+            //{
+            //    result = null;
+            //}
+            //return result;
         }
 
         public int FindFixedConversationalRuleNum(string status)
@@ -243,35 +262,44 @@ namespace UTS.ScheduleSystem.MainLogic
             return result;
         }
 
+        public MealSchedule FindMealScheduleById(string id)
+        {
+            var x = mealScheduleTableAdapter.FindMealScheduleById(id).ToList().First();
+            MealSchedule mealSchedule = new MealSchedule(x.Id, x.Topic, x.Participants, x.Location, x.StartDate, x.EndDate, x.LastEditUserId);
+            return mealSchedule;
+        }
+
         public string FindLastMealscheduleId()
         {
-            string result = "ms1";
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    string query = @"select Id from MealSchedule";
-                    var command = new SqlCommand(query, connection);
-                    SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        string currentId = reader.GetString(0);
-                        int id = Convert.ToInt32(currentId.Substring(2));
-                        if (id > Convert.ToInt32(result.Substring(2)))
-                        {
-                            result = currentId;
-                        }
-                            
-                    }
-                    command.Dispose();
-                }
-            }
-            catch
-            {
-                result = null;
-            }
+            string result = mealScheduleTableAdapter.FindLastIdQuery();
             return result;
+            //string result = "ms1";
+            //try
+            //{
+            //    using (SqlConnection connection = new SqlConnection(connectionString))
+            //    {
+            //        connection.Open();
+            //        string query = @"select Id from MealSchedule";
+            //        var command = new SqlCommand(query, connection);
+            //        SqlDataReader reader = command.ExecuteReader();
+            //        while (reader.Read())
+            //        {
+            //            string currentId = reader.GetString(0);
+            //            int id = Convert.ToInt32(currentId.Substring(2));
+            //            if (id > Convert.ToInt32(result.Substring(2)))
+            //            {
+            //                result = currentId;
+            //            }
+                            
+            //        }
+            //        command.Dispose();
+            //    }
+            //}
+            //catch
+            //{
+            //    result = null;
+            //}
+            //return result;
         }
 
         // User

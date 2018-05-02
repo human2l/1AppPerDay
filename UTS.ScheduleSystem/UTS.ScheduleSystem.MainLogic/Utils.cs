@@ -19,11 +19,11 @@ namespace UTS.ScheduleSystem.MainLogic
                     //return "u" + (int.Parse(GetLastId(list).Substring(1))+1);
                     return "uuu";
                 case "ConversationalRule":
-                    return "c" + (int.Parse(lastId.Substring(1)) + 1);
+                    return (lastId == null) ? "c1" : "c" + (int.Parse(lastId.Substring(1)) + 1);
                 case "FixedConversationalRule":
-                    return "fc" + (int.Parse(lastId.Substring(2)) + 1);
+                    return (lastId == null) ? "fc1" : "fc" + (int.Parse(lastId.Substring(2)) + 1);
                 case "MealSchedule":
-                    return "ms" + (int.Parse(lastId.Substring(2)) + 1);
+                    return (lastId == null) ? "ms1" : "ms" + (int.Parse(lastId.Substring(2)) + 1);
                 default:
                     return null;
             }
@@ -127,6 +127,19 @@ namespace UTS.ScheduleSystem.MainLogic
                     return Role.DM;
                 default:
                     return Role.None;
+            }
+        }
+
+        public static Status GetStatus(string status)
+        {
+            switch (status)
+            {
+                case "Approved":
+                    return Status.Approved;
+                case "Rejected":
+                    return Status.Rejected;
+                default:
+                    return Status.Pending;
             }
         }
 
