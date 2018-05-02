@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using UTS.ScheduleSystem.Data.ScheduleSystemDataSetsTableAdapters;
@@ -8,7 +9,8 @@ namespace UTS.ScheduleSystem.MainLogic
 {
     public class DataHandler
     {
-        string connectionString = "Data Source=(LocalDb)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\aspnet-UTS.ScheduleSystem.Web-20180415025446.mdf;Initial Catalog=aspnet-UTS.ScheduleSystem.Web-20180415025446;Integrated Security=True";
+        string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        //string connectionString = "Data Source=(LocalDb)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\aspnet-UTS.ScheduleSystem.Web-20180415025446.mdf;Initial Catalog=aspnet-UTS.ScheduleSystem.Web-20180415025446;Integrated Security=True";
         ConversationalRuleTableAdapter conversationalRuleTableAdapter;
         FixedConversationalRuleTableAdapter fixedConversationalRuleTableAdapter;
         MealScheduleTableAdapter mealScheduleTableAdapter;
@@ -69,24 +71,25 @@ namespace UTS.ScheduleSystem.MainLogic
             string result = "c1";
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    string query = @"SELECT Id FROM ConversationalRule";
-                    var command = new SqlCommand(query, connection);
-                    SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        string currentId = reader.GetString(0);
-                        int id = Convert.ToInt32(currentId.Substring(1));
-                        if (id > Convert.ToInt32(result.Substring(1)))
-                        {
-                            result = currentId;
-                        }
+                //result = conversationalRuleTableAdapter.FindLastIdQuery();
+                //using (SqlConnection connection = new SqlConnection(connectionString))
+                //{
+                //    connection.Open();
+                //    string query = @"SELECT Id FROM ConversationalRule";
+                //    var command = new SqlCommand(query, connection);
+                //    SqlDataReader reader = command.ExecuteReader();
+                //    while (reader.Read())
+                //    {
+                //        string currentId = reader.GetString(0);
+                //        int id = Convert.ToInt32(currentId.Substring(1));
+                //        if (id > Convert.ToInt32(result.Substring(1)))
+                //        {
+                //            result = currentId;
+                //        }
 
-                    }
-                    command.Dispose();
-                }
+                //    }
+                //    command.Dispose();
+                //}
             }
             catch
             {
@@ -162,24 +165,25 @@ namespace UTS.ScheduleSystem.MainLogic
             string result = "fc1";
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    string query = @"SELECT Id FROM FixedConversationalRule";
-                    var command = new SqlCommand(query, connection);
-                    SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        string currentId = reader.GetString(0);
-                        int id = Convert.ToInt32(currentId.Substring(2));
-                        if (id > Convert.ToInt32(result.Substring(2)))
-                        {
-                            result = currentId;
-                        }
+                result = fixedConversationalRuleTableAdapter.FindLastIdQuery();
+                //using (SqlConnection connection = new SqlConnection(connectionString))
+                //{
+                //    connection.Open();
+                //    string query = @"SELECT Id FROM FixedConversationalRule";
+                //    var command = new SqlCommand(query, connection);
+                //    SqlDataReader reader = command.ExecuteReader();
+                //    while (reader.Read())
+                //    {
+                //        string currentId = reader.GetString(0);
+                //        int id = Convert.ToInt32(currentId.Substring(2));
+                //        if (id > Convert.ToInt32(result.Substring(2)))
+                //        {
+                //            result = currentId;
+                //        }
 
-                    }
-                    command.Dispose();
-                }
+                //    }
+                //    command.Dispose();
+                //}
             }
             catch
             {
