@@ -17,6 +17,10 @@ namespace UTS.ScheduleSystem.Web
             if (Session["Controller"] != null)
             {
                 controller = (Controller)Session["Controller"];
+                if (!controller.CurrentUser.Role.ToString().Contains("E"))
+                {
+                    Response.Redirect("~/");
+                }
                 List<Rule> rulesList = new List<Rule>();
                 List<FixedConversationalRule> fcRuleList = controller.FixedConversationalRulesList;
                 List<ConversationalRule> cRuleList = controller.ConversationalRulesList;

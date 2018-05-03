@@ -19,6 +19,12 @@ namespace UTS.ScheduleSystem.Web
             if (Session["Controller"] != null)
             {
                 controller = (Controller)Session["Controller"];
+
+                //Reject access if no permission
+                if (!controller.CurrentUser.Role.ToString().Contains("E"))
+                {
+                    Response.Redirect("~/");
+                }
                 List<Rule> rulesList = new List<Rule>();
                 List<FixedConversationalRule> fcRuleList = controller.FixedConversationalRulesList;
                 List<ConversationalRule> cRuleList = controller.ConversationalRulesList;
@@ -197,5 +203,6 @@ namespace UTS.ScheduleSystem.Web
         {
             ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Unknow error" + "');", true);
         }
+
     }
 }

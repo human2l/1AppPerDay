@@ -19,7 +19,10 @@ namespace UTS.ScheduleSystem.Web
             System.Diagnostics.Debug.WriteLine("page load");
             if (Session["Controller"] != null && controller == null)
             {
-
+                if (!controller.CurrentUser.Role.ToString().Contains("DM"))
+                {
+                    Response.Redirect("~/");
+                }
                 controller = (Controller)Session["Controller"];
                 UpdateGridView();
             }
