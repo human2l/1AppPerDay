@@ -20,9 +20,9 @@ namespace UTS.ScheduleSystem.UnitTesting
         private static List<ConversationalRule> tempConversationalRulesList = new List<ConversationalRule>();
         private static List<MealSchedule> tempMealScheduleList = new List<MealSchedule>();
 
-        User frank = new User("u1", "FRANK", "wtf", "FRANK@wtf.com", Role.DMnEnA);
-        User frank2 = new User("u2", "FRANK2", "222", "FRANK@2.com", Role.DMnEnA);
-        User frank3 = new User("u3", "FRANK2333", "2333", "FRANK@2333.com", Role.DMnEnA);
+        User frank = new User("u001", "FRANK", "wtf", "FRANK@wtf.com", Role.DMnEnA);
+        User frank2 = new User("u002", "FRANK2", "222", "FRANK@2.com", Role.DMnEnA);
+        User frank3 = new User("u003", "FRANK2333", "2333", "FRANK@2333.com", Role.DMnEnA);
         User DM = new User("uDM", "DM", "DM", "DM@DM.com", Role.DM);
         User E = new User("uE", "E", "E", "E@E.com", Role.E);
         User A = new User("uA", "A", "A", "A@A.com", Role.A);
@@ -281,37 +281,67 @@ namespace UTS.ScheduleSystem.UnitTesting
         [TestMethod]
         public void ApproverService_SuccessRate_ReturnCorrectSuccessRate()
         {
-            double successRate = controller.ApproverService.SuccessRate(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
+            dataHandler.AddConversationalRule(cRule1);
+            dataHandler.AddConversationalRule(cRule2);
+            dataHandler.AddConversationalRule(cRule3);
+            dataHandler.AddConversationalRule(cRule11);
+            dataHandler.AddConversationalRule(cRule21);
+            dataHandler.AddConversationalRule(cRule31);
+            double successRate = controller.ApproverService.SuccessRate();
             Assert.AreEqual(0.5, successRate);
         }
 
-        //[TestMethod]
-        //public void ApproverService_UserRelatedApprovedRulesNum_ReturnCorrectNumberOfApprovedRulesByUser()
-        //{
-        //    int UserRelatedApprovedRulesNum = controller.ApproverService.UserRelatedApprovedRulesNum(frank, controller.ConversationalRulesList, controller.FixedConversationalRulesList);
-        //    Assert.AreEqual(1, UserRelatedApprovedRulesNum);
-        //}
+        [TestMethod]
+        public void ApproverService_UserRelatedApprovedRulesNum_ReturnCorrectNumberOfApprovedRulesByUser()
+        {
+            dataHandler.AddConversationalRule(cRule1);
+            dataHandler.AddConversationalRule(cRule2);
+            dataHandler.AddConversationalRule(cRule3);
+            dataHandler.AddFixedConversationalRule(cFRule1);
+            dataHandler.AddFixedConversationalRule(cFRule2);
+            dataHandler.AddFixedConversationalRule(cFRule3);
+            int UserRelatedApprovedRulesNum = controller.ApproverService.UserRelatedApprovedRulesNum(frank.Id);
+            Assert.AreEqual(2, UserRelatedApprovedRulesNum);
+        }
 
-        //[TestMethod]
-        //public void ApproverService_UserRelatedRejectedRulesNum_ReturnCorrectNumberOfRejectedRulesByUser()
-        //{
-        //    int UserRelatedRejectedRulesNum = controller.ApproverService.UserRelatedRejectedRulesNum(frank, controller.ConversationalRulesList, controller.FixedConversationalRulesList);
-        //    Assert.AreEqual(1, UserRelatedRejectedRulesNum);
-        //}
+        [TestMethod]
+        public void ApproverService_UserRelatedRejectedRulesNum_ReturnCorrectNumberOfRejectedRulesByUser()
+        {
+            dataHandler.AddConversationalRule(cRule1);
+            dataHandler.AddConversationalRule(cRule2);
+            dataHandler.AddConversationalRule(cRule3);
+            dataHandler.AddFixedConversationalRule(cFRule1);
+            dataHandler.AddFixedConversationalRule(cFRule2);
+            dataHandler.AddFixedConversationalRule(cFRule3);
+            int UserRelatedRejectedRulesNum = controller.ApproverService.UserRelatedRejectedRulesNum(frank.Id);
+            Assert.AreEqual(2, UserRelatedRejectedRulesNum);
+        }
 
-        //[TestMethod]
-        //public void ApproverService_UserRelatedPendingRulesNum_ReturnCorrectNumberOfPendingRulesByUser()
-        //{
-        //    int UserRelatedPendingRulesNum = controller.ApproverService.UserRelatedRejectedRulesNum(frank, controller.ConversationalRulesList, controller.FixedConversationalRulesList);
-        //    Assert.AreEqual(1, UserRelatedPendingRulesNum);
-        //}
+        [TestMethod]
+        public void ApproverService_UserRelatedPendingRulesNum_ReturnCorrectNumberOfPendingRulesByUser()
+        {
+            dataHandler.AddConversationalRule(cRule1);
+            dataHandler.AddConversationalRule(cRule2);
+            dataHandler.AddConversationalRule(cRule3);
+            dataHandler.AddFixedConversationalRule(cFRule1);
+            dataHandler.AddFixedConversationalRule(cFRule2);
+            dataHandler.AddFixedConversationalRule(cFRule3);
+            int UserRelatedPendingRulesNum = controller.ApproverService.UserRelatedPendingRulesNum(frank.Id);
+            Assert.AreEqual(2, UserRelatedPendingRulesNum);
+        }
 
-        //[TestMethod]
-        //public void ApproverService_UserSuccessRate_ReturnCorrectSuccessRateOfUser()
-        //{
-        //    double UserSuccessRate = controller.ApproverService.UserSuccessRate(frank, controller.ConversationalRulesList, controller.FixedConversationalRulesList);
-        //    Assert.AreEqual(0.5, UserSuccessRate);
-        //}
+        [TestMethod]
+        public void ApproverService_UserSuccessRate_ReturnCorrectSuccessRateOfUser()
+        {
+            dataHandler.AddConversationalRule(cRule1);
+            dataHandler.AddConversationalRule(cRule2);
+            dataHandler.AddConversationalRule(cRule3);
+            dataHandler.AddFixedConversationalRule(cFRule1);
+            dataHandler.AddFixedConversationalRule(cFRule2);
+            dataHandler.AddFixedConversationalRule(cFRule3);
+            double userSuccessRate = controller.ApproverService.UserSuccessRate(frank2.Id);
+            Assert.AreEqual(0.5, userSuccessRate);
+        }
 
         //[TestMethod]
         //public void ApproverService_OverallAveSuccessRate_ReturnCorrectNumberOfOverallAverageSuccessRate()
@@ -416,35 +446,100 @@ namespace UTS.ScheduleSystem.UnitTesting
             //rejectedRulesList = controller.EditorService.ShowAllRejectedRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
             //CollectionAssert.AreEqual(correctRulesList, rejectedRulesList);
         }
-        //[TestMethod]
-        //public void EditorService_EditPendingRule_PendingRuleSuccessEdited()
-        //{
-
-        //}
-        //[TestMethod]
-        //public void EditorService_DeletePendingRule_CertainPendingRuleDeleted()
-        //{
-
-        //}
-        //[TestMethod]
-        //public void EditorService_ShowCurrentUserApprovedRules_ReturnCorrectList()
-        //{
-        //    List<Rule> approvedRulesList = new List<Rule>();
-        //    List<Rule> correctRulesList = new List<Rule>();
-        //    correctRulesList.Add(cRule2);
-        //    approvedRulesList = controller.EditorService.ShowCurrentUserApprovedRules(frank, controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-        //    CollectionAssert.AreEqual(correctRulesList, approvedRulesList);
-        //}
-        //[TestMethod]
-        //public void EditorService_ShowCurrentUserApprovedRulesCount_ReturnCorrectNumberOfApprovedRules()
-        //{
-
-        //}
-        //[TestMethod]
-        //public void EditorService_ShowCurrentUserSuccessRate_ReturnCorrectSuccessRate()
-        //{
-
-        //}
+        [TestMethod]
+        public void EditorService_EditPendingRule_PendingRuleSuccessEdited()
+        {
+            dataHandler.AddConversationalRule(cRule1);
+            dataHandler.AddFixedConversationalRule(cFRule1);
+            string correctInput = "changedInput";
+            string correctOutput = "changedOutput";
+            controller.EditorService.EditPendingRule(frank.Id, cRule1.Id, correctInput, correctOutput, controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+            controller.EditorService.EditPendingRule(frank.Id, cFRule1.Id, correctInput, correctOutput, controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+            testCRule = dataHandler.FindConversationalRuleById("c1");
+            testFCRule = dataHandler.FindFixedConversationalRuleById("fc1");
+            Assert.AreEqual(correctInput, testCRule.Input);
+            Assert.AreEqual(correctInput, testFCRule.Input);
+            Assert.AreEqual(correctOutput, testCRule.Output);
+            Assert.AreEqual(correctOutput, testFCRule.Output);
+        }
+        [TestMethod]
+        public void EditorService_DeletePendingRule_CertainPendingRuleDeleted()
+        {
+            dataHandler.AddConversationalRule(cRule1);
+            dataHandler.AddConversationalRule(cRule2);
+            dataHandler.AddConversationalRule(cRule3);
+            dataHandler.AddFixedConversationalRule(cFRule1);
+            dataHandler.AddFixedConversationalRule(cFRule2);
+            dataHandler.AddFixedConversationalRule(cFRule3);
+            controller.EditorService.DeletePendingRule(cRule1.Id);
+            controller.EditorService.DeletePendingRule(cFRule1.Id);
+            int conversationalRuleNum = controller.ConversationalRulesList.Count;
+            int fixedConversationalRuleNum = controller.FixedConversationalRulesList.Count;
+            Assert.AreEqual(2, conversationalRuleNum);
+            Assert.AreEqual(2, fixedConversationalRuleNum);
+        }
+        [TestMethod]
+        public void EditorService_ShowCurrentUserApprovedRules_ReturnCorrectList()
+        {
+            dataHandler.AddConversationalRule(cRule1);
+            dataHandler.AddConversationalRule(cRule2);
+            dataHandler.AddConversationalRule(cRule3);
+            dataHandler.AddFixedConversationalRule(cFRule1);
+            dataHandler.AddFixedConversationalRule(cFRule2);
+            dataHandler.AddFixedConversationalRule(cFRule3);
+            List<Rule> approvedRulesList = new List<Rule>();
+            approvedRulesList = controller.EditorService.ShowCurrentUserApprovedRules(frank, controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+            Assert.IsTrue(compareTwoRules(cRule2, approvedRulesList[1]));
+            Assert.IsTrue(compareTwoRules(cFRule2, approvedRulesList[0]));
+        }
+        [TestMethod]
+        public void EditorService_ShowCurrentUserApprovedRulesCount_ReturnCorrectNumberOfApprovedRules()
+        {
+            dataHandler.AddConversationalRule(cRule1);
+            dataHandler.AddConversationalRule(cRule2);
+            dataHandler.AddConversationalRule(cRule3);
+            dataHandler.AddFixedConversationalRule(cFRule1);
+            dataHandler.AddFixedConversationalRule(cFRule2);
+            dataHandler.AddFixedConversationalRule(cFRule3);
+            int approvedRuleNum = controller.EditorService.ShowCurrentUserApprovedRulesCount(frank2, controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+            Assert.AreEqual(1, approvedRuleNum);
+        }
+        [TestMethod]
+        public void EditorService_ShowCurrentUserRejectedRulesCount_ReturnCorrectNumberOfApprovedRules()
+        {
+            dataHandler.AddConversationalRule(cRule1);
+            dataHandler.AddConversationalRule(cRule2);
+            dataHandler.AddConversationalRule(cRule3);
+            dataHandler.AddFixedConversationalRule(cFRule1); 
+            dataHandler.AddFixedConversationalRule(cFRule2);
+            dataHandler.AddFixedConversationalRule(cFRule3);
+            int rejectedRuleNum = controller.EditorService.ShowCurrentUserRejectedRulesCount(frank2, controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+            Assert.AreEqual(1, rejectedRuleNum);
+        }
+        [TestMethod]
+        public void EditorService_ShowCurrentUserPendingRulesCount_ReturnCorrectNumberOfApprovedRules()
+        {
+            dataHandler.AddConversationalRule(cRule1);
+            dataHandler.AddConversationalRule(cRule2);
+            dataHandler.AddConversationalRule(cRule3);
+            dataHandler.AddFixedConversationalRule(cFRule1);
+            dataHandler.AddFixedConversationalRule(cFRule2);
+            dataHandler.AddFixedConversationalRule(cFRule3);
+            int pendingRuleNum = controller.EditorService.ShowCurrentUserPendingRulesCount(frank2, controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+            Assert.AreEqual(1, pendingRuleNum);
+        }
+        [TestMethod]
+        public void EditorService_ShowCurrentUserSuccessRate_ReturnCorrectSuccessRate()
+        {
+            dataHandler.AddConversationalRule(cRule1);
+            dataHandler.AddConversationalRule(cRule2);
+            dataHandler.AddConversationalRule(cRule3);
+            dataHandler.AddFixedConversationalRule(cFRule1);
+            dataHandler.AddFixedConversationalRule(cFRule2);
+            dataHandler.AddFixedConversationalRule(cFRule3);
+            double userSuccessRate = controller.EditorService.ShowCurrentUserSuccessRate(frank2, controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+            Assert.AreEqual(0.33, userSuccessRate);
+        }
 
     }
 }
