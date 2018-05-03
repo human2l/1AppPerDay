@@ -131,6 +131,7 @@ namespace UTS.ScheduleSystem.MainLogic
             }
         }
 
+        //Convert status string to status enum
         public static Status GetStatus(string status)
         {
             switch (status)
@@ -143,7 +144,8 @@ namespace UTS.ScheduleSystem.MainLogic
                     return Status.Pending;
             }
         }
-
+        
+        //convert multiple white space in a string to a single white space
         public static string IgnoreWhiteSpace(string input)
         {
             char[] WhiteSpace = new char[] { ' ' };

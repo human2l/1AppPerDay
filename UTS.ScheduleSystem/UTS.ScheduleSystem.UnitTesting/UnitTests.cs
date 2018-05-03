@@ -110,14 +110,6 @@ namespace UTS.ScheduleSystem.UnitTesting
             dataHandler.RemoveAllMealschedule();
         }
 
-        //private void Clear()
-        //{
-        //    Debug.WriteLine("clear");
-        //    controller.ConversationalRulesList = new List<ConversationalRule>();
-        //    controller.FixedConversationalRulesList = new List<FixedConversationalRule>();
-        //    controller.MealScheduleList = new List<MealSchedule>();
-        //}
-
         private Boolean compareTwoRules(Rule rule1, Rule rule2)
         {
             Boolean isSame = (rule1.Id.Equals(rule2.Id) &&
@@ -137,17 +129,6 @@ namespace UTS.ScheduleSystem.UnitTesting
             dataHandler.AddFixedConversationalRule(cFRule1);
             dataHandler.AddFixedConversationalRule(cFRule2);
             dataHandler.AddFixedConversationalRule(cFRule3);
-            //controller.ConversationalRulesList.Add(cRule1);
-            //controller.ConversationalRulesList.Add(cRule2);
-            //controller.ConversationalRulesList.Add(cRule3);
-            //controller.FixedConversationalRulesList.Add(cFRule1);
-            //controller.FixedConversationalRulesList.Add(cFRule2);
-            //controller.FixedConversationalRulesList.Add(cFRule3);
-            //List<Rule> correctPRulesList = new List<Rule>();
-            //correctPRulesList.Add(cRule1);
-
-            //correctPRulesList.Add(cFRule1);
-            //CollectionAssert.AreEqual(correctPRulesList, rulesList);
             List<Rule> pendingList = controller.ApproverService.RequestPendingRulesList();
             foreach(Rule rule in pendingList)
             {
@@ -164,19 +145,6 @@ namespace UTS.ScheduleSystem.UnitTesting
             dataHandler.AddFixedConversationalRule(cFRule1);
             dataHandler.AddFixedConversationalRule(cFRule2);
             dataHandler.AddFixedConversationalRule(cFRule3);
-            //controller.ConversationalRulesList.Add(cRule1);
-            //controller.ConversationalRulesList.Add(cRule2);
-            //controller.ConversationalRulesList.Add(cRule3);
-            //controller.FixedConversationalRulesList.Add(cFRule1);
-            //controller.FixedConversationalRulesList.Add(cFRule2);
-            //controller.FixedConversationalRulesList.Add(cFRule3);
-            //List<Rule> correctPRulesList = new List<Rule>();
-            //correctPRulesList.Add(cRule2);
-
-            //correctPRulesList.Add(cFRule2);
-
-            //List<Rule> rulesList = controller.ApproverService.RequestApprovedRulesList();
-            //CollectionAssert.AreEqual(correctPRulesList, rulesList);
             List<Rule> approvedList = controller.ApproverService.RequestApprovedRulesList();
             foreach (Rule rule in approvedList)
             {
@@ -193,13 +161,6 @@ namespace UTS.ScheduleSystem.UnitTesting
             dataHandler.AddFixedConversationalRule(cFRule1);
             dataHandler.AddFixedConversationalRule(cFRule2);
             dataHandler.AddFixedConversationalRule(cFRule3);
-            //List<Rule> correctPRulesList = new List<Rule>();
-
-            //correctPRulesList.Add(cRule3);
-
-            //correctPRulesList.Add(cFRule3);
-            //List<Rule> rulesList = controller.ApproverService.RequestRejectedRulesList(controller.ConversationalRulesList, controller.FixedConversationalRulesList);
-            //CollectionAssert.AreEqual(correctPRulesList, rulesList);
             List<Rule> rejectedList = controller.ApproverService.RequestRejectedRulesList();
             foreach (Rule rule in rejectedList)
             {
@@ -218,15 +179,6 @@ namespace UTS.ScheduleSystem.UnitTesting
             testFCRule = dataHandler.FindFixedConversationalRuleById(cFRule1.Id);
             Assert.AreEqual<Status>(Status.Approved, testCRule.Status);
             Assert.AreEqual<Status>(Status.Approved, testFCRule.Status);
-            //List<ConversationalRule> CRulesList = new List<ConversationalRule>();
-            //List<FixedConversationalRule> FCRulesList = new List<FixedConversationalRule>();
-            //CRulesList.Add(cRule1);
-            //FCRulesList.Add(cFRule1);
-            //controller.ApproverService.ApproveRule(cRule1.Id, ref CRulesList, ref FCRulesList);
-            //controller.ApproverService.ApproveRule(cFRule1.Id, ref CRulesList, ref FCRulesList);
-            //Assert.AreEqual<Status>(Status.Approved, CRulesList[0].Status);
-            //Assert.AreEqual<Status>(Status.Approved, FCRulesList[0].Status);
-
         }
 
         [TestMethod]
@@ -240,14 +192,6 @@ namespace UTS.ScheduleSystem.UnitTesting
             testFCRule = dataHandler.FindFixedConversationalRuleById(cFRule1.Id);
             Assert.AreEqual<Status>(Status.Rejected, testCRule.Status);
             Assert.AreEqual<Status>(Status.Rejected, testFCRule.Status);
-            //List<ConversationalRule> CRulesList = new List<ConversationalRule>();
-            //List<FixedConversationalRule> FCRulesList = new List<FixedConversationalRule>();
-            //CRulesList.Add(cRule1);
-            //FCRulesList.Add(cFRule1);
-            //controller.ApproverService.RejectRule(cRule1.Id, ref CRulesList, ref FCRulesList);
-            //controller.ApproverService.RejectRule(cFRule1.Id, ref CRulesList, ref FCRulesList);
-            //Assert.AreEqual<Status>(Status.Rejected, CRulesList[0].Status);
-            //Assert.AreEqual<Status>(Status.Rejected, FCRulesList[0].Status);
         }
 
         [TestMethod]
@@ -359,42 +303,15 @@ namespace UTS.ScheduleSystem.UnitTesting
         [TestMethod]
         public void EditorService_AddNewCRule_CRuleListHaveCorrectRules()
         {
-            //ConversationalRule cRule4 = new ConversationalRule("c4", "What will I surpose to eat on {p1}", "{p1}", "u001 u002", Status.Pending);
-            //List<ConversationalRule> correctRulesList = new List<ConversationalRule>();
-            //List<ConversationalRule> rulesList = new List<ConversationalRule>();
-            //correctRulesList.Add(cRule1);
-            //correctRulesList.Add(cRule2);
-            //correctRulesList.Add(cRule3);
-            //correctRulesList.Add(cRule4);
-            //controller.ConversationalRulesList.Add(cRule1);
-            //controller.ConversationalRulesList.Add(cRule2);
-            //controller.ConversationalRulesList.Add(cRule3);
-            //controller.ConversationalRulesList.Add(cRule4);
             controller.EditorService.AddNewCRule(cRule1.Input, cRule1.Output, cRule1.RelatedUsersId);
             testCRule = dataHandler.FindConversationalRuleById(cRule1.Id);
-            //controller.EditorService.AddNewCRule(cRule2.Input, cRule2.Output, cRule2.RelatedUsersId);
-            //controller.EditorService.AddNewCRule(cRule3.Input, cRule3.Output, cRule3.RelatedUsersId);
-            //controller.EditorService.AddNewCRule(cRule4.Input, cRule4.Output, cRule4.RelatedUsersId);
-            //CollectionAssert.AreEqual(correctRulesList, controller.ConversationalRulesList);
             Assert.IsTrue(compareTwoRules(cRule1, testCRule));
         }
         [TestMethod]
         public void EditorService_AddNewFCRule_FCRuleListHaveCorrectRules()
         {
-            //Clear();
-            //FixedConversationalRule cFRule4 = new FixedConversationalRule("fc4", "I'm not good", "So go fuck yourself", "u001", Status.Pending);
-            //List<FixedConversationalRule> correctRulesList = new List<FixedConversationalRule>();
-            //List<FixedConversationalRule> rulesList = new List<FixedConversationalRule>();
-            //correctRulesList.Add(cFRule1);
-            //correctRulesList.Add(cFRule2);
-            //correctRulesList.Add(cFRule3);
-            //correctRulesList.Add(cFRule4);
             controller.EditorService.AddNewFCRule(cFRule1.Input, cFRule1.Output, cFRule1.RelatedUsersId);
             testFCRule = dataHandler.FindFixedConversationalRuleById(cFRule1.Id);
-            //controller.EditorService.AddNewFCRule(cFRule2.Input, cFRule2.Output, cFRule2.RelatedUsersId);
-            //controller.EditorService.AddNewFCRule(cFRule3.Input, cFRule3.Output, cFRule3.RelatedUsersId);
-            //controller.EditorService.AddNewFCRule(cFRule4.Input, cFRule4.Output, cFRule4.RelatedUsersId);
-            //CollectionAssert.AreEqual(correctRulesList, controller.FixedConversationalRulesList);
             Assert.IsTrue(compareTwoRules(cFRule1, testFCRule));
         }
         [TestMethod]
@@ -406,17 +323,6 @@ namespace UTS.ScheduleSystem.UnitTesting
             dataHandler.AddFixedConversationalRule(cFRule1);
             dataHandler.AddFixedConversationalRule(cFRule2);
             dataHandler.AddFixedConversationalRule(cFRule3);
-            //controller.ConversationalRulesList.Add(cRule1);
-            //controller.ConversationalRulesList.Add(cRule2);
-            //controller.ConversationalRulesList.Add(cRule3);
-            //controller.FixedConversationalRulesList.Add(cFRule1);
-            //controller.FixedConversationalRulesList.Add(cFRule2);
-            //controller.FixedConversationalRulesList.Add(cFRule3);
-            //List<Rule> correctPRulesList = new List<Rule>();
-            //correctPRulesList.Add(cRule1);
-
-            //correctPRulesList.Add(cFRule1);
-            //CollectionAssert.AreEqual(correctPRulesList, rulesList);
             List<Rule> pendingList = controller.EditorService.ShowAllPendingRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
             foreach (Rule rule in pendingList)
             {
@@ -437,12 +343,6 @@ namespace UTS.ScheduleSystem.UnitTesting
             {
                 Assert.AreEqual<Status>(Status.Rejected, rule.Status);
             }
-            //List<Rule> rejectedRulesList = new List<Rule>();
-            //List<Rule> correctRulesList = new List<Rule>();
-            //correctRulesList.Add(cFRule3);
-            //correctRulesList.Add(cRule3);
-            //rejectedRulesList = controller.EditorService.ShowAllRejectedRules(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-            //CollectionAssert.AreEqual(correctRulesList, rejectedRulesList);
         }
         [TestMethod]
         public void EditorService_EditPendingRule_PendingRuleSuccessEdited()
@@ -541,33 +441,3 @@ namespace UTS.ScheduleSystem.UnitTesting
 
     }
 }
-
-
-    //[TestClass]
-
-    //public class UnitTests
-    //{
-    //public class TestController
-    //{
-    //    private User currentUser;
-    //    private List<User> userList = new List<User>();
-    //    private List<ConversationalRule> conversationalRulesList = new List<ConversationalRule>();
-    //    private List<FixedConversationalRule> fixedConversationalRulesList = new List<FixedConversationalRule>();
-    //    private List<MealSchedule> mealScheduleList = new List<MealSchedule>();
-    //    private ConversationService conversationService = new ConversationService();
-    //    private DataMaintainerService dataMaintainerService = new DataMaintainerService();
-    //    private EditorService editorService = new EditorService();
-    //    private ApproverService approverService = new ApproverService();
-
-    //    public TestController() { }
-
-    //    public User CurrentUser { get => currentUser; set => currentUser = value; }
-    //    public List<User> UserList { get => userList; set => userList = value; }
-    //    public List<ConversationalRule> ConversationalRulesList { get => conversationalRulesList; set => conversationalRulesList = value; }
-    //    public List<FixedConversationalRule> FixedConversationalRulesList { get => fixedConversationalRulesList; set => fixedConversationalRulesList = value; }
-    //    public List<MealSchedule> MealScheduleList { get => mealScheduleList; set => mealScheduleList = value; }
-    //    public ConversationService ConversationService { get => conversationService; set => conversationService = value; }
-    //    public DataMaintainerService DataMaintainerService { get => dataMaintainerService; set => dataMaintainerService = value; }
-    //    public EditorService EditorService { get => editorService; set => editorService = value; }
-    //    public ApproverService ApproverService { get => approverService; set => approverService = value; }
-    //}

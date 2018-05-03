@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 
 namespace UTS.ScheduleSystem.MainLogic
 {
-    // This project can output the Class library as a NuGet Package.
-    // To enable this option, right-click on the project and select the Properties menu item. In the Build tab select "Produce outputs on build".
     public enum Role { DM, E, A, DMnE, DMnA, EnA, DMnEnA, None}
     public class User
     {
