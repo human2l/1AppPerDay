@@ -12,7 +12,8 @@ namespace UTS.ScheduleSystem.MainLogic
 {
     public class ConversationService
     {
-        string connectionString = "Data Source=(LocalDb)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\aspnet-UTS.ScheduleSystem.Web-20180415025446.mdf;Initial Catalog=aspnet-UTS.ScheduleSystem.Web-20180415025446;Integrated Security=True";
+        string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        //string connectionString = "Data Source=(LocalDb)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\aspnet-UTS.ScheduleSystem.Web-20180415025446.mdf;Initial Catalog=aspnet-UTS.ScheduleSystem.Web-20180415025446;Integrated Security=True";
         private DataHandler dataHandler;
         private string answer;
 
@@ -98,7 +99,7 @@ namespace UTS.ScheduleSystem.MainLogic
         // Find answer parameter from Mealschedule according to the input parameter
         private string FindAnswerFromMealSchedule(string inputKeyword, string outputKeyword, string parameter)
         {
-            return dataHandler.FindSingleMealschedule(inputKeyword, parameter, outputKeyword);
+            return dataHandler.FindSingleMealschedule(inputKeyword, outputKeyword, parameter);
         }
     }
 }

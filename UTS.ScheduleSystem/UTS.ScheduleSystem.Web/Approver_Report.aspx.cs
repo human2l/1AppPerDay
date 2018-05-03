@@ -15,8 +15,6 @@ namespace UTS.ScheduleSystem.Web
         private string approvedRuleNum;
         private string rejectedRuleNum;
         private string successRate;
-        //private List<ConversationalRule> conversationalRules;
-        //private List<FixedConversationalRule> fixedConversationalRules;
         private List<Rule> approvedList = new List<Rule>();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -24,7 +22,6 @@ namespace UTS.ScheduleSystem.Web
             if (Session["Controller"] != null)
             {
                 controller = (Controller)Session["Controller"];
-                //LoadRuleList();
                 DisplayApprovedRuleList();
                 DisplayStatisticsData();
             }
@@ -35,12 +32,6 @@ namespace UTS.ScheduleSystem.Web
             }
         }
 
-        // Load rule list from database
-        //private void LoadRuleList()
-        //{
-        //    conversationalRules = controller.ConversationalRulesList;
-        //    fixedConversationalRules = controller.FixedConversationalRulesList;
-        //}
 
         // Load approved rule list from database and bind with display
         private void DisplayApprovedRuleList()

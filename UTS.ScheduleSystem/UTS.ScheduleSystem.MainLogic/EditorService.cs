@@ -18,8 +18,6 @@ namespace UTS.ScheduleSystem.MainLogic
         public void AddNewFCRule(string input, string output, string userId)
         {
             FixedConversationalRule rule = new FixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", dataHandler.FindLastFixedConversationalRuleId()), input, output, userId, Status.Pending);
-            //fCRulesList.Add(rule);
-            //return fCRulesList;
 
             dataHandler.AddFixedConversationalRule(rule);
         }
@@ -28,8 +26,6 @@ namespace UTS.ScheduleSystem.MainLogic
         public void AddNewCRule(string input, string output, string userId)
         {
             ConversationalRule rule = new ConversationalRule(Utils.CreateIdByType("ConversationalRule", dataHandler.FindLastConversationalRuleId()), input, output, userId, Status.Pending);
-            //cRulesList.Add(rule);
-            //return cRulesList;
             dataHandler.AddConversationalRule(rule);
         }
 
@@ -104,34 +100,6 @@ namespace UTS.ScheduleSystem.MainLogic
                 }
                 dataHandler.ChangeOnConversationalRule(ruleInput, ruleOutput, userId, "Pending", ruleId);
             }
-            //bool valueChanged = false;
-            //for (int i = 0; i < fCRulesList.Count; i++)
-            //{
-            //    if (fCRulesList[i].Id == ruleId)
-            //    {
-            //        fCRulesList[i].Input = ruleInput;
-            //        fCRulesList[i].Output = ruleOutput;
-            //        fCRulesList[i].LastRelatedUserID = userId;
-            //        fCRulesList[i].RelatedUsersId += " " + userId;
-            //        valueChanged = true;
-            //        break;
-            //    }
-            //}
-            //if (!valueChanged)
-            //{
-            //    for (int i = 0; i < cRulesList.Count; i++)
-            //    {
-            //        if (cRulesList[i].Id == ruleId)
-            //        {
-            //            cRulesList[i].Input = ruleInput;
-            //            cRulesList[i].Output = ruleOutput;
-            //            cRulesList[i].LastRelatedUserID = userId;
-            //            cRulesList[i].RelatedUsersId += " " + userId;
-            //            break;
-            //        }
-            //    }
-            //}
-            //return Tuple.Create(fCRulesList, cRulesList);
         }
 
         // Delete a rule
@@ -326,29 +294,6 @@ namespace UTS.ScheduleSystem.MainLogic
         }
         
         
-        //private FixedConversationalRule FindFCRule(string ruleId, List<FixedConversationalRule> rulesList)
-        //{
-        //    foreach (FixedConversationalRule rule in rulesList)
-        //    {
-        //        if (rule.Id == ruleId)
-        //        {
-        //            return rule;
-        //        }
-        //    }
-        //    return null;
-        //}
-
-        //private ConversationalRule FindCRule(string ruleId, List<ConversationalRule> rulesList)
-        //{
-        //    foreach (ConversationalRule rule in rulesList)
-        //    {
-        //        if (rule.Id == ruleId)
-        //        {
-        //            return rule;
-        //        }
-        //    }
-        //    return null;
-        //}
 
         // Check whether a rule is already existed in the database or not
         public bool CheckRepeatingRule(string input, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)

@@ -77,35 +77,6 @@ namespace UTS.ScheduleSystem.MainLogic
         {
             string result = conversationalRuleTableAdapter.FindLastIdQuery();
             return result;
-            //string result = "c1";
-            //try
-            //{
-            //    result = conversationalRuleTableAdapter.FindLastIdQuery();
-            //    result = conversationalRuleTableAdapter.FindLastIdQuery();
-            //    using (SqlConnection connection = new SqlConnection(connectionString))
-            //    {
-            //        connection.Open();
-            //        string query = @"SELECT Id FROM ConversationalRule";
-            //        var command = new SqlCommand(query, connection);
-            //        SqlDataReader reader = command.ExecuteReader();
-            //        while (reader.Read())
-            //        {
-            //            string currentId = reader.GetString(0);
-            //            int id = Convert.ToInt32(currentId.Substring(1));
-            //            if (id > Convert.ToInt32(result.Substring(1)))
-            //            {
-            //                result = currentId;
-            //            }
-
-            //        }
-            //        command.Dispose();
-            //    }
-            //}
-            //catch
-            //{
-            //    result = null;
-            //}
-            //return result;
         }
 
         public int FindConversationalRuleNum(string status)
@@ -146,7 +117,7 @@ namespace UTS.ScheduleSystem.MainLogic
             string result;
             try
             {
-                result = fixedConversationalRuleTableAdapter.GetOutput(input);
+                result = fixedConversationalRuleTableAdapter.GetOutput(input).ToString();
             }
             catch
             {
@@ -181,34 +152,6 @@ namespace UTS.ScheduleSystem.MainLogic
         {
             string result = fixedConversationalRuleTableAdapter.FindLastIdQuery();
             return result;
-            //string result = "fc1";
-            //try
-            //{
-
-            //    using (SqlConnection connection = new SqlConnection(connectionString))
-            //    {
-            //        connection.Open();
-            //        string query = @"SELECT Id FROM FixedConversationalRule";
-            //        var command = new SqlCommand(query, connection);
-            //        SqlDataReader reader = command.ExecuteReader();
-            //        while (reader.Read())
-            //        {
-            //            string currentId = reader.GetString(0);
-            //            int id = Convert.ToInt32(currentId.Substring(2));
-            //            if (id > Convert.ToInt32(result.Substring(2)))
-            //            {
-            //                result = currentId;
-            //            }
-
-            //        }
-            //        command.Dispose();
-            //    }
-            //}
-            //catch
-            //{
-            //    result = null;
-            //}
-            //return result;
         }
 
         public int FindFixedConversationalRuleNum(string status)
@@ -273,33 +216,6 @@ namespace UTS.ScheduleSystem.MainLogic
         {
             string result = mealScheduleTableAdapter.FindLastIdQuery();
             return result;
-            //string result = "ms1";
-            //try
-            //{
-            //    using (SqlConnection connection = new SqlConnection(connectionString))
-            //    {
-            //        connection.Open();
-            //        string query = @"select Id from MealSchedule";
-            //        var command = new SqlCommand(query, connection);
-            //        SqlDataReader reader = command.ExecuteReader();
-            //        while (reader.Read())
-            //        {
-            //            string currentId = reader.GetString(0);
-            //            int id = Convert.ToInt32(currentId.Substring(2));
-            //            if (id > Convert.ToInt32(result.Substring(2)))
-            //            {
-            //                result = currentId;
-            //            }
-                            
-            //        }
-            //        command.Dispose();
-            //    }
-            //}
-            //catch
-            //{
-            //    result = null;
-            //}
-            //return result;
         }
 
         // User

@@ -47,14 +47,6 @@ namespace UTS.ScheduleSystem.Web
                     ViewState[IdKey] = id;
                     currentId = id;
 
-                    // Retrieve the item we're editing
-                    //var rule = (Rule)GlobalState.AddressBook.SearchById(id);
-                    //InputTextBox.Text = rule.Input;
-                    //OutputTextBox.Text = rule.Outputput;
-                }
-                else
-                {
-
                 }
             }
         }
@@ -67,10 +59,6 @@ namespace UTS.ScheduleSystem.Web
                 // Find the Contact
                 // Save Changes
                 controller.DataMaintainerService.EditMealSchedule(currentId, TopicTextBox.Text, ParticipantsTextBox.Text, LocationTextBox.Text, StartDateTextBox.Text, EndDateTextBox.Text, controller.CurrentUser.Id);
-            }
-            else
-            {
-
             }
 
             // Return to the list page

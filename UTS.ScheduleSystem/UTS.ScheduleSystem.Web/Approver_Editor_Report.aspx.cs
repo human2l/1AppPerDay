@@ -60,7 +60,6 @@ namespace UTS.ScheduleSystem.Web
         {
             int index = Convert.ToInt32(e.CommandArgument);
             string editorId = editorList.Rows[index].Cells[0].Text;
-            //LoadRuleList();
             currentEditor = controller.ApproverService.RecognizeUser(editorId, _editorList);
             switch (e.CommandName)
             {

@@ -21,7 +21,6 @@ namespace UTS.ScheduleSystem.Web
             {
 
                 controller = (Controller)Session["Controller"];
-                //mealScheduleList = controller.MealScheduleList;
                 UpdateGridView();
             }
             else
@@ -36,7 +35,6 @@ namespace UTS.ScheduleSystem.Web
         {
             string id = DataMaintainerGridView.DataKeys[e.RowIndex].Value.ToString();
             controller.DataMaintainerService.DeleteMealSchedule(id);
-            //controller.MealScheduleList = mealScheduleList;
             UpdateGridView();
         }
 
@@ -66,8 +64,6 @@ namespace UTS.ScheduleSystem.Web
             string lastEditorUserId = controller.CurrentUser.Id;
 
             controller.DataMaintainerService.AddMealSchedule(topic, participants, location, startDate, endDate, lastEditorUserId);
-            //mealScheduleList.Add(ms);
-            //controller.MealScheduleList = mealScheduleList;
             UpdateGridView();
 
         }

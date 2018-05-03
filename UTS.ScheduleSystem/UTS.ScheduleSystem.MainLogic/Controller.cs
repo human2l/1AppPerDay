@@ -108,21 +108,6 @@ namespace UTS.ScheduleSystem.MainLogic
 
             set
             {
-                var adapter = new ConversationalRuleTableAdapter();
-                var set = adapter.GetData();
-
-                for (var i = 0; i < set.Count; i++)
-                {
-                    adapter.Delete(set[i].Id, set[i].Input, set[i].Output, set[i].RelatedUsersId, set[i].Status);
-                }
-                System.Diagnostics.Debug.WriteLine("valueCount: " + value.Count);
-                for (var i = 0; i < value.Count; i++)
-                {
-                    ConversationalRule ms = value[i];
-                    System.Diagnostics.Debug.WriteLine(ms.Id);
-                    adapter.Insert(ms.Id, ms.Input, ms.Output, ms.RelatedUsersId, ms.Status.ToString());
-                }
-                adapter.Dispose();
                 conversationalRulesList = value;
             }
         }
@@ -150,18 +135,6 @@ namespace UTS.ScheduleSystem.MainLogic
 
             set
             {
-                var adapter = new FixedConversationalRuleTableAdapter();
-                var set = adapter.GetData();
-                for (var i = 0; i < set.Count; i++)
-                {
-                    adapter.Delete(set[i].Id, set[i].Input, set[i].Output, set[i].RelatedUsersId, set[i].Status);
-                }
-                for (var i = 0; i < value.Count; i++)
-                {
-                    FixedConversationalRule rule = value[i];
-                    adapter.Insert(rule.Id, rule.Input, rule.Output, rule.RelatedUsersId, rule.Status.ToString());
-                }
-                adapter.Dispose();
                 fixedConversationalRulesList = value;
             }
         }
@@ -187,21 +160,6 @@ namespace UTS.ScheduleSystem.MainLogic
 
             set
             {
-                var adapter = new MealScheduleTableAdapter();
-                var set = adapter.GetData();
-
-                for (var i = 0; i < set.Count; i++)
-                {
-                    adapter.Delete(set[i].Id, set[i].Topic, set[i].Participants, set[i].Location, set[i].StartDate, set[i].EndDate, set[i].LastEditUserId);
-                }
-                System.Diagnostics.Debug.WriteLine("valueCount: " + value.Count);
-                for (var i = 0; i < value.Count; i++)
-                {
-                    MealSchedule ms = value[i];
-                    System.Diagnostics.Debug.WriteLine(ms.Id);
-                    adapter.Insert(ms.Id, ms.Topic, ms.Participants, ms.Location, ms.StartDate, ms.EndDate, ms.LastEditUserId); ;
-                }
-                adapter.Dispose();
                 mealScheduleList = value;
             }
         }

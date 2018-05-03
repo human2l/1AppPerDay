@@ -47,14 +47,6 @@ namespace UTS.ScheduleSystem.Web
                     ViewState[IdKey] = id;
                     currentId = id;
 
-                    // Retrieve the item we're editing
-                    //var rule = (Rule)GlobalState.AddressBook.SearchById(id);
-                    //InputTextBox.Text = rule.Input;
-                    //OutputTextBox.Text = rule.Outputput;
-                }
-                else
-                {
-
                 }
             }
         }
@@ -68,12 +60,6 @@ namespace UTS.ScheduleSystem.Web
                 // Save Changes
                 controller.EditorService.EditPendingRule(controller.CurrentUser.Id, currentId,
                     InputTextBox.Text, OutputTextBox.Text, controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-                //controller.FixedConversationalRulesList = lists.Item1;
-                //controller.ConversationalRulesList = lists.Item2;
-            }
-            else
-            {
-               
             }
 
             // Return to the list page

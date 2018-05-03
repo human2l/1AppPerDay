@@ -12,8 +12,6 @@ namespace UTS.ScheduleSystem.Web
     public partial class Approver : System.Web.UI.Page
     {
         private Controller controller;
-        //private List<ConversationalRule> conversationalRules;
-        //private List<FixedConversationalRule> fixedConversationalRules;
         private List<Rule> pendingList = new List<Rule>();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -21,7 +19,6 @@ namespace UTS.ScheduleSystem.Web
             if (Session["Controller"] != null)
             {
                 controller = (Controller)Session["Controller"];
-                //LoadRuleList();
                 DisplayPendingRuleList();
             }
             else
@@ -31,19 +28,6 @@ namespace UTS.ScheduleSystem.Web
             }
         }
 
-        // Load rule list from database
-        //private void LoadRuleList()
-        //{
-        //    conversationalRules = controller.ConversationalRulesList;
-        //    fixedConversationalRules = controller.FixedConversationalRulesList;
-        //}
-
-        // Pass updated data to database
-        //private void UpdateDatabase()
-        //{
-        //    controller.ConversationalRulesList = conversationalRules;
-        //    controller.FixedConversationalRulesList = fixedConversationalRules;
-        //}
 
         // Load pending rule list from database and bind with display
         private void DisplayPendingRuleList()
@@ -74,11 +58,9 @@ namespace UTS.ScheduleSystem.Web
             {
                 case "Approve":
                     controller.ApproverService.ApproveRule(_ruleId);
-                    //UpdateDatabase();
                     break;
                 case "Reject":
                     controller.ApproverService.RejectRule(_ruleId);
-                    //UpdateDatabase();
                     break;
                 default:
                     break;

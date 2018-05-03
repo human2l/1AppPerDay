@@ -24,12 +24,6 @@ namespace UTS.ScheduleSystem.Web
                 List<ConversationalRule> cRuleList = controller.ConversationalRulesList;
                 BindDataToPtable(fcRuleList, cRuleList);
                 BindDataToRtable(fcRuleList, cRuleList);
-                //rulesList = controller.EditorService.ShowAllPendingRules(fcRuleList, cRuleList);
-                //PendingGridView.DataSource = rulesList;
-                //PendingGridView.DataBind();
-                //rulesList = controller.EditorService.ShowAllRejectedRules(fcRuleList, cRuleList);
-                //RejectedGridView.DataSource = rulesList;
-                //RejectedGridView.DataBind();
             }
             else
             {

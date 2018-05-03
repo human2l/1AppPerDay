@@ -80,8 +80,6 @@ namespace UTS.ScheduleSystem.UnitTesting
             Debug.WriteLine("cleanup");
             // Empty the database
             Clear();
-
-            
         }
 
         [ClassCleanup]
