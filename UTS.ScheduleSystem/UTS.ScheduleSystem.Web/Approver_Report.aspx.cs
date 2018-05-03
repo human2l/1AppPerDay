@@ -22,6 +22,11 @@ namespace UTS.ScheduleSystem.Web
             if (Session["Controller"] != null)
             {
                 controller = (Controller)Session["Controller"];
+                //Reject access if no permission
+                if (!controller.CurrentUser.Role.ToString().Contains("A"))
+                {
+                    Response.Redirect("~/");
+                }
                 DisplayApprovedRuleList();
                 DisplayStatisticsData();
             }

@@ -114,7 +114,7 @@ namespace UTS.ScheduleSystem.UnitTesting
             dataHandler.RemoveAllMealschedule();
         }
 
-        private Boolean compareTwoRules(Rule rule1, Rule rule2)
+        private Boolean CompareTwoRules(Rule rule1, Rule rule2)
         {
             Boolean isSame = (rule1.Id.Equals(rule2.Id) &&
                 rule1.Input.Equals(rule2.Input) &&
@@ -309,14 +309,14 @@ namespace UTS.ScheduleSystem.UnitTesting
         {
             controller.EditorService.AddNewCRule(cRule1.Input, cRule1.Output, cRule1.RelatedUsersId);
             testCRule = dataHandler.FindConversationalRuleById(cRule1.Id);
-            Assert.IsTrue(compareTwoRules(cRule1, testCRule));
+            Assert.IsTrue(CompareTwoRules(cRule1, testCRule));
         }
         [TestMethod]
         public void EditorService_AddNewFCRule_FCRuleListHaveCorrectRules()
         {
             controller.EditorService.AddNewFCRule(cFRule1.Input, cFRule1.Output, cFRule1.RelatedUsersId);
             testFCRule = dataHandler.FindFixedConversationalRuleById(cFRule1.Id);
-            Assert.IsTrue(compareTwoRules(cFRule1, testFCRule));
+            Assert.IsTrue(CompareTwoRules(cFRule1, testFCRule));
         }
         [TestMethod]
         public void EditorService_ShowAllPendingRules_ReturnCorrectList()
@@ -391,8 +391,8 @@ namespace UTS.ScheduleSystem.UnitTesting
             dataHandler.AddFixedConversationalRule(cFRule3);
             List<Rule> approvedRulesList = new List<Rule>();
             approvedRulesList = controller.EditorService.ShowCurrentUserApprovedRules(frank, controller.FixedConversationalRulesList, controller.ConversationalRulesList);
-            Assert.IsTrue(compareTwoRules(cRule2, approvedRulesList[1]));
-            Assert.IsTrue(compareTwoRules(cFRule2, approvedRulesList[0]));
+            Assert.IsTrue(CompareTwoRules(cRule2, approvedRulesList[1]));
+            Assert.IsTrue(CompareTwoRules(cFRule2, approvedRulesList[0]));
         }
         [TestMethod]
         public void EditorService_ShowCurrentUserApprovedRulesCount_ReturnCorrectNumberOfApprovedRules()

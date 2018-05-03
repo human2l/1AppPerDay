@@ -19,6 +19,10 @@ namespace UTS.ScheduleSystem.Web
         {
             if (Session["Controller"] != null)
             {
+                if (!controller.CurrentUser.Role.ToString().Contains("DM"))
+                {
+                    Response.Redirect("~/");
+                }
                 controller = (Controller)Session["Controller"];
             }
             else
