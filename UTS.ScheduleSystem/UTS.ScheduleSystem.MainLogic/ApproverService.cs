@@ -89,11 +89,13 @@ namespace UTS.ScheduleSystem.MainLogic
             }
         }
 
+        //Subfunction of ApproveRule to approve a conversational rule 
         private void ApproveRuleInConversationalRuleList(string ruleId)
         {
             dataHandler.ChangeConversationalRuleState(ruleId, Status.Approved.ToString());
         }
 
+        //Subfunction of ApproveRule to approve a fixed conversational rule 
         private void ApproveRuleInFixedConversationalRuleList(string ruleId)
         {
             dataHandler.ChangeFixedConversationalRuleState(ruleId, Status.Approved.ToString());
@@ -112,11 +114,13 @@ namespace UTS.ScheduleSystem.MainLogic
             }
         }
 
+        //Subfunction of RejectRule to reject a conversational rule 
         private void RejectRuleInConversationalRuleList(string ruleId)
         {
             dataHandler.ChangeConversationalRuleState(ruleId, Status.Rejected.ToString());
         }
 
+        //Subfunction of RejectRule to reject a fixed conversational rule 
         private void RejectRuleInFixedConversationalRuleList(string ruleId)
         {
             dataHandler.ChangeFixedConversationalRuleState(ruleId, Status.Rejected.ToString());

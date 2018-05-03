@@ -10,7 +10,6 @@ namespace UTS.ScheduleSystem.MainLogic
     public class DataHandler
     {
         string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-        //string connectionString = "Data Source=(LocalDb)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\aspnet-UTS.ScheduleSystem.Web-20180415025446.mdf;Initial Catalog=aspnet-UTS.ScheduleSystem.Web-20180415025446;Integrated Security=True";
         ConversationalRuleTableAdapter conversationalRuleTableAdapter;
         FixedConversationalRuleTableAdapter fixedConversationalRuleTableAdapter;
         MealScheduleTableAdapter mealScheduleTableAdapter;
@@ -25,32 +24,37 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
 
-        // Conversational rule
+        // Add a conversational rule into database
         public void AddConversationalRule(Rule rule)
         {
             conversationalRuleTableAdapter.InsertQuery(rule.Id, rule.Input, rule.Output, rule.RelatedUsersId, rule.Status.ToString());
         }
 
+        // Delete a conversational rule from database by Id
         public void RemoveConversationalRule(string id)
         {
             conversationalRuleTableAdapter.DeleteQuery(id);
         }
 
+        // Delete all conversational rules from database
         public void RemoveAllConversationalRule()
         {
             conversationalRuleTableAdapter.DeleteAllQuery();
         }
 
+        // Update a conversational rule by Id
         public void ChangeOnConversationalRule(string input, string output, string relatedUserId, string status, string ruleId)
         {
             conversationalRuleTableAdapter.UpdateQuery(input, output, relatedUserId, status, ruleId);
         }
 
+        // Update only status of a conversational rule by Id
         public void ChangeConversationalRuleState(string id, string status)
         {
             conversationalRuleTableAdapter.UpdateRuleStatus(status, id);
         }
 
+        // Find a conversational rule by Id
         public ConversationalRule FindConversationalRuleById(string id)
         {
             var x = conversationalRuleTableAdapter.FindConversationalRuleById(id).ToList().First();
@@ -58,6 +62,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return newRule;
         }
 
+        // Find conversational rules by status
         public List<ConversationalRule> FindConversationalRulesAccordingToStatus(Status status)
         {
             List<ConversationalRule> result = new List<ConversationalRule>();
@@ -73,12 +78,14 @@ namespace UTS.ScheduleSystem.MainLogic
             return result;
         }
 
+        // Find last added conversational rule Id 
         public string FindLastConversationalRuleId()
         {
             string result = conversationalRuleTableAdapter.FindLastIdQuery();
             return result;
         }
 
+        // Find number of conversational rules
         public int FindConversationalRuleNum(string status)
         {
             int result = Convert.ToInt32(conversationalRuleTableAdapter.GetRulesCountByStatus(status));
@@ -86,32 +93,37 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
 
-        // Fixed conversational rule
+        // Add a fixed conversational rule into database
         public void AddFixedConversationalRule(Rule rule)
         {
             fixedConversationalRuleTableAdapter.InsertQuery(rule.Id, rule.Input, rule.Output, rule.RelatedUsersId, rule.Status.ToString());
         }
 
+        // Delete a fixed conversational rule from database by Id
         public void RemoveFixedConversationalRule(string id)
         {
             fixedConversationalRuleTableAdapter.DeleteQuery(id);
         }
 
+        // Delete all fixed conversational rules from database
         public void RemoveAllFixedConversationalRule()
         {
             fixedConversationalRuleTableAdapter.DeleteAllQuery();
         }
 
+        // Update a fixed conversational rule by Id
         public void ChangeOnFixedConversationalRule(string input, string output, string relatedUserId, string status, string ruleId)
         {
             fixedConversationalRuleTableAdapter.UpdateQuery(input, output, relatedUserId, status, ruleId);
         }
 
+        // Update only status of a fixed conversational rule by Id
         public void ChangeFixedConversationalRuleState(string id, string status)
         {
             fixedConversationalRuleTableAdapter.UpdateRuleStatus(status, id);
         }
 
+        // Find corresponding output data by input from database
         public string FindSingleFixedConversationalRule(string input)
         {
             string result;
@@ -126,6 +138,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return result;
         }
 
+        // Find a fixed conversational rule by Id
         public FixedConversationalRule FindFixedConversationalRuleById(string id)
         {
             var x = fixedConversationalRuleTableAdapter.FindFixedConversationalRuleById(id).ToList().First();
@@ -133,6 +146,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return newRule;
         }
 
+        // Find fixed conversational rules by status
         public List<FixedConversationalRule> FindFixedConversationalRulesAccordingToStatus(Status status)
         {
             List<FixedConversationalRule> result = new List<FixedConversationalRule>();
@@ -148,12 +162,14 @@ namespace UTS.ScheduleSystem.MainLogic
             return result;
         }
 
+        // Find last added fixed conversational rule Id 
         public string FindLastFixedConversationalRuleId()
         {
             string result = fixedConversationalRuleTableAdapter.FindLastIdQuery();
             return result;
         }
 
+        // Find number of fixed conversational rules
         public int FindFixedConversationalRuleNum(string status)
         {
             int result = Convert.ToInt32(fixedConversationalRuleTableAdapter.GetRulesCountByStatus(status));
@@ -161,27 +177,31 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
 
-        // Mealschedule
+        // Add a mealschedule data into database
         public void AddMealschedule(string id, string topic, string participants, string location, string startDate, string endDate, string lastEditUserId)
         {
             mealScheduleTableAdapter.Insert(id, topic, participants, location, startDate, endDate, lastEditUserId);
         }
 
+        // Delete a mealschedule data from database
         public void DeleteMealschedule(string Id)
         {
             mealScheduleTableAdapter.DeleteQuery(Id);
         }
 
+        // Delete all mealschedule data from database
         public void RemoveAllMealschedule()
         {
             mealScheduleTableAdapter.DeleteAllQuery();
         }
 
+        // Update a mealschedule data by Id
         public void ChangeOnMealschedule(string id, string topic, string participants, string location, string startDate, string endDate, string lastEditUserId)
         {
             mealScheduleTableAdapter.UpdateQuery(topic, participants, location, startDate, endDate, lastEditUserId, id);
         }
 
+        // Find a corresponding data of mealschedule output by input
         public string FindSingleMealschedule(string inputKeyword, string outputKeyword, string parameter)
         {
             string result;
