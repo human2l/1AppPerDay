@@ -22,13 +22,13 @@ namespace UTS.ScheduleSystem.MainLogic
             this.output = output;
             this.relatedUsersId = relatedUsersId;
             this.status = status;
-            this.lastRelatedUserID = GetLastRelatedUserID();
+            this.lastRelatedUserID = relatedUsersId;
         }
 
         private string GetLastRelatedUserID()
         {
             string[] relatedUsersIdString = relatedUsersId.Split(' ');
-            string lastUserId = relatedUsersIdString[relatedUsersIdString.Length-1];
+            string lastUserId = relatedUsersIdString[relatedUsersIdString.Length - 1];
             return lastUserId;
         }
 
@@ -102,7 +102,7 @@ namespace UTS.ScheduleSystem.MainLogic
         {
             get
             {
-                return lastRelatedUserID;
+                return GetLastRelatedUserID();
             }
 
             set

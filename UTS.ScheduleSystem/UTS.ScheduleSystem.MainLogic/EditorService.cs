@@ -18,7 +18,6 @@ namespace UTS.ScheduleSystem.MainLogic
         public void AddNewFCRule(string input, string output, string userId)
         {
             FixedConversationalRule rule = new FixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", dataHandler.FindLastFixedConversationalRuleId()), input, output, userId, Status.Pending);
-
             dataHandler.AddFixedConversationalRule(rule);
         }
 
@@ -71,6 +70,24 @@ namespace UTS.ScheduleSystem.MainLogic
             return rejectedRulesList;
         }
 
+        // Get related user id string and return a string without target user id
+        private string StringFormat(string relatedUserId, string userId)
+        {
+            string result = "";
+            if (relatedUserId.Contains(userId))
+            {
+                string[] relatedUserIds = relatedUserId.Split(' ');
+                foreach(string id in relatedUserIds)
+                {
+                    if (!id.Equals(userId))
+                        result = result + id;
+                }
+            }
+            else
+                result = relatedUserId;
+            return result;
+        }
+
         // Change a rule
         public void EditPendingRule(string userId, string ruleId, string ruleInput, string ruleOutput, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
@@ -82,11 +99,11 @@ namespace UTS.ScheduleSystem.MainLogic
                 {
                     if (fCRulesList[i].Id == ruleId)
                     {
-                        relatedUserId = fCRulesList[i].RelatedUsersId + " " + userId;
+                        relatedUserId = (StringFormat(fCRulesList[i].RelatedUsersId,userId) + " " + userId).Trim();
                         break;
                     }
                 }
-                    dataHandler.ChangeOnFixedConversationalRule(ruleInput, ruleOutput, relatedUserId, "Pending", ruleId);
+                dataHandler.ChangeOnFixedConversationalRule(ruleInput, ruleOutput, relatedUserId, "Pending", ruleId);
             }
             else if (ruleId.Contains("c"))
             {
@@ -94,11 +111,11 @@ namespace UTS.ScheduleSystem.MainLogic
                 {
                     if (cRulesList[i].Id == ruleId)
                     {
-                        relatedUserId = cRulesList[i].RelatedUsersId + " " + userId;
+                        relatedUserId = (StringFormat(cRulesList[i].RelatedUsersId, userId) + " " + userId).Trim();
                         break;
                     }
                 }
-                dataHandler.ChangeOnConversationalRule(ruleInput, ruleOutput, userId, "Pending", ruleId);
+                dataHandler.ChangeOnConversationalRule(ruleInput, ruleOutput, relatedUserId, "Pending", ruleId);
             }
         }
 
