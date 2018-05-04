@@ -56,19 +56,19 @@ namespace UTS.ScheduleSystem.Web
             }
 
             // Get current data
-            MealSchedule ms = controller.DataMaintainerService.FindMealScheduleById(currentId);
-            if(ms != null)
-            {
-                TopicTextBox.Text = ms.Topic;
-                ParticipantsTextBox.Text = ms.Participants;
-                LocationTextBox.Text = ms.Location;
-                StartDateTextBox.Text = ms.StartDate;
-                EndDateTextBox.Text = ms.EndDate;
-            }
-            else
-            {
-                Response.Redirect("~/");
-            }
+            //MealSchedule ms = controller.DataMaintainerService.FindMealScheduleById(currentId);
+            //if(ms != null)
+            //{
+            //    TopicTextBox.Text = ms.Topic;
+            //    ParticipantsTextBox.Text = ms.Participants;
+            //    LocationTextBox.Text = ms.Location;
+            //    StartDateTextBox.Text = ms.StartDate;
+            //    EndDateTextBox.Text = ms.EndDate;
+            //}
+            //else
+            //{
+            //    Response.Redirect("~/");
+            //}
             
         }
 

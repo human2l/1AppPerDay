@@ -55,16 +55,16 @@ namespace UTS.ScheduleSystem.Web
             }
 
             // Get current data
-            Rule rule = controller.EditorService.FindRuleById(currentId);
-            if (rule != null)
-            {
-                InputTextBox.Text = rule.Input;
-                OutputTextBox.Text = rule.Output;
-            }
-            else
-            {
-                Response.Redirect("~/");
-            }
+            //Rule rule = controller.EditorService.FindRuleById(currentId);
+            //if (rule != null)
+            //{
+            //    InputTextBox.Text = rule.Input;
+            //    OutputTextBox.Text = rule.Output;
+            //}
+            //else
+            //{
+            //    Response.Redirect("~/");
+            //}
             
         }
 
