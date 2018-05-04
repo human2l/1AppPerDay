@@ -14,13 +14,13 @@ namespace UTS.ScheduleSystem.Web
         public const string IdKey = "ID";
         string currentId;
         Controller controller;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Controller"] != null)
             {
                 controller = (Controller)Session["Controller"];
-
                 //Reject access if no permission
                 if (!controller.CurrentUser.Role.ToString().Contains("E"))
                 {
@@ -55,6 +55,8 @@ namespace UTS.ScheduleSystem.Web
 
                 }
             }
+            InputTextBox.Text = controller.EditorService.FindRuleById(currentId).Input;
+            OutputTextBox.Text = controller.EditorService.FindRuleById(currentId).Output;
         }
 
         protected void SaveButton_Click(object sender, EventArgs e)

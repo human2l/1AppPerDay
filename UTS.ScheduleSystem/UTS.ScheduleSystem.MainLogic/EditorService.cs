@@ -310,7 +310,21 @@ namespace UTS.ScheduleSystem.MainLogic
             return false;
         }
         
-        
+       public Rule FindRuleById(string id)
+        {
+            Rule rule = null;
+            if (id.Contains("f"))
+            {
+                rule = dataHandler.FindFixedConversationalRuleById(id);
+            }
+            else
+            {
+                rule = dataHandler.FindConversationalRuleById(id);
+            }
+            
+
+            return rule;
+        } 
 
         // Check whether a rule is already existed in the database or not
         public bool CheckRepeatingRule(string input, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
