@@ -51,20 +51,22 @@ namespace UTS.ScheduleSystem.Web
                     ViewState[IdKey] = id;
                     currentId = id;
 
+                    // Get current data
+                    Rule rule = controller.EditorService.FindRuleById(currentId);
+                    if (rule != null)
+                    {
+                        InputTextBox.Text = rule.Input;
+                        OutputTextBox.Text = rule.Output;
+                    }
+                    else
+                    {
+                        Response.Redirect("~/");
+                    }
+
                 }
             }
 
-            // Get current data
-            //Rule rule = controller.EditorService.FindRuleById(currentId);
-            //if (rule != null)
-            //{
-            //    InputTextBox.Text = rule.Input;
-            //    OutputTextBox.Text = rule.Output;
-            //}
-            //else
-            //{
-            //    Response.Redirect("~/");
-            //}
+           
             
         }
 

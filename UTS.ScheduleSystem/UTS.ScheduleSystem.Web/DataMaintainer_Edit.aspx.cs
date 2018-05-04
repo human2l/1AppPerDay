@@ -51,24 +51,24 @@ namespace UTS.ScheduleSystem.Web
                     // Save the ID for later
                     ViewState[IdKey] = id;
                     currentId = id;
-
+                    // Get current data
+                    MealSchedule ms = controller.DataMaintainerService.FindMealScheduleById(currentId);
+                    if (ms != null)
+                    {
+                        TopicTextBox.Text = ms.Topic;
+                        ParticipantsTextBox.Text = ms.Participants;
+                        LocationTextBox.Text = ms.Location;
+                        StartDateTextBox.Text = ms.StartDate;
+                        EndDateTextBox.Text = ms.EndDate;
+                    }
+                    else
+                    {
+                        Response.Redirect("~/");
+                    }
                 }
             }
 
-            // Get current data
-            //MealSchedule ms = controller.DataMaintainerService.FindMealScheduleById(currentId);
-            //if(ms != null)
-            //{
-            //    TopicTextBox.Text = ms.Topic;
-            //    ParticipantsTextBox.Text = ms.Participants;
-            //    LocationTextBox.Text = ms.Location;
-            //    StartDateTextBox.Text = ms.StartDate;
-            //    EndDateTextBox.Text = ms.EndDate;
-            //}
-            //else
-            //{
-            //    Response.Redirect("~/");
-            //}
+            
             
         }
 
