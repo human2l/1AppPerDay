@@ -26,7 +26,7 @@ namespace UTS.ScheduleSystem.Web
                 {
                     Response.Redirect("~/");
                 }
-                
+
                 UpdateGridView();
             }
             else
@@ -48,6 +48,11 @@ namespace UTS.ScheduleSystem.Web
         protected void DataMaintainerGridView_RowEditing(object sender, GridViewEditEventArgs e)
         {
             string id = (string)DataMaintainerGridView.DataKeys[e.NewEditIndex].Value;
+            Session["Topic"] = DataMaintainerGridView.Rows[e.NewEditIndex].Cells[1].Text;
+            Session["Participants"] = DataMaintainerGridView.Rows[e.NewEditIndex].Cells[2].Text;
+            Session["Location"] = DataMaintainerGridView.Rows[e.NewEditIndex].Cells[3].Text;
+            Session["StartDate"] = DataMaintainerGridView.Rows[e.NewEditIndex].Cells[4].Text;
+            Session["EndDate"] = DataMaintainerGridView.Rows[e.NewEditIndex].Cells[5].Text;
             Response.Redirect("~/Datamaintainer_Edit.aspx?ID=" + id);
         }
 

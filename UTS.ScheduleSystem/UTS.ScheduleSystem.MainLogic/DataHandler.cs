@@ -57,8 +57,16 @@ namespace UTS.ScheduleSystem.MainLogic
         // Find a conversational rule by Id
         public ConversationalRule FindConversationalRuleById(string id)
         {
-            var x = conversationalRuleTableAdapter.FindConversationalRuleById(id).ToList().First();
-            ConversationalRule newRule = new ConversationalRule(x.Id, x.Input, x.Output, x.RelatedUsersId, Utils.GetStatus(x.Status));
+            ConversationalRule newRule;
+            try
+            {
+                var x = conversationalRuleTableAdapter.FindConversationalRuleById(id).ToList().First();
+                newRule = new ConversationalRule(x.Id, x.Input, x.Output, x.RelatedUsersId, Utils.GetStatus(x.Status));
+            }
+            catch
+            {
+                newRule = null;
+            }
             return newRule;
         }
 
@@ -141,8 +149,16 @@ namespace UTS.ScheduleSystem.MainLogic
         // Find a fixed conversational rule by Id
         public FixedConversationalRule FindFixedConversationalRuleById(string id)
         {
-            var x = fixedConversationalRuleTableAdapter.FindFixedConversationalRuleById(id).ToList().First();
-            FixedConversationalRule newRule = new FixedConversationalRule(x.Id, x.Input, x.Output, x.RelatedUsersId, Utils.GetStatus(x.Status));
+            FixedConversationalRule newRule;
+            try
+            {
+                var x = fixedConversationalRuleTableAdapter.FindFixedConversationalRuleById(id).ToList().First();
+                newRule = new FixedConversationalRule(x.Id, x.Input, x.Output, x.RelatedUsersId, Utils.GetStatus(x.Status));
+            }
+            catch
+            {
+                newRule = null;
+            }
             return newRule;
         }
 
