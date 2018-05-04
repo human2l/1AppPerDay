@@ -26,11 +26,11 @@ namespace UTS.ScheduleSystem.Web
                 {
                     Response.Redirect("~/");
                 }
-                TopicTextBox.Text = Session["Topic"].ToString();
-                ParticipantsTextBox.Text = Session["Participants"].ToString();
-                LocationTextBox.Text = Session["Location"].ToString();
-                StartDateTextBox.Text = Session["StartDate"].ToString();
-                EndDateTextBox.Text = Session["EndDate"].ToString();;
+                //TopicTextBox.Text = Session["Topic"].ToString();
+                //ParticipantsTextBox.Text = Session["Participants"].ToString();
+                //LocationTextBox.Text = Session["Location"].ToString();
+                //StartDateTextBox.Text = Session["StartDate"].ToString();
+                //EndDateTextBox.Text = Session["EndDate"].ToString();;
 
             }
             else
@@ -42,13 +42,11 @@ namespace UTS.ScheduleSystem.Web
             if (IsPostBack)
             {
                 // Retrieve the ID from the view state
-
                 currentId = (string)ViewState[IdKey];
             }
             else
             {
                 //Retrieve the ID from the query string
-
                 string id = Request.QueryString[IdKey];
                 if (id != null && id != "")
                 {
@@ -61,19 +59,33 @@ namespace UTS.ScheduleSystem.Web
 
                 }
             }
+
+            // Get current data
+            MealSchedule ms = controller.DataMaintainerService.FindMealScheduleById(currentId);
+            if(ms != null)
+            {
+                TopicTextBox.Text = ms.Topic;
+                ParticipantsTextBox.Text = ms.Participants;
+                LocationTextBox.Text = ms.Location;
+                StartDateTextBox.Text = ms.StartDate;
+                EndDateTextBox.Text = ms.EndDate;
+            }
+            else
+            {
+                Response.Redirect("~/");
+            }
+            
         }
 
         protected void SaveButton_Click(object sender, EventArgs e)
         {
             if (currentId != null && currentId != "")
             {
-                // Edit
-                // Find the Contact
                 // Save Changes
                 controller.DataMaintainerService.EditMealSchedule(currentId, TopicTextBox.Text, ParticipantsTextBox.Text, LocationTextBox.Text, StartDateTextBox.Text, EndDateTextBox.Text, controller.CurrentUser.Id);
             }
 
-            // Return to the list page
+            // Return to the Datamaintainer page
             Response.Redirect("~/Datamaintainer.aspx");
         }
 

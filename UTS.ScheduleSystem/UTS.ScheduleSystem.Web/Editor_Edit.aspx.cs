@@ -22,7 +22,7 @@ namespace UTS.ScheduleSystem.Web
             {
                 controller = (Controller)Session["Controller"];
                 //Reject access if no permission
-                if (!controller.CurrentUser.Role.ToString().Contains("E"))
+                if (!controller.CurrentUser.Role.ToString().Contains("E") || Request.QueryString[IdKey] == null)
                 {
                     Response.Redirect("~/");
                 }
@@ -36,13 +36,11 @@ namespace UTS.ScheduleSystem.Web
             if (IsPostBack)
             {
                 // Retrieve the ID from the view state
-
                 currentId = (string)ViewState[IdKey];
             }
             else
             {
                 //Retrieve the ID from the query string
-
                 string id = Request.QueryString[IdKey];
                 if (id != null && id != "")
                 {
@@ -55,22 +53,31 @@ namespace UTS.ScheduleSystem.Web
 
                 }
             }
-            InputTextBox.Text = controller.EditorService.FindRuleById(currentId).Input;
-            OutputTextBox.Text = controller.EditorService.FindRuleById(currentId).Output;
+
+            // Get current data
+            Rule rule = controller.EditorService.FindRuleById(currentId);
+            if (rule != null)
+            {
+                InputTextBox.Text = rule.Input;
+                OutputTextBox.Text = rule.Output;
+            }
+            else
+            {
+                Response.Redirect("~/");
+            }
+            
         }
 
         protected void SaveButton_Click(object sender, EventArgs e)
         {
             if (currentId != null && currentId != "")
             {
-                // Edit
-                // Find the Contact
                 // Save Changes
                 controller.EditorService.EditPendingRule(controller.CurrentUser.Id, currentId,
                     InputTextBox.Text, OutputTextBox.Text, controller.FixedConversationalRulesList, controller.ConversationalRulesList);
             }
 
-            // Return to the list page
+            // Return to the editor page
             Response.Redirect("~/Editor.aspx");
         }
 

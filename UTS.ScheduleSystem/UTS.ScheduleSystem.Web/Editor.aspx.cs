@@ -104,7 +104,6 @@ namespace UTS.ScheduleSystem.Web
                         // Check whether the input is existed or not
                         if (!controller.EditorService.CheckRepeatingRule(Input.Text, fcRuleList, cRuleList))
                         {
-                            //controller.FixedConversationalRulesList = controller.EditorService.AddNewFCRule(Input.Text, Output.Text, controller.CurrentUser.Id, fcRuleList);
                             controller.EditorService.AddNewFCRule(Input.Text, Output.Text, controller.CurrentUser.Id);
                             BindDataToPtable(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
                         }
@@ -138,8 +137,7 @@ namespace UTS.ScheduleSystem.Web
         {
             string id = PendingGridView.DataKeys[e.RowIndex].Value.ToString();
             controller.EditorService.DeletePendingRule(id);
-            //controller.FixedConversationalRulesList = lists.Item1;
-            //controller.ConversationalRulesList = lists.Item2;
+
             BindDataToPtable(controller.FixedConversationalRulesList, controller.ConversationalRulesList);
         }
 
@@ -167,6 +165,7 @@ namespace UTS.ScheduleSystem.Web
             }
         }
 
+        // Bind data to pending rules table
         protected void BindDataToPtable (List<FixedConversationalRule> fcRuleList, List<ConversationalRule> cRuleList)
         {
             List<Rule> rulesList = new List<Rule>();
@@ -175,6 +174,7 @@ namespace UTS.ScheduleSystem.Web
             PendingGridView.DataBind();
         }
 
+        // Bind data to rejected rules table
         protected void BindDataToRtable(List<FixedConversationalRule> fcRuleList, List<ConversationalRule> cRuleList)
         {
             List<Rule> rulesList = new List<Rule>();
@@ -183,22 +183,26 @@ namespace UTS.ScheduleSystem.Web
             RejectedGridView.DataBind();
         }
 
+        // Shows error message
         protected void InvalidInputError ()
         {
             ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Invalid input" + "');", true);
         }
 
+        // Shows error message
         protected void RepeatingRuleError ()
         {
             ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Repeating rule" + "');", true);
         }
 
+        // Shows error message
         protected void InvalidFormatError ()
         {
             ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Invalid rule format, " +
                 "use following fomat: { topic }, { participants }, { location }, { startdate }, { enddate }" + "');", true);
         }
 
+        // Shows error message
         protected void UnknowError ()
         {
             ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Unknow error" + "');", true);

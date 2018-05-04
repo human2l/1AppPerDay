@@ -244,8 +244,16 @@ namespace UTS.ScheduleSystem.MainLogic
         // Find meal sechdule by Id
         public MealSchedule FindMealScheduleById(string id)
         {
-            var x = mealScheduleTableAdapter.FindMealScheduleById(id).ToList().First();
-            MealSchedule mealSchedule = new MealSchedule(x.Id, x.Topic, x.Participants, x.Location, x.StartDate, x.EndDate, x.LastEditUserId);
+            MealSchedule mealSchedule;
+            try
+            {
+                var x = mealScheduleTableAdapter.FindMealScheduleById(id).ToList().First();
+                mealSchedule = new MealSchedule(x.Id, x.Topic, x.Participants, x.Location, x.StartDate, x.EndDate, x.LastEditUserId);
+            }
+            catch
+            {
+                mealSchedule = null;
+            }
             return mealSchedule;
         }
 

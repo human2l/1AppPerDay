@@ -39,5 +39,10 @@ namespace UTS.ScheduleSystem.MainLogic
         {
             dataHandler.ChangeOnMealschedule(id, topic, participants, location, startDate, endDate, laseEditor);
         }
+
+        public MealSchedule FindMealScheduleById (string id)
+        {
+            return dataHandler.FindMealScheduleById(id);
+        }
     }
 }
