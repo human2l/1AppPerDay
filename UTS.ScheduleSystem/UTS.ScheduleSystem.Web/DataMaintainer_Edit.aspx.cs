@@ -26,11 +26,6 @@ namespace UTS.ScheduleSystem.Web
                 {
                     Response.Redirect("~/");
                 }
-                //TopicTextBox.Text = Session["Topic"].ToString();
-                //ParticipantsTextBox.Text = Session["Participants"].ToString();
-                //LocationTextBox.Text = Session["Location"].ToString();
-                //StartDateTextBox.Text = Session["StartDate"].ToString();
-                //EndDateTextBox.Text = Session["EndDate"].ToString();;
 
             }
             else

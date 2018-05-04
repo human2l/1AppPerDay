@@ -26,6 +26,7 @@ namespace UTS.ScheduleSystem.MainLogic
         public string Conversation(string question)
         {
             string compactedString = Utils.IgnoreWhiteSpace(question);
+            compactedString = Utils.RemoveAllMarks(compactedString);
 
             if (!AnswerToFixedRuleConversation(compactedString) && !AnswerToConversation(compactedString))
                 answer = "Can not find answer to the question";
@@ -43,34 +44,41 @@ namespace UTS.ScheduleSystem.MainLogic
         // Answer to unfixed rule conversation
         private Boolean AnswerToConversation(string question)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-                string query = @"select Input, Output from ConversationalRule where Status='Approved'";
-                SqlCommand command = new SqlCommand(query, connection);
-                SqlDataReader dataReader = command.ExecuteReader();
-                while (dataReader.Read())
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string input = dataReader["Input"].ToString();
-                    string[] inputSplit = SplitRule(input);
-                    if (question.StartsWith(inputSplit[0]) && question.EndsWith(inputSplit[2]))
+                    connection.Open();
+                    string query = @"select Input, Output from ConversationalRule where Status='Approved'";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    SqlDataReader dataReader = command.ExecuteReader();
+                    while (dataReader.Read())
                     {
-                        string output = dataReader["Output"].ToString();
-                        string[] outputSplit = SplitRule(output);
-
-                        string parameter = Parameter(question, inputSplit[0], inputSplit[2]);
-                        string inputKeyword = inputSplit[1];
-                        string outputKeyword = outputSplit[1];
-                        string singleValue = FindAnswerFromMealSchedule(inputKeyword, outputKeyword, parameter);
-                        if (singleValue != null)
+                        string input = dataReader["Input"].ToString();
+                        string[] inputSplit = SplitRule(input);
+                        if (question.StartsWith(inputSplit[0]) && question.EndsWith(inputSplit[2]))
                         {
-                            answer = outputSplit[0] + singleValue + outputSplit[2];
-                            command.Dispose();
-                            return true;
+                            string output = dataReader["Output"].ToString();
+                            string[] outputSplit = SplitRule(output);
+
+                            string parameter = Parameter(question, inputSplit[0], inputSplit[2]);
+                            string inputKeyword = inputSplit[1];
+                            string outputKeyword = outputSplit[1];
+                            string singleValue = FindAnswerFromMealSchedule(inputKeyword, outputKeyword, parameter);
+                            if (singleValue != null)
+                            {
+                                answer = outputSplit[0] + singleValue + outputSplit[2];
+                                command.Dispose();
+                                return true;
+                            }
                         }
                     }
+                    command.Dispose();
                 }
-                command.Dispose();
+            }
+            catch
+            {
+                return false;
             }
             return false;
         }

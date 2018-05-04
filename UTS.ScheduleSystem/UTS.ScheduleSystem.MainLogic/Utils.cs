@@ -152,7 +152,34 @@ namespace UTS.ScheduleSystem.MainLogic
             string longString = input;
             string[] split = longString.Split(WhiteSpace, StringSplitOptions.RemoveEmptyEntries);
             string compactedString = string.Join(" ", split);
-            return compactedString;
+            return compactedString.ToLower();
+        }
+
+        public static string RemoveAllMarks(string input)
+        {
+            string Uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            string number = "1234567890";
+            string Lowercase = "abcdefghijklmnopqrstuvwxyz";
+            
+            bool simple = false;
+            string temp = input;
+            while (!simple)
+            {
+                temp = input;
+                for (var i = 0; i < input.Count(); i++)
+                {
+                    if (!Uppercase.Contains(input.ElementAt(i)) && !number.Contains(input.ElementAt(i)) && !Lowercase.Contains(input.ElementAt(i)) && input.ElementAt(i) != ' ')
+                    {
+                        input = input.Replace(input.ElementAt(i) + "", "");
+                        break;
+                    }
+                }
+                if (input == temp)
+                {
+                    simple = true;
+                }
+            }
+            return input.ToLower();
         }
     }
 }

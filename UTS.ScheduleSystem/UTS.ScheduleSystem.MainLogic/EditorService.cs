@@ -17,14 +17,14 @@ namespace UTS.ScheduleSystem.MainLogic
         // Add a fixed conversation rule
         public void AddNewFCRule(string input, string output, string userId)
         {
-            FixedConversationalRule rule = new FixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", dataHandler.FindLastFixedConversationalRuleId()), input, output, userId, Status.Pending);
+            FixedConversationalRule rule = new FixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", dataHandler.FindLastFixedConversationalRuleId()), Utils.IgnoreWhiteSpace(input), Utils.IgnoreWhiteSpace(output), userId, Status.Pending);
             dataHandler.AddFixedConversationalRule(rule);
         }
 
         // Add a conversation rule
         public void AddNewCRule(string input, string output, string userId)
         {
-            ConversationalRule rule = new ConversationalRule(Utils.CreateIdByType("ConversationalRule", dataHandler.FindLastConversationalRuleId()), input, output, userId, Status.Pending);
+            ConversationalRule rule = new ConversationalRule(Utils.CreateIdByType("ConversationalRule", dataHandler.FindLastConversationalRuleId()), Utils.IgnoreWhiteSpace(input), Utils.IgnoreWhiteSpace(output), userId, Status.Pending);
             dataHandler.AddConversationalRule(rule);
         }
 
@@ -278,8 +278,18 @@ namespace UTS.ScheduleSystem.MainLogic
         // Check the input validation
         public bool IsFixedRuleValid (string input, string output)
         {
+            string az = "qwertyuiopasdfghjklzxcvbnm ";
+            string num = "1234567890";
             if (!input.Contains("{") && !input.Contains("}") && !output.Contains("{") && !output.Contains("}"))
             {
+                input = input.ToLower();
+                foreach(char x in input)
+                {
+                    if(!az.Contains(x) && !num.Contains(x))
+                    {
+                        return false;
+                    }
+                }
                 return true;
             }
             return false;
@@ -289,7 +299,17 @@ namespace UTS.ScheduleSystem.MainLogic
         public bool IsRuleValid(string input)
         {
             //string compactedString = IgnoreWhiteSpace(input);
-
+            string az = "qwertyuiopasdfghjklzxcvbnm ";
+            string num = "1234567890";
+            string marks = "{}";
+            input = input.ToLower();
+            foreach (char x in input)
+            {
+                if (!az.Contains(x) && !num.Contains(x) && !marks.Contains(x))
+                {
+                    return false;
+                }
+            }
             string[] phrase1;
             string[] phrase2;
             phrase1 = input.Split('{');
