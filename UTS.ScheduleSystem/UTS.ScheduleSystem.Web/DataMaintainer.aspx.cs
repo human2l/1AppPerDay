@@ -19,11 +19,14 @@ namespace UTS.ScheduleSystem.Web
             System.Diagnostics.Debug.WriteLine("page load");
             if (Session["Controller"] != null && controller == null)
             {
+                controller = (Controller)Session["Controller"];
+
+                //Reject access if no permission
                 if (!controller.CurrentUser.Role.ToString().Contains("DM"))
                 {
                     Response.Redirect("~/");
                 }
-                controller = (Controller)Session["Controller"];
+                
                 UpdateGridView();
             }
             else

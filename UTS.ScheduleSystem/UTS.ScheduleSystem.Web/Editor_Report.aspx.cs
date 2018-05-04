@@ -17,6 +17,8 @@ namespace UTS.ScheduleSystem.Web
             if (Session["Controller"] != null)
             {
                 controller = (Controller)Session["Controller"];
+
+                //Reject access if no permission
                 if (!controller.CurrentUser.Role.ToString().Contains("E"))
                 {
                     Response.Redirect("~/");
@@ -36,7 +38,6 @@ namespace UTS.ScheduleSystem.Web
             {
                 Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
                 Response.Redirect("~/");
-                
             }
         }
     }
