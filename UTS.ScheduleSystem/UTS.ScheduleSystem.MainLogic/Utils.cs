@@ -152,7 +152,7 @@ namespace UTS.ScheduleSystem.MainLogic
             string longString = input;
             string[] split = longString.Split(WhiteSpace, StringSplitOptions.RemoveEmptyEntries);
             string compactedString = string.Join(" ", split);
-            return compactedString.ToLower();
+            return compactedString;
         }
 
         public static string RemoveAllMarks(string input)
@@ -162,7 +162,7 @@ namespace UTS.ScheduleSystem.MainLogic
             string Lowercase = "abcdefghijklmnopqrstuvwxyz";
             
             bool simple = false;
-            string temp = input;
+            string temp;
             while (!simple)
             {
                 temp = input;
@@ -179,7 +179,8 @@ namespace UTS.ScheduleSystem.MainLogic
                     simple = true;
                 }
             }
-            return input.ToLower();
+
+            return input;
         }
     }
 }

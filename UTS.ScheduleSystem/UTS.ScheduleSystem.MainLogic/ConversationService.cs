@@ -26,7 +26,7 @@ namespace UTS.ScheduleSystem.MainLogic
         public string Conversation(string question)
         {
             string compactedString = Utils.IgnoreWhiteSpace(question);
-            compactedString = Utils.RemoveAllMarks(compactedString);
+            compactedString = Utils.RemoveAllMarks(compactedString).ToLower();
 
             if (!AnswerToFixedRuleConversation(compactedString) && !AnswerToConversation(compactedString))
                 answer = "Can not find answer to the question";
