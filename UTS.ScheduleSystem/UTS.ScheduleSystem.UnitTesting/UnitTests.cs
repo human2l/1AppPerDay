@@ -43,9 +43,13 @@ namespace UTS.ScheduleSystem.UnitTesting
         FixedConversationalRule cFRule21 = new FixedConversationalRule("fc5", "What is your name", "Are you flirting with me?", "u001", Status.Pending);
         FixedConversationalRule cFRule3 = new FixedConversationalRule("fc3", "I'm not good", "So go fuck yourself", "u001", Status.Rejected);
         FixedConversationalRule cFRule31 = new FixedConversationalRule("fc6", "I'm not good", "So go fuck yourself", "u001", Status.Pending);
+        MealSchedule mS1 = new MealSchedule("ms1", "a", "b", "c", "d", "e", "u001");
+        MealSchedule mS2 = new MealSchedule("ms2", "f", "g", "h", "i", "j", "u001");
+        MealSchedule mS3 = new MealSchedule("ms3", "k", "l", "m", "n", "o", "u001");
 
         ConversationalRule testCRule;
         FixedConversationalRule testFCRule;
+        MealSchedule testMSchedule;
 
         [ClassInitialize]
         public static void StartAllTest(TestContext testContext)
@@ -98,7 +102,7 @@ namespace UTS.ScheduleSystem.UnitTesting
 
             foreach (MealSchedule m in tempMealScheduleList)
             {
-                dataHandler.AddMealschedule(m.Id, m.Topic, m.Participants, m.Location, m.StartDate, m.EndDate, m.LastEditUserId);
+                dataHandler.AddMealschedule(m);
             }
         }
 
@@ -285,18 +289,18 @@ namespace UTS.ScheduleSystem.UnitTesting
             Assert.AreEqual(0.5, userSuccessRate);
         }
 
-        //[TestMethod]
-        //public void ApproverService_OverallAveSuccessRate_ReturnCorrectNumberOfOverallAverageSuccessRate()
-        //{
-        //    List<User> users = new List<User>();
-        //    users.Add(frank2);
-        //    users.Add(frank);
-        //    double OverallAveSuccessRate = controller.ApproverService.OverallAveSuccessRate(users, controller.ConversationalRulesList, controller.FixedConversationalRulesList);
-        //    Debug.WriteLine(controller.ApproverService.UserRelatedApprovedRulesNum(frank2, controller.ConversationalRulesList, controller.FixedConversationalRulesList));
-        //    Debug.WriteLine(controller.ApproverService.UserRelatedRejectedRulesNum(frank2, controller.ConversationalRulesList, controller.FixedConversationalRulesList));
-        //    Debug.WriteLine(controller.ApproverService.UserSuccessRate(frank2, controller.ConversationalRulesList, controller.FixedConversationalRulesList));
-        //    Assert.AreEqual(0.25, OverallAveSuccessRate);
-        //}
+        [TestMethod]
+        public void ApproverService_OverallAveSuccessRate_ReturnCorrectNumberOfOverallAverageSuccessRate()
+        {
+            dataHandler.AddConversationalRule(cRule1);
+            dataHandler.AddConversationalRule(cRule2);
+            dataHandler.AddConversationalRule(cRule3);
+            dataHandler.AddFixedConversationalRule(cFRule1);
+            dataHandler.AddFixedConversationalRule(cFRule2);
+            dataHandler.AddFixedConversationalRule(cFRule3);
+            double overallAveSuccessRate = controller.ApproverService.OverallAveSuccessRate();
+            Assert.AreEqual(0.125, overallAveSuccessRate);
+        }
 
         //-----------------------------------EditorService-----------------------------------------
 
@@ -439,5 +443,49 @@ namespace UTS.ScheduleSystem.UnitTesting
             Assert.AreEqual(0.33, userSuccessRate);
         }
 
+        //-----------------------------------DataMaintainerService-----------------------------------------
+
+        private Boolean CompareMealSchedule(MealSchedule mealSchedule1, MealSchedule mealSchedule2)
+        {
+            Boolean isSame = (mealSchedule1.Id.Equals(mealSchedule2.Id)) &&
+                (mealSchedule1.Topic.Equals(mealSchedule2.Topic)) &&
+                (mealSchedule1.Participants.Equals(mealSchedule2.Participants)) &&
+                (mealSchedule1.Location.Equals(mealSchedule2.Location)) &&
+                (mealSchedule1.StartDate.Equals(mealSchedule2.StartDate)) &&
+                (mealSchedule1.EndDate.Equals(mealSchedule2.EndDate)) &&
+                (mealSchedule1.LastEditUserId.Equals(mealSchedule2.LastEditUserId)) ? true : false;
+            return isSame;
+        }
+
+        [TestMethod]
+        public void DataMaintainerService_AddMealSchedule_AddANewMealScheduleDataIntoDatabase()
+        {
+            controller.DataMaintainerService.AddMealSchedule(mS1.Topic, mS1.Participants, mS1.Location, mS1.StartDate, mS1.EndDate, mS1.LastEditUserId);
+            testMSchedule = dataHandler.FindMealScheduleById(mS1.Id);
+            Assert.IsTrue(CompareMealSchedule(mS1, testMSchedule));
+        }
+
+        [TestMethod]
+        public void DataMaintainerService_DeleteMealSchedule_DeleteMealScheduleDataFromDatabase()
+        {
+            dataHandler.AddMealschedule(mS1);
+            dataHandler.AddMealschedule(mS2);
+            dataHandler.AddMealschedule(mS3);
+            controller.DataMaintainerService.DeleteMealSchedule(mS1.Id);
+            Assert.AreEqual(2, controller.MealScheduleList.Count);
+        }
+
+        [TestMethod]
+        public void DataMaintainerService_EditMealSchedule_EditMealScheduleInDatabase()
+        {
+            dataHandler.AddMealschedule(mS1);
+            controller.DataMaintainerService.EditMealSchedule(mS1.Id, mS2.Topic, mS2.Participants, mS2.Location, mS2.StartDate, mS2.EndDate, mS2.LastEditUserId);
+            testMSchedule = dataHandler.FindMealScheduleById(mS1.Id);
+            Assert.AreEqual(mS2.Topic, testMSchedule.Topic);
+            Assert.AreEqual(mS2.Participants, testMSchedule.Participants);
+            Assert.AreEqual(mS2.Location, testMSchedule.Location);
+            Assert.AreEqual(mS2.StartDate, testMSchedule.StartDate);
+            Assert.AreEqual(mS2.EndDate, testMSchedule.EndDate);
+        }
     }
 }

@@ -178,9 +178,9 @@ namespace UTS.ScheduleSystem.MainLogic
 
 
         // Add a mealschedule data into database
-        public void AddMealschedule(string id, string topic, string participants, string location, string startDate, string endDate, string lastEditUserId)
+        public void AddMealschedule(MealSchedule mealSchedule)
         {
-            mealScheduleTableAdapter.Insert(id, topic, participants, location, startDate, endDate, lastEditUserId);
+            mealScheduleTableAdapter.Insert(mealSchedule.Id, mealSchedule.Topic, mealSchedule.Participants, mealSchedule.Location, mealSchedule.StartDate, mealSchedule.EndDate, mealSchedule.LastEditUserId);
         }
 
         // Delete a mealschedule data from database
@@ -225,6 +225,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return result;
         }
 
+        // Find meal sechdule by Id
         public MealSchedule FindMealScheduleById(string id)
         {
             var x = mealScheduleTableAdapter.FindMealScheduleById(id).ToList().First();
@@ -232,19 +233,21 @@ namespace UTS.ScheduleSystem.MainLogic
             return mealSchedule;
         }
 
+        // Find last added meal schedule Id
         public string FindLastMealscheduleId()
         {
             string result = mealScheduleTableAdapter.FindLastIdQuery();
             return result;
         }
 
-        // User
+        // Find number of editors
         public int FindEditorNum()
         {
             int result = Convert.ToInt32(aspNetUsersTableAdapter.GetUsersCountByRoleEditor());
             return result;
         }
 
+        // Find all editors id and return as a list
         public List<string> FindEditorsId()
         {
             List<string> editorsId = new List<string>();
