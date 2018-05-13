@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Data.Entity.Spatial;
 
 namespace UTS.ScheduleSystem.MainLogic
 {
@@ -11,7 +12,7 @@ namespace UTS.ScheduleSystem.MainLogic
         protected string input;
         protected string output;
         protected string relatedUsersId;
-        protected Status status;
+        protected string status;
         protected string id;
         protected string lastRelatedUserID;
 
@@ -21,7 +22,7 @@ namespace UTS.ScheduleSystem.MainLogic
             this.input = input;
             this.output = output;
             this.relatedUsersId = relatedUsersId;
-            this.status = status;
+            this.status = status.ToString();
             this.lastRelatedUserID = relatedUsersId;
         }
 
@@ -31,7 +32,6 @@ namespace UTS.ScheduleSystem.MainLogic
             string lastUserId = relatedUsersIdString[relatedUsersIdString.Length - 1];
             return lastUserId;
         }
-
 
         public string Input
         {
@@ -76,12 +76,12 @@ namespace UTS.ScheduleSystem.MainLogic
         {
             get
             {
-                return status;
+                return Utils.GetStatus(status);
             }
 
             set
             {
-                status = value;
+                status = value.ToString();
             }
         }
 

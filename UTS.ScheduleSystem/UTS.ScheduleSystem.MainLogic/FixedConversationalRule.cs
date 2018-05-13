@@ -13,7 +13,7 @@ namespace UTS.ScheduleSystem.MainLogic
         {
 
         }
-        //public string Id { get; set; }
+
         public string Id
         {
             get
@@ -29,7 +29,6 @@ namespace UTS.ScheduleSystem.MainLogic
 
         [Required]
         [StringLength(128)]
-        //public string Input { get; set; }
         public string Input
         {
             get
@@ -45,7 +44,6 @@ namespace UTS.ScheduleSystem.MainLogic
 
         [Required]
         [StringLength(128)]
-        //public string Output { get; set; }
         public string Output
         {
             get
@@ -60,7 +58,6 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         [StringLength(128)]
-        //public string RelatedUsersId { get; set; }
         public string RelatedUsersId
         {
             get
@@ -76,17 +73,16 @@ namespace UTS.ScheduleSystem.MainLogic
 
         [Required]
         [StringLength(128)]
-        //public Status Status { get; set; }
         public Status Status
         {
             get
             {
-                return base.status;
+                return Utils.GetStatus(base.status);
             }
 
             set
             {
-                base.status = value;
+                status = value.ToString();
             }
         }
     }
