@@ -23,5 +23,6 @@ namespace UTS.ScheduleSystem.MainLogic
                 .Property(e => e.Role)
                 .IsUnicode(false);
         }
+
     }
 }
