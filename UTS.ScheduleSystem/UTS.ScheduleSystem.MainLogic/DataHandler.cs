@@ -9,6 +9,7 @@ namespace UTS.ScheduleSystem.MainLogic
 {
     public class DataHandler
     {
+        ConversationalRule conversationalRule;
         string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         ConversationalRuleTableAdapter conversationalRuleTableAdapter;
         FixedConversationalRuleTableAdapter fixedConversationalRuleTableAdapter;
@@ -17,10 +18,10 @@ namespace UTS.ScheduleSystem.MainLogic
 
         public DataHandler()
         {
-            conversationalRuleTableAdapter = new ConversationalRuleTableAdapter();
-            fixedConversationalRuleTableAdapter = new FixedConversationalRuleTableAdapter();
-            mealScheduleTableAdapter = new MealScheduleTableAdapter();
-            aspNetUsersTableAdapter = new AspNetUsersTableAdapter();
+            //conversationalRuleTableAdapter = new ConversationalRuleTableAdapter();
+            //fixedConversationalRuleTableAdapter = new FixedConversationalRuleTableAdapter();
+            //mealScheduleTableAdapter = new MealScheduleTableAdapter();
+            //aspNetUsersTableAdapter = new AspNetUsersTableAdapter();
         }
 
 
@@ -39,12 +40,26 @@ namespace UTS.ScheduleSystem.MainLogic
         // Delete a conversational rule from database by Id
         public void RemoveConversationalRule(string id)
         {
-            conversationalRuleTableAdapter.DeleteQuery(id);
+            using (ScheduleSystemContext context = new ScheduleSystemContext())
+            {
+                var cRule = (from ConversationalRule 
+                             in context.ConversationalRules
+                             where conversationalRule.Id == id
+                             select conversationalRule).First();
+                context.ConversationalRules.Remove(cRule);
+                context.SaveChanges();
+            }
+            //conversationalRuleTableAdapter.DeleteQuery(id);
         }
 
         // Delete all conversational rules from database
         public void RemoveAllConversationalRule()
         {
+            //using (ScheduleSystemContext context = new ScheduleSystemContext())
+            //{
+            //    context.ConversationalRules
+            //    context.SaveChanges();
+            //}
             conversationalRuleTableAdapter.DeleteAllQuery();
         }
 
