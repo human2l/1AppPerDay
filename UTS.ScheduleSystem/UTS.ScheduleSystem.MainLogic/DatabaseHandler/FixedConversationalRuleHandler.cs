@@ -34,18 +34,18 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
         }
 
         // Update a fixed conversational rule by Id
-        public static void UpdateAFixedConversationalRule(string input, string output, string relatedUserId, string status, string ruleId)
+        public static void UpdateAFixedConversationalRule(FixedConversationalRule fixedConversationalRule)
         {
             using (ScheduleSystemContext context = new ScheduleSystemContext())
             {
                 var fCRule = (from FixedConversationalRule
                              in context.FixedConversationalRules
-                              where FixedConversationalRule.Id == ruleId
+                              where FixedConversationalRule.Id == fixedConversationalRule.Id
                               select FixedConversationalRule).First();
-                fCRule.Input = input;
-                fCRule.Output = output;
-                fCRule.RelatedUsersId = relatedUserId;
-                fCRule.Status = Utils.GetStatus(status);
+                fCRule.Input = fixedConversationalRule.Input;
+                fCRule.Output = fixedConversationalRule.Output;
+                fCRule.RelatedUsersId = fixedConversationalRule.RelatedUsersId;
+                fCRule.Status = fixedConversationalRule.Status;
                 context.SaveChanges();
             }
         }
@@ -89,6 +89,18 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
                 fixedConversationalRules = null;
             }
             return fixedConversationalRules;
+        }
+
+        // Find last added fixed conversational rule Id 
+        public static string FindLastFixedConversationalRuleId()
+        {
+            string result;
+            using (ScheduleSystemContext context = new ScheduleSystemContext())
+            {
+                result = context.FixedConversationalRules.Max(FixedConversationalRule => FixedConversationalRule.Id);
+            }
+            //string result = fixedConversationalRuleTableAdapter.FindLastIdQuery();
+            return result;
         }
     }
 }

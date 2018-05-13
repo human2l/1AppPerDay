@@ -22,29 +22,49 @@ namespace UTS.ScheduleSystem.MainLogic
 
             //for datamaintainer to add meal
 
-            MealSchedule ms = new MealSchedule(Utils.CreateIdByType("MealSchedule", dataHandler.FindLastMealscheduleId()), topic, participants, location, startDate, endDate, lastEditorUserId);
-            dataHandler.AddMealschedule(ms);
+            //MealSchedule ms = new MealSchedule(Utils.CreateIdByType("MealSchedule", dataHandler.FindLastMealscheduleId()), topic, participants, location, startDate, endDate, lastEditorUserId);
+            MealSchedule mealSchedule = new MealSchedule();
+            mealSchedule.Id = Utils.CreateIdByType("MealSchedule", MealScheduleHandler.FindLastMealscheduleId());
+            mealSchedule.Topic = topic;
+            mealSchedule.Participants = participants;
+            mealSchedule.Location = location;
+            mealSchedule.StartDate = startDate;
+            mealSchedule.EndDate = endDate;
+            mealSchedule.LastEditUserId = lastEditorUserId;
+            MealScheduleHandler.AddMealschedule(mealSchedule);
 
         }
 
         // Delete a mealschedule from database due to id
         public void DeleteMealSchedule(string id)
         {
-            dataHandler.RemoveMealschedule(id);
+            MealScheduleHandler.RemoveMealschedule(id);
+            //dataHandler.RemoveMealschedule(id);
         }
 
 
         // Save edit on a mealschedule to database
-        public void EditMealSchedule(string id, string topic, string participants, string location, string startDate, string endDate, string laseEditor)
+        public void EditMealSchedule(string id, string topic, string participants, string location, string startDate, string endDate, string lastEditorUserId)
         {
-            dataHandler.UpdateAMealschedule(id, topic, participants, location, startDate, endDate, laseEditor);
+            MealSchedule mealSchedule = new MealSchedule();
+            mealSchedule.Id = id;
+            mealSchedule.Topic = topic;
+            mealSchedule.Participants = participants;
+            mealSchedule.Location = location;
+            mealSchedule.StartDate = startDate;
+            mealSchedule.EndDate = endDate;
+            mealSchedule.LastEditUserId = lastEditorUserId;
+            //MealScheduleHandler.UpdateAMealschedule()
+            dataHandler.UpdateAMealschedule(id, topic, participants, location, startDate, endDate, lastEditorUserId);
         }
 
         public MealSchedule FindMealScheduleById (string id)
         {
-            return dataHandler.FindMealScheduleById(id);
+            return MealScheduleHandler.FindMealScheduleById(id);
+            //return dataHandler.FindMealScheduleById(id);
         }
 
+        // Find all meal schedules from database
         public List<MealSchedule> FindAllMealSchedules()
         {
             return MealScheduleHandler.FindAllMealSchedules();

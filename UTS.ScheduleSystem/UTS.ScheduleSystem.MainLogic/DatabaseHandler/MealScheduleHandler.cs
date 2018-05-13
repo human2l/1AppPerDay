@@ -91,5 +91,17 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             }
             return mealSchedules;
         }
+
+        // Find last added meal schedule Id
+        public static string FindLastMealscheduleId()
+        {
+            string result;
+            using (ScheduleSystemContext context = new ScheduleSystemContext())
+            {
+                result = context.MealSchedules.Max(MealSchedule => MealSchedule.Id);
+            }
+            //string result = mealScheduleTableAdapter.FindLastIdQuery();
+            return result;
+        }
     }
 }

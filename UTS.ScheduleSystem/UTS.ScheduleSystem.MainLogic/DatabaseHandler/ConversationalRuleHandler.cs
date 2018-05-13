@@ -34,18 +34,18 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
         }
 
         // Update a conversational rule by Id
-        public static void UpdateAConversationalRule(string input, string output, string relatedUserId, string status, string ruleId)
+        public static void UpdateAConversationalRule(ConversationalRule conversationalRule)
         {
             using (ScheduleSystemContext context = new ScheduleSystemContext())
             {
                 var cRule = (from ConversationalRule
                              in context.ConversationalRules
-                             where ConversationalRule.Id == ruleId
+                             where ConversationalRule.Id == conversationalRule.Id
                              select ConversationalRule).First();
-                cRule.Input = input;
-                cRule.Output = output;
-                cRule.RelatedUsersId = relatedUserId;
-                cRule.Status = Utils.GetStatus(status);
+                cRule.Input = conversationalRule.Input;
+                cRule.Output = conversationalRule.Output;
+                cRule.RelatedUsersId = conversationalRule.RelatedUsersId;
+                cRule.Status = conversationalRule.Status;
                 context.SaveChanges();
             }
         }
@@ -82,6 +82,18 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
                                        select ConversationalRule).ToList();
             }
             return conversationalRules;
+        }
+
+        // Find last added conversational rule Id 
+        public static string FindLastConversationalRuleId()
+        {
+            string result;
+            using (ScheduleSystemContext context = new ScheduleSystemContext())
+            {
+                result = context.ConversationalRules.Max(ConversationalRule => ConversationalRule.Id);
+            }
+            //string result = conversationalRuleTableAdapter.FindLastIdQuery();
+            return result;
         }
 
     }
