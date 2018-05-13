@@ -1,120 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace UTS.ScheduleSystem.MainLogic
 {
-    public class MealSchedule
-    {
-        private string id;
-        private string topic;
-        private string participants;
-        private string location;
-        private string startDate;
-        private string endDate;
-        private string lastEditUserId;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
+    [Table("MealSchedule")]
+    public partial class MealSchedule
+    {
         public MealSchedule(string id, string topic, string participants, string location, string startDate, string endDate, string lastEditUserId)
         {
-            this.id = id;
-            this.topic = topic;
-            this.participants = participants;
-            this.location = location;
-            this.startDate = startDate;
-            this.endDate = endDate;
-            this.lastEditUserId = lastEditUserId;
+
         }
 
-        public string Id
-        {
-            get
-            {
-                return id;
-            }
+        public string Id { get; set; }
 
-            set
-            {
-                id = value;
-            }
-        }
+        [StringLength(128)]
+        public string Topic { get; set; }
 
-        public string Topic
-        {
-            get
-            {
-                return topic;
-            }
+        [StringLength(128)]
+        public string Participants { get; set; }
 
-            set
-            {
-                topic = value;
-            }
-        }
+        [StringLength(128)]
+        public string Location { get; set; }
 
-        public string Participants
-        {
-            get
-            {
-                return participants;
-            }
+        [StringLength(128)]
+        public string StartDate { get; set; }
 
-            set
-            {
-                participants = value;
-            }
-        }
+        [StringLength(128)]
+        public string EndDate { get; set; }
 
-        public string Location
-        {
-            get
-            {
-                return location;
-            }
-
-            set
-            {
-                location = value;
-            }
-        }
-
-        public string StartDate
-        {
-            get
-            {
-                return startDate;
-            }
-
-            set
-            {
-                startDate = value;
-            }
-        }
-
-        public string EndDate
-        {
-            get
-            {
-                return endDate;
-            }
-
-            set
-            {
-                endDate = value;
-            }
-        }
-
-        public string LastEditUserId
-        {
-            get
-            {
-                return lastEditUserId;
-            }
-
-            set
-            {
-                lastEditUserId = value;
-            }
-        }
+        [Required]
+        [StringLength(128)]
+        public string LastEditUserId { get; set; }
     }
 }

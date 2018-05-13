@@ -105,6 +105,7 @@ namespace UTS.ScheduleSystem.MainLogic
                 }
                 return conversationalRulesList;
             }
+            
 
             set
             {
