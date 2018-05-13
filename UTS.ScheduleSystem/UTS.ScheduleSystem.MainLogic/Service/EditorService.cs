@@ -137,7 +137,7 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         // Show a user's approved rules
-        public List<Rule> ShowCurrentUserApprovedRules(User user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
+        public List<Rule> ShowCurrentUserApprovedRules(AspNetUser user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
             List<Rule> userRelatedRules = new List<Rule>();
             foreach(Rule rule in fCRulesList)

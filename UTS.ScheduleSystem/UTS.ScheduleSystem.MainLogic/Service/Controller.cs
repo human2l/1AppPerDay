@@ -10,7 +10,7 @@ namespace UTS.ScheduleSystem.MainLogic
 {
     public class Controller
     {
-        private User currentUser;
+        private AspNetUser currentUser;
         private List<User> userList = new List<User>();
         private List<ConversationalRule> conversationalRulesList = new List<ConversationalRule>();
         private List<FixedConversationalRule> fixedConversationalRulesList = new List<FixedConversationalRule>();
@@ -65,18 +65,18 @@ namespace UTS.ScheduleSystem.MainLogic
         {
             get
             {
-                var adapter = new AspNetUsersTableAdapter();
-                var set = adapter.GetData();
-                adapter.Dispose();
-                List<User> u = new List<User>();
+                //var adapter = new AspNetUsersTableAdapter();
+                //var set = adapter.GetData();
+                //adapter.Dispose();
+                //List<User> u = new List<User>();
 
-                while (set.Count > 0)
-                {
-                    User user = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, Utils.GetRole(set.First().Role));
-                    set.RemoveAspNetUsersRow(set.First());
-                    u.Add(user);
-                }
-                userList = u;
+                //while (set.Count > 0)
+                //{
+                //    User user = new User(set.First().Id, set.First().UserName, set.First().PasswordHash, set.First().Email, Utils.GetRole(set.First().Role));
+                //    set.RemoveAspNetUsersRow(set.First());
+                //    u.Add(user);
+                //}
+                //userList = u;
                 return userList;
             }
             set
@@ -144,17 +144,17 @@ namespace UTS.ScheduleSystem.MainLogic
         {
             get
             {
-                var adapter = new MealScheduleTableAdapter();
-                var set = adapter.GetData();
-                adapter.Dispose();
-                mealScheduleList = new List<MealSchedule>();
-                while (set.Count != 0)
-                {
-                    MealSchedule ms = new MealSchedule(set.First().Id, set.First().Topic, set.First().Participants, set.First().Location, set.First().StartDate, set.First().EndDate, set.First().LastEditUserId);
-                    set.RemoveMealScheduleRow(set.First());
+                //var adapter = new MealScheduleTableAdapter();
+                //var set = adapter.GetData();
+                //adapter.Dispose();
+                //mealScheduleList = new List<MealSchedule>();
+                //while (set.Count != 0)
+                //{
+                //    MealSchedule ms = new MealSchedule(set.First().Id, set.First().Topic, set.First().Participants, set.First().Location, set.First().StartDate, set.First().EndDate, set.First().LastEditUserId);
+                //    set.RemoveMealScheduleRow(set.First());
 
-                    mealScheduleList.Add(ms);
-                }
+                //    mealScheduleList.Add(ms);
+                //}
 
                 return mealScheduleList;
             }
@@ -165,7 +165,7 @@ namespace UTS.ScheduleSystem.MainLogic
             }
         }
 
-        public User CurrentUser
+        public AspNetUser CurrentUser
         {
             get
             {

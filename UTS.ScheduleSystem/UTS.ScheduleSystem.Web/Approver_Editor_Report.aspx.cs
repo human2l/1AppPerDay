@@ -12,8 +12,8 @@ namespace UTS.ScheduleSystem.Web
     public partial class Approver_Editor_Report : System.Web.UI.Page
     {
         private Controller controller;
-        private List<User> _editorList = new List<User>();
-        private User currentEditor; 
+        private List<AspNetUser> _editorList = new List<AspNetUser>();
+        private AspNetUser currentEditor; 
 
         private string editorUsername;
         private string editorApprovedRuleNum;
@@ -46,7 +46,7 @@ namespace UTS.ScheduleSystem.Web
         // Load editor list from database and bind with display
         private void DisplayEditorList(Controller controller)
         {
-            _editorList = controller.ApproverService.RequestEditorList(controller.UserList);
+            _editorList = controller.ApproverService.RequestEditorList();
             editorList.DataSource = _editorList;
             editorList.DataBind();
         }
@@ -54,7 +54,7 @@ namespace UTS.ScheduleSystem.Web
         // Refresh statistics data from database and refresh on display table
         private void DisplayStatisticsData()
         {
-            editorUsername = currentEditor.Name;
+            editorUsername = currentEditor.UserName;
             editorApprovedRuleNum = controller.ApproverService.UserRelatedApprovedRulesNum(currentEditor.Id).ToString();
             editorRejectedRuleNum = controller.ApproverService.UserRelatedRejectedRulesNum(currentEditor.Id).ToString();
             editorPendingRuleNum = controller.ApproverService.UserRelatedPendingRulesNum(currentEditor.Id).ToString();

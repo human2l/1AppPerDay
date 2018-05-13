@@ -27,10 +27,11 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         // Return an editors list from database
-        public List<User> RequestEditorList(List<User> users)
+        public List<AspNetUser> RequestEditorList()
         {
-            List<User> editorList = new List<User>();
-            foreach(User user in users)
+            List<AspNetUser> editorList = new List<AspNetUser>();
+            List<AspNetUser> users = UserHandler.UsersList();
+            foreach (AspNetUser user in users)
             {
                 if (user.Role.ToString().Contains("E"))
                     editorList.Add(user);
@@ -107,13 +108,19 @@ namespace UTS.ScheduleSystem.MainLogic
         //Subfunction of ApproveRule to approve a conversational rule 
         private void ApproveRuleInConversationalRuleList(string ruleId)
         {
-            dataHandler.ChangeConversationalRuleState(ruleId, Status.Approved.ToString());
+            ConversationalRule conversationalRule = ConversationalRuleHandler.FindConversationalRuleById(ruleId);
+            conversationalRule.Status = Status.Approved;
+            ConversationalRuleHandler.UpdateAConversationalRule(conversationalRule);
+            //dataHandler.ChangeConversationalRuleState(ruleId, Status.Approved.ToString());
         }
 
         //Subfunction of ApproveRule to approve a fixed conversational rule 
         private void ApproveRuleInFixedConversationalRuleList(string ruleId)
         {
-            dataHandler.ChangeFixedConversationalRuleState(ruleId, Status.Approved.ToString());
+            FixedConversationalRule fixedConversationalRule = FixedConversationalRuleHandler.FindFixedConversationalRuleById(ruleId);
+            fixedConversationalRule.Status = Status.Approved;
+            FixedConversationalRuleHandler.UpdateAFixedConversationalRule(fixedConversationalRule);
+            //dataHandler.ChangeFixedConversationalRuleState(ruleId, Status.Approved.ToString());
         }
 
         // Reject a rule in database
@@ -132,29 +139,37 @@ namespace UTS.ScheduleSystem.MainLogic
         //Subfunction of RejectRule to reject a conversational rule 
         private void RejectRuleInConversationalRuleList(string ruleId)
         {
-            dataHandler.ChangeConversationalRuleState(ruleId, Status.Rejected.ToString());
+            ConversationalRule conversationalRule = ConversationalRuleHandler.FindConversationalRuleById(ruleId);
+            conversationalRule.Status = Status.Rejected;
+            ConversationalRuleHandler.UpdateAConversationalRule(conversationalRule);
+            //dataHandler.ChangeConversationalRuleState(ruleId, Status.Rejected.ToString());
         }
 
         //Subfunction of RejectRule to reject a fixed conversational rule 
         private void RejectRuleInFixedConversationalRuleList(string ruleId)
         {
-            dataHandler.ChangeFixedConversationalRuleState(ruleId, Status.Rejected.ToString());
+            FixedConversationalRule fixedConversationalRule = FixedConversationalRuleHandler.FindFixedConversationalRuleById(ruleId);
+            fixedConversationalRule.Status = Status.Rejected;
+            FixedConversationalRuleHandler.UpdateAFixedConversationalRule(fixedConversationalRule);
+            //dataHandler.ChangeFixedConversationalRuleState(ruleId, Status.Rejected.ToString());
         }
 
         // Return a count number of approved rule in database
         public int ApprovedRulesNum()
         {
-            int conversationalRuleNum = dataHandler.FindConversationalRuleNum(Status.Approved.ToString());
-            int fixedConversationalRuleNum = dataHandler.FindFixedConversationalRuleNum(Status.Approved.ToString());
-            return conversationalRuleNum + fixedConversationalRuleNum;
+            //int conversationalRuleNum = dataHandler.FindConversationalRuleNum(Status.Approved.ToString());
+            //int fixedConversationalRuleNum = dataHandler.FindFixedConversationalRuleNum(Status.Approved.ToString());
+            //return conversationalRuleNum + fixedConversationalRuleNum;
+            return RequestApprovedRulesList().Count;
         }
 
         // Return a count number of rejected rule in database
         public int RejectedRulesNum()
         {
-            int conversationalRuleNum = dataHandler.FindConversationalRuleNum(Status.Rejected.ToString());
-            int fixedConversationalRuleNum = dataHandler.FindFixedConversationalRuleNum(Status.Rejected.ToString());
-            return conversationalRuleNum + fixedConversationalRuleNum;
+            //int conversationalRuleNum = dataHandler.FindConversationalRuleNum(Status.Rejected.ToString());
+            //int fixedConversationalRuleNum = dataHandler.FindFixedConversationalRuleNum(Status.Rejected.ToString());
+            //return conversationalRuleNum + fixedConversationalRuleNum;
+            return RequestRejectedRulesList().Count;
         }
 
         // Return success rule rate
@@ -168,34 +183,34 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         // Return a count number of user related approved rule
-        public int UserRelatedApprovedRulesNum(string id)
+        public int UserRelatedApprovedRulesNum(string userId)
         {
             List<Rule> newList = new List<Rule>();
             newList = RequestApprovedRulesList();
-            return CountUserRelatedRule(id, newList);
+            return CountUserRelatedRule(userId, newList);
         }
 
         // Return a count number of user related rejected rule
-        public int UserRelatedRejectedRulesNum(string id)
+        public int UserRelatedRejectedRulesNum(string userId)
         {
             List<Rule> newList = new List<Rule>();
             newList = RequestRejectedRulesList();
-            return CountUserRelatedRule(id, newList);
+            return CountUserRelatedRule(userId, newList);
         }
 
         // Return a count number of user related pending rule
-        public int UserRelatedPendingRulesNum(string id)
+        public int UserRelatedPendingRulesNum(string userId)
         {
             List<Rule> newList = new List<Rule>();
             newList = RequestPendingRulesList();
-            return CountUserRelatedRule(id, newList);
+            return CountUserRelatedRule(userId, newList);
         }
 
         // Return a success rate of user related rules
-        public double UserSuccessRate(string id)
+        public double UserSuccessRate(string userId)
         {
-            double approved = UserRelatedApprovedRulesNum(id);
-            double rejected = UserRelatedRejectedRulesNum(id);
+            double approved = UserRelatedApprovedRulesNum(userId);
+            double rejected = UserRelatedRejectedRulesNum(userId);
             double rate;
             rate = (approved + rejected) == 0 ? 0 : approved / (approved + rejected);
             return rate;
@@ -204,20 +219,20 @@ namespace UTS.ScheduleSystem.MainLogic
         // Return an overall average success rate
         public double OverallAveSuccessRate()
         {
-            List<string> editorIds = dataHandler.FindEditorsId();
+            List<AspNetUser> editors = RequestEditorList();
             double rateSum = 0;
-            foreach(string id in editorIds)
+            foreach(AspNetUser editor in editors)
             {
-                rateSum = rateSum + UserSuccessRate(id);
+                rateSum = rateSum + UserSuccessRate(editor.Id);
             }
-            return rateSum / Convert.ToDouble(dataHandler.FindEditorNum());
+            return rateSum / Convert.ToDouble(editors.Count);
         }
         
         // Recognize the on selected row editor and save into on focus user
-        public User RecognizeUser(string editorId, List<User> editorList)
+        public AspNetUser RecognizeUser(string editorId, List<AspNetUser> editorList)
         {
-            User result = new User();
-            foreach (User user in editorList)
+            AspNetUser result = new AspNetUser();
+            foreach (AspNetUser user in editorList)
             {
                 if (user.Id.Equals(editorId))
                 {

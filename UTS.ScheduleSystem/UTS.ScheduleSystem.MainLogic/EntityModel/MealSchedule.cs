@@ -9,20 +9,14 @@ namespace UTS.ScheduleSystem.MainLogic
     [Table("MealSchedule")]
     public partial class MealSchedule
     {
-        public MealSchedule()
-        {
+        //public MealSchedule()
+        //{
 
-        }
-        public MealSchedule(string id, string topic, string participants, string location, string startDate, string endDate, string lastEditUserId)
-        {
-            //this.Id = id;
-            //this.Topic = topic;
-            //this.Participants = participants;
-            //this.Location = location;
-            //this.StartDate = startDate;
-            //this.EndDate = EndDate;
-            //this.LastEditUserId = lastEditUserId;
-        }
+        //}
+        //public MealSchedule(string id, string topic, string participants, string location, string startDate, string endDate, string lastEditUserId)
+        //{
+
+        //}
 
         public string Id { get; set; }
 

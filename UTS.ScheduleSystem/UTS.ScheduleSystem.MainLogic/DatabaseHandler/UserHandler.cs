@@ -8,5 +8,17 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
 {
     public class UserHandler
     {
+        public static List<AspNetUser> UsersList()
+        {
+            List<AspNetUser> users;
+            using (ScheduleSystemContext context = new ScheduleSystemContext())
+            {
+                users = (from AspNetUser
+                           in context.AspNetUsers
+                           select AspNetUser).ToList();
+            }
+            return users;
+        }
+
     }
 }
