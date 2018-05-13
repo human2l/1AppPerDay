@@ -14,6 +14,12 @@ namespace UTS.ScheduleSystem.MainLogic
 
         }
 
+        public ConversationalRule()
+        {
+
+        }
+
+
         //public string Id { get; set; }
         public string Id
         {
@@ -76,17 +82,19 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         [Required]
-        [StringLength(128)]
+        //[StringLength(128)]
         public Status Status
         {
             get
             {
-                return Utils.GetStatus(base.status);
+                return base.status;
+                //return Utils.GetStatus(base.status);
             }
 
             set
             {
-                status = value.ToString();
+                base.status = value;
+                //base.status = value.ToString();
             }
         }
     }

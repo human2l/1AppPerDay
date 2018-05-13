@@ -6,23 +6,27 @@ using System.Data.Entity.Spatial;
 
 namespace UTS.ScheduleSystem.MainLogic
 {
-    public enum Status { Approved, Rejected, Pending }
+    //public enum Status { Approved, Rejected, Pending }
     public abstract class Rule
     {
         protected string input;
         protected string output;
         protected string relatedUsersId;
-        protected string status;
+        protected Status status;
         protected string id;
         protected string lastRelatedUserID;
 
+        public Rule()
+        {
+
+        }
         public Rule(string id,  string input, string output, string relatedUsersId, Status status)
         {
             this.Id = id;
             this.input = input;
             this.output = output;
             this.relatedUsersId = relatedUsersId;
-            this.status = status.ToString();
+            this.status = status;
             this.lastRelatedUserID = relatedUsersId;
         }
 
@@ -76,12 +80,14 @@ namespace UTS.ScheduleSystem.MainLogic
         {
             get
             {
-                return Utils.GetStatus(status);
+                return status;
+                //return Utils.GetStatus(status);
             }
 
             set
             {
-                status = value.ToString();
+                status = value;
+                //status = value.ToString();
             }
         }
 

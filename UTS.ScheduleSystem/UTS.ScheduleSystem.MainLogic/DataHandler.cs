@@ -44,8 +44,8 @@ namespace UTS.ScheduleSystem.MainLogic
             {
                 var cRule = (from ConversationalRule 
                              in context.ConversationalRules
-                             where conversationalRule.Id == id
-                             select conversationalRule).First();
+                             where ConversationalRule.Id == id
+                             select ConversationalRule).First();
                 context.ConversationalRules.Remove(cRule);
                 context.SaveChanges();
             }
@@ -229,8 +229,16 @@ namespace UTS.ScheduleSystem.MainLogic
         // Delete a mealschedule data from database
         public void DeleteMealschedule(string Id)
         {
-
-            mealScheduleTableAdapter.DeleteQuery(Id);
+            using (ScheduleSystemContext context = new ScheduleSystemContext())
+            {
+                var mealschedule = (from MealSchedule
+                                            in context.MealSchedules
+                                          where MealSchedule.Id == Id
+                                          select MealSchedule).First();
+                context.MealSchedules.Remove(mealschedule);
+                context.SaveChanges();
+            }
+            //mealScheduleTableAdapter.DeleteQuery(Id);
         }
 
         // Delete all mealschedule data from database

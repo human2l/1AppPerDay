@@ -9,6 +9,10 @@ namespace UTS.ScheduleSystem.MainLogic
     [Table("MealSchedule")]
     public partial class MealSchedule
     {
+        public MealSchedule()
+        {
+
+        }
         public MealSchedule(string id, string topic, string participants, string location, string startDate, string endDate, string lastEditUserId)
         {
             this.Id = id;
