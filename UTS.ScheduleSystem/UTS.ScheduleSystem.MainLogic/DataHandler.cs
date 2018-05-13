@@ -27,7 +27,13 @@ namespace UTS.ScheduleSystem.MainLogic
         // Add a conversational rule into database
         public void AddConversationalRule(Rule rule)
         {
-            conversationalRuleTableAdapter.InsertQuery(rule.Id, rule.Input, rule.Output, rule.RelatedUsersId, rule.Status.ToString());
+            using (ScheduleSystemContext context = new ScheduleSystemContext())
+            {
+                var conversationalRule = (ConversationalRule)rule;
+                context.ConversationalRules.Add(conversationalRule);
+                context.SaveChanges();                
+            }
+                //conversationalRuleTableAdapter.InsertQuery(rule.Id, rule.Input, rule.Output, rule.RelatedUsersId, rule.Status.ToString());
         }
 
         // Delete a conversational rule from database by Id
@@ -208,6 +214,7 @@ namespace UTS.ScheduleSystem.MainLogic
         // Delete a mealschedule data from database
         public void DeleteMealschedule(string Id)
         {
+
             mealScheduleTableAdapter.DeleteQuery(Id);
         }
 

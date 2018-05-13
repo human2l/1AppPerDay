@@ -12,7 +12,11 @@ namespace UTS.ScheduleSystem.MainLogic
         protected string input;
         protected string output;
         protected string relatedUsersId;
+<<<<<<< HEAD
         protected string status;
+=======
+        protected Status status;
+>>>>>>> 91d769ee845e7bad5033e369bd5a9dd7f90dfa56
         protected string id;
         protected string lastRelatedUserID;
 

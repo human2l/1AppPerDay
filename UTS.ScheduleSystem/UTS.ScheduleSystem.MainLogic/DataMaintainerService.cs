@@ -26,7 +26,6 @@ namespace UTS.ScheduleSystem.MainLogic
 
         }
 
-
         // Delete a mealschedule from database due to id
         public void DeleteMealSchedule(string id)
         {
