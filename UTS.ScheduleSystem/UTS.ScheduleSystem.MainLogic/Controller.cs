@@ -177,7 +177,20 @@ namespace UTS.ScheduleSystem.MainLogic
             }
         }
 
-        public ConversationService ConversationService { get => conversationService; set => conversationService = value; }
+        public ConversationService ConversationService
+        {
+            get
+            {
+                return conversationService;
+            }
+
+            set
+            {
+                conversationService = value;
+            }
+        }
+
+        //public ConversationService ConversationService { get => conversationService; set => conversationService = value; }
 
     }
 }
