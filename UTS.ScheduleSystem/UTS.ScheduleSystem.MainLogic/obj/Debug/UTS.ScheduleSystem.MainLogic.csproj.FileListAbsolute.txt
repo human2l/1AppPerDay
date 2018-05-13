@@ -20,3 +20,6 @@ C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\bin\Debug\EntityFramework.xml
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\bin\Debug\UTS.ScheduleSystem.Data.dll.config
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\obj\Debug\UTS.ScheduleSystem.MainLogic.csproj.CoreCompileInputs.cache
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.MainLogic\obj\Debug\UTS.ScheduleSystem.MainLogic.csproj.CopyComplete
