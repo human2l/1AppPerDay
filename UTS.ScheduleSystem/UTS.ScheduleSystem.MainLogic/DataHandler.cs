@@ -208,6 +208,7 @@ namespace UTS.ScheduleSystem.MainLogic
         // Delete a mealschedule data from database
         public void DeleteMealschedule(string Id)
         {
+
             mealScheduleTableAdapter.DeleteQuery(Id);
         }
 

@@ -8,12 +8,12 @@ namespace UTS.ScheduleSystem.MainLogic
     public enum Status { Approved, Rejected, Pending }
     public abstract class Rule
     {
-        private string input;
-        private string output;
-        private string relatedUsersId;
-        private Status status;
-        private string id;
-        private string lastRelatedUserID;
+        protected string input;
+        protected string output;
+        protected string relatedUsersId;
+        protected Status status;
+        protected string id;
+        protected string lastRelatedUserID;
 
         public Rule(string id,  string input, string output, string relatedUsersId, Status status)
         {
