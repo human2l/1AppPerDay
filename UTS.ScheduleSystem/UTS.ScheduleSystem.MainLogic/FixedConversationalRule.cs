@@ -17,7 +17,18 @@ namespace UTS.ScheduleSystem.MainLogic
 
         [Required]
         [StringLength(128)]
-        public string Input { get; set; }
+        public string Input
+        {
+            get
+            {
+                return base.input;
+            }
+
+            set
+            {
+                base.input = value;
+            }
+        }
 
         [Required]
         [StringLength(128)]
@@ -28,6 +39,17 @@ namespace UTS.ScheduleSystem.MainLogic
 
         [Required]
         [StringLength(128)]
-        public Status Status { get; set; }
+        public Status Status
+        {
+            get
+            {
+                return Utils.GetStatus(base.status);
+            }
+
+            set
+            {
+                status = value.ToString();
+            }
+        }
     }
 }

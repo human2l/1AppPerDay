@@ -29,6 +29,17 @@ namespace UTS.ScheduleSystem.MainLogic
 
         [Required]
         [StringLength(128)]
-        public Status Status { get; set; }
+        public Status Status
+        {
+            get
+            {
+                return Utils.GetStatus(base.status);
+            }
+
+            set
+            {
+                status = value.ToString();
+            }
+        }
     }
 }
