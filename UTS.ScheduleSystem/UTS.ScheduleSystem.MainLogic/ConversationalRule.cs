@@ -77,28 +77,16 @@ namespace UTS.ScheduleSystem.MainLogic
 
         [Required]
         [StringLength(128)]
-<<<<<<< HEAD
-=======
-        //public Status Status { get; set; }
->>>>>>> 91d769ee845e7bad5033e369bd5a9dd7f90dfa56
         public Status Status
         {
             get
             {
-<<<<<<< HEAD
                 return Utils.GetStatus(base.status);
-=======
-                return base.status;
->>>>>>> 91d769ee845e7bad5033e369bd5a9dd7f90dfa56
             }
 
             set
             {
-<<<<<<< HEAD
                 status = value.ToString();
-=======
-                base.status = value;
->>>>>>> 91d769ee845e7bad5033e369bd5a9dd7f90dfa56
             }
         }
     }
