@@ -61,7 +61,7 @@ namespace UTS.ScheduleSystem.Web
         //reuseful function to refresh gridview data
         private void UpdateGridView()
         {
-            mealScheduleList = controller.MealScheduleList;
+            mealScheduleList = controller.DataMaintainerService.FindAllMealSchedules();
             DataMaintainerGridView.DataSource = mealScheduleList;
             DataMaintainerGridView.DataBind();
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UTS.ScheduleSystem.MainLogic.DatabaseHandler;
 
 namespace UTS.ScheduleSystem.MainLogic
 {
@@ -42,6 +43,11 @@ namespace UTS.ScheduleSystem.MainLogic
         public MealSchedule FindMealScheduleById (string id)
         {
             return dataHandler.FindMealScheduleById(id);
+        }
+
+        public List<MealSchedule> FindAllMealSchedules()
+        {
+            return MealScheduleHandler.FindAllMealSchedules();
         }
     }
 }

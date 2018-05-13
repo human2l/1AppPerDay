@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
 {
-    class UserHandler
+    public class UserHandler
     {
     }
 }

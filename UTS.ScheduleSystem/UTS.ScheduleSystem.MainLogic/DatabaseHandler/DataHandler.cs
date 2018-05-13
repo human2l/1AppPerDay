@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using UTS.ScheduleSystem.Data.ScheduleSystemDataSetsTableAdapters;
 
-namespace UTS.ScheduleSystem.MainLogic
+namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
 {
     public class DataHandler
     {

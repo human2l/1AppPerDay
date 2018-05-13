@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
 {
-    class MealScheduleHandler
+    public class MealScheduleHandler
     {
         // Add a mealschedule data into database
         public static void AddMealschedule(MealSchedule mealSchedule)

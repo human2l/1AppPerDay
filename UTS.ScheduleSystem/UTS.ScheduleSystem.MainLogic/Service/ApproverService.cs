@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UTS.ScheduleSystem.MainLogic.DatabaseHandler;
 
 namespace UTS.ScheduleSystem.MainLogic
 {
@@ -15,7 +16,7 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         // Traversal and merge a conversational rule list and a fixed conversational rule list
-        private List<Rule> TraversalList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
+        private List<Rule> TraversalNMergeList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
         {
             List<Rule> newRulesList = new List<Rule>();
             foreach (Rule rule in cRulesList)
@@ -52,9 +53,23 @@ namespace UTS.ScheduleSystem.MainLogic
         // Get rule list from database specified on status
         private List<Rule> GetRuleListFromDatabaseAccordingToStatus(Status status)
         {
-            List<ConversationalRule> conversationalRules = dataHandler.FindConversationalRulesAccordingToStatus(status);
-            List<FixedConversationalRule> fixedConversationalRules = dataHandler.FindFixedConversationalRulesAccordingToStatus(status);
-            List<Rule> pRulesList = TraversalList(conversationalRules, fixedConversationalRules);
+            List<ConversationalRule> statusFiltedConversationalRules = new List<ConversationalRule>();
+            List<ConversationalRule> conversationalRules = ConversationalRuleHandler.FindAllConversationalRules();
+            foreach (ConversationalRule rule in conversationalRules)
+            {
+                if (rule.Status == status)
+                    statusFiltedConversationalRules.Add(rule);
+            }
+            List<FixedConversationalRule> statusFiltedFixedConversationalRules = new List<FixedConversationalRule>();
+            List<FixedConversationalRule> fixedConversationalRules = FixedConversationalRuleHandler.FindAllFixedConversationalRules();
+            foreach (FixedConversationalRule rule in fixedConversationalRules)
+            {
+                if (rule.Status == status)
+                    statusFiltedFixedConversationalRules.Add(rule);
+            }
+            //List<ConversationalRule> conversationalRules = dataHandler.FindConversationalRulesAccordingToStatus(status);
+            //List<FixedConversationalRule> fixedConversationalRules = dataHandler.FindFixedConversationalRulesAccordingToStatus(status);
+            List<Rule> pRulesList = TraversalNMergeList(statusFiltedConversationalRules, statusFiltedFixedConversationalRules);
             return pRulesList;
         }
 

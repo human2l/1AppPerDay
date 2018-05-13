@@ -14,7 +14,7 @@ namespace UTS.ScheduleSystem.MainLogic
         protected string relatedUsersId;
         protected Status status;
         protected string id;
-        protected string lastRelatedUserID;
+        //protected string lastRelatedUserID;
 
         public Rule()
         {
@@ -27,7 +27,7 @@ namespace UTS.ScheduleSystem.MainLogic
             this.output = output;
             this.relatedUsersId = relatedUsersId;
             this.status = status;
-            this.lastRelatedUserID = relatedUsersId;
+            //this.lastRelatedUserID = relatedUsersId;
         }
 
         private string GetLastRelatedUserID()
@@ -104,17 +104,17 @@ namespace UTS.ScheduleSystem.MainLogic
             }
         }
 
-        public string LastRelatedUserID
-        {
-            get
-            {
-                return GetLastRelatedUserID();
-            }
+        //public string LastRelatedUserID
+        //{
+        //    get
+        //    {
+        //        return GetLastRelatedUserID();
+        //    }
 
-            set
-            {
-                lastRelatedUserID = value;
-            }
-        }
+        //    set
+        //    {
+        //        lastRelatedUserID = value;
+        //    }
+        //}
     }
 }

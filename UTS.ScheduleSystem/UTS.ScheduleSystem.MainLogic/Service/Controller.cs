@@ -89,20 +89,20 @@ namespace UTS.ScheduleSystem.MainLogic
         {
             get
             {
-                var adapter = new ConversationalRuleTableAdapter();
-                var set = adapter.GetData();
-                adapter.Dispose();
-                List<ConversationalRule> list = new List<ConversationalRule>();
-                conversationalRulesList = list;
-                while (set.Count != 0)
-                {
-                    ConversationalRule cRule = new ConversationalRule(set.First().Id, set.First().Input, set.First().Output, set.First().RelatedUsersId,
-                        (set.First().Status.Equals((Status.Approved).ToString())) ? Status.Approved :
-                        (set.First().Status.Equals((Status.Rejected).ToString())) ? Status.Rejected :
-                        Status.Pending);
-                    set.RemoveConversationalRuleRow(set.First());
-                    conversationalRulesList.Add(cRule);
-                }
+                //var adapter = new ConversationalRuleTableAdapter();
+                //var set = adapter.GetData();
+                //adapter.Dispose();
+                //List<ConversationalRule> list = new List<ConversationalRule>();
+                //conversationalRulesList = list;
+                //while (set.Count != 0)
+                //{
+                //    ConversationalRule cRule = new ConversationalRule(set.First().Id, set.First().Input, set.First().Output, set.First().RelatedUsersId,
+                //        (set.First().Status.Equals((Status.Approved).ToString())) ? Status.Approved :
+                //        (set.First().Status.Equals((Status.Rejected).ToString())) ? Status.Rejected :
+                //        Status.Pending);
+                //    set.RemoveConversationalRuleRow(set.First());
+                //    conversationalRulesList.Add(cRule);
+                //}
                 return conversationalRulesList;
             }
             

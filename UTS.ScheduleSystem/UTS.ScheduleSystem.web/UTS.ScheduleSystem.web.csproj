@@ -173,6 +173,10 @@
     <Content Include="Approver.aspx" />
     <Content Include="Approver_Editor_Report.aspx" />
     <Content Include="Approver_Report.aspx" />
+    <Content Include="App_Data\aspnet-UTS.ScheduleSystem.Web-20180415025446.mdf" />
+    <Content Include="App_Data\aspnet-UTS.ScheduleSystem.Web-20180415025446_log.ldf">
+      <DependentUpon>aspnet-UTS.ScheduleSystem.Web-20180415025446.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -447,9 +451,7 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\UTS.ScheduleSystem.MainLogic\UTS.ScheduleSystem.MainLogic.csproj">
       <Project>{55be9c1e-b8a9-4aad-8c16-07d12e120878}</Project>

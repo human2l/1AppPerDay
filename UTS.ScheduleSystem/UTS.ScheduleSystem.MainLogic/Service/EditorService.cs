@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UTS.ScheduleSystem.MainLogic.DatabaseHandler;
 
 namespace UTS.ScheduleSystem.MainLogic
 {
@@ -24,8 +25,8 @@ namespace UTS.ScheduleSystem.MainLogic
         // Add a conversation rule
         public void AddNewCRule(string input, string output, string userId)
         {
-            ConversationalRule rule = new ConversationalRule(Utils.CreateIdByType("ConversationalRule", dataHandler.FindLastConversationalRuleId()), Utils.IgnoreWhiteSpace(input), Utils.IgnoreWhiteSpace(output), userId, Status.Pending);
-            dataHandler.AddConversationalRule(rule);
+            //ConversationalRule rule = new ConversationalRule(Utils.CreateIdByType("ConversationalRule", dataHandler.FindLastConversationalRuleId()), Utils.IgnoreWhiteSpace(input), Utils.IgnoreWhiteSpace(output), userId, Status.Pending);
+            //dataHandler.AddConversationalRule(rule);
         }
 
         // Show all pending rules stored in the database

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
 {
-    class ConversationalRuleHandler
+    public class ConversationalRuleHandler
     {
         // Add a conversational rule into database
         public static void AddConversationalRule(Rule rule)
@@ -59,7 +59,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
                 using (ScheduleSystemContext context = new ScheduleSystemContext())
                 {
                     conversationalRule = (from ConversationalRule
-                                 in context.ConversationalRules
+                                            in context.ConversationalRules
                                           where ConversationalRule.Id == ruleId
                                           select ConversationalRule).First();
                 }
@@ -75,18 +75,11 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
         public static List<ConversationalRule> FindAllConversationalRules()
         {
             List<ConversationalRule> conversationalRules;
-            try
+            using (ScheduleSystemContext context = new ScheduleSystemContext())
             {
-                using (ScheduleSystemContext context = new ScheduleSystemContext())
-                {
-                    conversationalRules = (from ConversationalRule
-                                           in context.ConversationalRules
-                                           select ConversationalRule).ToList();
-                }
-            }
-            catch
-            {
-                conversationalRules = null;
+                conversationalRules = (from ConversationalRule
+                                       in context.ConversationalRules
+                                       select ConversationalRule).ToList();
             }
             return conversationalRules;
         }

@@ -87,14 +87,13 @@ namespace UTS.ScheduleSystem.MainLogic
         {
             get
             {
+                //return base.status;
                 return base.status;
-                //return Utils.GetStatus(base.status);
             }
 
             set
             {
                 base.status = value;
-                //base.status = value.ToString();
             }
         }
     }

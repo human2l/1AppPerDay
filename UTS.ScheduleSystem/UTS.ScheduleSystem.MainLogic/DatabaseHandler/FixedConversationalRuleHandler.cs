@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
 {
-    class FixedConversationalRuleHandler
+    public class FixedConversationalRuleHandler
     {
         // Add a fixed conversational rule into database
         public static void AddFixedConversationalRule(Rule rule)
