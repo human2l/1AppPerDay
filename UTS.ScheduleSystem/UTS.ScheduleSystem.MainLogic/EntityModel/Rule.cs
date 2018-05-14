@@ -22,7 +22,7 @@ namespace UTS.ScheduleSystem.MainLogic
         }
         public Rule(string id,  string input, string output, string relatedUsersId, string status)
         {
-            this.Id = id;
+            this.id = id;
             this.input = input;
             this.output = output;
             this.relatedUsersId = relatedUsersId;

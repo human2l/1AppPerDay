@@ -11,7 +11,7 @@
             <asp:GridView ID="editorList" runat="server" AutoGenerateColumns="false" OnRowCommand="EditorList_RowCommand" CellPadding="7">
                 <Columns>
                     <asp:BoundField DataField="Id" HeaderText="ID" />
-                    <asp:BoundField DataField="Name" HeaderText="Name" />
+                    <asp:BoundField DataField="UserName" HeaderText="Name" />
                     <asp:ButtonField Text="Check" CommandName="Check" />
                 </Columns>
             </asp:GridView>

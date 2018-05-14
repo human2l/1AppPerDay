@@ -44,6 +44,7 @@ namespace UTS.ScheduleSystem.Web
         {
             approvedList = controller.ApproverService.RequestApprovedRulesList();
             ApprovedRulesDisplayView.DataSource = approvedList;
+            Console.WriteLine(approvedList.First().ToString());
             ApprovedRulesDisplayView.DataBind();
         }
 

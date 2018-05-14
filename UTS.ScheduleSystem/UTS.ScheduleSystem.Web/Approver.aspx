@@ -12,7 +12,7 @@
         <div class="col-md-8">
             <asp:GridView ID="PendingRuleDisplayView" runat="server" AutoGenerateColumns="false" OnRowCommand="PendingRuleDisplayView_RowCommand" CellPadding="7">
                 <Columns>
-                    <asp:BoundField DataField="Id" HeaderText="ID" />
+                    <asp:BoundField DataField="Id" HeaderText="Id" />
                     <asp:BoundField DataField="Input" HeaderText="Input" />
                     <asp:BoundField DataField="Output" HeaderText="Output" />
                     <asp:BoundField DataField="Status" HeaderText="Status" />

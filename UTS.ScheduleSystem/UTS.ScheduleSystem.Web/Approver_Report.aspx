@@ -16,7 +16,7 @@
             <div class="col-md-10">
                 <asp:GridView ID="ApprovedRulesDisplayView" runat="server" AutoGenerateColumns="false" CellPadding="7">
                     <Columns>
-                        <asp:BoundField DataField="Id" HeaderText="ID" />
+                        <asp:BoundField DataField="Id" HeaderText="Id" />
                         <asp:BoundField DataField="Input" HeaderText="Input" />
                         <asp:BoundField DataField="Output" HeaderText="Output" />
                         <asp:BoundField DataField="Status" HeaderText="Status" />

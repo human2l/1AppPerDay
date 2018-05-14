@@ -25,12 +25,13 @@ namespace UTS.ScheduleSystem.MainLogic
         {
             get
             {
-                return base.id;
+
+                return base.Id;
             }
 
             set
             {
-                base.id = value;
+                base.Id = value;
             }
         }
 
@@ -41,12 +42,12 @@ namespace UTS.ScheduleSystem.MainLogic
         {
             get
             {
-                return base.input;
+                return base.Input;
             }
 
             set
             {
-                base.input = value;
+                base.Input = value;
             }
         }
 
@@ -57,12 +58,12 @@ namespace UTS.ScheduleSystem.MainLogic
         {
             get
             {
-                return base.output;
+                return base.Output;
             }
 
             set
             {
-                base.output = value;
+                base.Output = value;
             }
         }
 
@@ -72,28 +73,28 @@ namespace UTS.ScheduleSystem.MainLogic
         {
             get
             {
-                return base.relatedUsersId;
+                return base.RelatedUsersId;
             }
 
             set
             {
-                base.relatedUsersId = value;
+                base.RelatedUsersId = value;
             }
         }
 
         [Required]
-        //[StringLength(128)]
+        [StringLength(128)]
         public string Status
         {
             get
             {
-                return base.status;
+                return base.Status;
                 //return Utils.GetStatus(base.status);
             }
 
             set
             {
-                base.status = value;
+                base.Status = value;
                 //base.status = value.ToString();
             }
         }
