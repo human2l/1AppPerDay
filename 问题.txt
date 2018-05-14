@@ -1,0 +1,9 @@
+
+
+user和aspnetuser
+
+一堆警告
+
+entityclass里的enum还是不能用 mmp....全部换成string？
+
+database buildin identity到底是个啥？ 自动生成id？mmp

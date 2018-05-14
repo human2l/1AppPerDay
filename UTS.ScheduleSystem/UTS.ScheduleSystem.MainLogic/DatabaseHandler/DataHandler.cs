@@ -74,7 +74,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
                 cRule.Input = input;
                 cRule.Output = output;
                 cRule.RelatedUsersId = relatedUserId;
-                cRule.Status = Utils.GetStatus(status);
+                cRule.Status = status;
                 context.SaveChanges();
             }
             //conversationalRuleTableAdapter.UpdateQuery(input, output, relatedUserId, status, ruleId);
@@ -89,7 +89,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
                              in context.ConversationalRules
                              where ConversationalRule.Id == ruleId
                              select ConversationalRule).First();
-                cRule.Status = Utils.GetStatus(status);
+                cRule.Status = status;
                 context.SaveChanges();
             }
             //conversationalRuleTableAdapter.UpdateRuleStatus(status, id);
@@ -233,7 +233,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
                 fCRule.Input = input;
                 fCRule.Output = output;
                 fCRule.RelatedUsersId = relatedUserId;
-                fCRule.Status = Utils.GetStatus(status);
+                fCRule.Status = status;
                 context.SaveChanges();
             }
             //fixedConversationalRuleTableAdapter.UpdateQuery(input, output, relatedUserId, status, ruleId);
@@ -248,7 +248,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
                              in context.FixedConversationalRules
                               where FixedConversationalRule.Id == ruleId
                               select FixedConversationalRule).First();
-                fCRule.Status = Utils.GetStatus(status);
+                fCRule.Status = status;
                 context.SaveChanges();
             }
             //fixedConversationalRuleTableAdapter.UpdateRuleStatus(status, ruleId);
@@ -324,7 +324,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
                 string input = x.Input;
                 string output = x.Output;
                 string relatedUserId = x.RelatedUsersId;
-                FixedConversationalRule conversationalRule = new FixedConversationalRule(id, input, output, relatedUserId, status);
+                FixedConversationalRule conversationalRule = new FixedConversationalRule(id, input, output, relatedUserId, status.ToString());
                 result.Add(conversationalRule);
             }
             return result;

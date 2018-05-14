@@ -9,7 +9,7 @@ namespace UTS.ScheduleSystem.MainLogic
     [Table("ConversationalRule")]
     public partial class ConversationalRule : Rule
     {
-        public ConversationalRule(string id, string input, string output, string relatedUsersId, Status status) : base(id, input, output, relatedUsersId, status)
+        public ConversationalRule(string id, string input, string output, string relatedUsersId, string status) : base(id, input, output, relatedUsersId, status)
         {
 
         }
@@ -83,17 +83,18 @@ namespace UTS.ScheduleSystem.MainLogic
 
         [Required]
         //[StringLength(128)]
-        public Status Status
+        public string Status
         {
             get
             {
-                //return base.status;
                 return base.status;
+                //return Utils.GetStatus(base.status);
             }
 
             set
             {
                 base.status = value;
+                //base.status = value.ToString();
             }
         }
     }

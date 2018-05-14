@@ -12,29 +12,28 @@ namespace UTS.ScheduleSystem.MainLogic
         protected string input;
         protected string output;
         protected string relatedUsersId;
-        protected Status status;
+        protected string status;
         protected string id;
-        //protected string lastRelatedUserID;
+        protected string lastRelatedUserID;
 
         public Rule()
         {
 
         }
-        public Rule(string id,  string input, string output, string relatedUsersId, Status status)
+        public Rule(string id,  string input, string output, string relatedUsersId, string status)
         {
             this.Id = id;
             this.input = input;
             this.output = output;
             this.relatedUsersId = relatedUsersId;
             this.status = status;
-            //this.lastRelatedUserID = relatedUsersId;
         }
 
         private string GetLastRelatedUserID()
         {
             string[] relatedUsersIdString = relatedUsersId.Split(' ');
-            string lastUserId = relatedUsersIdString[relatedUsersIdString.Length - 1];
-            return lastUserId;
+            string lastID = relatedUsersIdString[relatedUsersIdString.Length - 1];
+            return lastID;
         }
 
         public string Input
@@ -76,7 +75,7 @@ namespace UTS.ScheduleSystem.MainLogic
             }
         }
 
-        public Status Status
+        public string Status
         {
             get
             {
@@ -104,17 +103,17 @@ namespace UTS.ScheduleSystem.MainLogic
             }
         }
 
-        //public string LastRelatedUserID
-        //{
-        //    get
-        //    {
-        //        return GetLastRelatedUserID();
-        //    }
+        public string LastRelatedUserID
+        {
+            get
+            {
+                return GetLastRelatedUserID();
+            }
 
-        //    set
-        //    {
-        //        lastRelatedUserID = value;
-        //    }
-        //}
+            //set
+            //{
+            //    lastRelatedUserID = value;
+            //}
+        }
     }
 }

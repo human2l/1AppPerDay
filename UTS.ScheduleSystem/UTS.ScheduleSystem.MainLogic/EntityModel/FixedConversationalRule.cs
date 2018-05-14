@@ -6,13 +6,13 @@ namespace UTS.ScheduleSystem.MainLogic
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public enum Status { Approved, Rejected, Pending }
+    
 
     [Table("FixedConversationalRule")]
     public partial class FixedConversationalRule : Rule
     {
 
-        public FixedConversationalRule(string id, string input, string output, string relatedUsersId, Status status) : base(id, input, output, relatedUsersId, status)
+        public FixedConversationalRule(string id, string input, string output, string relatedUsersId, string status) : base(id, input, output, relatedUsersId, status)
         {
 
         }
@@ -80,8 +80,8 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         [Required]
-        //[StringLength(128)]
-        public Status Status
+        [StringLength(128)]
+        public string Status
         {
             get
             {

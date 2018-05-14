@@ -58,14 +58,14 @@ namespace UTS.ScheduleSystem.MainLogic
             List<ConversationalRule> conversationalRules = ConversationalRuleHandler.FindAllConversationalRules();
             foreach (ConversationalRule rule in conversationalRules)
             {
-                if (rule.Status == status)
+                if (rule.Status == status.ToString())
                     statusFiltedConversationalRules.Add(rule);
             }
             List<FixedConversationalRule> statusFiltedFixedConversationalRules = new List<FixedConversationalRule>();
             List<FixedConversationalRule> fixedConversationalRules = FixedConversationalRuleHandler.FindAllFixedConversationalRules();
             foreach (FixedConversationalRule rule in fixedConversationalRules)
             {
-                if (rule.Status == status)
+                if (rule.Status == status.ToString())
                     statusFiltedFixedConversationalRules.Add(rule);
             }
             //List<ConversationalRule> conversationalRules = dataHandler.FindConversationalRulesAccordingToStatus(status);
@@ -109,7 +109,7 @@ namespace UTS.ScheduleSystem.MainLogic
         private void ApproveRuleInConversationalRuleList(string ruleId)
         {
             ConversationalRule conversationalRule = ConversationalRuleHandler.FindConversationalRuleById(ruleId);
-            conversationalRule.Status = Status.Approved;
+            conversationalRule.Status = Status.Approved.ToString();
             ConversationalRuleHandler.UpdateAConversationalRule(conversationalRule);
             //dataHandler.ChangeConversationalRuleState(ruleId, Status.Approved.ToString());
         }
@@ -118,7 +118,7 @@ namespace UTS.ScheduleSystem.MainLogic
         private void ApproveRuleInFixedConversationalRuleList(string ruleId)
         {
             FixedConversationalRule fixedConversationalRule = FixedConversationalRuleHandler.FindFixedConversationalRuleById(ruleId);
-            fixedConversationalRule.Status = Status.Approved;
+            fixedConversationalRule.Status = Status.Approved.ToString();
             FixedConversationalRuleHandler.UpdateAFixedConversationalRule(fixedConversationalRule);
             //dataHandler.ChangeFixedConversationalRuleState(ruleId, Status.Approved.ToString());
         }
@@ -140,7 +140,7 @@ namespace UTS.ScheduleSystem.MainLogic
         private void RejectRuleInConversationalRuleList(string ruleId)
         {
             ConversationalRule conversationalRule = ConversationalRuleHandler.FindConversationalRuleById(ruleId);
-            conversationalRule.Status = Status.Rejected;
+            conversationalRule.Status = Status.Rejected.ToString();
             ConversationalRuleHandler.UpdateAConversationalRule(conversationalRule);
             //dataHandler.ChangeConversationalRuleState(ruleId, Status.Rejected.ToString());
         }
@@ -149,7 +149,7 @@ namespace UTS.ScheduleSystem.MainLogic
         private void RejectRuleInFixedConversationalRuleList(string ruleId)
         {
             FixedConversationalRule fixedConversationalRule = FixedConversationalRuleHandler.FindFixedConversationalRuleById(ruleId);
-            fixedConversationalRule.Status = Status.Rejected;
+            fixedConversationalRule.Status = Status.Rejected.ToString();
             FixedConversationalRuleHandler.UpdateAFixedConversationalRule(fixedConversationalRule);
             //dataHandler.ChangeFixedConversationalRuleState(ruleId, Status.Rejected.ToString());
         }

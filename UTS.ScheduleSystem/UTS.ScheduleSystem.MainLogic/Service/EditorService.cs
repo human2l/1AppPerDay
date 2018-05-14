@@ -18,7 +18,7 @@ namespace UTS.ScheduleSystem.MainLogic
         // Add a fixed conversation rule
         public void AddNewFCRule(string input, string output, string userId)
         {
-            FixedConversationalRule rule = new FixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", dataHandler.FindLastFixedConversationalRuleId()), Utils.IgnoreWhiteSpace(input), Utils.IgnoreWhiteSpace(output), userId, Status.Pending);
+            FixedConversationalRule rule = new FixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", dataHandler.FindLastFixedConversationalRuleId()), Utils.IgnoreWhiteSpace(input), Utils.IgnoreWhiteSpace(output), userId, Status.Pending.ToString());
             dataHandler.AddFixedConversationalRule(rule);
         }
 
@@ -35,14 +35,14 @@ namespace UTS.ScheduleSystem.MainLogic
             List<Rule> pendingRulesList = new List<Rule>();
             foreach (FixedConversationalRule fCRule in fCRulesList)
             {
-                if (fCRule.Status == Status.Pending)
+                if (fCRule.Status == Status.Pending.ToString())
                 {
                     pendingRulesList.Add(fCRule);
                 }
             }
             foreach (ConversationalRule cRule in cRulesList)
             {
-                if (cRule.Status == Status.Pending)
+                if (cRule.Status == Status.Pending.ToString())
                 {
                     pendingRulesList.Add(cRule);
                 }
@@ -56,14 +56,14 @@ namespace UTS.ScheduleSystem.MainLogic
             List<Rule> rejectedRulesList = new List<Rule>();
             foreach (FixedConversationalRule fCRule in fCRulesList)
             {
-                if (fCRule.Status == Status.Rejected)
+                if (fCRule.Status == Status.Rejected.ToString())
                 {
                     rejectedRulesList.Add(fCRule);
                 }
             }
             foreach (ConversationalRule cRule in cRulesList)
             {
-                if (cRule.Status == Status.Rejected)
+                if (cRule.Status == Status.Rejected.ToString())
                 {
                     rejectedRulesList.Add(cRule);
                 }
@@ -142,7 +142,7 @@ namespace UTS.ScheduleSystem.MainLogic
             List<Rule> userRelatedRules = new List<Rule>();
             foreach(Rule rule in fCRulesList)
             {
-                if(rule.Status == Status.Approved)
+                if(rule.Status == Status.Approved.ToString())
                 {
                     string[] relatedUserId = rule.RelatedUsersId.Split(' ');
                     for (int i = 0; i < relatedUserId.Length; i++)
@@ -156,7 +156,7 @@ namespace UTS.ScheduleSystem.MainLogic
             }
             foreach (Rule rule in cRulesList)
             {
-                if (rule.Status == Status.Approved)
+                if (rule.Status == Status.Approved.ToString())
                 {
                     string[] relatedUserId = rule.RelatedUsersId.Split(' ');
                     for (int i = 0; i < relatedUserId.Length; i++)
@@ -172,12 +172,12 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         // Show a user's rejected rules
-        public List<Rule> ShowCurrentUserRejectedRules(User user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
+        public List<Rule> ShowCurrentUserRejectedRules(AspNetUser user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
             List<Rule> userRelatedRules = new List<Rule>();
             foreach (Rule rule in fCRulesList)
             {
-                if (rule.Status == Status.Rejected)
+                if (rule.Status == Status.Rejected.ToString())
                 {
                     string[] relatedUserId = rule.RelatedUsersId.Split(' ');
                     for (int i = 0; i < relatedUserId.Length; i++)
@@ -191,7 +191,7 @@ namespace UTS.ScheduleSystem.MainLogic
             }
             foreach (Rule rule in cRulesList)
             {
-                if (rule.Status == Status.Rejected)
+                if (rule.Status == Status.Rejected.ToString())
                 {
                     string[] relatedUserId = rule.RelatedUsersId.Split(' ');
                     for (int i = 0; i < relatedUserId.Length; i++)
@@ -207,12 +207,12 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         // Show a user's pengding rules
-        public List<Rule> ShowCurrentUserPendingRules(User user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
+        public List<Rule> ShowCurrentUserPendingRules(AspNetUser user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
             List<Rule> userRelatedRules = new List<Rule>();
             foreach (Rule rule in fCRulesList)
             {
-                if (rule.Status == Status.Pending)
+                if (rule.Status == Status.Pending.ToString())
                 {
                     string[] relatedUserId = rule.RelatedUsersId.Split(' ');
                     for (int i = 0; i < relatedUserId.Length; i++)
@@ -226,7 +226,7 @@ namespace UTS.ScheduleSystem.MainLogic
             }
             foreach (Rule rule in cRulesList)
             {
-                if (rule.Status == Status.Pending)
+                if (rule.Status == Status.Pending.ToString())
                 {
                     string[] relatedUserId = rule.RelatedUsersId.Split(' ');
                     for (int i = 0; i < relatedUserId.Length; i++)
@@ -242,28 +242,28 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         // Show the count of a user's approved rules
-        public int ShowCurrentUserApprovedRulesCount(User user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
+        public int ShowCurrentUserApprovedRulesCount(AspNetUser user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
             int count = ShowCurrentUserApprovedRules(user, fCRulesList, cRulesList).Count;
             return count;
         }
 
         // Show the count of a user's rejected rules
-        public int ShowCurrentUserRejectedRulesCount(User user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
+        public int ShowCurrentUserRejectedRulesCount(AspNetUser user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
             int count = ShowCurrentUserRejectedRules(user, fCRulesList, cRulesList).Count;
             return count;
         }
 
         // Show the count of a user's pending rules
-        public int ShowCurrentUserPendingRulesCount(User user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
+        public int ShowCurrentUserPendingRulesCount(AspNetUser user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
             int count = ShowCurrentUserPendingRules(user, fCRulesList, cRulesList).Count;
             return count;
         }
 
         // Show the percentage of a user's approved rules
-        public double ShowCurrentUserSuccessRate(User user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
+        public double ShowCurrentUserSuccessRate(AspNetUser user, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
         {
             double approvedCount = ShowCurrentUserApprovedRulesCount(user, fCRulesList, cRulesList);
             double rejectedCount = ShowCurrentUserRejectedRulesCount(user, fCRulesList, cRulesList);

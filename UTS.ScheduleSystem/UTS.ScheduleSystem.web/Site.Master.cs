@@ -88,27 +88,27 @@ namespace UTS.ScheduleSystem.Web
                 {
                     switch (controller.CurrentUser.Role)
                     {
-                        case Role.A:
+                        case "A":
                             editorPage.Visible = false;
                             dataMaintainerPage.Visible = false;
                             break;
-                        case Role.E:
+                        case "E":
                             approverPage.Visible = false;
                             dataMaintainerPage.Visible = false;
                             break;
-                        case Role.DM:
+                        case "DM":
                             approverPage.Visible = false;
                             editorPage.Visible = false;
                             break;
-                        case Role.DMnEnA:
+                        case "DMnEnA":
                             break;
-                        case Role.DMnA:
+                        case "DMnA":
                             editorPage.Visible = false;
                             break;
-                        case Role.DMnE:
+                        case "DMnE":
                             approverPage.Visible = false;
                             break;
-                        case Role.EnA:
+                        case "EnA":
                             dataMaintainerPage.Visible = false;
                             break;
                         default:

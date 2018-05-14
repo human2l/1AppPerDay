@@ -5,13 +5,16 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using UTS.ScheduleSystem.Data.ScheduleSystemDataSetsTableAdapters;
+using UTS.ScheduleSystem.MainLogic.DatabaseHandler;
 
 namespace UTS.ScheduleSystem.MainLogic
 {
+    public enum Status { Approved, Rejected, Pending }
+
     public class Controller
     {
         private AspNetUser currentUser;
-        private List<User> userList = new List<User>();
+        private List<AspNetUser> userList = new List<AspNetUser>();
         private List<ConversationalRule> conversationalRulesList = new List<ConversationalRule>();
         private List<FixedConversationalRule> fixedConversationalRulesList = new List<FixedConversationalRule>();
         private List<MealSchedule> mealScheduleList = new List<MealSchedule>();
@@ -61,7 +64,7 @@ namespace UTS.ScheduleSystem.MainLogic
             }
         }
 
-        public List<User> UserList
+        public List<AspNetUser> UserList
         {
             get
             {
@@ -77,12 +80,12 @@ namespace UTS.ScheduleSystem.MainLogic
                 //    u.Add(user);
                 //}
                 //userList = u;
-                return userList;
+                return UserHandler.UsersList();
             }
-            set
-            {
-                userList = value;
-            }
+            //set
+            //{
+            //    userList = value;
+            //}
         }
 
         public List<ConversationalRule> ConversationalRulesList
@@ -117,20 +120,20 @@ namespace UTS.ScheduleSystem.MainLogic
         {
             get
             {
-                var adapter = new FixedConversationalRuleTableAdapter();
-                var set = adapter.GetData();
-                adapter.Dispose();
-                List<FixedConversationalRule> list = new List<FixedConversationalRule>();
-                fixedConversationalRulesList = list;
-                while (set.Count != 0)
-                {
-                    FixedConversationalRule fcRule = new FixedConversationalRule(set.First().Id, set.First().Input, set.First().Output, set.First().RelatedUsersId,
-                        (set.First().Status.Equals((Status.Approved).ToString())) ? Status.Approved :
-                        (set.First().Status.Equals((Status.Rejected).ToString())) ? Status.Rejected :
-                        Status.Pending);
-                    set.RemoveFixedConversationalRuleRow(set.First());
-                    fixedConversationalRulesList.Add(fcRule);
-                }
+                //var adapter = new FixedConversationalRuleTableAdapter();
+                //var set = adapter.GetData();
+                //adapter.Dispose();
+                //List<FixedConversationalRule> list = new List<FixedConversationalRule>();
+                //fixedConversationalRulesList = list;
+                //while (set.Count != 0)
+                //{
+                //    FixedConversationalRule fcRule = new FixedConversationalRule(set.First().Id, set.First().Input, set.First().Output, set.First().RelatedUsersId,
+                //        (set.First().Status.Equals((Status.Approved).ToString())) ? Status.Approved :
+                //        (set.First().Status.Equals((Status.Rejected).ToString())) ? Status.Rejected :
+                //        Status.Pending);
+                //    set.RemoveFixedConversationalRuleRow(set.First());
+                //    fixedConversationalRulesList.Add(fcRule);
+                //}
                 return fixedConversationalRulesList;
             }
 

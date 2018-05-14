@@ -48,7 +48,7 @@ namespace UTS.ScheduleSystem.Web.Account
                             Session["Controller"] = controller;
                         }
 
-                            foreach (User u in controller.UserList)
+                            foreach (AspNetUser u in controller.UserList)
                             {
                                 if (u.Email == Email.Text)
                                 {
