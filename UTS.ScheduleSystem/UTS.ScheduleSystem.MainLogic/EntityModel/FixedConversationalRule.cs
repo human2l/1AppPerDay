@@ -11,10 +11,9 @@ namespace UTS.ScheduleSystem.MainLogic
     [Table("FixedConversationalRule")]
     public partial class FixedConversationalRule : Rule
     {
-        private int id;
         public FixedConversationalRule(int id, string input, string output, string relatedUsersId, string status)
         {
-            this.id = id;
+            base.id = id;
             base.input = input;
             base.output = output;
             base.relatedUsersId = relatedUsersId;
@@ -32,12 +31,12 @@ namespace UTS.ScheduleSystem.MainLogic
             get
             {
 
-                return id;
+                return base.Id;
             }
 
             set
             {
-                id = value;
+                base.Id = value;
             }
         }
 

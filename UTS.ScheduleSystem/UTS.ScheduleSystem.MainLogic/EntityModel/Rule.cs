@@ -13,15 +13,16 @@ namespace UTS.ScheduleSystem.MainLogic
         protected string output;
         protected string relatedUsersId;
         protected string status;
-        protected string id;
+        protected int id;
         protected string lastRelatedUserID;
 
         public Rule()
         {
 
         }
-        public Rule(string input, string output, string relatedUsersId, string status)
+        public Rule(int id, string input, string output, string relatedUsersId, string status)
         {
+            this.id = id;
             this.input = input;
             this.output = output;
             this.relatedUsersId = relatedUsersId;
@@ -33,6 +34,19 @@ namespace UTS.ScheduleSystem.MainLogic
             string[] relatedUsersIdString = relatedUsersId.Split(' ');
             string lastID = relatedUsersIdString[relatedUsersIdString.Length - 1];
             return lastID;
+        }
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
         }
 
         public string Input

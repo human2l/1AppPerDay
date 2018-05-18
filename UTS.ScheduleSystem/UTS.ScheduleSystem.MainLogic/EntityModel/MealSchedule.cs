@@ -18,7 +18,21 @@ namespace UTS.ScheduleSystem.MainLogic
 
         //}
 
-        public string Id { get; set; }
+        //public string Id { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id
+        {
+            get
+            {
+
+                return Id;
+            }
+
+            set
+            {
+                Id = value;
+            }
+        }
 
         [StringLength(128)]
         public string Topic { get; set; }
