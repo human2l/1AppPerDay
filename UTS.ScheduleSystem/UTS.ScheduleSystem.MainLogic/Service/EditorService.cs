@@ -18,16 +18,24 @@ namespace UTS.ScheduleSystem.MainLogic
         // Add a fixed conversation rule
         public void AddNewFCRule(string input, string output, string userId)
         {
-            FixedConversationalRule rule = new FixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", dataHandler.FindLastFixedConversationalRuleId()), Utils.IgnoreWhiteSpace(input), Utils.IgnoreWhiteSpace(output), userId, Status.Pending.ToString());
-            FixedConversationalRuleHandler.AddFixedConversationalRule(rule);
+            //FixedConversationalRule rule = new FixedConversationalRule(Utils.CreateIdByType("FixedConversationalRule", dataHandler.FindLastFixedConversationalRuleId()), Utils.IgnoreWhiteSpace(input), Utils.IgnoreWhiteSpace(output), userId, Status.Pending.ToString());
+            FixedConversationalRule fixedConversationalRule = new FixedConversationalRule();
+            fixedConversationalRule.Input = input;
+            fixedConversationalRule.Output = output;
+            fixedConversationalRule.RelatedUsersId = userId;
+            FixedConversationalRuleHandler.AddFixedConversationalRule(fixedConversationalRule);
             //dataHandler.AddFixedConversationalRule(rule);
         }
 
         // Add a conversation rule
         public void AddNewCRule(string input, string output, string userId)
         {
-            ConversationalRule rule = new ConversationalRule(Utils.CreateIdByType("ConversationalRule", dataHandler.FindLastConversationalRuleId()), Utils.IgnoreWhiteSpace(input), Utils.IgnoreWhiteSpace(output), userId, Status.Pending.ToString());
-            ConversationalRuleHandler.AddConversationalRule(rule);
+            //ConversationalRule rule = new ConversationalRule(Utils.CreateIdByType("ConversationalRule", dataHandler.FindLastConversationalRuleId()), Utils.IgnoreWhiteSpace(input), Utils.IgnoreWhiteSpace(output), userId, Status.Pending.ToString());
+            ConversationalRule conversationalRule = new ConversationalRule();
+            conversationalRule.Input = input;
+            conversationalRule.Output = output;
+            conversationalRule.RelatedUsersId = userId;
+            ConversationalRuleHandler.AddConversationalRule(conversationalRule);
             //dataHandler.AddConversationalRule(rule);
         }
 
