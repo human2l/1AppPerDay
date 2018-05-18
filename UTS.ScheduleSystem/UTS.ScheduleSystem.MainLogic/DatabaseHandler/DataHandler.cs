@@ -320,7 +320,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             List<FixedConversationalRule> result = new List<FixedConversationalRule>();
             foreach (var x in fixedConversationalRuleTableAdapter.GetAllFCRulesByStatus(status.ToString()).ToList())
             {
-                string id = x.Id;
+                int id = x.Id;
                 string input = x.Input;
                 string output = x.Output;
                 string relatedUserId = x.RelatedUsersId;

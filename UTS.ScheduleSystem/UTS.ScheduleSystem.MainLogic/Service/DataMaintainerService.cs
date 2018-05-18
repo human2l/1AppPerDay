@@ -24,7 +24,8 @@ namespace UTS.ScheduleSystem.MainLogic
 
             //MealSchedule ms = new MealSchedule(Utils.CreateIdByType("MealSchedule", dataHandler.FindLastMealscheduleId()), topic, participants, location, startDate, endDate, lastEditorUserId);
             MealSchedule mealSchedule = new MealSchedule();
-            mealSchedule.Id = Utils.CreateIdByType("MealSchedule", MealScheduleHandler.FindLastMealscheduleId());
+            //after change id to int: comment below
+            //mealSchedule.Id = Utils.CreateIdByType("MealSchedule", MealScheduleHandler.FindLastMealscheduleId());
             mealSchedule.Topic = topic;
             mealSchedule.Participants = participants;
             mealSchedule.Location = location;
@@ -47,7 +48,8 @@ namespace UTS.ScheduleSystem.MainLogic
         public void EditMealSchedule(string id, string topic, string participants, string location, string startDate, string endDate, string lastEditorUserId)
         {
             MealSchedule mealSchedule = new MealSchedule();
-            mealSchedule.Id = id;
+            //mealSchedule.Id = id;//commented after id is int
+
             mealSchedule.Topic = topic;
             mealSchedule.Participants = participants;
             mealSchedule.Location = location;
