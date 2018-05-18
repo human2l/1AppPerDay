@@ -10,6 +10,7 @@ using UTS.ScheduleSystem.MainLogic.DatabaseHandler;
 namespace UTS.ScheduleSystem.MainLogic
 {
     public enum Status { Approved, Rejected, Pending }
+    public enum DataType { Topic, Participants, Location, startDate, endDate }
 
     public class Controller
     {

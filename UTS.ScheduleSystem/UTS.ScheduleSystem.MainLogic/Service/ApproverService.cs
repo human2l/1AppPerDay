@@ -8,11 +8,9 @@ namespace UTS.ScheduleSystem.MainLogic
 {
     public class ApproverService
     {
-        private DataHandler dataHandler;
-
         public ApproverService()
         {
-            dataHandler = new DataHandler();
+
         }
 
         // Traversal and merge a conversational rule list and a fixed conversational rule list

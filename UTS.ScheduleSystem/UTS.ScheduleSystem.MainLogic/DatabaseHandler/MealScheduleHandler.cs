@@ -103,5 +103,26 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             //string result = mealScheduleTableAdapter.FindLastIdQuery();
             return result;
         }
+
+        //public static string FindAnswer(string inputKeyword, string outputKeyword, string parameter)
+        //{
+        //    string answer;
+        //    try
+        //    {
+        //        using (ScheduleSystemContext context = new ScheduleSystemContext())
+        //        {
+        //            MealSchedule mealSchedule = (from MealSchedule
+        //                                         in context.MealSchedules
+        //                                         where inputKeyword == parameter
+        //                                         select MealSchedule).First();
+        //            answer = mealSchedule.
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        answer = null;
+        //    }
+        //    return answer;
+        }
     }
 }
