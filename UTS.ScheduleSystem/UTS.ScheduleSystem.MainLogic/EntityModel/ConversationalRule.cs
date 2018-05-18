@@ -9,7 +9,6 @@ namespace UTS.ScheduleSystem.MainLogic
     [Table("ConversationalRule")]
     public partial class ConversationalRule : Rule
     {
-        private int id;
         public ConversationalRule(int id, string input, string output, string relatedUsersId, string status)
         {
             this.id = id;
@@ -32,12 +31,12 @@ namespace UTS.ScheduleSystem.MainLogic
             get
             {
 
-                return id;
+                return base.Id;
             }
 
             set
             {
-                id = value;
+                base.Id = value;
             }
         }
 
