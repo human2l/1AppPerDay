@@ -20,9 +20,8 @@ namespace UTS.ScheduleSystem.MainLogic
         {
 
         }
-        public Rule(string id,  string input, string output, string relatedUsersId, string status)
+        public Rule(string input, string output, string relatedUsersId, string status)
         {
-            this.id = id;
             this.input = input;
             this.output = output;
             this.relatedUsersId = relatedUsersId;
@@ -90,18 +89,6 @@ namespace UTS.ScheduleSystem.MainLogic
             }
         }
 
-        public string Id
-        {
-            get
-            {
-                return id;
-            }
-
-            set
-            {
-                id = value;
-            }
-        }
 
         public string LastRelatedUserID
         {
