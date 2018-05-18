@@ -95,27 +95,26 @@ namespace UTS.ScheduleSystem.MainLogic
         // Approve a rule in database
         public void ApproveRule(string ruleId)
         {
-            if (ruleId.StartsWith("c"))
+            if (ConversationalRuleHandler.FindConversationalRuleById(ruleId) != null)
             {
-                ApproveRuleInConversationalRuleList(ruleId);
+                ApproveConversationalRule(ruleId);
             }
             else
             {
-                ApproveRuleInFixedConversationalRuleList(ruleId);
+                ApproveFixedConversationalRule(ruleId);
             }
         }
 
         //Subfunction of ApproveRule to approve a conversational rule 
-        private void ApproveRuleInConversationalRuleList(string ruleId)
+        private void ApproveConversationalRule(string ruleId)
         {
             ConversationalRule conversationalRule = ConversationalRuleHandler.FindConversationalRuleById(ruleId);
             conversationalRule.Status = Status.Approved.ToString();
             ConversationalRuleHandler.UpdateAConversationalRule(conversationalRule);
-            //dataHandler.ChangeConversationalRuleState(ruleId, Status.Approved.ToString());
         }
 
         //Subfunction of ApproveRule to approve a fixed conversational rule 
-        private void ApproveRuleInFixedConversationalRuleList(string ruleId)
+        private void ApproveFixedConversationalRule(string ruleId)
         {
             FixedConversationalRule fixedConversationalRule = FixedConversationalRuleHandler.FindFixedConversationalRuleById(ruleId);
             fixedConversationalRule.Status = Status.Approved.ToString();
@@ -126,7 +125,7 @@ namespace UTS.ScheduleSystem.MainLogic
         // Reject a rule in database
         public void RejectRule(string ruleId)
         {
-            if (ruleId.StartsWith("c"))
+            if (ConversationalRuleHandler.FindConversationalRuleById(ruleId) != null)
             {
                 RejectRuleInConversationalRuleList(ruleId);
             }
