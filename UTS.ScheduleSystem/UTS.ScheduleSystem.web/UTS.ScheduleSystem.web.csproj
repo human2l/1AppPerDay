@@ -173,10 +173,6 @@
     <Content Include="Approver.aspx" />
     <Content Include="Approver_Editor_Report.aspx" />
     <Content Include="Approver_Report.aspx" />
-    <Content Include="App_Data\aspnet-UTS.ScheduleSystem.Web-20180415025446.mdf" />
-    <Content Include="App_Data\aspnet-UTS.ScheduleSystem.Web-20180415025446_log.ldf">
-      <DependentUpon>aspnet-UTS.ScheduleSystem.Web-20180415025446.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -451,8 +447,22 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UTS.ScheduleSystem.Data\UTS.ScheduleSystem.Data.csproj">
+      <Project>{b1106e0c-f4ed-49cf-b245-8c76554a564f}</Project>
+      <Name>UTS.ScheduleSystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UTS.ScheduleSystem.DomainLogic.UnitTests\UTS.ScheduleSystem.DomainLogic.UnitTests.csproj">
+      <Project>{7d023a06-d3e9-4eea-87ea-733a2cbdfb09}</Project>
+      <Name>UTS.ScheduleSystem.DomainLogic.UnitTests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UTS.ScheduleSystem.DomainLogic\UTS.ScheduleSystem.DomainLogic.csproj">
+      <Project>{f50fc7c7-8d10-4aa8-886c-6a724131540e}</Project>
+      <Name>UTS.ScheduleSystem.DomainLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UTS.ScheduleSystem.MainLogic\UTS.ScheduleSystem.MainLogic.csproj">
       <Project>{55be9c1e-b8a9-4aad-8c16-07d12e120878}</Project>
       <Name>UTS.ScheduleSystem.MainLogic</Name>

@@ -1,43 +1,43 @@
 ﻿@model UTS.ScheduleSystem.WebMVC.Models.IndexViewModel
 @{
-    ViewBag.Title = "Manage";
+    ViewBag.Title = "管理";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title。</h2>
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
-    <h4>Change your account settings</h4>
+    <h4>更改你的帐户设置</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>Password:</dt>
+        <dt>密码:</dt>
         <dd>
             [
             @if (Model.HasPassword)
             {
-                @Html.ActionLink("Change your password", "ChangePassword")
+                @Html.ActionLink("更改密码", "ChangePassword")
             }
             else
             {
-                @Html.ActionLink("Create", "SetPassword")
+                @Html.ActionLink("创建", "SetPassword")
             }
             ]
         </dd>
-        <dt>External Logins:</dt>
+        <dt>外部登录名:</dt>
         <dd>
             @Model.Logins.Count [
-            @Html.ActionLink("Manage", "ManageLogins") ]
+            @Html.ActionLink("管理", "ManageLogins") ]
         </dd>
         @*
-            Phone Numbers can used as a second factor of verification in a two-factor authentication system.
+            电话号码可以用作双因素身份验证系统中的第二个验证因素。
              
-             See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                for details on setting up this ASP.NET application to support two-factor authentication using SMS.
+             有关如何设置此 ASP.NET 应用程序以支持使用
+                SMS 进行双因素身份验证的详细信息，请参阅<a href="https://go.microsoft.com/fwlink/?LinkId=403804">此文章</a>。
              
-             Uncomment the following block after you have set up two-factor authentication
+             在设置双因素身份验证后，取消注释以下块
         *@
         @*  
-            <dt>Phone Number:</dt>
+            <dt>电话号码:</dt>
             <dd>
                 @(Model.PhoneNumber ?? "None")
                 @if (Model.PhoneNumber != null)
@@ -47,7 +47,7 @@
                     using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                     {
                         @Html.AntiForgeryToken()
-                        <text>[<input type="submit" value="Remove" class="btn-link" />]</text>
+                        <text>[<input type="submit" value="删除" class="btn-link" />]</text>
                     }
                 }
                 else
@@ -56,19 +56,19 @@
                 }
             </dd>
         *@
-        <dt>Two-Factor Authentication:</dt>
+        <dt>双因素身份验证:</dt>
         <dd>
             <p>
-                There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                for details on setting up this ASP.NET application to support two-factor authentication.
+                未配置任何双因素身份验证提供程序。若要了解如何设置此 ASP.NET 应用程序以支持
+                双因素身份验证的详细信息，请参阅<a href="https://go.microsoft.com/fwlink/?LinkId=403804">此文章</a>。
             </p>
             @*@if (Model.TwoFactor)
                 {
                     using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                     {
                         @Html.AntiForgeryToken()
-                        <text>Enabled
-                        <input type="submit" value="Disable" class="btn btn-link" />
+                        <text>已启用
+                        <input type="submit" value="禁用" class="btn btn-link" />
                         </text>
                     }
                 }
@@ -77,8 +77,8 @@
                     using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                     {
                         @Html.AntiForgeryToken()
-                        <text>Disabled
-                        <input type="submit" value="Enable" class="btn btn-link" />
+                        <text>已禁用
+                        <input type="submit" value="启用" class="btn btn-link" />
                         </text>
                     }
                 }*@

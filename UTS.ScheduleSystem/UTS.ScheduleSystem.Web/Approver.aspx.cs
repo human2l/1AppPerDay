@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
+using UTS.ScheduleSystem.Data;
 using UTS.ScheduleSystem.MainLogic;
 
 namespace UTS.ScheduleSystem.Web

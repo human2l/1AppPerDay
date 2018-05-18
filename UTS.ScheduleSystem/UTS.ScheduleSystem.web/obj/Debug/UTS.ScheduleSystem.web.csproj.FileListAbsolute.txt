@@ -208,3 +208,5 @@ C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Web\bin\UTS.ScheduleSystem.MainLogic.dll.config
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Web\obj\Debug\UTS.ScheduleSystem.Web.csproj.CopyComplete
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Web\bin\UTS.ScheduleSystem.Data.dll.config
+C:\Users\Frank\Desktop\UTS.ScheduleSystem\UTS.ScheduleSystem.Web\obj\Debug\UTS.ScheduleSystem.web.csprojResolveAssemblyReference.cache
+C:\Users\Frank\Desktop\UTS.ScheduleSystem\UTS.ScheduleSystem.Web\obj\Debug\UTS.ScheduleSystem.web.csproj.CoreCompileInputs.cache

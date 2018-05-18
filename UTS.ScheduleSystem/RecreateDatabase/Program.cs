@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UTS.ScheduleSystem.MainLogic;
-using UTS.ScheduleSystem.Web.Models;
 
 namespace RecreateDatabase
 {
@@ -13,7 +12,7 @@ namespace RecreateDatabase
     {
         static void Main(string[] args)
         {
-            string path = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\UTS.ScheduleSystem.WebMVC\App_Data"));
+            string path = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\UTS.ScheduleSystem.Data"));
             AppDomain.CurrentDomain.SetData("DataDirectory", path);
             using (var context = new ScheduleSystemContext())
             {
