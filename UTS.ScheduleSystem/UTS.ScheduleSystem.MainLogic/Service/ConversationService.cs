@@ -6,7 +6,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UTS.ScheduleSystem.Data.ScheduleSystemDataSetsTableAdapters;
 using UTS.ScheduleSystem.MainLogic.DatabaseHandler;
 
 namespace UTS.ScheduleSystem.MainLogic

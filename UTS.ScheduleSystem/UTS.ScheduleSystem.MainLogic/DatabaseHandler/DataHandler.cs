@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
-using UTS.ScheduleSystem.Data.ScheduleSystemDataSetsTableAdapters;
+
 
 namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
 {
     public class DataHandler
     {
         string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-        ConversationalRuleTableAdapter conversationalRuleTableAdapter;
-        FixedConversationalRuleTableAdapter fixedConversationalRuleTableAdapter;
-        MealScheduleTableAdapter mealScheduleTableAdapter;
-        AspNetUsersTableAdapter aspNetUsersTableAdapter;
+        //ConversationalRuleTableAdapter conversationalRuleTableAdapter;
+        //FixedConversationalRuleTableAdapter fixedConversationalRuleTableAdapter;
+        //MealScheduleTableAdapter mealScheduleTableAdapter;
+        //AspNetUsersTableAdapter aspNetUsersTableAdapter;
 
         public DataHandler()
         {
-            conversationalRuleTableAdapter = new ConversationalRuleTableAdapter();
-            fixedConversationalRuleTableAdapter = new FixedConversationalRuleTableAdapter();
-            mealScheduleTableAdapter = new MealScheduleTableAdapter();
-            aspNetUsersTableAdapter = new AspNetUsersTableAdapter();
+            //conversationalRuleTableAdapter = new ConversationalRuleTableAdapter();
+            //fixedConversationalRuleTableAdapter = new FixedConversationalRuleTableAdapter();
+            //mealScheduleTableAdapter = new MealScheduleTableAdapter();
+            //aspNetUsersTableAdapter = new AspNetUsersTableAdapter();
         }
 
 
@@ -218,7 +218,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
         // Delete all fixed conversational rules from database
         public void RemoveAllFixedConversationalRule()
         {
-            fixedConversationalRuleTableAdapter.DeleteAllQuery();
+            //fixedConversationalRuleTableAdapter.DeleteAllQuery();
         }
 
         // Update a fixed conversational rule by Id
@@ -260,7 +260,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             string result;
             try
             {
-                result = fixedConversationalRuleTableAdapter.GetOutput(input).ToString();
+                //result = fixedConversationalRuleTableAdapter.GetOutput(input).ToString();
             }
             catch
             {
@@ -317,17 +317,17 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
         // Find fixed conversational rules by status
         public List<FixedConversationalRule> FindFixedConversationalRulesAccordingToStatus(Status status)
         {
-            List<FixedConversationalRule> result = new List<FixedConversationalRule>();
-            foreach (var x in fixedConversationalRuleTableAdapter.GetAllFCRulesByStatus(status.ToString()).ToList())
-            {
-                int id = int.Parse(x.Id);
-                string input = x.Input;
-                string output = x.Output;
-                string relatedUserId = x.RelatedUsersId;
-                FixedConversationalRule conversationalRule = new FixedConversationalRule(id, input, output, relatedUserId, status.ToString());
-                result.Add(conversationalRule);
-            }
-            return result;
+            //List<FixedConversationalRule> result = new List<FixedConversationalRule>();
+            //foreach (var x in fixedConversationalRuleTableAdapter.GetAllFCRulesByStatus(status.ToString()).ToList())
+            //{
+            //    int id = int.Parse(x.Id);
+            //    string input = x.Input;
+            //    string output = x.Output;
+            //    string relatedUserId = x.RelatedUsersId;
+            //    FixedConversationalRule conversationalRule = new FixedConversationalRule(id, input, output, relatedUserId, status.ToString());
+            //    result.Add(conversationalRule);
+            //}
+            //return result;
         }
 
         // Find last added fixed conversational rule Id 

@@ -13,9 +13,10 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             List<AspNetUser> users;
             using (ScheduleSystemContext context = new ScheduleSystemContext())
             {
-                users = (from AspNetUser
+                /*users = (from AspNetUser
                            in context.AspNetUsers
-                           select AspNetUser).ToList();
+                           select AspNetUser).ToList();*/
+                users = new List<AspNetUser>();
             }
             return users;
         }
