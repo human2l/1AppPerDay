@@ -26,7 +26,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             {
                 var cRule = (from ConversationalRule
                              in context.ConversationalRules
-                             where ConversationalRule.Id == ruleId
+                             where ConversationalRule.Id == int.Parse(ruleId)
                              select ConversationalRule).First();
                 context.ConversationalRules.Remove(cRule);
                 context.SaveChanges();
@@ -60,7 +60,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
                 {
                     conversationalRule = (from ConversationalRule
                                             in context.ConversationalRules
-                                          where ConversationalRule.Id == ruleId
+                                          where ConversationalRule.Id == int.Parse(ruleId)
                                           select ConversationalRule).First();
                 }
             }
@@ -85,16 +85,16 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
         }
 
         // Find last added conversational rule Id 
-        public static string FindLastConversationalRuleId()
-        {
-            string result;
-            using (ScheduleSystemContext context = new ScheduleSystemContext())
-            {
-                result = context.ConversationalRules.Max(ConversationalRule => ConversationalRule.Id);
-            }
-            //string result = conversationalRuleTableAdapter.FindLastIdQuery();
-            return result;
-        }
+        //public static int FindLastConversationalRuleId()
+        //{
+        //    int result;
+        //    using (ScheduleSystemContext context = new ScheduleSystemContext())
+        //    {
+        //        result = context.ConversationalRules.Max(ConversationalRule => ConversationalRule.Id);
+        //    }
+        //    //string result = conversationalRuleTableAdapter.FindLastIdQuery();
+        //    return result;
+        //}
 
     }
 }

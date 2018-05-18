@@ -43,7 +43,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             {
                 var cRule = (from ConversationalRule 
                              in context.ConversationalRules
-                             where ConversationalRule.Id == ruleId
+                             where ConversationalRule.Id == int.Parse(ruleId)
                              select ConversationalRule).First();
                 context.ConversationalRules.Remove(cRule);
                 context.SaveChanges();
@@ -69,7 +69,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             {
                 var cRule = (from ConversationalRule
                              in context.ConversationalRules
-                             where ConversationalRule.Id == ruleId
+                             where ConversationalRule.Id == int.Parse(ruleId)
                              select ConversationalRule).First();
                 cRule.Input = input;
                 cRule.Output = output;
@@ -87,7 +87,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             {
                 var cRule = (from ConversationalRule
                              in context.ConversationalRules
-                             where ConversationalRule.Id == ruleId
+                             where ConversationalRule.Id == int.Parse(ruleId)
                              select ConversationalRule).First();
                 cRule.Status = status;
                 context.SaveChanges();
@@ -105,7 +105,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
                 {
                     conversationalRule = (from ConversationalRule
                                  in context.ConversationalRules
-                                 where ConversationalRule.Id == ruleId
+                                 where ConversationalRule.Id == int.Parse(ruleId)
                                  select ConversationalRule).First();
                 }
                 //var x = conversationalRuleTableAdapter.FindConversationalRuleById(id).ToList().First();
@@ -169,9 +169,9 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
         }
 
         // Find last added conversational rule Id 
-        public string FindLastConversationalRuleId()
+        public int FindLastConversationalRuleId()
         {
-            string result;
+            int result;
             using (ScheduleSystemContext context = new ScheduleSystemContext())
             {
                 result = context.ConversationalRules.Max(ConversationalRule => ConversationalRule.Id);
@@ -207,7 +207,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             {
                 var fCRule = (from FixedConversationalRule
                              in context.FixedConversationalRules
-                             where FixedConversationalRule.Id == ruleId
+                             where FixedConversationalRule.Id == int.Parse(ruleId)
                              select FixedConversationalRule).First();
                 context.FixedConversationalRules.Remove(fCRule);
                 context.SaveChanges();
@@ -228,7 +228,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             {
                 var fCRule = (from FixedConversationalRule
                              in context.FixedConversationalRules
-                             where FixedConversationalRule.Id == ruleId
+                             where FixedConversationalRule.Id == int.Parse(ruleId)
                              select FixedConversationalRule).First();
                 fCRule.Input = input;
                 fCRule.Output = output;
@@ -246,7 +246,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             {
                 var fCRule = (from FixedConversationalRule
                              in context.FixedConversationalRules
-                              where FixedConversationalRule.Id == ruleId
+                              where FixedConversationalRule.Id == int.Parse(ruleId)
                               select FixedConversationalRule).First();
                 fCRule.Status = status;
                 context.SaveChanges();
@@ -279,7 +279,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
                 {
                     fixedConversationalRule = (from FixedConversationalRule
                                           in context.FixedConversationalRules
-                                          where FixedConversationalRule.Id == ruleId
+                                          where FixedConversationalRule.Id == int.Parse(ruleId)
                                           select FixedConversationalRule).First();
                 }
                 //var x = fixedConversationalRuleTableAdapter.FindFixedConversationalRuleById(id).ToList().First();
@@ -331,9 +331,9 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
         }
 
         // Find last added fixed conversational rule Id 
-        public string FindLastFixedConversationalRuleId()
+        public int FindLastFixedConversationalRuleId()
         {
-            string result;
+            int result;
             using (ScheduleSystemContext context = new ScheduleSystemContext())
             {
                 result = context.FixedConversationalRules.Max(FixedConversationalRule => FixedConversationalRule.Id);
@@ -368,7 +368,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             {
                 var mealschedule = (from MealSchedule
                                             in context.MealSchedules
-                                          where MealSchedule.Id == Id
+                                          where MealSchedule.Id == int.Parse(Id)
                                           select MealSchedule).First();
                 context.MealSchedules.Remove(mealschedule);
                 context.SaveChanges();
@@ -389,7 +389,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             {
                 var mealschedule = (from MealSchedule
                                     in context.MealSchedules
-                                    where MealSchedule.Id == id
+                                    where MealSchedule.Id == int.Parse(id)
                                     select MealSchedule).First();
                 mealschedule.Topic = topic;
                 mealschedule.Participants = participants;
@@ -436,7 +436,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
                 {
                     mealSchedule = (from MealSchedule
                                     in context.MealSchedules
-                                    where MealSchedule.Id == id
+                                    where MealSchedule.Id == int.Parse(id)
                                     select MealSchedule).First();
                 }
                 //var x = mealScheduleTableAdapter.FindMealScheduleById(id).ToList().First();
@@ -450,16 +450,16 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
         }
 
         // Find last added meal schedule Id
-        public string FindLastMealscheduleId()
-        {
-            string result;
-            using (ScheduleSystemContext context = new ScheduleSystemContext())
-            {
-                result = context.MealSchedules.Max(MealSchedule => MealSchedule.Id);
-            }
-            //string result = mealScheduleTableAdapter.FindLastIdQuery();
-            return result;
-        }
+        //public string FindLastMealscheduleId()
+        //{
+        //    string result;
+        //    using (ScheduleSystemContext context = new ScheduleSystemContext())
+        //    {
+        //        result = context.MealSchedules.Max(MealSchedule => MealSchedule.Id);
+        //    }
+        //    //string result = mealScheduleTableAdapter.FindLastIdQuery();
+        //    return result;
+        //}
 
         // Find number of editors
         public int FindEditorNum()

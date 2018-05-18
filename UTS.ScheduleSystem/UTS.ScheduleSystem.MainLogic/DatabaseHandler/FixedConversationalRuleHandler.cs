@@ -26,7 +26,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             {
                 var fCRule = (from FixedConversationalRule
                              in context.FixedConversationalRules
-                              where FixedConversationalRule.Id == ruleId
+                              where FixedConversationalRule.Id == int.Parse(ruleId)
                               select FixedConversationalRule).First();
                 context.FixedConversationalRules.Remove(fCRule);
                 context.SaveChanges();
@@ -60,7 +60,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
                 {
                     fixedConversationalRule = (from FixedConversationalRule
                                                 in context.FixedConversationalRules
-                                               where FixedConversationalRule.Id == ruleId
+                                               where FixedConversationalRule.Id == int.Parse(ruleId)
                                                select FixedConversationalRule).First();
                 }
             }
@@ -92,15 +92,15 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
         }
 
         // Find last added fixed conversational rule Id 
-        public static string FindLastFixedConversationalRuleId()
-        {
-            string result;
-            using (ScheduleSystemContext context = new ScheduleSystemContext())
-            {
-                result = context.FixedConversationalRules.Max(FixedConversationalRule => FixedConversationalRule.Id);
-            }
-            //string result = fixedConversationalRuleTableAdapter.FindLastIdQuery();
-            return result;
-        }
+        //public static string FindLastFixedConversationalRuleId()
+        //{
+        //    string result;
+        //    using (ScheduleSystemContext context = new ScheduleSystemContext())
+        //    {
+        //        result = context.FixedConversationalRules.Max(FixedConversationalRule => FixedConversationalRule.Id);
+        //    }
+        //    //string result = fixedConversationalRuleTableAdapter.FindLastIdQuery();
+        //    return result;
+        //}
     }
 }

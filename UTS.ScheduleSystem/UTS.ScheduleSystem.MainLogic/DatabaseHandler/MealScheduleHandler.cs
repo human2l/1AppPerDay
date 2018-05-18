@@ -25,7 +25,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             {
                 var mealschedule = (from MealSchedule
                                             in context.MealSchedules
-                                    where MealSchedule.Id == Id
+                                    where MealSchedule.Id == int.Parse(Id)
                                     select MealSchedule).First();
                 context.MealSchedules.Remove(mealschedule);
                 context.SaveChanges();
@@ -61,7 +61,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
                 {
                     mealSchedule = (from MealSchedule
                                     in context.MealSchedules
-                                    where MealSchedule.Id == id
+                                    where MealSchedule.Id == int.Parse(id)
                                     select MealSchedule).First();
                 }
             }
@@ -93,9 +93,9 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
         }
 
         // Find last added meal schedule Id
-        public static string FindLastMealscheduleId()
+        public static int FindLastMealscheduleId()
         {
-            string result;
+            int result;
             using (ScheduleSystemContext context = new ScheduleSystemContext())
             {
                 result = context.MealSchedules.Max(MealSchedule => MealSchedule.Id);
