@@ -13,23 +13,24 @@ namespace UTS.ScheduleSystem.MainLogic
 {
     public class ConversationService
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-        //string connectionString = "Data Source=(LocalDb)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\aspnet-UTS.ScheduleSystem.Web-20180415025446.mdf;Initial Catalog=aspnet-UTS.ScheduleSystem.Web-20180415025446;Integrated Security=True";
-        private DataHandler dataHandler;
+        private List<ConversationalRule> conversationalRules;
+        private List<FixedConversationalRule> fixedConversationalRules;
+        private List<MealSchedule> mealSchedules;
         private string answer;
 
         public ConversationService()
         {
-            dataHandler = new DataHandler();
+
         }
 
         // Main conversation function take question input as parameter
         public string Conversation(string question)
         {
-            string compactedString = Utils.RemoveAllMarks(question).ToLower();
-            compactedString = Utils.IgnoreWhiteSpace(compactedString);
+            conversationalRules = ConversationalRuleHandler.FindAllConversationalRules();
+            fixedConversationalRules = FixedConversationalRuleHandler.FindAllFixedConversationalRules();
 
-            if (!AnswerToFixedRuleConversation(compactedString) && !AnswerToConversation(compactedString))
+            string formatedQuestion = Utils.conversationFormat(question);
+            if (!AnswerToFixedRuleConversation(formatedQuestion) && !AnswerToConversation(formatedQuestion))
                 answer = "Can not find answer to the question";
             return answer;
         }
@@ -37,50 +38,22 @@ namespace UTS.ScheduleSystem.MainLogic
         // Answer to fixed rule conversation
         private Boolean AnswerToFixedRuleConversation(string question)
         {
-            answer = dataHandler.FindSingleFixedConversationalRule(question);
-            Boolean result = (answer == null) ? false : true;
-            return result;
+            // Traversal fixed conversational rule list 
+            foreach (FixedConversationalRule rule in fixedConversationalRules)
+            {
+                // Find corresponding rule in fixed conversational rule list
+                if (rule.Input.Equals(question))
+                {
+                    answer = rule.Output;
+                    return true;
+                }
+            }
+            return false;
         }
 
         // Answer to unfixed rule conversation
         private Boolean AnswerToConversation(string question)
         {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    string query = @"select Input, Output from ConversationalRule where Status='Approved'";
-                    SqlCommand command = new SqlCommand(query, connection);
-                    SqlDataReader dataReader = command.ExecuteReader();
-                    while (dataReader.Read())
-                    {
-                        string input = dataReader["Input"].ToString();
-                        string[] inputSplit = SplitRule(input);
-                        if (question.StartsWith(inputSplit[0]) && question.EndsWith(inputSplit[2]))
-                        {
-                            string output = dataReader["Output"].ToString();
-                            string[] outputSplit = SplitRule(output);
-
-                            string parameter = Parameter(question, inputSplit[0], inputSplit[2]);
-                            string inputKeyword = inputSplit[1];
-                            string outputKeyword = outputSplit[1];
-                            string singleValue = FindAnswerFromMealSchedule(inputKeyword, outputKeyword, parameter);
-                            if (singleValue != null)
-                            {
-                                answer = outputSplit[0] + singleValue + outputSplit[2];
-                                command.Dispose();
-                                return true;
-                            }
-                        }
-                    }
-                    command.Dispose();
-                }
-            }
-            catch
-            {
-                return false;
-            }
             return false;
         }
 
@@ -105,10 +78,13 @@ namespace UTS.ScheduleSystem.MainLogic
             return result;
         }
 
-        // Find answer parameter from Mealschedule according to the input parameter
-        private string FindAnswerFromMealSchedule(string inputKeyword, string outputKeyword, string parameter)
-        {
-            return dataHandler.FindSingleMealschedule(inputKeyword, outputKeyword, parameter);
-        }
+        //// Find answer parameter from Mealschedule according to the input parameter
+        //private string FindAnswerFromMealSchedule(string inputKeyword, string outputKeyword, string parameter)
+        //{
+        //    foreach (MealSchedule mealschedule in mealSchedules)
+        //    {
+        //        Utils.Datatype(inputKeyword)
+        //    }
+        //}
     }
 }
