@@ -122,13 +122,13 @@ namespace UTS.ScheduleSystem.MainLogic
             {
                 for (int i = 0; i < fCRulesList.Count; i++)
                 {
-                    if (fCRulesList[i].Id == ruleId)
+                    if (fCRulesList[i].Id == int.Parse(ruleId))
                     {
                         relatedUserId = (StringFormat(fCRulesList[i].RelatedUsersId,userId) + " " + userId).Trim();
                         break;
                     }
                 }
-                FixedConversationalRule rule = new FixedConversationalRule(ruleId, ruleInput, ruleOutput, userId, "Pending");
+                FixedConversationalRule rule = new FixedConversationalRule(int.Parse(ruleId), ruleInput, ruleOutput, userId, "Pending");
                 FixedConversationalRuleHandler.UpdateAFixedConversationalRule(rule);
                 //dataHandler.UpdateAFixedConversationalRule(ruleInput, ruleOutput, relatedUserId, "Pending", ruleId);
             }
@@ -136,13 +136,13 @@ namespace UTS.ScheduleSystem.MainLogic
             {
                 for (int i = 0; i < cRulesList.Count; i++)
                 {
-                    if (cRulesList[i].Id == ruleId)
+                    if (cRulesList[i].Id == int.Parse(ruleId))
                     {
                         relatedUserId = (StringFormat(cRulesList[i].RelatedUsersId, userId) + " " + userId).Trim();
                         break;
                     }
                 }
-                ConversationalRule rule = new ConversationalRule(ruleId, ruleInput, ruleOutput, userId, "Pending");
+                ConversationalRule rule = new ConversationalRule(int.Parse(ruleId), ruleInput, ruleOutput, userId, "Pending");
                 ConversationalRuleHandler.UpdateAConversationalRule(rule);
                 //dataHandler.UpdateAConversationalRule(ruleInput, ruleOutput, relatedUserId, "Pending", ruleId);
             }
