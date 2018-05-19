@@ -39,12 +39,12 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         // Return a number of rules related to a user in a rule list
-        private int CountUserRelatedRule(string id, List<Object> rules)
+        private int CountUserRelatedRule(string id, List<Rule> rules)
         {
             int result = 0;
             foreach (var rule in rules)
             {
-                if (rule.GetType.Contains(id))
+                if (rule.RelatedUsersId.Contains(id))
                     result++;
             }
             return result;

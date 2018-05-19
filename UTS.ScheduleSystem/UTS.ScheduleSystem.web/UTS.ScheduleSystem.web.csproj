@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UTS.ScheduleSystem.Web</RootNamespace>
     <AssemblyName>UTS.ScheduleSystem.Web</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -25,6 +25,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <Use64BitIISExpress />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,10 +59,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
@@ -90,6 +89,7 @@
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -462,10 +462,6 @@
     <ProjectReference Include="..\UTS.ScheduleSystem.DomainLogic\UTS.ScheduleSystem.DomainLogic.csproj">
       <Project>{f50fc7c7-8d10-4aa8-886c-6a724131540e}</Project>
       <Name>UTS.ScheduleSystem.DomainLogic</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UTS.ScheduleSystem.MainLogic\UTS.ScheduleSystem.MainLogic.csproj">
-      <Project>{55be9c1e-b8a9-4aad-8c16-07d12e120878}</Project>
-      <Name>UTS.ScheduleSystem.MainLogic</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -53,8 +53,8 @@ namespace UTS.ScheduleSystem.MainLogic
         // Show all pending rules stored in the database
         public List<Rule> ShowAllPendingRules()
         {
-            List<FixedConversationalRule> fCRulesList = FixedConversationalRuleHandler.FindAllFixedConversationalRules();
-            List<ConversationalRule> cRulesList = ConversationalRuleHandler.FindAllConversationalRules();
+            List<FixedConversationalRule> fCRulesList = ShowAllFixedConversationalRuleRules();
+            List<ConversationalRule> cRulesList = ShowAllConversationalRuleRules();
             List<Rule> pendingRulesList = new List<Rule>();
             foreach (FixedConversationalRule fCRule in fCRulesList)
             {
@@ -76,8 +76,8 @@ namespace UTS.ScheduleSystem.MainLogic
         // Show all rejected rules stored in the database
         public List<Rule> ShowAllRejectedRules()
         {
-            List<FixedConversationalRule> fCRulesList = FixedConversationalRuleHandler.FindAllFixedConversationalRules();
-            List<ConversationalRule> cRulesList = ConversationalRuleHandler.FindAllConversationalRules();
+            List<FixedConversationalRule> fCRulesList = ShowAllFixedConversationalRuleRules();
+            List<ConversationalRule> cRulesList = ShowAllConversationalRuleRules();
             List<Rule> rejectedRulesList = new List<Rule>();
             foreach (FixedConversationalRule fCRule in fCRulesList)
             {

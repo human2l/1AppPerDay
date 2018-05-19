@@ -183,23 +183,6 @@ namespace UTS.ScheduleSystem.MainLogic
             return input;
         }
 
-        public static DataType Datatype(string dataType)
-        {
-            switch (dataType)
-            {
-                case "topic":
-                    return DataType.Topic;
-                case "participants":
-                    return DataType.Participants;
-                case "location":
-                    return DataType.Location;
-                case "startdate":
-                    return DataType.startDate;
-                default:
-                    return DataType.endDate;
-            }
-        }
-
         public static string ConversationFormat(string question)
         {
             return "";

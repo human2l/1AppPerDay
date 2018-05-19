@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using UTS.ScheduleSystem.Data;
 using UTS.ScheduleSystem.MainLogic;
 
 namespace UTS.ScheduleSystem.Web
@@ -24,8 +25,8 @@ namespace UTS.ScheduleSystem.Web
                     Response.Redirect("~/");
                 }
                 List<Rule> rulesList = new List<Rule>();
-                List<FixedConversationalRule> fcRuleList = controller.FixedConversationalRulesList;
-                List<ConversationalRule> cRuleList = controller.ConversationalRulesList;
+                List<FixedConversationalRule> fcRuleList = controller.EditorService.ShowAllFixedConversationalRuleRules();
+                List<ConversationalRule> cRuleList = controller.EditorService.ShowAllConversationalRuleRules();
                 rulesList = controller.EditorService.ShowCurrentUserApprovedRules(controller.CurrentUser, fcRuleList, cRuleList);
                 EditorReportGridView.DataSource = rulesList;
                 EditorReportGridView.DataBind();

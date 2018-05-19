@@ -10,3 +10,5 @@ C:\Users\Frank\Desktop\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\obj\Deb
 C:\Users\Frank\Desktop\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\obj\Debug\UTS.ScheduleSystem.DomainLogic.dll
 C:\Users\Frank\Desktop\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\obj\Debug\UTS.ScheduleSystem.DomainLogic.pdb
 C:\Users\Frank\Desktop\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\obj\Debug\UTS.ScheduleSystem.DomainLogic.csprojResolveAssemblyReference.cache
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\obj\Debug\UTS.ScheduleSystem.DomainLogic.csprojResolveAssemblyReference.cache
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\obj\Debug\UTS.ScheduleSystem.DomainLogic.csproj.CoreCompileInputs.cache

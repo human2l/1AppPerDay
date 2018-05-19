@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using UTS.ScheduleSystem.Data;
 using UTS.ScheduleSystem.MainLogic;
 
 namespace UTS.ScheduleSystem.Web
@@ -76,7 +77,7 @@ namespace UTS.ScheduleSystem.Web
             {
                 // Save Changes
                 controller.EditorService.EditPendingRule(controller.CurrentUser.Id, currentId,
-                    InputTextBox.Text, OutputTextBox.Text, controller.FixedConversationalRulesList, controller.ConversationalRulesList);
+                    InputTextBox.Text, OutputTextBox.Text, controller.EditorService.ShowAllFixedConversationalRuleRules(), controller.EditorService.ShowAllConversationalRuleRules());
             }
 
             // Return to the editor page

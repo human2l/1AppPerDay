@@ -10,15 +10,14 @@ using UTS.ScheduleSystem.MainLogic.DatabaseHandler;
 namespace UTS.ScheduleSystem.MainLogic
 {
     public enum Status { Approved, Rejected, Pending }
-    public enum DataType { Topic, Participants, Location, startDate, endDate }
 
     public class Controller
     {
         private AspNetUser currentUser;
         private List<AspNetUser> userList = new List<AspNetUser>();
-        private List<ConversationalRule> conversationalRulesList = new List<ConversationalRule>();
-        private List<FixedConversationalRule> fixedConversationalRulesList = new List<FixedConversationalRule>();
-        private List<MealSchedule> mealScheduleList = new List<MealSchedule>();
+        //private List<ConversationalRule> conversationalRulesList = new List<ConversationalRule>();
+        //private List<FixedConversationalRule> fixedConversationalRulesList = new List<FixedConversationalRule>();
+        //private List<MealSchedule> mealScheduleList = new List<MealSchedule>();
         private ConversationService conversationService = new ConversationService();
         private DataMaintainerService dataMaintainerService = new DataMaintainerService();
         private EditorService editorService = new EditorService();
@@ -89,85 +88,85 @@ namespace UTS.ScheduleSystem.MainLogic
             //}
         }
 
-        public List<ConversationalRule> ConversationalRulesList
-        {
-            get
-            {
-                //var adapter = new ConversationalRuleTableAdapter();
-                //var set = adapter.GetData();
-                //adapter.Dispose();
-                //List<ConversationalRule> list = new List<ConversationalRule>();
-                //conversationalRulesList = list;
-                //while (set.Count != 0)
-                //{
-                //    ConversationalRule cRule = new ConversationalRule(set.First().Id, set.First().Input, set.First().Output, set.First().RelatedUsersId,
-                //        (set.First().Status.Equals((Status.Approved).ToString())) ? Status.Approved :
-                //        (set.First().Status.Equals((Status.Rejected).ToString())) ? Status.Rejected :
-                //        Status.Pending);
-                //    set.RemoveConversationalRuleRow(set.First());
-                //    conversationalRulesList.Add(cRule);
-                //}
-                return conversationalRulesList;
-            }
+        //public List<ConversationalRule> ConversationalRulesList
+        //{
+        //    get
+        //    {
+        //        //var adapter = new ConversationalRuleTableAdapter();
+        //        //var set = adapter.GetData();
+        //        //adapter.Dispose();
+        //        //List<ConversationalRule> list = new List<ConversationalRule>();
+        //        //conversationalRulesList = list;
+        //        //while (set.Count != 0)
+        //        //{
+        //        //    ConversationalRule cRule = new ConversationalRule(set.First().Id, set.First().Input, set.First().Output, set.First().RelatedUsersId,
+        //        //        (set.First().Status.Equals((Status.Approved).ToString())) ? Status.Approved :
+        //        //        (set.First().Status.Equals((Status.Rejected).ToString())) ? Status.Rejected :
+        //        //        Status.Pending);
+        //        //    set.RemoveConversationalRuleRow(set.First());
+        //        //    conversationalRulesList.Add(cRule);
+        //        //}
+        //        return conversationalRulesList;
+        //    }
             
 
-            set
-            {
-                conversationalRulesList = value;
-            }
-        }
+        //    set
+        //    {
+        //        conversationalRulesList = value;
+        //    }
+        //}
 
-        public List<FixedConversationalRule> FixedConversationalRulesList
-        {
-            get
-            {
-                //var adapter = new FixedConversationalRuleTableAdapter();
-                //var set = adapter.GetData();
-                //adapter.Dispose();
-                //List<FixedConversationalRule> list = new List<FixedConversationalRule>();
-                //fixedConversationalRulesList = list;
-                //while (set.Count != 0)
-                //{
-                //    FixedConversationalRule fcRule = new FixedConversationalRule(set.First().Id, set.First().Input, set.First().Output, set.First().RelatedUsersId,
-                //        (set.First().Status.Equals((Status.Approved).ToString())) ? Status.Approved :
-                //        (set.First().Status.Equals((Status.Rejected).ToString())) ? Status.Rejected :
-                //        Status.Pending);
-                //    set.RemoveFixedConversationalRuleRow(set.First());
-                //    fixedConversationalRulesList.Add(fcRule);
-                //}
-                return fixedConversationalRulesList;
-            }
+        //public List<FixedConversationalRule> FixedConversationalRulesList
+        //{
+        //    get
+        //    {
+        //        //var adapter = new FixedConversationalRuleTableAdapter();
+        //        //var set = adapter.GetData();
+        //        //adapter.Dispose();
+        //        //List<FixedConversationalRule> list = new List<FixedConversationalRule>();
+        //        //fixedConversationalRulesList = list;
+        //        //while (set.Count != 0)
+        //        //{
+        //        //    FixedConversationalRule fcRule = new FixedConversationalRule(set.First().Id, set.First().Input, set.First().Output, set.First().RelatedUsersId,
+        //        //        (set.First().Status.Equals((Status.Approved).ToString())) ? Status.Approved :
+        //        //        (set.First().Status.Equals((Status.Rejected).ToString())) ? Status.Rejected :
+        //        //        Status.Pending);
+        //        //    set.RemoveFixedConversationalRuleRow(set.First());
+        //        //    fixedConversationalRulesList.Add(fcRule);
+        //        //}
+        //        return fixedConversationalRulesList;
+        //    }
 
-            set
-            {
-                fixedConversationalRulesList = value;
-            }
-        }
+        //    set
+        //    {
+        //        fixedConversationalRulesList = value;
+        //    }
+        //}
 
-        public List<MealSchedule> MealScheduleList
-        {
-            get
-            {
-                //var adapter = new MealScheduleTableAdapter();
-                //var set = adapter.GetData();
-                //adapter.Dispose();
-                //mealScheduleList = new List<MealSchedule>();
-                //while (set.Count != 0)
-                //{
-                //    MealSchedule ms = new MealSchedule(set.First().Id, set.First().Topic, set.First().Participants, set.First().Location, set.First().StartDate, set.First().EndDate, set.First().LastEditUserId);
-                //    set.RemoveMealScheduleRow(set.First());
+        //public List<MealSchedule> MealScheduleList
+        //{
+        //    get
+        //    {
+        //        //var adapter = new MealScheduleTableAdapter();
+        //        //var set = adapter.GetData();
+        //        //adapter.Dispose();
+        //        //mealScheduleList = new List<MealSchedule>();
+        //        //while (set.Count != 0)
+        //        //{
+        //        //    MealSchedule ms = new MealSchedule(set.First().Id, set.First().Topic, set.First().Participants, set.First().Location, set.First().StartDate, set.First().EndDate, set.First().LastEditUserId);
+        //        //    set.RemoveMealScheduleRow(set.First());
 
-                //    mealScheduleList.Add(ms);
-                //}
+        //        //    mealScheduleList.Add(ms);
+        //        //}
 
-                return mealScheduleList;
-            }
+        //        return mealScheduleList;
+        //    }
 
-            set
-            {
-                mealScheduleList = value;
-            }
-        }
+        //    set
+        //    {
+        //        mealScheduleList = value;
+        //    }
+        //}
 
         public AspNetUser CurrentUser
         {

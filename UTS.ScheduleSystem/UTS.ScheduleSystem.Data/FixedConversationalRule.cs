@@ -9,6 +9,16 @@ namespace UTS.ScheduleSystem.Data
     [Table("FixedConversationalRule")]
     public partial class FixedConversationalRule : Rule
     {
+        public FixedConversationalRule(string input, string output, string relatedUsersId, string status) : base (input, output, relatedUsersId, status)
+        {
+
+        }
+
+        public FixedConversationalRule()
+        {
+
+        }
+
         public int Id { get; set; }
 
         [Required]

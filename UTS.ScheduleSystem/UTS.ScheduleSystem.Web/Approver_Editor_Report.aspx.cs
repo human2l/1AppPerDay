@@ -5,11 +5,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using UTS.ScheduleSystem.Data;
 using UTS.ScheduleSystem.MainLogic;
 
 namespace UTS.ScheduleSystem.Web
 {
-    public partial class Approver_Editor_Report : System.Web.UI.Page
+    public partial class Approver_Editor_Report : Page
     {
         private Controller controller;
         private List<AspNetUser> _editorList = new List<AspNetUser>();
