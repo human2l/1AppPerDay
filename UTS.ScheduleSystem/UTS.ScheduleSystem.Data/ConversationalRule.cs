@@ -9,12 +9,12 @@ namespace UTS.ScheduleSystem.Data
     [Table("ConversationalRule")]
     public partial class ConversationalRule : Rule
     {
-        public ConversationalRule(string input, string output, string relatedUsersId, string status) : base(input, output, relatedUsersId, status)
+        public ConversationalRule()
         {
 
         }
 
-        public ConversationalRule()
+        public ConversationalRule(string input, string output, string relatedUsersId, string status) : base(input, output, relatedUsersId, status)
         {
 
         }

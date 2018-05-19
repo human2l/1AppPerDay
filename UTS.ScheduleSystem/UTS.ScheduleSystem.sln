@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.DomainLo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.Data", "UTS.ScheduleSystem.Data\UTS.ScheduleSystem.Data.csproj", "{B1106E0C-F4ED-49CF-B245-8C76554A564F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.web", "UTS.ScheduleSystem.Web\UTS.ScheduleSystem.web.csproj", "{A0DC9F22-DF6B-48A7-9844-73F492C889CE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{B1106E0C-F4ED-49CF-B245-8C76554A564F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1106E0C-F4ED-49CF-B245-8C76554A564F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1106E0C-F4ED-49CF-B245-8C76554A564F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A0DC9F22-DF6B-48A7-9844-73F492C889CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A0DC9F22-DF6B-48A7-9844-73F492C889CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A0DC9F22-DF6B-48A7-9844-73F492C889CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A0DC9F22-DF6B-48A7-9844-73F492C889CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
