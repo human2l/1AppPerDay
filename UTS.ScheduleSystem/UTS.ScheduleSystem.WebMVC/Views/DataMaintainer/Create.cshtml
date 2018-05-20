@@ -1,0 +1,20 @@
+﻿@using UTS.ScheduleSystem.Data
+@model MealSchedule
+@{
+    ViewBag.Title = "Create";
+}
+
+<h1>Maintain Data</h1>
+<h2>Create</h2>
+@using (Html.BeginForm())
+{
+<table>
+    <tr><td>@Html.LabelFor(x => x.Topic, "Topic")</td><td>@Html.TextBoxFor(x => x.Topic)</td></tr>
+    <tr><td>@Html.LabelFor(x => x.Participants, "Participants")</td><td>@Html.TextBoxFor(x => x.Participants)</td></tr>
+    <tr><td>@Html.LabelFor(x => x.Location, "Location")</td><td>@Html.TextBoxFor(x => x.Location)</td></tr>
+    <tr><td>@Html.LabelFor(x => x.StartDate, "StartDate")</td><td>@Html.TextBoxFor(x => x.StartDate)</td></tr>
+    <tr><td>@Html.LabelFor(x => x.EndDate, "EndDate")</td><td>@Html.TextBoxFor(x => x.EndDate)</td></tr>
+</table>
+    <input type="submit" value="Save" />
+    @Html.ActionLink("Cancel", "Index")
+}
