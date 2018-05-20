@@ -50,8 +50,8 @@ namespace UTS.ScheduleSystem.MainLogic
             return result;
         }
 
-        // Get rule list from database specified on status
-        private List<Rule> GetRuleListFromDatabaseAccordingToStatus(Status status)
+        // Get conversational rule list from database specified on status
+        private List<ConversationalRule> GetConversationalRuleListFromDatabaseAccordingToStatus(Status status)
         {
             List<ConversationalRule> statusFiltedConversationalRules = new List<ConversationalRule>();
             List<ConversationalRule> conversationalRules = ConversationalRuleHandler.FindAllConversationalRules();
@@ -60,6 +60,12 @@ namespace UTS.ScheduleSystem.MainLogic
                 if (rule.Status == status.ToString())
                     statusFiltedConversationalRules.Add(rule);
             }
+            return statusFiltedConversationalRules;
+        }
+
+        // Get fixed conversational rule list from database specified on status
+        private List<FixedConversationalRule> GetFixedConversationalRuleListFromDatabaseAccordingToStatus(Status status)
+        {
             List<FixedConversationalRule> statusFiltedFixedConversationalRules = new List<FixedConversationalRule>();
             List<FixedConversationalRule> fixedConversationalRules = FixedConversationalRuleHandler.FindAllFixedConversationalRules();
             foreach (FixedConversationalRule rule in fixedConversationalRules)
@@ -67,28 +73,43 @@ namespace UTS.ScheduleSystem.MainLogic
                 if (rule.Status == status.ToString())
                     statusFiltedFixedConversationalRules.Add(rule);
             }
-            //List<ConversationalRule> conversationalRules = dataHandler.FindConversationalRulesAccordingToStatus(status);
-            //List<FixedConversationalRule> fixedConversationalRules = dataHandler.FindFixedConversationalRulesAccordingToStatus(status);
-            List<Rule> pRulesList = TraversalNMergeList(statusFiltedConversationalRules, statusFiltedFixedConversationalRules);
-            return pRulesList;
+            return statusFiltedFixedConversationalRules;
         }
 
-        // Return pending rule list
-        public List<Rule> RequestPendingRulesList()
+        // Return pending conversational rule list
+        public List<ConversationalRule> RequestPendingConversationalRulesList()
         {
-            return GetRuleListFromDatabaseAccordingToStatus(Status.Pending);
+            return GetConversationalRuleListFromDatabaseAccordingToStatus(Status.Pending);
         }
 
-        // Return rejected rule list
-        public List<Rule> RequestRejectedRulesList()
+        // Return pending fixed conversational rule list
+        public List<FixedConversationalRule> RequestPendingFixedConversationalRulesList()
         {
-            return GetRuleListFromDatabaseAccordingToStatus(Status.Rejected);
+            return GetFixedConversationalRuleListFromDatabaseAccordingToStatus(Status.Pending);
         }
 
-        // Return approved rule list
-        public List<Rule> RequestApprovedRulesList()
+        // Return rejected conversational rule list
+        public List<ConversationalRule> RequestRejectedConversationalRulesList()
         {
-            return GetRuleListFromDatabaseAccordingToStatus(Status.Approved);
+            return GetConversationalRuleListFromDatabaseAccordingToStatus(Status.Rejected);
+        }
+
+        // Return rejected fixed conversational rule list
+        public List<FixedConversationalRule> RequestRejectedFixedConversationalRulesList()
+        {
+            return GetFixedConversationalRuleListFromDatabaseAccordingToStatus(Status.Rejected);
+        }
+
+        // Return pending conversational rule list
+        public List<ConversationalRule> RequestApprovedConversationalRulesList()
+        {
+            return GetConversationalRuleListFromDatabaseAccordingToStatus(Status.Approved);
+        }
+
+        // Return pending fixed conversational rule list
+        public List<FixedConversationalRule> RequestApprovedFixedConversationalRulesList()
+        {
+            return GetFixedConversationalRuleListFromDatabaseAccordingToStatus(Status.Approved);
         }
 
         // Approve a rule in database
@@ -153,13 +174,13 @@ namespace UTS.ScheduleSystem.MainLogic
         // Return a count number of approved rule in database
         public int ApprovedRulesNum()
         {
-            return RequestApprovedRulesList().Count;
+            return RequestApprovedConversationalRulesList().Count + RequestApprovedFixedConversationalRulesList().Count;
         }
 
         // Return a count number of rejected rule in database
         public int RejectedRulesNum()
         {
-            return RequestRejectedRulesList().Count;
+            return RequestRejectedConversationalRulesList().Count + RequestRejectedFixedConversationalRulesList().Count;
         }
 
         // Return success rule rate
@@ -176,7 +197,7 @@ namespace UTS.ScheduleSystem.MainLogic
         public int UserRelatedApprovedRulesNum(string userId)
         {
             List<Rule> newList = new List<Rule>();
-            newList = RequestApprovedRulesList();
+            newList = TraversalNMergeList(RequestApprovedConversationalRulesList(), RequestApprovedFixedConversationalRulesList());
             return CountUserRelatedRule(userId, newList);
         }
 
@@ -184,7 +205,7 @@ namespace UTS.ScheduleSystem.MainLogic
         public int UserRelatedRejectedRulesNum(string userId)
         {
             List<Rule> newList = new List<Rule>();
-            newList = RequestRejectedRulesList();
+            newList = TraversalNMergeList(RequestRejectedConversationalRulesList(), RequestRejectedFixedConversationalRulesList());
             return CountUserRelatedRule(userId, newList);
         }
 
@@ -192,7 +213,7 @@ namespace UTS.ScheduleSystem.MainLogic
         public int UserRelatedPendingRulesNum(string userId)
         {
             List<Rule> newList = new List<Rule>();
-            newList = RequestPendingRulesList();
+            newList = TraversalNMergeList(RequestPendingConversationalRulesList(), RequestPendingFixedConversationalRulesList());
             return CountUserRelatedRule(userId, newList);
         }
 

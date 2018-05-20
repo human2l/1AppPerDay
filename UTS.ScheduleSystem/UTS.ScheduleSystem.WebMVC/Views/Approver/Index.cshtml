@@ -1,17 +1,16 @@
 ﻿@using UTS.ScheduleSystem.Data
 @using UTS.ScheduleSystem.MainLogic
-@model ConversationalRule
-@model FixedConversationalRule
 @{
     ViewBag.Title = "Index";
     var ConversationalRules = (List<ConversationalRule>)ViewBag.ConversationalRules;
     var FixedConversationalRules = (List<FixedConversationalRule>)ViewBag.FixedConversationalRules;
 }
-
-<h1>Pending Rules</h1>
-<h2>Conversational Rules</h2>
+<h1>Rules Dashboard</h1>
+<h2></h2>
+<h2></h2>
 @if (ConversationalRules.Count > 0)
 {
+    <h4>Conversational Rules :</h4>
     <table>
         <tr>
             <th>Id</th>
@@ -29,13 +28,17 @@
                 <td>@conversationalRule.Output</td>
                 <td>@Utils.FindLastEditorId(conversationalRule.RelatedUsersId)</td>
                 <td>@conversationalRule.Status</td>
+                <td>@Html.ActionLink("Approve", "Approve", new { id = conversationalRule.Id })</td>
+                <td>@Html.ActionLink("Reject", "Reject", new { id = conversationalRule.Id })</td>
             </tr>
         }
     </table>
 }
-<h2>FixedConversational Rules</h2>
+<h2></h2>
+<h2></h2>
 @if (FixedConversationalRules.Count > 0)
 {
+    <h4>FixedConversational Rules :</h4>
     <table>
         <tr>
             <th>Id</th>
@@ -53,6 +56,8 @@
                 <td>@fixedConversationalRule.Output</td>
                 <td>@Utils.FindLastEditorId(fixedConversationalRule.RelatedUsersId)</td>
                 <td>@fixedConversationalRule.Status</td>
+                <td>@Html.ActionLink("Approve", "Approve", new { id = fixedConversationalRule.Id })</td>
+                <td>@Html.ActionLink("Reject", "Reject", new { id = fixedConversationalRule.Id })</td>
             </tr>
         }
     </table>
