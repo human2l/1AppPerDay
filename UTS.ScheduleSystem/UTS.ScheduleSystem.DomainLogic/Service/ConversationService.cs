@@ -29,7 +29,8 @@ namespace UTS.ScheduleSystem.MainLogic
             conversationalRules = ConversationalRuleHandler.FindAllConversationalRules();
             fixedConversationalRules = FixedConversationalRuleHandler.FindAllFixedConversationalRules();
 
-            string formatedQuestion = Utils.conversationFormat(question);
+            //string formatedQuestion = Utils.conversationFormat(question);//commented
+            string formatedQuestion = "";//added
             if (!AnswerToFixedRuleConversation(formatedQuestion) && !AnswerToConversation(formatedQuestion))
                 answer = "Can not find answer to the question";
             return answer;

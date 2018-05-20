@@ -33,6 +33,20 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             }
         }
 
+        // Delete a mealschedule data from data
+        public static void RemoveMealschedule(MealSchedule onRemovingMealSchedule)
+        {
+            using (ScheduleSystemContext context = new ScheduleSystemContext())
+            {
+                var mealschedule = (from MealSchedule
+                                            in context.MealSchedules
+                                    where MealSchedule.Id == onRemovingMealSchedule.Id
+                                    select MealSchedule).First();
+                context.MealSchedules.Remove(mealschedule);
+                context.SaveChanges();
+            }
+        }
+
         // Update a mealschedule data by Id
         public static void UpdateAMealschedule(MealSchedule mealschedule)
         {

@@ -1,0 +1,22 @@
+﻿@using UTS.ScheduleSystem.Data
+@model MealSchedule
+@{
+    ViewBag.Title = "Delete";
+    var onDeletingMealSchedule = ViewBag.OnDeletingMealSchedule;
+}
+<h1>Maintain Data</h1>
+<h2>Are you sure you want to delete this?</h2>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.Id)
+<table>
+    <tr><td>Topic</td><td>@Model.Topic</td></tr>
+    <tr><td>Participants</td><td>@Model.Participants</td></tr>
+    <tr><td>Location</td><td>@Model.Location</td></tr>
+    <tr><td>StartDate</td><td>@Model.StartDate</td></tr>
+    <tr><td>EndDate</td><td>@Model.EndDate</td></tr>
+
+</table>
+    <input type="submit" value="Delete" />
+    @Html.ActionLink("Cancel", "Index")
+}
