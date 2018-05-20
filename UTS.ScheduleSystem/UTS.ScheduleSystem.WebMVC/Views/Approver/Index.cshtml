@@ -1,0 +1,61 @@
+﻿@using UTS.ScheduleSystem.Data
+@using UTS.ScheduleSystem.MainLogic
+@model ConversationalRule
+@model FixedConversationalRule
+@{
+    ViewBag.Title = "Index";
+    var ConversationalRules = (List<ConversationalRule>)ViewBag.ConversationalRules;
+    var FixedConversationalRules = (List<FixedConversationalRule>)ViewBag.FixedConversationalRules;
+}
+
+<h1>Pending Rules</h1>
+<h2>Conversational Rules</h2>
+@if (ConversationalRules.Count > 0)
+{
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Input</th>
+            <th>Output</th>
+            <th>LastEditorId</th>
+            <th>Status</th>
+        </tr>
+
+        @foreach (var conversationalRule in (List<ConversationalRule>)ViewBag.ConversationalRules)
+        {
+            <tr>
+                <td>@conversationalRule.Id</td>
+                <td>@conversationalRule.Input</td>
+                <td>@conversationalRule.Output</td>
+                <td>@Utils.FindLastEditorId(conversationalRule.RelatedUsersId)</td>
+                <td>@conversationalRule.Status</td>
+            </tr>
+        }
+    </table>
+}
+<h2>FixedConversational Rules</h2>
+@if (FixedConversationalRules.Count > 0)
+{
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Input</th>
+            <th>Output</th>
+            <th>LastEditorId</th>
+            <th>Status</th>
+        </tr>
+
+        @foreach (var fixedConversationalRule in (List<FixedConversationalRule>)ViewBag.FixedConversationalRules)
+        {
+            <tr>
+                <td>@fixedConversationalRule.Id</td>
+                <td>@fixedConversationalRule.Input</td>
+                <td>@fixedConversationalRule.Output</td>
+                <td>@Utils.FindLastEditorId(fixedConversationalRule.RelatedUsersId)</td>
+                <td>@fixedConversationalRule.Status</td>
+            </tr>
+        }
+    </table>
+}
+
+
