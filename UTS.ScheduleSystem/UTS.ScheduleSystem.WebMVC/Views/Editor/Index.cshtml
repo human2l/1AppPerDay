@@ -1,5 +1,7 @@
 ﻿@using UTS.ScheduleSystem.Data
-
+@{
+    ViewBag.Title = "Editor";
+}
 @{
 
     var ConversationalRules = (List<FixedConversationalRule>)ViewBag.FixedConversationalRule;
@@ -30,4 +32,5 @@
             <td>@item.RelatedUsersId</td>
         </tr>
     }
+    <p>@Html.ActionLink("Create New Rule", "Create")</p>
 </table>

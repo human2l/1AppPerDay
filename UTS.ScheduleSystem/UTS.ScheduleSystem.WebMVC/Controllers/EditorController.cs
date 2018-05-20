@@ -29,16 +29,18 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             return View();
         }
 
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
+        public ActionResult Create()
+        {
+            return View();
+        }
 
-        //[HttpPost]
-        //public ActionResult Create([Bind(Include = "Name,Address,PhoneNumber")] PersonalContact contact)
-        //{
-        //    return RedirectToAction("Index");
-        //}
+        [HttpPost]
+        public ActionResult Create([Bind(Include = "Input, Output")] Rule rule)
+        {
+            rule.Status = "Pending";
+            editorService.AddNewFCRule(rule.Input, rule.Output, rule.Status);
+            return RedirectToAction("Index");
+        }
 
         //public ActionResult Edit(int? id)
         //{
