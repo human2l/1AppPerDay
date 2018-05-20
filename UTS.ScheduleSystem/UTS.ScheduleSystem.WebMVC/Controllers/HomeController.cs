@@ -26,5 +26,6 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
 
             return View();
         }
+
     }
 }

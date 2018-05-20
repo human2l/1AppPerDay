@@ -8,7 +8,7 @@ namespace UTS.ScheduleSystem.Data
     public partial class ScheduleSystemContext : DbContext
     {
         public ScheduleSystemContext()
-            : base("name=ScheduleSystemContext")
+            : base("name=DefaultConnection")
         {
         }
 
