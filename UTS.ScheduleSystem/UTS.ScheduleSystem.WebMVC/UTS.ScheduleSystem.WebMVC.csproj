@@ -267,6 +267,7 @@
     <Content Include="Views\DataMaintainer\Create.cshtml" />
     <Content Include="Views\DataMaintainer\Delete.cshtml" />
     <Content Include="Views\Editor\Index.cshtml" />
+    <Content Include="Views\Editor\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
