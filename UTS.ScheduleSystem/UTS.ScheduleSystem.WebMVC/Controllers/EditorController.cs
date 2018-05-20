@@ -15,8 +15,8 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         // GET: Editor
         public ActionResult Index()
         {
-            List<FixedConversationalRule> fixedConversationalRules = editorService.ShowAllFixedConversationalRules();
-            List<ConversationalRule> conversationalRules = editorService.ShowAllConversationalRules();
+            List<FixedConversationalRule> fixedConversationalRules = editorService.ShowAllFixedConversationalRuleRules();
+            List<ConversationalRule> conversationalRules = editorService.ShowAllConversationalRuleRules();
             //FixedConversationalRule rule = new FixedConversationalRule();
             //rule.Id = 1;
             //rule.Input = "Hello";
