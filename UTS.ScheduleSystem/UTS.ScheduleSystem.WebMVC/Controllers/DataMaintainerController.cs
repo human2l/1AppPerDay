@@ -15,23 +15,8 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         // Show the list of all contacts
         public ActionResult Index()
         {
-            //List<MealSchedule> mealSchedules = new List<MealSchedule>();
-            //MealSchedule m1 = new MealSchedule();
-            //m1.Id = 1;
-            //m1.Topic = "t";
-            //m1.Location = "l";
-            //m1.Participants = "p";
-            //m1.StartDate = "sd";
-            //m1.EndDate = "ed";
-            //m1.LastEditUserId = "leid";
-            //mealSchedules.Add(m1);
-
             ViewBag.MealSchedules = MealScheduleHandler.FindAllMealSchedules();
-            //viewbag:
-            //ViewBag.MealSchedules = mealSchedules;
             return View();
-            //model:
-            //
         }
 
         // GET: DataMaintainer/Create
