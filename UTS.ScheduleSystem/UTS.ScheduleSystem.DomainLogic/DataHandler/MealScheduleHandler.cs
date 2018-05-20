@@ -69,6 +69,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
         // Find meal sechdule by Id
         public static MealSchedule FindMealScheduleById(string id)
         {
+            int intId = int.Parse(id);
             MealSchedule mealSchedule;
             try
             {
@@ -76,7 +77,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
                 {
                     mealSchedule = (from MealSchedule
                                     in context.MealSchedules
-                                    where MealSchedule.Id == int.Parse(id)
+                                    where MealSchedule.Id == intId
                                     select MealSchedule).First();
                 }
             }

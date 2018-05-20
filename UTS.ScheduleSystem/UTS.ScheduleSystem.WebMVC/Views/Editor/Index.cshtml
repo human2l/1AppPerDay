@@ -1,0 +1,33 @@
+﻿@using UTS.ScheduleSystem.Data
+
+@{
+
+    var ConversationalRules = (List<FixedConversationalRule>)ViewBag.FixedConversationalRule;
+}
+
+<table>
+    <tr>
+        <th>Input</th>
+        <th>Output</th>
+    </tr>
+
+    @foreach (var item in (List<FixedConversationalRule>)ViewBag.FixedConversationalRule)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Input</td>
+            <td>@item.Output</td>
+            <td>@item.RelatedUsersId</td>
+            <td></td>
+        </tr>
+    }
+    @foreach (var item in (List<ConversationalRule>)ViewBag.ConversationalRule)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Input</td>
+            <td>@item.Output</td>
+            <td>@item.RelatedUsersId</td>
+        </tr>
+    }
+</table>

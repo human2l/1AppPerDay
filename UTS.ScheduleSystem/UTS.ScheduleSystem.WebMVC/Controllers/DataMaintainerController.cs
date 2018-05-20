@@ -46,8 +46,37 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         [HttpPost]
         public ActionResult Create([Bind(Include = "Topic,Location,Participants,StartDate,EndDate")] MealSchedule mealSchedule)
         {
-            mealSchedule.LastEditUserId = "asdf";
+            //need changed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            mealSchedule.LastEditUserId = "111";
             MealScheduleHandler.AddMealschedule(mealSchedule);
+            return RedirectToAction("Index");
+        }
+
+        // GET: MealSchedules/Edit/5
+        // Show an edit form to edit an existing mealSchedule
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var mealSchedule = MealScheduleHandler.FindMealScheduleById(id+"");
+            if (mealSchedule == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.OnEditingMealSchedule = mealSchedule;
+            return View();
+        }
+
+        // POST: MealSchedules/Edit/5
+        // Save changes to an edited mealSchedule
+        [HttpPost]
+        public ActionResult Edit(MealSchedule mealSchedule)
+        {
+            //need changed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1111
+            mealSchedule.LastEditUserId = "111";
+            MealScheduleHandler.UpdateAMealschedule(mealSchedule);
             return RedirectToAction("Index");
         }
 
@@ -72,7 +101,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            var mealSchedule = MealScheduleHandler.FindMealScheduleById(id+"");
+            var mealSchedule = MealScheduleHandler.FindMealScheduleById(id + "");
             if (mealSchedule == null)
             {
                 return HttpNotFound();

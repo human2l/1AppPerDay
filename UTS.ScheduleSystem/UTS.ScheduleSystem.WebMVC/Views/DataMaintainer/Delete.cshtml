@@ -10,11 +10,11 @@
 {
     @Html.HiddenFor(x => x.Id)
 <table>
-    <tr><td>Topic</td><td>@Model.Topic</td></tr>
-    <tr><td>Participants</td><td>@Model.Participants</td></tr>
-    <tr><td>Location</td><td>@Model.Location</td></tr>
-    <tr><td>StartDate</td><td>@Model.StartDate</td></tr>
-    <tr><td>EndDate</td><td>@Model.EndDate</td></tr>
+    <tr><td>Topic</td><td>@onDeletingMealSchedule.Topic</td></tr>
+    <tr><td>Participants</td><td>@onDeletingMealSchedule.Participants</td></tr>
+    <tr><td>Location</td><td>@onDeletingMealSchedule.Location</td></tr>
+    <tr><td>StartDate</td><td>@onDeletingMealSchedule.StartDate</td></tr>
+    <tr><td>EndDate</td><td>@onDeletingMealSchedule.EndDate</td></tr>
 
 </table>
     <input type="submit" value="Delete" />
