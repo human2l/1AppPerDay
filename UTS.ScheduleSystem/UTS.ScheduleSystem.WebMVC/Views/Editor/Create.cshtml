@@ -1,20 +1,26 @@
 ﻿@using UTS.ScheduleSystem.Data
 @model Rule
-    
-@{
-    ViewBag.Title = "Create";
-}
+
+@{ViewBag.Title = "Create";}
 @using (Html.BeginForm())
 {
-    <table>
-        <tr>
-            <th>Create new rule</th>
-        </tr>
-        <tr><td>@Html.LabelFor(x => x.Input, "Input")</td><td>@Html.TextBoxFor(x => x.Input)</td></tr>
-        <tr><td>@Html.LabelFor(x => x.Output, "Output")</td><td>@Html.TextBoxFor(x => x.Output)</td></tr>
-    </table>
-    <input type="submit" value="Save" />
-    @Html.ActionLink("Cancel", "Index")
+    <br/>
+    <div class="panel panel-default text-center">
+        <div class="panel-heading">
+            <h3 class="panel-title">Create new rule</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table text-center" width="300">
+                <tr><td>@Html.LabelFor(x => x.Input, "Input")</td><td>@Html.TextBoxFor(x => x.Input)</td></tr>
+                <tr><td>@Html.LabelFor(x => x.Output, "Output")</td><td>@Html.TextBoxFor(x => x.Output)</td></tr>
+                <tr><td></td><td><input type="submit" value="Save" /> @Html.ActionLink("Cancel", "Index")</td></tr>
+            </table>
+            
+            
+            
+        </div>
+    </div>
 }
+
 
 
