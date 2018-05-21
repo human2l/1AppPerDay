@@ -22,7 +22,8 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         {
             if (models.Question != null)
             {
-                ViewBag.Answer = "find answer of input: " + models.Question;
+                //ViewBag.Answer = "find answer of input: " + models.Question;
+                ViewBag.Answer = Conversation(models.Question);
             }
             else
             {
@@ -31,6 +32,15 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
 
             return View();
 
+        }
+
+        private string Conversation(string input)
+        {
+            string output = "";
+            input = MainLogic.Utils.RemoveAllMarks(input);
+            input = MainLogic.Utils.IgnoreWhiteSpace(input);
+            output = input;
+            return output;
         }
 
     }
