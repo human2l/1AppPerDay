@@ -1,5 +1,5 @@
-﻿@*@using UTS.ScheduleSystem.Data
-@model MealSchedule*@
+﻿@using UTS.ScheduleSystem.WebMVC.Models
+    @model HomeControllerViewModels
 @{
     ViewBag.Title = "Home Page";
     var answer = ViewBag.Answer;
@@ -7,17 +7,19 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-4 col-lg-offset-4">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Ask something...">
-                <span class="input-group-btn">
-                    <button type="submit" class="btn btn-default" value="Save">Submit</button>
-                </span>
-            </div>
+            @using (Html.BeginForm())
+            {
+        <div class="input-group">
+            @Html.TextBoxFor(x => x.Question, new {@Class="form-control", @Value = "" })
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-default" value="Save">Submit</button>
+            </span>
+        </div>
+            }
         </div>
     </div>
     <div class="row">
         <div class="text-center">
-            @*@Html.LabelFor(x=>, new { @Value=answer})*@
             @answer
         </div>
     </div>
