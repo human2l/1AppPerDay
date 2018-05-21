@@ -11,11 +11,6 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
 {
     public class HomeController : Controller
     {
-        private HomeControllerViewModels _model;
-        public HomeController()
-        {
-            _model = new HomeControllerViewModels { Question = "question" };
-        }
         public ActionResult Index()
         {
             ViewBag.Answer = "I'm waiting...";
