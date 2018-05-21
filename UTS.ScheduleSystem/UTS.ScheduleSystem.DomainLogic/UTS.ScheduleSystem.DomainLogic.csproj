@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataHandler\ConversationalRuleHandler.cs" />
+    <Compile Include="DataHandler\ConversationHandler.cs" />
     <Compile Include="DataHandler\FixedConversationalRuleHandler.cs" />
     <Compile Include="DataHandler\MealScheduleHandler.cs" />
     <Compile Include="DataHandler\UserHandler.cs" />

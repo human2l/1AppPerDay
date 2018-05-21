@@ -185,7 +185,8 @@ namespace UTS.ScheduleSystem.MainLogic
 
         public static string ConversationFormat(string question)
         {
-            return "";
+            
+            return IgnoreWhiteSpace(RemoveAllMarks(question));
         }
     }
 }

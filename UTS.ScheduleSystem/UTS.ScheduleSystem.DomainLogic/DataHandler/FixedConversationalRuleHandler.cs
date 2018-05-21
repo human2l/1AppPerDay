@@ -92,16 +92,25 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             return fixedConversationalRules;
         }
 
-        // Find last added fixed conversational rule Id 
-        //public static string FindLastFixedConversationalRuleId()
-        //{
-        //    string result;
-        //    using (ScheduleSystemContext context = new ScheduleSystemContext())
-        //    {
-        //        result = context.FixedConversationalRules.Max(FixedConversationalRule => FixedConversationalRule.Id);
-        //    }
-        //    //string result = fixedConversationalRuleTableAdapter.FindLastIdQuery();
-        //    return result;
-        //}
+        // Find all approved fixed conversational rules from database
+        public static List<FixedConversationalRule> FindAllApprovedFixedConversationalRules()
+        {
+            List<FixedConversationalRule> fixedConversationalRules;
+            try
+            {
+                using (ScheduleSystemContext context = new ScheduleSystemContext())
+                {
+                    fixedConversationalRules = (from FixedConversationalRule
+                                                in context.FixedConversationalRules
+                                                where FixedConversationalRule.Status == "Approved"
+                                                select FixedConversationalRule).ToList();
+                }
+            }
+            catch
+            {
+                fixedConversationalRules = null;
+            }
+            return fixedConversationalRules;
+        }
     }
 }

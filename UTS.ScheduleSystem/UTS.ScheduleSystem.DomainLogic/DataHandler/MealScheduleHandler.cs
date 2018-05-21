@@ -88,6 +88,8 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             return mealSchedule;
         }
 
+        
+
         // Find all mealschedules from database
         public static List<MealSchedule> FindAllMealSchedules()
         {

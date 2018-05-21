@@ -284,3 +284,6 @@ C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\bin\UTS.ScheduleSystem.DomainLogic.dll
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\bin\UTS.ScheduleSystem.DomainLogic.pdb
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\bin\UTS.ScheduleSystem.DomainLogic.dll.config
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\bin\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\bin\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\bin\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll

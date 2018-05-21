@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -23,7 +24,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             if (models.Question != null)
             {
                 //ViewBag.Answer = "find answer of input: " + models.Question;
-                ViewBag.Answer = Conversation(models.Question);
+                ViewBag.Answer = HandleConversation(models.Question);
             }
             else
             {
@@ -34,12 +35,18 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
 
         }
 
-        private string Conversation(string input)
+        private string HandleConversation(string input)
         {
-            string output = "";
+            //string output = "";
             input = MainLogic.Utils.RemoveAllMarks(input);
             input = MainLogic.Utils.IgnoreWhiteSpace(input);
-            output = input;
+            //string keyword = "";
+            //Rule rule = new Rule();
+            //string[] inputSplitedRule = MainLogic.ConversationService.SplitRule(input);
+            MainLogic.ConversationService conversationService = new MainLogic.ConversationService();
+            string output = conversationService.Conversation(input);
+            //string output = MainLogic.ConversationService.Conversation(input);
+
             return output;
         }
 

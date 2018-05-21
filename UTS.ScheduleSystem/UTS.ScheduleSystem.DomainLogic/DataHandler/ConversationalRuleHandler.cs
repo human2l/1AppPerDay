@@ -84,5 +84,19 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             }
             return conversationalRules;
         }
+
+        // Find all approved conversational rules from database
+        public static List<ConversationalRule> FindAllApprovedConversationalRules()
+        {
+            List<ConversationalRule> conversationalRules;
+            using (ScheduleSystemContext context = new ScheduleSystemContext())
+            {
+                conversationalRules = (from ConversationalRule
+                                       in context.ConversationalRules
+                                       where ConversationalRule.Status == "Approved"
+                                       select ConversationalRule).ToList();
+            }
+            return conversationalRules;
+        }
     }
 }

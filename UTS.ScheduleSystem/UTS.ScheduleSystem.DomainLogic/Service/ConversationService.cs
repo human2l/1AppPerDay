@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UTS.ScheduleSystem.Data;
+using UTS.ScheduleSystem.DomainLogic.DataHandler;
 using UTS.ScheduleSystem.MainLogic.DatabaseHandler;
 
 namespace UTS.ScheduleSystem.MainLogic
@@ -16,6 +17,10 @@ namespace UTS.ScheduleSystem.MainLogic
         private List<ConversationalRule> conversationalRules;
         private List<FixedConversationalRule> fixedConversationalRules;
         private List<MealSchedule> mealSchedules;
+        private string questionType;
+        private string answerType;
+        private string questionKeyword;
+        private string answerKeyword;
         private string answer;
 
         public ConversationService()
@@ -26,13 +31,12 @@ namespace UTS.ScheduleSystem.MainLogic
         // Main conversation function take question input as parameter
         public string Conversation(string question)
         {
-            conversationalRules = ConversationalRuleHandler.FindAllConversationalRules();
-            fixedConversationalRules = FixedConversationalRuleHandler.FindAllFixedConversationalRules();
+            conversationalRules = ConversationalRuleHandler.FindAllApprovedConversationalRules();
+            fixedConversationalRules = FixedConversationalRuleHandler.FindAllApprovedFixedConversationalRules();
 
-            //string formatedQuestion = Utils.conversationFormat(question);//commented
-            string formatedQuestion = "";//added
+            string formatedQuestion = Utils.ConversationFormat(question);
             if (!AnswerToFixedRuleConversation(formatedQuestion) && !AnswerToConversation(formatedQuestion))
-                answer = "Can not find answer to the question";
+                answer = "Cannot find the answer corresponding to the question.";
             return answer;
         }
 
@@ -55,6 +59,23 @@ namespace UTS.ScheduleSystem.MainLogic
         // Answer to unfixed rule conversation
         private Boolean AnswerToConversation(string question)
         {
+            // Traversal unfixed conversational rule list 
+            foreach (ConversationalRule rule in conversationalRules)
+            {
+                // Find corresponding rule in unfixed conversational rule list
+                string inputLeft = SplitRule(rule.Input)[0];
+                string inputRight = SplitRule(rule.Input)[2];
+                if (inputLeft == question.Substring(0,inputLeft.Count())&&inputRight == question.Substring(0,0-inputRight.Count()) )
+                {
+                    questionType = SplitRule(rule.Input)[1];
+                    answerType = SplitRule(rule.Output)[1];
+                    //questionKeyword = SplitRule(question)[1];
+                    questionKeyword = Parameter(question, inputLeft, inputRight);
+                    answerKeyword = ConversationHandler.GetOutputByInput(questionKeyword, questionType, answerType);
+                    answer = SplitRule(rule.Output)[0] + answerKeyword + SplitRule(rule.Output)[2];
+                    return true;
+                }
+            }
             return false;
         }
 
@@ -79,13 +100,5 @@ namespace UTS.ScheduleSystem.MainLogic
             return result;
         }
 
-        //// Find answer parameter from Mealschedule according to the input parameter
-        //private string FindAnswerFromMealSchedule(string inputKeyword, string outputKeyword, string parameter)
-        //{
-        //    foreach (MealSchedule mealschedule in mealSchedules)
-        //    {
-        //        Utils.Datatype(inputKeyword)
-        //    }
-        //}
     }
 }
