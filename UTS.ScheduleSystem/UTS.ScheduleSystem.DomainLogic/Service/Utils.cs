@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UTS.ScheduleSystem.Data;
+public enum Status { Approved, Rejected, Pending }
 
 namespace UTS.ScheduleSystem.MainLogic
 {
+    public enum Status { Approved, Rejected, Pending }
+
     public static class Utils
     {
         //create if for different objects
@@ -27,6 +31,12 @@ namespace UTS.ScheduleSystem.MainLogic
                 default:
                     return null;
             }
+        }
+
+        public static string FindLastEditorId(string relatedUsersId)
+        {
+            string[] usersId = relatedUsersId.Split(' ');
+            return usersId[usersId.Count() - 1];
         }
 
         //return the object has the larest ID

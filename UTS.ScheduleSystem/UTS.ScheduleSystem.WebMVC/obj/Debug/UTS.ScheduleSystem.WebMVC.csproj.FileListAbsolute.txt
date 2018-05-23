@@ -287,3 +287,6 @@ C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\bin\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\bin\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\bin\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\bin\zh-Hans\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\bin\zh-Hans\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\bin\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll

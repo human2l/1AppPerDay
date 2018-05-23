@@ -190,6 +190,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApproverController.cs" />
     <Compile Include="Controllers\DataMaintainerController.cs" />
     <Compile Include="Controllers\EditorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -199,6 +200,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DataMaintainerViewModel.cs" />
+    <Compile Include="Models\EditorViewModels.cs" />
     <Compile Include="Models\HomeControllerViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -268,6 +270,7 @@
     <Content Include="Views\Editor\Index.cshtml" />
     <Content Include="Views\Editor\Create.cshtml" />
     <Content Include="Views\DataMaintainer\Edit.cshtml" />
+    <Content Include="Views\Approver\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

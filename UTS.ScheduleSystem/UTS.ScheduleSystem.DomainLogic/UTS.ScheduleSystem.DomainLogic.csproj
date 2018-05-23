@@ -54,7 +54,6 @@
     <Compile Include="DataHandler\UserHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ApproverService.cs" />
-    <Compile Include="Service\Controller.cs" />
     <Compile Include="Service\ConversationService.cs" />
     <Compile Include="Service\DataMaintainerService.cs" />
     <Compile Include="Service\EditorService.cs" />

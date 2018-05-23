@@ -33,3 +33,6 @@ C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\obj\Debug\UTS.ScheduleSystem.DomainLogic.csproj.CopyComplete
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\obj\Debug\UTS.ScheduleSystem.DomainLogic.dll
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\obj\Debug\UTS.ScheduleSystem.DomainLogic.pdb
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\bin\Debug\zh-Hans\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\bin\Debug\zh-Hans\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\bin\Debug\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
