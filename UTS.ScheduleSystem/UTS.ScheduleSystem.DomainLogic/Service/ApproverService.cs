@@ -14,16 +14,16 @@ namespace UTS.ScheduleSystem.MainLogic
 
         }
 
-        // Traversal and merge a conversational rule list and a fixed conversational rule list
-        private List<Rule> TraversalNMergeList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
-        {
-            List<Rule> newRulesList = new List<Rule>();
-            foreach (Rule rule in cRulesList)
-                newRulesList.Add(rule);
-            foreach (Rule rule in fCRulesList)
-                newRulesList.Add(rule);
-            return newRulesList;
-        }
+        //// Traversal and merge a conversational rule list and a fixed conversational rule list
+        //private List<Rule> TraversalNMergeList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
+        //{
+        //    List<Rule> newRulesList = new List<Rule>();
+        //    foreach (Rule rule in cRulesList)
+        //        newRulesList.Add(rule);
+        //    foreach (Rule rule in fCRulesList)
+        //        newRulesList.Add(rule);
+        //    return newRulesList;
+        //}
 
         // Return an editors list from database
         public List<AspNetUser> RequestEditorList()
@@ -32,14 +32,26 @@ namespace UTS.ScheduleSystem.MainLogic
             List<AspNetUser> users = UserHandler.UsersList();
             foreach (AspNetUser user in users)
             {
-                if (user.Role.ToString().Contains("E"))
+                if (user.Role != null && user.Role.ToString().Contains("E"))
                     editorList.Add(user);
             }
             return editorList;
         }
 
         // Return a number of rules related to a user in a rule list
-        private int CountUserRelatedRule(string id, List<Rule> rules)
+        private int CountUserRelatedConversationalRule(string id, List<ConversationalRule> rules)
+        {
+            int result = 0;
+            foreach (var rule in rules)
+            {
+                if (rule.RelatedUsersId.Contains(id))
+                    result++;
+            }
+            return result;
+        }
+
+        // Return a number of rules related to a user in a rule list
+        private int CountUserRelatedFixConversationalRule(string id, List<FixedConversationalRule> rules)
         {
             int result = 0;
             foreach (var rule in rules)
@@ -196,25 +208,22 @@ namespace UTS.ScheduleSystem.MainLogic
         // Return a count number of user related approved rule
         public int UserRelatedApprovedRulesNum(string userId)
         {
-            List<Rule> newList = new List<Rule>();
-            newList = TraversalNMergeList(RequestApprovedConversationalRulesList(), RequestApprovedFixedConversationalRulesList());
-            return CountUserRelatedRule(userId, newList);
+            return CountUserRelatedConversationalRule(userId, RequestApprovedConversationalRulesList()) + 
+                CountUserRelatedFixConversationalRule(userId, RequestApprovedFixedConversationalRulesList());
         }
 
         // Return a count number of user related rejected rule
         public int UserRelatedRejectedRulesNum(string userId)
         {
-            List<Rule> newList = new List<Rule>();
-            newList = TraversalNMergeList(RequestRejectedConversationalRulesList(), RequestRejectedFixedConversationalRulesList());
-            return CountUserRelatedRule(userId, newList);
+            return CountUserRelatedConversationalRule(userId, RequestRejectedConversationalRulesList()) +
+                CountUserRelatedFixConversationalRule(userId, RequestRejectedFixedConversationalRulesList());
         }
 
         // Return a count number of user related pending rule
         public int UserRelatedPendingRulesNum(string userId)
         {
-            List<Rule> newList = new List<Rule>();
-            newList = TraversalNMergeList(RequestPendingConversationalRulesList(), RequestPendingFixedConversationalRulesList());
-            return CountUserRelatedRule(userId, newList);
+            return CountUserRelatedConversationalRule(userId, RequestPendingConversationalRulesList()) +
+                CountUserRelatedFixConversationalRule(userId, RequestPendingFixedConversationalRulesList());
         }
 
         // Return a success rate of user related rules

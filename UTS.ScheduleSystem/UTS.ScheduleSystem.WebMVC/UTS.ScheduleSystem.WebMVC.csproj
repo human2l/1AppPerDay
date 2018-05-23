@@ -272,6 +272,7 @@
     <Content Include="Views\DataMaintainer\Edit.cshtml" />
     <Content Include="Views\Approver\Index.cshtml" />
     <Content Include="Views\Approver\ApproverReport.cshtml" />
+    <Content Include="Views\Approver\EditorReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

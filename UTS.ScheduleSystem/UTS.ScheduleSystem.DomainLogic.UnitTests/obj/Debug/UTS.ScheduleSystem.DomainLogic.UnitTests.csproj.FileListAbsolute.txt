@@ -20,9 +20,13 @@ C:\Users\Frank\Desktop\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTes
 C:\Users\Frank\Desktop\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\obj\Debug\UTS.ScheduleSystem.DomainLogic.UnitTests.csproj.CopyComplete
 C:\Users\Frank\Desktop\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\obj\Debug\UTS.ScheduleSystem.DomainLogic.UnitTests.dll
 C:\Users\Frank\Desktop\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\obj\Debug\UTS.ScheduleSystem.DomainLogic.UnitTests.pdb
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\EntityFramework.xml
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\zh-Hans\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\zh-Hans\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\UTS.ScheduleSystem.DomainLogic.UnitTests.dll.config
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\UTS.ScheduleSystem.DomainLogic.UnitTests.dll
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\UTS.ScheduleSystem.DomainLogic.UnitTests.pdb
@@ -30,7 +34,6 @@ C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
-C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\EntityFramework.xml
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
@@ -38,6 +41,3 @@ C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\obj\Debug\UTS.ScheduleSystem.DomainLogic.UnitTests.csproj.CopyComplete
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\obj\Debug\UTS.ScheduleSystem.DomainLogic.UnitTests.dll
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\obj\Debug\UTS.ScheduleSystem.DomainLogic.UnitTests.pdb
-C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\zh-Hans\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
-C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\zh-Hans\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
-C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll

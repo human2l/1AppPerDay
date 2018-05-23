@@ -1,0 +1,44 @@
+﻿@using UTS.ScheduleSystem.Data
+@using UTS.ScheduleSystem.MainLogic
+@{
+    ViewBag.Title = "EditorReport";
+    var EditorList = (List<AspNetUser>)ViewBag.editorList;
+    var ApprovedCount = (List<int>)ViewBag.approvedCount;
+    var RejectedCount = (List<int>)ViewBag.rejectedCount;
+    var PendingCount = (List<int>)ViewBag.pendingCount;
+    var SuccessRate = (List<double>)ViewBag.successRate;
+    var OverallSuccessRate = ViewBag.overallSuccessRate;
+}
+@if (EditorList.Count > 0)
+{
+    <h1>Editor Report :</h1>
+    <table class="table table-striped table-bordered table-hover">
+        <tr>
+            <th>Editor</th>
+            <th>Approved Rule Number</th>
+            <th>Rejected Rule Number</th>
+            <th>Pending Rule Number</th>
+            <th>Success Rate</th>
+        </tr>
+
+        @for(int count = 0; count < EditorList.Count(); count++)
+        {
+            <tr>
+                <td>@EditorList[count].UserName</td>
+                <td>@ApprovedCount[count]</td>
+                <td>@RejectedCount[count]</td>
+                <td>@PendingCount[count]</td>
+                <td>@SuccessRate[count]</td>
+            </tr>
+        }
+    </table>
+}
+<span></span>
+    <p>
+        Overall Success Rate:
+        @ViewBag.OverallSuccessRate
+        %
+    </p>
+<p>@Html.ActionLink("<<---Back", "Index")</p>
+
+

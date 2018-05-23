@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using UTS.ScheduleSystem.Data;
 using UTS.ScheduleSystem.MainLogic;
 using UTS.ScheduleSystem.MainLogic.DatabaseHandler;
 
@@ -46,8 +47,8 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Approver/Reject
-        // Reject a rule
+        // GET: Approver/ApproverReport
+        // Present a report to demonstrate approver data
         public ActionResult ApproverReport()
         {
             ViewBag.ApprovedConversationalRules = approverService.RequestApprovedConversationalRulesList();
@@ -55,6 +56,31 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             ViewBag.approvedRulesCount = approverService.ApprovedRulesNum();
             ViewBag.rejectedRulesCount = approverService.RejectedRulesNum();
             ViewBag.successRate = approverService.SuccessRate();
+            return View();
+        }
+
+        // GET: Approver/EditorReport
+        // Present a report to demonstrate editor data
+        public ActionResult EditorReport()
+        {
+            List<AspNetUser> editors = approverService.RequestEditorList();
+            List<int> approvedCount = new List<int>();
+            List<int> rejectedCount = new List<int>();
+            List<int> pendingCount = new List<int>();
+            List<double> successRate = new List<double>();
+            foreach (var editor in editors)
+            {
+                approvedCount.Add(approverService.UserRelatedApprovedRulesNum(editor.Id));
+                rejectedCount.Add(approverService.UserRelatedRejectedRulesNum(editor.Id));
+                pendingCount.Add(approverService.UserRelatedPendingRulesNum(editor.Id));
+                successRate.Add(approverService.UserSuccessRate(editor.Id));
+            }
+            ViewBag.editorList = editors;
+            ViewBag.approvedCount = approvedCount;
+            ViewBag.rejectedCount = rejectedCount;
+            ViewBag.pendingCount = pendingCount;
+            ViewBag.successRate = successRate;
+            ViewBag.overallSuccessRate = approverService.OverallAveSuccessRate();
             return View();
         }
     }

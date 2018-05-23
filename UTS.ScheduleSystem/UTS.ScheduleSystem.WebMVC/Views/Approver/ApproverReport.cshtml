@@ -9,8 +9,8 @@
     var SuccessRate = ViewBag.successRate;
 }
 <h1>Approver Report</h1>
-<h2></h2>
-<h2></h2>
+<span></span>
+<span></span>
 <p>Approved rules: 
     @ViewBag.ApprovedRulesCount
 </p>
@@ -23,8 +23,8 @@
     @ViewBag.SuccessRate
     %
 </p>
-<h2></h2>
-<h2></h2>
+<span></span>
+<span></span>
 @if (ApprovedConversationalRules.Count > 0)
 {
     <h4>Approved Conversational Rules :</h4>
@@ -37,7 +37,7 @@
             <th>Status</th>
         </tr>
 
-        @foreach (var conversationalRule in (List<ConversationalRule>)ViewBag.ApprovedConversationalRules)
+        @foreach (var conversationalRule in ApprovedConversationalRules)
         {
             <tr>
                 <td>@conversationalRule.Id</td>
@@ -49,8 +49,8 @@
         }
     </table>
 }
-<h2></h2>
-<h2></h2>
+<span></span>
+<span></span>
 @if (ApprovedFixedConversationalRules.Count > 0)
 {
     <h4>Approved FixedConversational Rules :</h4>
@@ -63,7 +63,7 @@
             <th>Status</th>
         </tr>
 
-        @foreach (var fixedConversationalRule in (List<FixedConversationalRule>)ViewBag.ApprovedFixedConversationalRules)
+        @foreach (var fixedConversationalRule in ApprovedFixedConversationalRules)
         {
             <tr>
                 <td>@fixedConversationalRule.Id</td>
