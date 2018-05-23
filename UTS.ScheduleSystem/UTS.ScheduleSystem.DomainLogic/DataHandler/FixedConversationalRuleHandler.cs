@@ -23,11 +23,12 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
         // Delete a fixed conversational rule from database by Id
         public static void RemoveFixedConversationalRule(string ruleId)
         {
+            int intId = int.Parse(ruleId);
             using (ScheduleSystemContext context = new ScheduleSystemContext())
             {
                 var fCRule = (from FixedConversationalRule
                              in context.FixedConversationalRules
-                              where FixedConversationalRule.Id == int.Parse(ruleId)
+                              where FixedConversationalRule.Id == intId
                               select FixedConversationalRule).First();
                 context.FixedConversationalRules.Remove(fCRule);
                 context.SaveChanges();
@@ -54,6 +55,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
         // Find a fixed conversational rule by Id
         public static FixedConversationalRule FindFixedConversationalRuleById(string ruleId)
         {
+            int intId = int.Parse(ruleId);
             FixedConversationalRule fixedConversationalRule;
             try
             {
@@ -61,7 +63,7 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
                 {
                     fixedConversationalRule = (from FixedConversationalRule
                                                 in context.FixedConversationalRules
-                                               where FixedConversationalRule.Id == int.Parse(ruleId)
+                                               where FixedConversationalRule.Id == intId
                                                select FixedConversationalRule).First();
                 }
             }
