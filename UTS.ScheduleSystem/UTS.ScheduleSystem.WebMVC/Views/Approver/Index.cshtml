@@ -8,10 +8,12 @@
 <h1>Rules Dashboard</h1>
 <h2></h2>
 <h2></h2>
+<p>@Html.ActionLink("Approver Report", "ApproverReport")</p>
+<h2></h2>
 @if (ConversationalRules.Count > 0)
 {
     <h4>Conversational Rules :</h4>
-    <table>
+    <table class="table table-striped table-bordered table-hover">
         <tr>
             <th>Id</th>
             <th>Input</th>
@@ -39,7 +41,7 @@
 @if (FixedConversationalRules.Count > 0)
 {
     <h4>FixedConversational Rules :</h4>
-    <table>
+    <table class="table table-striped table-bordered table-hover">
         <tr>
             <th>Id</th>
             <th>Input</th>

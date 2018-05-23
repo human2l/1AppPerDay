@@ -45,5 +45,17 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             approverService.RejectRule(id.ToString());
             return RedirectToAction("Index");
         }
+
+        // GET: Approver/Reject
+        // Reject a rule
+        public ActionResult ApproverReport()
+        {
+            ViewBag.ApprovedConversationalRules = approverService.RequestApprovedConversationalRulesList();
+            ViewBag.ApprovedFixedConversationalRules = approverService.RequestApprovedFixedConversationalRulesList();
+            ViewBag.approvedRulesCount = approverService.ApprovedRulesNum();
+            ViewBag.rejectedRulesCount = approverService.RejectedRulesNum();
+            ViewBag.successRate = approverService.SuccessRate();
+            return View();
+        }
     }
 }

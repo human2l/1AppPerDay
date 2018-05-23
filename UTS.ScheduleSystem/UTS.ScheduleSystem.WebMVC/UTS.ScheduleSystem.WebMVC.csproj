@@ -271,6 +271,7 @@
     <Content Include="Views\Editor\Create.cshtml" />
     <Content Include="Views\DataMaintainer\Edit.cshtml" />
     <Content Include="Views\Approver\Index.cshtml" />
+    <Content Include="Views\Approver\ApproverReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

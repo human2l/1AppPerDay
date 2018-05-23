@@ -190,7 +190,7 @@ namespace UTS.ScheduleSystem.MainLogic
             double rejected = RejectedRulesNum();
             double rate = 0;
             rate = (approved + rejected) == 0 ? 0 : approved / (approved + rejected);
-            return rate;
+            return rate * 100;
         }
 
         // Return a count number of user related approved rule

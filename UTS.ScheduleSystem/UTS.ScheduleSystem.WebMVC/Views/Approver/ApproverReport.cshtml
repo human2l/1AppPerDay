@@ -1,0 +1,80 @@
+﻿@using UTS.ScheduleSystem.Data
+@using UTS.ScheduleSystem.MainLogic
+@{
+    ViewBag.Title = "Index";
+    var ApprovedConversationalRules = (List<ConversationalRule>)ViewBag.ApprovedConversationalRules;
+    var ApprovedFixedConversationalRules = (List<FixedConversationalRule>)ViewBag.ApprovedFixedConversationalRules;
+    var ApprovedRulesCount = ViewBag.approvedRulesCount;
+    var RejectedRulesCount = ViewBag.rejectedRulesCount;
+    var SuccessRate = ViewBag.successRate;
+}
+<h1>Approver Report</h1>
+<h2></h2>
+<h2></h2>
+<p>Approved rules: 
+    @ViewBag.ApprovedRulesCount
+</p>
+<p>
+    Approved rules:
+    @ViewBag.RejectedRulesCount
+</p>
+<p>
+    Approved rules:
+    @ViewBag.SuccessRate
+    %
+</p>
+<h2></h2>
+<h2></h2>
+@if (ApprovedConversationalRules.Count > 0)
+{
+    <h4>Approved Conversational Rules :</h4>
+    <table class="table table-striped table-bordered table-hover">
+        <tr>
+            <th>Id</th>
+            <th>Input</th>
+            <th>Output</th>
+            <th>LastEditorId</th>
+            <th>Status</th>
+        </tr>
+
+        @foreach (var conversationalRule in (List<ConversationalRule>)ViewBag.ApprovedConversationalRules)
+        {
+            <tr>
+                <td>@conversationalRule.Id</td>
+                <td>@conversationalRule.Input</td>
+                <td>@conversationalRule.Output</td>
+                <td>@Utils.FindLastEditorId(conversationalRule.RelatedUsersId)</td>
+                <td>@conversationalRule.Status</td>
+            </tr>
+        }
+    </table>
+}
+<h2></h2>
+<h2></h2>
+@if (ApprovedFixedConversationalRules.Count > 0)
+{
+    <h4>Approved FixedConversational Rules :</h4>
+    <table class="table table-striped table-bordered table-hover">
+        <tr>
+            <th>Id</th>
+            <th>Input</th>
+            <th>Output</th>
+            <th>LastEditorId</th>
+            <th>Status</th>
+        </tr>
+
+        @foreach (var fixedConversationalRule in (List<FixedConversationalRule>)ViewBag.ApprovedFixedConversationalRules)
+        {
+            <tr>
+                <td>@fixedConversationalRule.Id</td>
+                <td>@fixedConversationalRule.Input</td>
+                <td>@fixedConversationalRule.Output</td>
+                <td>@Utils.FindLastEditorId(fixedConversationalRule.RelatedUsersId)</td>
+                <td>@fixedConversationalRule.Status</td>
+            </tr>
+        }
+    </table>
+}
+<p>@Html.ActionLink("<<---Back", "Index")</p>
+
+
