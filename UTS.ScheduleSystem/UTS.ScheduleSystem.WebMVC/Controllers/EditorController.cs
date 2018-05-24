@@ -38,7 +38,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         public ActionResult Create([Bind(Include = "Input, Output")] Rule rule)
         {
             rule.Status = "Pending";
-            editorService.AddNewFCRule(rule.Input, rule.Output, "userId");
+            editorService.AddNewFCRule(rule.Input, rule.Output, "bd6ba246-7bfb-4ebb-a2f2-0c6714be88bb");
             return RedirectToAction("Index");
         }
 

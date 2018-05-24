@@ -73,14 +73,14 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
                 approvedCount.Add(approverService.UserRelatedApprovedRulesNum(editor.Id));
                 rejectedCount.Add(approverService.UserRelatedRejectedRulesNum(editor.Id));
                 pendingCount.Add(approverService.UserRelatedPendingRulesNum(editor.Id));
-                successRate.Add(approverService.UserSuccessRate(editor.Id));
+                successRate.Add(approverService.UserSuccessRate(editor.Id)*100);
             }
             ViewBag.editorList = editors;
             ViewBag.approvedCount = approvedCount;
             ViewBag.rejectedCount = rejectedCount;
             ViewBag.pendingCount = pendingCount;
             ViewBag.successRate = successRate;
-            ViewBag.overallSuccessRate = approverService.OverallAveSuccessRate();
+            ViewBag.overallSuccessRate = approverService.OverallAveSuccessRate()*100;
             return View();
         }
     }
