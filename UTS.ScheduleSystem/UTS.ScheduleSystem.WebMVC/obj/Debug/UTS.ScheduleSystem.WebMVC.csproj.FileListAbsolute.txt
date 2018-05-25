@@ -279,8 +279,8 @@ C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\bin\zh-Hans\Microsoft.Owin.Security.Google.resources.dll
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\bin\zh-Hans\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\bin\zh-Hans\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\obj\Debug\UTS.ScheduleSystem.WebMVC.csprojResolveAssemblyReference.cache
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\obj\Debug\UTS.ScheduleSystem.WebMVC.csproj.CoreCompileInputs.cache
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\obj\Debug\UTS.ScheduleSystem.WebMVC.csproj.CopyComplete
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\obj\Debug\UTS.ScheduleSystem.WebMVC.dll
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\obj\Debug\UTS.ScheduleSystem.WebMVC.pdb
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\obj\Debug\UTS.ScheduleSystem.WebMVC.csprojAssemblyReference.cache
