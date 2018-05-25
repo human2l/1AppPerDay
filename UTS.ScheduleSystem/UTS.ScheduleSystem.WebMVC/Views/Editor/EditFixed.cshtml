@@ -1,0 +1,18 @@
+﻿@using UTS.ScheduleSystem.Data
+@model Rule
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editing Rule</h2>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.Id)
+    <table>
+        <tr><td>Input</td><td>@Html.TextBoxFor(x => x.Input, new { @Value = ViewBag.OnEditingRule.Input })</td></tr>
+        <tr><td>Output</td><td>@Html.TextBoxFor(x => x.Output, new { @Value = ViewBag.OnEditingRule.Output })</td></tr>
+
+    </table>
+    <input type="submit" value="Save" />
+    @Html.ActionLink("Cancel", "Index")
+}

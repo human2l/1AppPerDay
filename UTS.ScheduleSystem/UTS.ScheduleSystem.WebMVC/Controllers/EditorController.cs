@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using UTS.ScheduleSystem.Data;
 using UTS.ScheduleSystem.WebMVC.Models;
+using UTS.ScheduleSystem.MainLogic.DatabaseHandler;
+
 
 namespace UTS.ScheduleSystem.WebMVC.Controllers
 {
@@ -45,7 +47,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             }
             else if (editorService.IsRuleValid(rule.Input) && editorService.IsRuleValid(rule.Output))
             {
-                editorService.AddNewFCRule(rule.Input.ToLower(), rule.Output.ToLower(), "bd6ba246-7bfb-4ebb-a2f2-0c6714be88bb");
+                editorService.AddNewCRule(rule.Input.ToLower(), rule.Output.ToLower(), "bd6ba246-7bfb-4ebb-a2f2-0c6714be88bb");
             }
             else
             {
@@ -60,7 +62,22 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var rule = editorService.FindRuleById(id + "");
+            var rule = ConversationalRuleHandler.FindConversationalRuleById(id + "");
+            if (rule == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.OnEditingRule = rule;
+            return View();
+        }
+
+        public ActionResult EditFixed(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var rule = FixedConversationalRuleHandler.FindFixedConversationalRuleById(id + "");
             if (rule == null)
             {
                 return HttpNotFound();
@@ -87,13 +104,46 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        //[HttpPost, ActionName("SaveFixed")]
+        //public ActionResult EditFixed(Rule rule)
+        //{
+        //    if (editorService.IsFixedRuleValid(rule.Input, rule.Output))
+        //    {
+        //        editorService.EditPendingRule("123", rule.Id + "", rule.Input, rule.Output);
+        //    }
+        //    else if (editorService.IsRuleValid(rule.Input) && editorService.IsRuleValid(rule.Output))
+        //    {
+        //        editorService.EditPendingRule("123", rule.Id + "", rule.Input, rule.Output);
+        //    }
+        //    else
+        //    {
+        //        // Show error message
+        //    }
+        //    return RedirectToAction("Index");
+        //}
+
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var rule = editorService.FindRuleById(id + "");
+            var rule = ConversationalRuleHandler.FindConversationalRuleById(id + "");
+            if (rule == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.OnDeletingRule = rule;
+            return View();
+        }
+
+        public ActionResult DeleteFixed(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var rule = FixedConversationalRuleHandler.FindFixedConversationalRuleById(id + "");
             if (rule == null)
             {
                 return HttpNotFound();
@@ -105,12 +155,24 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            var rule = editorService.FindRuleById(id + "");
+            var rule = ConversationalRuleHandler.FindConversationalRuleById(id + "");
             if (rule == null)
             {
                 return HttpNotFound();
             }
-            editorService.DeletePendingRule(id + "");
+            ConversationalRuleHandler.RemoveConversationalRule(id + "");
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost, ActionName("DeleteFixed")]
+        public ActionResult DeleteFixedConfirmed(int id)
+        {
+            var rule = FixedConversationalRuleHandler.FindFixedConversationalRuleById(id + "");
+            if (rule == null)
+            {
+                return HttpNotFound();
+            }
+            FixedConversationalRuleHandler.RemoveFixedConversationalRule(id + "");
             return RedirectToAction("Index");
         }
     }

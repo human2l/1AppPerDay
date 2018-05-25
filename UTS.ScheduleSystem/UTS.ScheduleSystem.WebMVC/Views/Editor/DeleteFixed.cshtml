@@ -1,0 +1,18 @@
+﻿@using UTS.ScheduleSystem.Data
+@model Rule
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Deleting Rule</h2>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.Id)
+    <table>
+        <tr><td>Input</td><td>@ViewBag.OnDeletingRule.Input</td></tr>
+        <tr><td>Output</td><td>@ViewBag.OnDeletingRule.Output</td></tr>
+
+    </table>
+    <input type="submit" value="DeleteFixed" />
+    @Html.ActionLink("Cancel", "Index")
+}
