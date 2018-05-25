@@ -31,7 +31,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            approverService.ApproveConversationalRule(id.ToString());
+            approverService.ApproveFixedConversationalRule(id.ToString());
             return RedirectToAction("Index");
         }
 
@@ -43,7 +43,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            approverService.ApproveFixedConversationalRule(id.ToString());
+            approverService.ApproveConversationalRule(id.ToString());
             return RedirectToAction("Index");
         }
 
@@ -55,7 +55,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            approverService.RejectRuleInConversationalRuleList(id.ToString());
+            approverService.RejectRuleInFixedConversationalRuleList(id.ToString());
             return RedirectToAction("Index");
         }
 
@@ -67,7 +67,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            approverService.RejectRuleInFixedConversationalRuleList(id.ToString());
+            approverService.RejectRuleInConversationalRuleList(id.ToString());
             return RedirectToAction("Index");
         }
 
