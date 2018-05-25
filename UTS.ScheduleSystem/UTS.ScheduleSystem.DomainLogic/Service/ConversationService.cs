@@ -27,7 +27,7 @@ namespace UTS.ScheduleSystem.MainLogic
         {
 
         }
-
+        
         // Main conversation function take question input as parameter
         public string Conversation(string question)
         {
@@ -59,7 +59,10 @@ namespace UTS.ScheduleSystem.MainLogic
         // Answer to unfixed rule conversation
         private Boolean AnswerToConversation(string question)
         {
-            // Traversal unfixed conversational rule list 
+            if (!hasParameter(question))
+            {
+                return false;
+            }
             foreach (ConversationalRule rule in conversationalRules)
             {
                 // Find corresponding rule in unfixed conversational rule list
@@ -89,6 +92,17 @@ namespace UTS.ScheduleSystem.MainLogic
             string rightString = str.Substring(right + 1);
             string[] result = { leftString, keyword, rightString };
             return result;
+        }
+
+        private bool hasParameter(string str)
+        {
+            int left = str.IndexOf('{');
+            int right = str.IndexOf('}');
+            if(left == -1 || right == -1)
+            {
+                return false;
+            }
+            return true;
         }
 
         // Split reference parameter from question

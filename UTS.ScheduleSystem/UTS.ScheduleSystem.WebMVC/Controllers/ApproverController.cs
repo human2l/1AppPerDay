@@ -24,26 +24,50 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         }
 
         // GET: Approver/Approve
-        // Approve a rule
-        public ActionResult Approve(int? id)
+        // Approve a fixed rule
+        public ActionResult ApproveFixedConversationalRule(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            approverService.ApproveRule(id.ToString());
+            approverService.ApproveFixedConversationalRule(id.ToString());
+            return RedirectToAction("Index");
+        }
+
+        // GET: Approver/Approve
+        // Approve a regular rule
+        public ActionResult ApproveConversationalRule(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            approverService.ApproveConversationalRule(id.ToString());
             return RedirectToAction("Index");
         }
 
         // GET: Approver/Reject
-        // Reject a rule
-        public ActionResult Reject(int? id)
+        // Reject a fixed rule
+        public ActionResult RejectFixedConversationalRule(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            approverService.RejectRule(id.ToString());
+            approverService.RejectRuleInFixedConversationalRuleList(id.ToString());
+            return RedirectToAction("Index");
+        }
+
+        // GET: Approver/Reject
+        // Reject a regular rule
+        public ActionResult RejectConversationalRule(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            approverService.RejectRuleInConversationalRuleList(id.ToString());
             return RedirectToAction("Index");
         }
 

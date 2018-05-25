@@ -21,5 +21,16 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             return users;
         }
 
+        public static string getCurrentUserRole(string userName)
+        {
+            foreach(var user in UsersList())
+            {
+                if(user.UserName == userName)
+                {
+                    return user.Role;
+                }
+            }
+            return null;
+        }
     }
 }
