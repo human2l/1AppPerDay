@@ -32,8 +32,8 @@
                 <td>@conversationalRule.Output</td>
                 <td>@Utils.FindLastEditorId(conversationalRule.RelatedUsersId)</td>
                 <td>@conversationalRule.Status</td>
-                <td>@Html.ActionLink("Approve", "Approve", new { id = conversationalRule.Id })</td>
-                <td>@Html.ActionLink("Reject", "Reject", new { id = conversationalRule.Id })</td>
+                <td>@Html.ActionLink("Approve", "ApproveConversationalRule", new { id = conversationalRule.Id })</td>
+                <td>@Html.ActionLink("Reject", "RejectConversationalRule", new { id = conversationalRule.Id })</td>
             </tr>
         }
     </table>
@@ -60,8 +60,8 @@
                 <td>@fixedConversationalRule.Output</td>
                 <td>@Utils.FindLastEditorId(fixedConversationalRule.RelatedUsersId)</td>
                 <td>@fixedConversationalRule.Status</td>
-                <td>@Html.ActionLink("Approve", "Approve", new { id = fixedConversationalRule.Id })</td>
-                <td>@Html.ActionLink("Reject", "Reject", new { id = fixedConversationalRule.Id })</td>
+                <td>@Html.ActionLink("Approve", "ApproveFixedConversationalRule", new { id = fixedConversationalRule.Id })</td>
+                <td>@Html.ActionLink("Reject", "RejectFixedConversationalRule", new { id = fixedConversationalRule.Id })</td>
             </tr>
         }
     </table>
