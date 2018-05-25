@@ -6,6 +6,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using UTS.ScheduleSystem.WebMVC.Models;
+using System.Web.Security;
 
 
 namespace UTS.ScheduleSystem.WebMVC.Controllers
@@ -14,7 +15,9 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Answer = "I'm waiting...";
+            //ViewBag.Answer = Membership.GetUser().ToString();
+            ViewBag.Answer = System.Web.HttpContext.Current.User.Identity.Name;
+            //ViewBag.Answer = "I'm waiting...";
             return View();
         }
 
