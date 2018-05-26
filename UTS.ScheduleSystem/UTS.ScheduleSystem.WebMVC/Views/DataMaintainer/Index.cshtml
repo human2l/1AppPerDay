@@ -24,7 +24,7 @@
             <th>EndDate</th>
             <th>LastEditUserId</th>
             <th></th>
-            <th></th>
+            <th>@Html.ActionLink("+ New MealSchedule", "Create")</th>
         </tr>
 
         @foreach (var item in (List<MealSchedule>)ViewBag.MealSchedules)
@@ -43,7 +43,6 @@
         }
     </table>
 }
-<p>@Html.ActionLink("Create New MealSchedule", "Create")</p>
 @*<h2>Add a personal contact</h2>
     @using (Html.BeginForm())
     {

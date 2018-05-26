@@ -26,7 +26,7 @@ namespace UTS.ScheduleSystem.Data
             this.status = status;
 
         }
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string Input { get => input; set => input = value; }
         public string Output { get => output; set => output = value; }
         public string RelatedUsersId { get => relatedUsersId; set => relatedUsersId = value; }

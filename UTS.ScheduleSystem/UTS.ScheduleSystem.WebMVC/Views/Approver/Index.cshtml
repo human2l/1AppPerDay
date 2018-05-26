@@ -6,25 +6,22 @@
     var FixedConversationalRules = (List<FixedConversationalRule>)ViewBag.FixedConversationalRules;
 }
 <h1>Rules Dashboard</h1>
-<h2></h2>
-<h2></h2>
-<p>@Html.ActionLink("Approver Report", "ApproverReport")</p>
-<h2></h2>
-<p>@Html.ActionLink("Editor Report", "EditorReport")</p>
-<h2></h2>
-@if (ConversationalRules.Count > 0)
-{
-    <h4>Conversational Rules :</h4>
-    <table class="table table-striped table-bordered table-hover">
-        <tr>
-            <th>Id</th>
-            <th>Input</th>
-            <th>Output</th>
-            <th>LastEditorId</th>
-            <th>Status</th>
-        </tr>
 
-        @foreach (var conversationalRule in (List<ConversationalRule>)ViewBag.ConversationalRules)
+<table class="table table-striped table-bordered table-hover">
+    <tr>
+        <th>Rule ID</th>
+        <th>Input</th>
+        <th>Output</th>
+        <th>LastEditor ID</th>
+        <th>Status</th>
+        <th>@Html.ActionLink("Approver Report", "ApproverReport")</th>
+        <th>@Html.ActionLink("Editor Report", "EditorReport")</th>
+    </tr>
+    @if (ConversationalRules.Count > 0)
+    {
+        <tr><td colspan="7"><b>Conversational Rules</b></td></tr>
+
+        foreach (var conversationalRule in (List<ConversationalRule>)ViewBag.ConversationalRules)
         {
             <tr>
                 <td>@conversationalRule.Id</td>
@@ -36,23 +33,15 @@
                 <td>@Html.ActionLink("Reject", "RejectConversationalRule", new { id = conversationalRule.Id })</td>
             </tr>
         }
-    </table>
-}
-<h2></h2>
-<h2></h2>
-@if (FixedConversationalRules.Count > 0)
-{
-    <h4>FixedConversational Rules :</h4>
-    <table class="table table-striped table-bordered table-hover">
-        <tr>
-            <th>Id</th>
-            <th>Input</th>
-            <th>Output</th>
-            <th>LastEditorId</th>
-            <th>Status</th>
-        </tr>
 
-        @foreach (var fixedConversationalRule in (List<FixedConversationalRule>)ViewBag.FixedConversationalRules)
+    }
+
+
+    @if (FixedConversationalRules.Count > 0)
+    {
+        <tr><td colspan="7"><b>Fixed Conversational Rules</b></td></tr>
+
+        foreach (var fixedConversationalRule in (List<FixedConversationalRule>)ViewBag.FixedConversationalRules)
         {
             <tr>
                 <td>@fixedConversationalRule.Id</td>
@@ -64,7 +53,8 @@
                 <td>@Html.ActionLink("Reject", "RejectFixedConversationalRule", new { id = fixedConversationalRule.Id })</td>
             </tr>
         }
-    </table>
-}
+
+    }
+</table>
 
 

@@ -1,5 +1,5 @@
 ﻿@using UTS.ScheduleSystem.Data
-@model Rule
+@model ConversationalRule
 @{
     ViewBag.Title = "Edit";
 }
@@ -9,8 +9,8 @@
 {
     @Html.HiddenFor(x => x.Id)
 <table>
-    <tr><td>Input</td><td>@Html.TextBoxFor(x => x.Input, new { @Value = ViewBag.OnEditingRule.Input })</td></tr>
-    <tr><td>Output</td><td>@Html.TextBoxFor(x => x.Output, new { @Value = ViewBag.OnEditingRule.Output })</td></tr>
+    <tr><td>@Html.LabelFor(x => x.Input, "Input")</td><td>@Html.TextBoxFor(x => x.Input, new { @Value = ViewBag.OnEditingRule.Input })</td></tr>
+    <tr><td>@Html.LabelFor(x => x.Output, "Output")</td><td>@Html.TextBoxFor(x => x.Output, new { @Value = ViewBag.OnEditingRule.Output })</td></tr>
 
 </table>
     <input type="submit" value="Save"/>

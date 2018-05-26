@@ -43,15 +43,16 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             rule.Status = "Pending";
             if (editorService.IsFixedRuleValid(rule.Input, rule.Output))
             {
-                editorService.AddNewFCRule(rule.Input.ToLower(), rule.Output.ToLower(), "bd6ba246-7bfb-4ebb-a2f2-0c6714be88bb");
+                editorService.AddNewFCRule(rule.Input.ToLower(), rule.Output.ToLower(), System.Web.HttpContext.Current.User.Identity.Name);
             }
             else if (editorService.IsRuleValid(rule.Input) && editorService.IsRuleValid(rule.Output))
             {
-                editorService.AddNewCRule(rule.Input.ToLower(), rule.Output.ToLower(), "bd6ba246-7bfb-4ebb-a2f2-0c6714be88bb");
+                editorService.AddNewCRule(rule.Input.ToLower(), rule.Output.ToLower(), System.Web.HttpContext.Current.User.Identity.Name);
             }
             else
             {
                 // Show error message
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             return RedirectToAction("Index");
         }
@@ -87,40 +88,39 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Rule rule)
+        public ActionResult Edit(ConversationalRule rule)
         {
-            if (editorService.IsFixedRuleValid(rule.Input, rule.Output))
+            rule.Status = "Pending";
+            rule.RelatedUsersId = ConversationalRuleHandler.FindConversationalRuleById(rule.Id + "").RelatedUsersId + System.Web.HttpContext.Current.User.Identity.Name;
+            if (editorService.IsRuleValid(rule.Input) && editorService.IsRuleValid(rule.Output))
             {
-                editorService.EditPendingRule("123", rule.Id + "", rule.Input, rule.Output);
-            }
-            else if (editorService.IsRuleValid(rule.Input) && editorService.IsRuleValid(rule.Output))
-            {
-                editorService.EditPendingRule("123", rule.Id + "", rule.Input, rule.Output);
+                ConversationalRuleHandler.UpdateAConversationalRule(rule);
+                return RedirectToAction("Index");
             }
             else
             {
                 // Show error message
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            return RedirectToAction("Index");
+            
         }
 
-        //[HttpPost, ActionName("SaveFixed")]
-        //public ActionResult EditFixed(Rule rule)
-        //{
-        //    if (editorService.IsFixedRuleValid(rule.Input, rule.Output))
-        //    {
-        //        editorService.EditPendingRule("123", rule.Id + "", rule.Input, rule.Output);
-        //    }
-        //    else if (editorService.IsRuleValid(rule.Input) && editorService.IsRuleValid(rule.Output))
-        //    {
-        //        editorService.EditPendingRule("123", rule.Id + "", rule.Input, rule.Output);
-        //    }
-        //    else
-        //    {
-        //        // Show error message
-        //    }
-        //    return RedirectToAction("Index");
-        //}
+        [HttpPost]
+        public ActionResult EditFixed(FixedConversationalRule rule)
+        {
+            rule.Status = "Pending";
+            rule.RelatedUsersId = FixedConversationalRuleHandler.FindFixedConversationalRuleById(rule.Id + "").RelatedUsersId + System.Web.HttpContext.Current.User.Identity.Name;
+            if (editorService.IsFixedRuleValid(rule.Input, rule.Output))
+            {
+                FixedConversationalRuleHandler.UpdateAFixedConversationalRule(rule);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                // Show error message
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+        }
 
         public ActionResult Delete(int? id)
         {
