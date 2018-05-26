@@ -91,7 +91,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         public ActionResult Edit(ConversationalRule rule)
         {
             rule.Status = "Pending";
-            rule.RelatedUsersId = ConversationalRuleHandler.FindConversationalRuleById(rule.Id + "").RelatedUsersId + System.Web.HttpContext.Current.User.Identity.Name;
+            rule.RelatedUsersId = ConversationalRuleHandler.FindConversationalRuleById(rule.Id + "").RelatedUsersId + " " + System.Web.HttpContext.Current.User.Identity.Name;
             if (editorService.IsRuleValid(rule.Input) && editorService.IsRuleValid(rule.Output))
             {
                 ConversationalRuleHandler.UpdateAConversationalRule(rule);
@@ -109,7 +109,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         public ActionResult EditFixed(FixedConversationalRule rule)
         {
             rule.Status = "Pending";
-            rule.RelatedUsersId = FixedConversationalRuleHandler.FindFixedConversationalRuleById(rule.Id + "").RelatedUsersId + System.Web.HttpContext.Current.User.Identity.Name;
+            rule.RelatedUsersId = FixedConversationalRuleHandler.FindFixedConversationalRuleById(rule.Id + "").RelatedUsersId + " " + System.Web.HttpContext.Current.User.Identity.Name;
             if (editorService.IsFixedRuleValid(rule.Input, rule.Output))
             {
                 FixedConversationalRuleHandler.UpdateAFixedConversationalRule(rule);
