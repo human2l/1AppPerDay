@@ -13,8 +13,9 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
 {
     public class EditorController : Controller
     {
-        MainLogic.EditorService editorService = new MainLogic.EditorService();
-        
+        private MainLogic.EditorService editorService = new MainLogic.EditorService();
+        private string currentUser = System.Web.HttpContext.Current.User.Identity.Name;
+
         // GET: Editor
         public ActionResult Index()
         {
@@ -43,11 +44,11 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             rule.Status = "Pending";
             if (editorService.IsFixedRuleValid(rule.Input, rule.Output))
             {
-                editorService.AddNewFCRule(rule.Input.ToLower(), rule.Output.ToLower(), System.Web.HttpContext.Current.User.Identity.Name);
+                editorService.AddNewFCRule(rule.Input.ToLower(), rule.Output.ToLower(), currentUser);
             }
             else if (editorService.IsRuleValid(rule.Input) && editorService.IsRuleValid(rule.Output))
             {
-                editorService.AddNewCRule(rule.Input.ToLower(), rule.Output.ToLower(), System.Web.HttpContext.Current.User.Identity.Name);
+                editorService.AddNewCRule(rule.Input.ToLower(), rule.Output.ToLower(), currentUser);
             }
             else
             {
@@ -91,7 +92,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         public ActionResult Edit(ConversationalRule rule)
         {
             rule.Status = "Pending";
-            rule.RelatedUsersId = ConversationalRuleHandler.FindConversationalRuleById(rule.Id + "").RelatedUsersId + " " + System.Web.HttpContext.Current.User.Identity.Name;
+            rule.RelatedUsersId = ConversationalRuleHandler.FindConversationalRuleById(rule.Id + "").RelatedUsersId + " " + currentUser;
             if (editorService.IsRuleValid(rule.Input) && editorService.IsRuleValid(rule.Output))
             {
                 ConversationalRuleHandler.UpdateAConversationalRule(rule);
@@ -102,14 +103,14 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
                 // Show error message
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            
+
         }
 
         [HttpPost]
         public ActionResult EditFixed(FixedConversationalRule rule)
         {
             rule.Status = "Pending";
-            rule.RelatedUsersId = FixedConversationalRuleHandler.FindFixedConversationalRuleById(rule.Id + "").RelatedUsersId + " " + System.Web.HttpContext.Current.User.Identity.Name;
+            rule.RelatedUsersId = FixedConversationalRuleHandler.FindFixedConversationalRuleById(rule.Id + "").RelatedUsersId + " " + currentUser;
             if (editorService.IsFixedRuleValid(rule.Input, rule.Output))
             {
                 FixedConversationalRuleHandler.UpdateAFixedConversationalRule(rule);
@@ -174,6 +175,16 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             }
             FixedConversationalRuleHandler.RemoveFixedConversationalRule(id + "");
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Report()
+        {
+            List<Rule> currentUserApprovedRules = editorService.ShowCurrentUserApprovedRules(currentUser);
+            ViewBag.CurrentUserApprovedRules = currentUserApprovedRules;
+            ViewBag.CurrentUserApprovedRulesCount = editorService.ShowCurrentUserApprovedRulesCount(currentUser);
+            ViewBag.CurrentUserRejectedRulesCount = editorService.ShowCurrentUserRejectedRulesCount(currentUser);
+            ViewBag.SuccessRate = editorService.ShowCurrentUserSuccessRate(currentUser);
+            return View();
         }
     }
 }

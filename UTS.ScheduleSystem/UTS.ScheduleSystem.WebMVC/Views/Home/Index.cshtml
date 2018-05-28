@@ -11,7 +11,7 @@
             <img src="~/Images/logo_new.bmp" height="410" width="360"/>
             @using (Html.BeginForm())
             {
-                <div class="input-group">
+                <div class="input-group" >
                     @Html.TextBoxFor(x => x.Question, new { @Class = "form-control", @Value = "" })
                     <span class="input-group-btn">
                         <button type="submit" class="btn btn-default" value="Save">Submit</button>

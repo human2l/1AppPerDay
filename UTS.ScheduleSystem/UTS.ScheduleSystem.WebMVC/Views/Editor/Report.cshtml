@@ -1,0 +1,43 @@
+﻿@using UTS.ScheduleSystem.Data
+@{
+    ViewBag.Title = "Report";
+}
+
+<h1>Report</h1>
+
+<table class="table table-striped table-bordered table-hover">
+    <tr>
+        <td colspan="3"><b>Approved Rules Related to You</b></td>
+    </tr>
+    <tr>
+        <th>Rule ID</th>
+        <th>Input</th>
+        <th>Output</th>
+    </tr>
+    @foreach (var item in (List<Rule>)ViewBag.CurrentUserApprovedRules)
+    {
+            <tr>
+                <td>id</td>
+                <td>@item.Input</td>
+                <td>@item.Output</td>
+            </tr>
+    }
+        <tr>
+            <td colspan="3"><b>Approved Rules Count</b></td>
+        </tr>
+        <tr>
+            <td colspan="3">@ViewBag.CurrentUserApprovedRulesCount</td>
+        </tr>
+        <tr>
+            <td colspan="3"><b>Rejected Rules Count</b></td>
+        </tr>
+        <tr>
+            <td colspan="3">@ViewBag.CurrentUserRejectedRulesCount</td>
+        </tr>
+        <tr>
+            <td colspan="3"><b>Success Rate</b></td>
+        </tr>
+        <tr>
+            <td colspan="3">@ViewBag.SuccessRate</td>
+        </tr>
+</table>
