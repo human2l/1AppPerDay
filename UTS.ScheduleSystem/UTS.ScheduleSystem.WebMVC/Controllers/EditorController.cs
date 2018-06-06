@@ -179,8 +179,10 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
 
         public ActionResult Report()
         {
-            List<Rule> currentUserApprovedRules = editorService.ShowCurrentUserApprovedRules(currentUser);
-            ViewBag.CurrentUserApprovedRules = currentUserApprovedRules;
+            List<FixedConversationalRule> currentUserApprovedfcRules = editorService.ShowCurrentUserApprovedRules(currentUser).Item1;
+            List<ConversationalRule> currentUserApprovedcRules = editorService.ShowCurrentUserApprovedRules(currentUser).Item2;
+            ViewBag.CurrentUserApprovedfcRules = currentUserApprovedfcRules;
+            ViewBag.CurrentUserApprovedcRules = currentUserApprovedcRules;
             ViewBag.CurrentUserApprovedRulesCount = editorService.ShowCurrentUserApprovedRulesCount(currentUser);
             ViewBag.CurrentUserRejectedRulesCount = editorService.ShowCurrentUserRejectedRulesCount(currentUser);
             ViewBag.SuccessRate = editorService.ShowCurrentUserSuccessRate(currentUser);

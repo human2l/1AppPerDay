@@ -184,10 +184,11 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         // Show a user's approved rules
-        public List<Rule> ShowCurrentUserApprovedRules(string userName)
+        public Tuple<List<FixedConversationalRule>, List<ConversationalRule>> ShowCurrentUserApprovedRules(string userName)
         {
-            List<Rule> userRelatedRules = new List<Rule>();
+            List<FixedConversationalRule> userRelatedfCRules = new List<FixedConversationalRule>();
             List<FixedConversationalRule> fCRulesList = FixedConversationalRuleHandler.FindAllFixedConversationalRules();
+            List<ConversationalRule> userRelatedcRules = ConversationalRuleHandler.FindAllConversationalRules();
             List<ConversationalRule> cRulesList = ConversationalRuleHandler.FindAllConversationalRules();
             foreach (FixedConversationalRule rule in fCRulesList)
             {
@@ -198,7 +199,7 @@ namespace UTS.ScheduleSystem.MainLogic
                     {
                         if (relatedUserId[i] == userName)
                         {
-                            userRelatedRules.Add(rule);
+                            userRelatedfCRules.Add(rule);
                         }
                     }
                 }
@@ -212,12 +213,12 @@ namespace UTS.ScheduleSystem.MainLogic
                     {
                         if (relatedUserId[i] == userName)
                         {
-                            userRelatedRules.Add(rule);
+                            userRelatedcRules.Add(rule);
                         }
                     }
                 }
             }
-            return userRelatedRules;
+            return Tuple.Create(userRelatedfCRules, userRelatedcRules);
         }
 
         // Show a user's rejected rules
@@ -258,10 +259,11 @@ namespace UTS.ScheduleSystem.MainLogic
         }
 
         // Show a user's pengding rules
-        public List<Rule> ShowCurrentUserPendingRules(string userName)
+        public Tuple<List<FixedConversationalRule>, List<ConversationalRule>> ShowCurrentUserPendingRules(string userName)
         {
-            List<Rule> userRelatedRules = new List<Rule>();
+            List<FixedConversationalRule> userRelatedfCRules = new List<FixedConversationalRule>();
             List<FixedConversationalRule> fCRulesList = FixedConversationalRuleHandler.FindAllFixedConversationalRules();
+            List<ConversationalRule> userRelatedcRules = ConversationalRuleHandler.FindAllConversationalRules();
             List<ConversationalRule> cRulesList = ConversationalRuleHandler.FindAllConversationalRules();
             foreach (FixedConversationalRule rule in fCRulesList)
             {
@@ -272,7 +274,7 @@ namespace UTS.ScheduleSystem.MainLogic
                     {
                         if (relatedUserId[i] == userName)
                         {
-                            userRelatedRules.Add(rule);
+                            userRelatedfCRules.Add(rule);
                         }
                     }
                 }
@@ -286,18 +288,18 @@ namespace UTS.ScheduleSystem.MainLogic
                     {
                         if (relatedUserId[i] == userName)
                         {
-                            userRelatedRules.Add(rule);
+                            userRelatedcRules.Add(rule);
                         }
                     }
                 }
             }
-            return userRelatedRules;
+            return Tuple.Create(userRelatedfCRules, userRelatedcRules);
         }
 
         // Show the count of a user's approved rules
         public int ShowCurrentUserApprovedRulesCount(string userName)
         {
-            int count = ShowCurrentUserApprovedRules(userName).Count;
+            int count = ShowCurrentUserApprovedRules(userName).Item1.Count + ShowCurrentUserApprovedRules(userName).Item2.Count;
             return count;
         }
 
@@ -311,7 +313,7 @@ namespace UTS.ScheduleSystem.MainLogic
         // Show the count of a user's pending rules
         public int ShowCurrentUserPendingRulesCount(string userName)
         {
-            int count = ShowCurrentUserPendingRules(userName).Count;
+            int count = ShowCurrentUserPendingRules(userName).Item1.Count + ShowCurrentUserPendingRules(userName).Item2.Count;
             return count;
         }
 
