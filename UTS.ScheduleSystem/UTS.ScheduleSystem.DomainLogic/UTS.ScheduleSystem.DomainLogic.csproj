@@ -68,10 +68,6 @@
       <Project>{B1106E0C-F4ED-49CF-B245-8C76554A564F}</Project>
       <Name>UTS.ScheduleSystem.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UTS.ScheduleSystem.DomainLogic.UnitTests\UTS.ScheduleSystem.DomainLogic.UnitTests.csproj">
-      <Project>{7d023a06-d3e9-4eea-87ea-733a2cbdfb09}</Project>
-      <Name>UTS.ScheduleSystem.DomainLogic.UnitTests</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

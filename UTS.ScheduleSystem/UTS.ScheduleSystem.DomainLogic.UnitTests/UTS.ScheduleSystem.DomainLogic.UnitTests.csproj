@@ -55,12 +55,22 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTestEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UTS.ScheduleSystem.Data\UTS.ScheduleSystem.Data.csproj">
+      <Project>{b1106e0c-f4ed-49cf-b245-8c76554a564f}</Project>
+      <Name>UTS.ScheduleSystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UTS.ScheduleSystem.DomainLogic\UTS.ScheduleSystem.DomainLogic.csproj">
+      <Project>{f50fc7c7-8d10-4aa8-886c-6a724131540e}</Project>
+      <Name>UTS.ScheduleSystem.DomainLogic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
