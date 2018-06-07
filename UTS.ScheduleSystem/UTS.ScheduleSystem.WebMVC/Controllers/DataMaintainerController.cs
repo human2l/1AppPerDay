@@ -80,7 +80,8 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             else
             {
                 // Show error message
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                Response.Write("<script>window.alert('hahahahaha');</script>");
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
         }
 
@@ -110,7 +111,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             {
                 return HttpNotFound();
             }
-            MealScheduleHandler.RemoveMealschedule(mealSchedule);
+            dataMaintainerService.DeleteMealSchedule(mealSchedule);
             return RedirectToAction("Index");
         }
 
