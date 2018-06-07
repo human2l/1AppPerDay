@@ -30,6 +30,13 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             //rules.Add(rule);
             ViewBag.FixedConversationalRule = fixedConversationalRules;
             ViewBag.ConversationalRule = conversationalRules;
+            return CheckCurrentUser();
+
+
+        }
+
+        public ActionResult CheckCurrentUser()
+        {
             if (currentUser != "" && UserHandler.GetCurrentUserRole(currentUser).Contains("E"))
             {
                 return View();
@@ -38,12 +45,11 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
-            
         }
 
         public ActionResult Create()
         {
-            return View();
+            return CheckCurrentUser();
         }
 
         [HttpPost]
@@ -79,7 +85,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
                 return HttpNotFound();
             }
             ViewBag.OnEditingRule = rule;
-            return View();
+            return CheckCurrentUser();
         }
 
         public ActionResult EditFixed(int? id)
@@ -94,7 +100,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
                 return HttpNotFound();
             }
             ViewBag.OnEditingRule = rule;
-            return View();
+            return CheckCurrentUser();
         }
 
         [HttpPost]
@@ -144,7 +150,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
                 return HttpNotFound();
             }
             ViewBag.OnDeletingRule = rule;
-            return View();
+            return CheckCurrentUser();
         }
 
         public ActionResult DeleteFixed(int? id)
@@ -159,7 +165,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
                 return HttpNotFound();
             }
             ViewBag.OnDeletingRule = rule;
-            return View();
+            return CheckCurrentUser();
         }
 
         [HttpPost, ActionName("Delete")]
@@ -195,7 +201,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             ViewBag.CurrentUserApprovedRulesCount = editorService.ShowCurrentUserApprovedRulesCount(currentUser);
             ViewBag.CurrentUserRejectedRulesCount = editorService.ShowCurrentUserRejectedRulesCount(currentUser);
             ViewBag.SuccessRate = editorService.ShowCurrentUserSuccessRate(currentUser);
-            return View();
+            return CheckCurrentUser();
         }
     }
 }
