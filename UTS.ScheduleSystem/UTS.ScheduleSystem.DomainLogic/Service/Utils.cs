@@ -195,8 +195,7 @@ namespace UTS.ScheduleSystem.DomainLogic
 
         public static string ConversationFormat(string question)
         {
-            
-            return IgnoreWhiteSpace(RemoveAllMarks(question));
+            return IgnoreWhiteSpace(RemoveAllMarks(question)).ToLower();
         }
     }
 }

@@ -57,18 +57,19 @@ namespace UTS.ScheduleSystem.DomainLogic
         // Answer to unfixed rule conversation
         private Boolean AnswerToConversation(string question)
         {
-            if (!HasParameter(question))
-            {
-                return false;
-            }
+            //if (!HasParameter(question))
+            //{
+            //    return false;
+            //}
             foreach (ConversationalRule rule in conversationalRules)
             {
                 // Find corresponding rule in unfixed conversational rule list
                 string inputLeft = SplitRule(rule.Input)[0];
+                questionType = SplitRule(rule.Input)[1];
                 string inputRight = SplitRule(rule.Input)[2];
-                if (inputLeft == question.Substring(0,inputLeft.Count())&&inputRight == question.Substring(0,0-inputRight.Count()) )
+                //if (inputLeft == question.Substring(0,inputLeft.Count()) && inputRight == question.Substring(0,0-inputRight.Count()) )
+                if(question.StartsWith(inputLeft) && question.EndsWith(inputRight))
                 {
-                    questionType = SplitRule(rule.Input)[1];
                     answerType = SplitRule(rule.Output)[1];
                     //questionKeyword = SplitRule(question)[1];
                     questionKeyword = Parameter(question, inputLeft, inputRight);
@@ -92,16 +93,16 @@ namespace UTS.ScheduleSystem.DomainLogic
             return result;
         }
 
-        private bool HasParameter(string str)
-        {
-            int left = str.IndexOf('{');
-            int right = str.IndexOf('}');
-            if(left == -1 || right == -1)
-            {
-                return false;
-            }
-            return true;
-        }
+        //private bool HasParameter(string str)
+        //{
+        //    int left = str.IndexOf('{');
+        //    int right = str.IndexOf('}');
+        //    if(left == -1 || right == -1)
+        //    {
+        //        return false;
+        //    }
+        //    return true;
+        //}
 
         // Split reference parameter from question
         private string Parameter(string question, string leftString, string rightString)

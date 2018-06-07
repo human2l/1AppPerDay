@@ -44,11 +44,11 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
             FixedConversationalRuleHandler.AddFixedConversationalRule(UnitTestPublic.cFRule2);
             MealScheduleHandler.AddMealschedule(UnitTestPublic.ms1);
 
-            string expectedFixedRuleAnswer = "I am fine";
-            string expectedRuleAnswer = "It is a blah";
+            string expectedFixedRuleAnswer = "i am fine";
+            string expectedRuleAnswer = "it is a blah";
 
-            string testFixedRuleAnswer = conversationService.Conversation("How are you");
-            string testRuleAnswer = conversationService.Conversation("When will I have meal with a blah");
+            string testFixedRuleAnswer = conversationService.Conversation("how are you");
+            string testRuleAnswer = conversationService.Conversation("when will i have meal with a blah");
 
             Assert.AreEqual(expectedFixedRuleAnswer, testFixedRuleAnswer);
             Assert.AreEqual(expectedRuleAnswer, testRuleAnswer);
