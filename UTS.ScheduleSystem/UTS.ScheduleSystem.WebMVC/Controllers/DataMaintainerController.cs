@@ -5,6 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using UTS.ScheduleSystem.Data;
+using UTS.ScheduleSystem.DomainLogic;
 using UTS.ScheduleSystem.DomainLogic.DataHandler;
 
 namespace UTS.ScheduleSystem.WebMVC.Controllers
@@ -35,16 +36,21 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         {
             if (dataMaintainerService.IsDataValid(mealSchedule))
             {
-
+                mealSchedule.LastEditUserId = currentUser;
+                mealSchedule.Topic = Utils.IgnoreWhiteSpace(mealSchedule.Topic.ToLower());
+                mealSchedule.Location = Utils.IgnoreWhiteSpace(mealSchedule.Location.ToLower());
+                mealSchedule.Participants = Utils.IgnoreWhiteSpace(mealSchedule.Participants.ToLower());
+                mealSchedule.StartDate = Utils.IgnoreWhiteSpace(mealSchedule.StartDate.ToLower());
+                mealSchedule.EndDate = Utils.IgnoreWhiteSpace(mealSchedule.EndDate.ToLower());
+                MealScheduleHandler.AddMealschedule(mealSchedule);
+                return RedirectToAction("Index");
             }
-            mealSchedule.LastEditUserId = currentUser;
-            mealSchedule.Topic = mealSchedule.Topic.ToLower();
-            mealSchedule.Location = mealSchedule.Location.ToLower();
-            mealSchedule.Participants = mealSchedule.Participants.ToLower();
-            mealSchedule.StartDate = mealSchedule.StartDate.ToLower();
-            mealSchedule.EndDate = mealSchedule.EndDate.ToLower();
-            MealScheduleHandler.AddMealschedule(mealSchedule);
-            return RedirectToAction("Index");
+            else
+            {
+                // Show error message
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
         }
 
         // GET: MealSchedules/Edit/5
