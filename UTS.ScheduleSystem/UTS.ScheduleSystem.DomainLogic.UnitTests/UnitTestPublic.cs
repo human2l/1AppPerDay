@@ -18,7 +18,8 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
         public static ConversationalRule cRule1 = new ConversationalRule
         {
             Input = "When will I have meal with { topic } blah",
-            Output = "It's { topic } blah",
+            Output = "It is { topic } blah",
+            RelatedUsersId = "u001",
             Status = Status.Pending.ToString()
         };
         public static ConversationalRule cRule11 = new ConversationalRule
