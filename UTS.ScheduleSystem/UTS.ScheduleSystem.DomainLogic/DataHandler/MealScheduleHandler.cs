@@ -111,20 +111,12 @@ namespace UTS.ScheduleSystem.DomainLogic.DataHandler
         }
 
         // Remove all table rows
-        public static bool ClearAllMealSchedule()
+        public static void ClearAllMealSchedule()
         {
             using (ScheduleSystemContext context = new ScheduleSystemContext())
             {
-                var mealSchedules = context.MealSchedules.ToList();
-                int count = mealSchedules.Count();
-                int deleteCount = 0;
-                foreach (var mealSchedule in mealSchedules)
-                {
-                    context.MealSchedules.Remove(mealSchedule);
-                    deleteCount++;
-                }
+                context.Database.ExecuteSqlCommand("TRUNCATE TABLE [MealSchedule]");
                 context.SaveChanges();
-                return deleteCount == count;
             }
         }
     }

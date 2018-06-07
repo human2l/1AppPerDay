@@ -102,22 +102,12 @@ namespace UTS.ScheduleSystem.DomainLogic.DataHandler
         }
 
         // Remove all table rows
-        public static bool ClearAllConversationalRule()
+        public static void ClearAllConversationalRule()
         {
             using (ScheduleSystemContext context = new ScheduleSystemContext())
             {
-                var conversationalRules = context.ConversationalRules.ToList();
-                int count = conversationalRules.Count();
                 context.Database.ExecuteSqlCommand("TRUNCATE TABLE [ConversationalRule]");
-                int deleteCount = 0;
-                //foreach (var conversationalRule in conversationalRules)
-                //{
-
-                //    context.ConversationalRules.Remove(conversationalRule);
-                //    deleteCount++;
-                //}
                 context.SaveChanges();
-                return deleteCount == count;
             }
         }
     }
