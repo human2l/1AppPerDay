@@ -188,7 +188,7 @@ namespace UTS.ScheduleSystem.DomainLogic
         {
             List<FixedConversationalRule> userRelatedfCRules = new List<FixedConversationalRule>();
             List<FixedConversationalRule> fCRulesList = FixedConversationalRuleHandler.FindAllFixedConversationalRules();
-            List<ConversationalRule> userRelatedcRules = ConversationalRuleHandler.FindAllConversationalRules();
+            List<ConversationalRule> userRelatedcRules = new List<ConversationalRule>();
             List<ConversationalRule> cRulesList = ConversationalRuleHandler.FindAllConversationalRules();
             foreach (FixedConversationalRule rule in fCRulesList)
             {

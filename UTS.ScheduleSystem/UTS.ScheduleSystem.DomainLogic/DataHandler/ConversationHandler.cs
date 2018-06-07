@@ -14,19 +14,19 @@ namespace UTS.ScheduleSystem.DomainLogic.DataHandler
             MealSchedule mealSchedule;
             switch (inputKeyword)
             {
-                case "Topic":
+                case "topic":
                     mealSchedule = GetOutputByTopic(input);
                     break;
-                case "Participants":
+                case "participants":
                     mealSchedule = GetOutputByParticipants(input);
                     break;
-                case "Location":
+                case "location":
                     mealSchedule = GetOutputByLocation(input);
                     break;
-                case "StartDate":
+                case "startdate":
                     mealSchedule = GetOutputByStartDate(input);
                     break;
-                case "EndDate":
+                case "enddate":
                     mealSchedule = GetOutputByEndDate(input);
                     break;
                 default:
@@ -37,15 +37,15 @@ namespace UTS.ScheduleSystem.DomainLogic.DataHandler
             {
                 switch (answerKeyword)
                 {
-                    case "Topic":
+                    case "topic":
                         return mealSchedule.Topic;
-                    case "Participants":
+                    case "participants":
                         return mealSchedule.Participants;
-                    case "Location":
+                    case "location":
                         return mealSchedule.Location;
-                    case "StartDate":
+                    case "startdate":
                         return mealSchedule.StartDate;
-                    case "EndDate":
+                    case "enddate":
                         return mealSchedule.EndDate;
                     default:
                         return null;
