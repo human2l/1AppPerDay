@@ -110,7 +110,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             {
                 return HttpNotFound();
             }
-            MealScheduleHandler.RemoveMealschedule(mealSchedule);
+            dataMaintainerService.DeleteMealSchedule(mealSchedule);
             return RedirectToAction("Index");
         }
 
