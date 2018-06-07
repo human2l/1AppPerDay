@@ -6,20 +6,21 @@ using System.Web;
 using System.Web.Mvc;
 using UTS.ScheduleSystem.Data;
 using UTS.ScheduleSystem.DomainLogic;
+using UTS.ScheduleSystem.DomainLogic.DataHandler;
 
 namespace UTS.ScheduleSystem.WebMVC.Controllers
 {
     public class ApproverController : Controller
     {
         private ApproverService approverService = new ApproverService();
-
+        private string currentUser = System.Web.HttpContext.Current.User.Identity.Name;
         // GET: Approver
         public ActionResult Index()
         {
             // Read all rule into list
             ViewBag.ConversationalRules = approverService.RequestPendingConversationalRulesList();
             ViewBag.FixedConversationalRules = approverService.RequestPendingFixedConversationalRulesList();
-            return View();
+            return CheckCurrentUser();
         }
 
         // GET: Approver/Approve
@@ -79,7 +80,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             ViewBag.approvedRulesCount = approverService.ApprovedRulesNum();
             ViewBag.rejectedRulesCount = approverService.RejectedRulesNum();
             ViewBag.successRate = approverService.SuccessRate();
-            return View();
+            return CheckCurrentUser();
         }
 
         // GET: Approver/EditorReport
@@ -104,7 +105,18 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             ViewBag.pendingCount = pendingCount;
             ViewBag.successRate = successRate;
             ViewBag.overallSuccessRate = approverService.OverallAveSuccessRate()*100;
-            return View();
+            return CheckCurrentUser();
+        }
+        public ActionResult CheckCurrentUser()
+        {
+            if (currentUser != "" && UserHandler.GetCurrentUserRole(currentUser).Contains("A"))
+            {
+                return View();
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
         }
     }
 }

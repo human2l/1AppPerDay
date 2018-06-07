@@ -11,19 +11,20 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
 {
     public class DataMaintainerController : Controller
     {
+        private string currentUser = System.Web.HttpContext.Current.User.Identity.Name;
         // GET: DataMaintainer
         // Show the list of all contacts
         public ActionResult Index()
         {
             ViewBag.MealSchedules = MealScheduleHandler.FindAllMealSchedules();
-            return View();
+            return CheckCurrentUser();
         }
 
         // GET: DataMaintainer/Create
         // Show an edit form to create a new contact
         public ActionResult Create()
         {
-            return View();
+            return CheckCurrentUser();
         }
 
         // POST: DataMaintainer/Create
@@ -51,7 +52,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
                 return HttpNotFound();
             }
             ViewBag.OnEditingMealSchedule = mealSchedule;
-            return View();
+            return CheckCurrentUser();
         }
 
         // POST: MealSchedules/Edit/5
@@ -79,7 +80,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
                 return HttpNotFound();
             }
             ViewBag.OnDeletingMealSchedule = mealSchedule;
-            return View();
+            return CheckCurrentUser();
         }
         // POST: MealSchedules/Delete/5
         // Delete a mealSchedule
@@ -95,6 +96,17 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult CheckCurrentUser()
+        {
+            if (currentUser != "" && UserHandler.GetCurrentUserRole(currentUser).Contains("DM"))
+            {
+                return View();
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
+        }
 
     }
 }
