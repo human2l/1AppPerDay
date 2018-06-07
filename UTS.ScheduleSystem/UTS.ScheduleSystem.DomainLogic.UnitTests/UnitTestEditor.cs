@@ -39,7 +39,7 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
         }
 
         [TestMethod]
-        public void TestMethod1()
+        public void EditorService_AddFixedConversationalRule()
         {
             // Adding a fixed conversationalRule
             editorService.AddNewFCRule(UnitTestPublic.cFRule1.Input, UnitTestPublic.cFRule1.Output, UnitTestPublic.cFRule1.RelatedUsersId);
@@ -55,7 +55,7 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
         }
 
         [TestMethod]
-        public void TestMethod2()
+        public void EditorService_AddConversationalRule()
         {
             // Adding a conversationalRule
             editorService.AddNewCRule(UnitTestPublic.cRule1.Input, UnitTestPublic.cRule1.Output, UnitTestPublic.cRule1.RelatedUsersId);
@@ -68,6 +68,23 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
             }
 
             Assert.IsTrue(UnitTestPublic.CompareTwoCRules(testCRule1, testCRule1));
+        }
+
+        [TestMethod]
+        public void EditorService_ShowAllPendingRules()
+        {
+            editorService.AddNewFCRule(UnitTestPublic.cFRule1.Input, UnitTestPublic.cFRule1.Output, UnitTestPublic.cFRule1.RelatedUsersId);
+            editorService.AddNewCRule(UnitTestPublic.cRule1.Input, UnitTestPublic.cRule1.Output, UnitTestPublic.cRule1.RelatedUsersId);
+            List<Rule> testPendingRulesList = new List<Rule>();
+            testPendingRulesList.Add(UnitTestPublic.cFRule1);
+            testPendingRulesList.Add(UnitTestPublic.cRule1);
+            List<Rule> pendingRulesList = new List<Rule>();
+            pendingRulesList = editorService.ShowAllPendingRules();
+            foreach (Rule rule in testPendingRulesList)
+            {
+
+            }
+
         }
 
     }
