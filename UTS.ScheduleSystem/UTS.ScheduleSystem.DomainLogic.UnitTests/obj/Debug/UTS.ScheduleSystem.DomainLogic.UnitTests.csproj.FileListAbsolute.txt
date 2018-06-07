@@ -57,4 +57,12 @@ C:\Users\Public\Documents\WondowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS
 C:\Users\Public\Documents\WondowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\obj\Debug\UTS.ScheduleSystem.DomainLogic.UnitTests.csproj.CopyComplete
 C:\Users\Public\Documents\WondowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\obj\Debug\UTS.ScheduleSystem.DomainLogic.UnitTests.dll
 C:\Users\Public\Documents\WondowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\obj\Debug\UTS.ScheduleSystem.DomainLogic.UnitTests.pdb
-C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\obj\Debug\UTS.ScheduleSystem.DomainLogic.UnitTests.csprojAssemblyReference.cache
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\Database.mdf
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\Database_log.ldf
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\UTS.ScheduleSystem.Data.dll
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\UTS.ScheduleSystem.DomainLogic.dll
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\UTS.ScheduleSystem.Data.pdb
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\UTS.ScheduleSystem.Data.dll.config
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\UTS.ScheduleSystem.DomainLogic.pdb
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\bin\Debug\UTS.ScheduleSystem.DomainLogic.dll.config
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic.UnitTests\obj\Debug\UTS.ScheduleSystem.DomainLogic.UnitTests.csprojResolveAssemblyReference.cache

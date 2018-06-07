@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,68 +21,68 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
             Output = "It's { topic } blah",
             Status = Status.Pending.ToString()
         };
-        public static ConversationalRule crule11 = new ConversationalRule
+        public static ConversationalRule cRule11 = new ConversationalRule
         {
             Input = "When will I have meal with { topic } blah",
             Output = "It's { topic } blah",
             Status = Status.Pending.ToString()
         };
-        public static ConversationalRule crule2 = new ConversationalRule
+        public static ConversationalRule cRule2 = new ConversationalRule
         {
             Input = "When will I have meal with { topic } blah",
             Output = "It's { topic } blah",
             Status = Status.Approved.ToString()
         };
-        public static ConversationalRule crule21 = new ConversationalRule
+        public static ConversationalRule cRule21 = new ConversationalRule
         {
             Input = "When will I have meal with { topic } blah",
             Output = "It's { topic } blah",
             Status = Status.Pending.ToString()
         };
-        public static ConversationalRule crule3 = new ConversationalRule
+        public static ConversationalRule cRule3 = new ConversationalRule
         {
             Input = "When will I have meal with { topic } blah",
             Output = "It's { topic } blah",
             Status = Status.Rejected.ToString()
         };
-        public static ConversationalRule crule31 = new ConversationalRule
+        public static ConversationalRule cRule31 = new ConversationalRule
         {
             Input = "When will I have meal with { topic } blah",
             Output = "It's { topic } blah",
             Status = Status.Pending.ToString()
         };
 
-        public static FixedConversationalRule cfrule1 = new FixedConversationalRule
+        public static FixedConversationalRule cFRule1 = new FixedConversationalRule
         {
             Input = "How are you?",
             Output = "I'm fine, thanks, and you?",
             Status = Status.Pending.ToString()
         };
-        public static FixedConversationalRule cfrule11 = new FixedConversationalRule
+        public static FixedConversationalRule cFRule11 = new FixedConversationalRule
         {
             Input = "How are you?",
             Output = "I'm fine, thanks, and you?",
             Status = Status.Pending.ToString()
         };
-        public static FixedConversationalRule cfrule2 = new FixedConversationalRule
+        public static FixedConversationalRule cFRule2 = new FixedConversationalRule
         {
             Input = "How are you?",
             Output = "I'm fine, thanks, and you?",
             Status = Status.Approved.ToString()
         };
-        public static FixedConversationalRule cfrule21 = new FixedConversationalRule
+        public static FixedConversationalRule cFRule21 = new FixedConversationalRule
         {
             Input = "How are you?",
             Output = "I'm fine, thanks, and you?",
             Status = Status.Pending.ToString()
         };
-        public static FixedConversationalRule cfrule3 = new FixedConversationalRule
+        public static FixedConversationalRule cFRule3 = new FixedConversationalRule
         {
             Input = "How are you?",
             Output = "I'm fine, thanks, and you?",
             Status = Status.Rejected.ToString()
         };
-        public static FixedConversationalRule cfrule31 = new FixedConversationalRule
+        public static FixedConversationalRule cFRule31 = new FixedConversationalRule
         {
             Input = "How are you?",
             Output = "I'm fine, thanks, and you?",
@@ -115,25 +116,27 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
         //Backup the database into memory
         public static void StartAllTest()
         {
-            UnitTestPublic.tempFixedConversationalRulesList = FixedConversationalRuleHandler.FindAllApprovedFixedConversationalRules();
-            UnitTestPublic.tempConversationalRulesList = ConversationalRuleHandler.FindAllConversationalRules();
-            UnitTestPublic.tempMealScheduleList = MealScheduleHandler.FindAllMealSchedules();
+            string path = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\UTS.ScheduleSystem.Data"));
+            AppDomain.CurrentDomain.SetData("DataDirectory", path);
+            tempFixedConversationalRulesList = FixedConversationalRuleHandler.FindAllFixedConversationalRules();
+            tempConversationalRulesList = ConversationalRuleHandler.FindAllConversationalRules();
+            tempMealScheduleList = MealScheduleHandler.FindAllMealSchedules();
         }
 
         // Restore the database from backup
         public static void TerminateAllTest()
         {
-            foreach (FixedConversationalRule fcRule in UnitTestPublic.tempFixedConversationalRulesList)
+            foreach (FixedConversationalRule fcRule in tempFixedConversationalRulesList)
             {
                 FixedConversationalRuleHandler.AddFixedConversationalRule(fcRule);
             }
 
-            foreach (ConversationalRule cRule in UnitTestPublic.tempConversationalRulesList)
+            foreach (ConversationalRule cRule in tempConversationalRulesList)
             {
                 ConversationalRuleHandler.AddConversationalRule(cRule);
             }
 
-            foreach (MealSchedule m in UnitTestPublic.tempMealScheduleList)
+            foreach (MealSchedule m in tempMealScheduleList)
             {
                 MealScheduleHandler.AddMealschedule(m);
             }
