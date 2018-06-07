@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using UTS.ScheduleSystem.Data;
 public enum Status { Approved, Rejected, Pending }
@@ -33,113 +34,12 @@ namespace UTS.ScheduleSystem.DomainLogic
             }
         }
 
+        // Find last editor id from relatedUsersId string
         public static string FindLastEditorId(string relatedUsersId)
         {
             string[] usersId = relatedUsersId.Split(' ');
             return usersId[usersId.Count() - 1];
         }
-
-        //return the object has the larest ID
-        //public static string GetLastId<T>(List<T> list)
-        //{
-        //    if (typeof(T).Equals(typeof(User)))
-        //    {
-        //        if (list.Count == 0)
-        //        {
-        //            return "u0";
-        //        }
-        //        var largestIdNumber = 0;
-        //        List<User> userList = list.Cast<User>().ToList();
-        //        for (var i = 0; i < userList.Count; i++)
-        //        {
-        //            var idNumber = int.Parse(userList[i].Id.Substring(1));
-        //            if (idNumber > largestIdNumber)
-        //            {
-        //                largestIdNumber = idNumber;
-        //            }
-        //        }
-        //        return "u" + largestIdNumber;
-        //    }
-        //    else if (typeof(T).Equals(typeof(ConversationalRule)))
-        //    {
-        //        if (list.Count == 0)
-        //        {
-        //            return "c0";
-        //        }
-        //        var largestIdNumber = 0;
-        //        List<ConversationalRule> conversationalRuleList = list.Cast<ConversationalRule>().ToList();
-        //        for (var i = 0; i < conversationalRuleList.Count; i++)
-        //        {
-        //            var idNumber = int.Parse(conversationalRuleList[i].Id.Substring(1));
-        //            if (idNumber > largestIdNumber)
-        //            {
-        //                largestIdNumber = idNumber;
-        //            }
-        //        }
-        //        return "c" + largestIdNumber;
-        //    }
-        //    else if (typeof(T).Equals(typeof(FixedConversationalRule)))
-        //    {
-        //        if (list.Count == 0)
-        //        {
-        //            return "fc0";
-        //        }
-        //        var largestIdNumber = 0;
-        //        List<FixedConversationalRule> fixedConversationalRuleList = list.Cast<FixedConversationalRule>().ToList();
-        //        for (var i = 0; i < fixedConversationalRuleList.Count; i++)
-        //        {
-        //            var idNumber = int.Parse(fixedConversationalRuleList[i].Id.Substring(2));
-        //            if (idNumber > largestIdNumber)
-        //            {
-        //                largestIdNumber = idNumber;
-        //            }
-        //        }
-        //        return "fc" + largestIdNumber;
-        //    }
-        //    else if (typeof(T).Equals(typeof(MealSchedule)))
-        //    {
-        //        if (list.Count == 0)
-        //        {
-        //            return "ms0";
-        //        }
-        //        var largestIdNumber = 0;
-        //        List<MealSchedule> mealScheduleList = list.Cast<MealSchedule>().ToList();
-        //        for (var i = 0; i < mealScheduleList.Count; i++)
-        //        {
-        //            var idNumber = int.Parse(mealScheduleList[i].Id.Substring(2));
-        //            if (idNumber > largestIdNumber)
-        //            {
-        //                largestIdNumber = idNumber;
-        //            }
-        //        }
-        //        return "ms" + largestIdNumber;
-        //    }
-        //    return null;
-        //}
-
-        //return corresponding Role of input string
-        //public static Role GetRole(string role)
-        //{
-        //    switch (role)
-        //    {
-        //        case "DMnEnA":
-        //            return Role.DMnEnA;
-        //        case "DMnA":
-        //            return Role.DMnA;
-        //        case "DMnE":
-        //            return Role.DMnE;
-        //        case "EnA":
-        //            return Role.EnA;
-        //        case "E":
-        //            return Role.E;
-        //        case "A":
-        //            return Role.A;
-        //        case "DM":
-        //            return Role.DM;
-        //        default:
-        //            return Role.None;
-        //    }
-        //}
 
         //Convert status string to status enum
         public static Status GetStatus(string status)
@@ -165,57 +65,57 @@ namespace UTS.ScheduleSystem.DomainLogic
             return compactedString;
         }
 
+        // Remove all marks
         public static string RemoveAllMarks(string input)
         {
-            string Uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            string number = "1234567890";
-            string Lowercase = "abcdefghijklmnopqrstuvwxyz";
+            string pattern = @"[^0-9a-zA-Z]";
+            return Regex.Replace(input, pattern, "");
+            //string Uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            //string number = "1234567890";
+            //string Lowercase = "abcdefghijklmnopqrstuvwxyz";
             
-            bool simple = false;
-            string temp;
-            while (!simple)
-            {
-                temp = input;
-                for (var i = 0; i < input.Count(); i++)
-                {
-                    if (!Uppercase.Contains(input.ElementAt(i)) && !number.Contains(input.ElementAt(i)) && !Lowercase.Contains(input.ElementAt(i)) && input.ElementAt(i) != ' ')
-                    {
-                        input = input.Replace(input.ElementAt(i) + "", "");
-                        break;
-                    }
-                }
-                if (input == temp)
-                {
-                    simple = true;
-                }
-            }
+            //bool simple = false;
+            //string temp;
+            //while (!simple)
+            //{
+            //    temp = input;
+            //    for (var i = 0; i < input.Count(); i++)
+            //    {
+            //        if (!Uppercase.Contains(input.ElementAt(i)) && !number.Contains(input.ElementAt(i)) && !Lowercase.Contains(input.ElementAt(i)) && input.ElementAt(i) != ' ')
+            //        {
+            //            input = input.Replace(input.ElementAt(i) + "", "");
+            //            break;
+            //        }
+            //    }
+            //    if (input == temp)
+            //    {
+            //        simple = true;
+            //    }
+            //}
 
-            return input;
+            //return input;
         }
 
-        public static string ConversationFormat(string question)
-        {
-            return IgnoreWhiteSpace(RemoveAllMarks(question)).ToLower();
-        }
-
-        // Check if input is not null and includes only alphabet and num
+        // Check if input is not null and includes only alphabet and num (判断只包含数字字母并且不为空)
         public static bool IsStringValid(string input)
         {
-            string az = "qwertyuiopasdfghjklzxcvbnm ";
-            string num = "1234567890";
-            if (input != null)
-            {
-                input = input.ToLower();
-                foreach (char x in input)
-                {
-                    if (!az.Contains(x) && !num.Contains(x))
-                    {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            return false;
+            string pattern = @"^[a-zA-Z0-9]*$";
+            return ((input != null) && (Regex.IsMatch(input, pattern)));
+            //string az = "qwertyuiopasdfghjklzxcvbnm ";
+            //string num = "1234567890";
+            //if (input != null)
+            //{
+            //    input = input.ToLower();
+            //    foreach (char x in input)
+            //    {
+            //        if (!az.Contains(x) && !num.Contains(x))
+            //        {
+            //            return false;
+            //        }
+            //    }
+            //    return true;
+            //}
+            //return false;
         }
     }
 }

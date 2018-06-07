@@ -32,7 +32,7 @@ namespace UTS.ScheduleSystem.DomainLogic
             conversationalRules = ConversationalRuleHandler.FindAllApprovedConversationalRules();
             fixedConversationalRules = FixedConversationalRuleHandler.FindAllApprovedFixedConversationalRules();
 
-            string formatedQuestion = Utils.ConversationFormat(question);
+            string formatedQuestion = ConversationFormat(question);
             if (!AnswerToFixedRuleConversation(formatedQuestion) && !AnswerToConversation(formatedQuestion))
                 answer = "Cannot find the answer corresponding to the question.";
             return answer;
@@ -113,5 +113,10 @@ namespace UTS.ScheduleSystem.DomainLogic
             return result;
         }
 
+        // Format user question input
+        public static string ConversationFormat(string question)
+        {
+            return Utils.IgnoreWhiteSpace(Utils.RemoveAllMarks(question)).ToLower();
+        }
     }
 }
