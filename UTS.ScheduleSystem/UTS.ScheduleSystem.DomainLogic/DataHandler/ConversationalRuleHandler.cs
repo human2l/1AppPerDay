@@ -108,12 +108,14 @@ namespace UTS.ScheduleSystem.DomainLogic.DataHandler
             {
                 var conversationalRules = context.ConversationalRules.ToList();
                 int count = conversationalRules.Count();
+                context.Database.ExecuteSqlCommand("TRUNCATE TABLE [ConversationalRule]");
                 int deleteCount = 0;
-                foreach (var conversationalRule in conversationalRules)
-                {
-                    context.ConversationalRules.Remove(conversationalRule);
-                    deleteCount++;
-                }
+                //foreach (var conversationalRule in conversationalRules)
+                //{
+
+                //    context.ConversationalRules.Remove(conversationalRule);
+                //    deleteCount++;
+                //}
                 context.SaveChanges();
                 return deleteCount == count;
             }

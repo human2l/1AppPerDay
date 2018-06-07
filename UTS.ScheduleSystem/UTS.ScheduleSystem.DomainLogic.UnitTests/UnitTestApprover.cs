@@ -51,12 +51,21 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
             List<ConversationalRule> pendingConversationalRuleList = approverService.RequestPendingConversationalRulesList();
             foreach (ConversationalRule conversationalRule in pendingConversationalRuleList)
             {
-                Debug.WriteLine(conversationalRule.Id);
-                Debug.WriteLine(conversationalRule.Input);
-                Debug.WriteLine(conversationalRule.Output);
-                Debug.WriteLine(conversationalRule.Status);
                 Assert.AreEqual(Status.Pending.ToString(), conversationalRule.Status);
             }
         }
+
+        //[TestMethod]
+        //public void ApproverService_RequestPendingFixedConversationalRulesList_ReturenCorrectPendingRuleList()
+        //{
+        //    FixedConversationalRuleHandler.AddFixedConversationalRule(UnitTestPublic.cRule1); // pending
+        //    FixedConversationalRuleHandler.AddFixedConversationalRule(UnitTestPublic.cRule2);
+        //    FixedConversationalRuleHandler.AddFixedConversationalRule(UnitTestPublic.cRule3);
+        //    List<FixedConversationalRule> pendingFixedConversationalRuleList = approverService.RequestPendingFixedConversationalRulesList();
+        //    foreach (FixedConversationalRule fixedConversationalRule in pendingFixedConversationalRuleList)
+        //    {
+        //        Assert.AreEqual(Status.Pending.ToString(), fixedConversationalRule.Status);
+        //    }
+        //}
     }
 }
