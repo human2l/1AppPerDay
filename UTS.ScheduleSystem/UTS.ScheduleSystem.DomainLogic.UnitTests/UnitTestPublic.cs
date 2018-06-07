@@ -15,6 +15,8 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
         public static List<ConversationalRule> tempConversationalRulesList = new List<ConversationalRule>();
         public static List<MealSchedule> tempMealScheduleList = new List<MealSchedule>();
 
+        public static string testUserId = "u001";
+
         public static ConversationalRule cRule1 = new ConversationalRule
         {
             Input = "When will I have meal with { topic } blah",
