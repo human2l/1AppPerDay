@@ -36,7 +36,6 @@ namespace UTS.ScheduleSystem.DomainLogic
         public void DeleteMealSchedule(string id)
         {
             MealScheduleHandler.RemoveMealschedule(id);
-            //dataHandler.RemoveMealschedule(id);
         }
 
 
@@ -45,6 +44,7 @@ namespace UTS.ScheduleSystem.DomainLogic
         {
             MealSchedule mealSchedule = new MealSchedule
             {
+                Id = int.Parse(id),
                 Topic = topic,
                 Participants = participants,
                 Location = location,

@@ -336,7 +336,7 @@ namespace UTS.ScheduleSystem.DomainLogic
         {
             string az = "qwertyuiopasdfghjklzxcvbnm ";
             string num = "1234567890";
-            if (!input.Contains("{") && !input.Contains("}") && !output.Contains("{") && !output.Contains("}"))
+            if (input != null && output != null && !input.Contains("{") && !input.Contains("}") && !output.Contains("{") && !output.Contains("}"))
             {
                 input = input.ToLower();
                 foreach(char x in input)
@@ -358,32 +358,40 @@ namespace UTS.ScheduleSystem.DomainLogic
             string az = "qwertyuiopasdfghjklzxcvbnm ";
             string num = "1234567890";
             string marks = "{}";
-            input = input.ToLower();
-            foreach (char x in input)
-            {
-                if (!az.Contains(x) && !num.Contains(x) && !marks.Contains(x))
-                {
-                    return false;
-                }
-            }
-            string[] phrase1;
-            string[] phrase2;
-            phrase1 = input.Split('{');
-            phrase2 = input.Split('}');
-            string[] words1;
-            string[] words2;
-            if (phrase1.Count() > 1 && phrase2.Count() > 1)
-            {
-                words1 = phrase1[1].Split(' ');
-                words2 = phrase2[0].Split(' ');
-                if (words1.Count() > 1 && words2.Count() > 1 && words1[1] == words2[words2.Count() - 2] && phrase1.Count() == 2 && phrase2.Count() == 2 && (words1[1] == "topic" ||
-                        words1[1] == "participants" || words1[1] == "location" || words1[1] == "startdate" || words1[1] == "enddate"))
-                {
-                    return true;
-                }
-            }
             
-            return false;
+            if (input != null)
+            {
+                input = input.ToLower();
+                foreach (char x in input)
+                {
+                    if (!az.Contains(x) && !num.Contains(x) && !marks.Contains(x))
+                    {
+                        return false;
+                    }
+                }
+                string[] phrase1;
+                string[] phrase2;
+                phrase1 = input.Split('{');
+                phrase2 = input.Split('}');
+                string[] words1;
+                string[] words2;
+                if (phrase1.Count() > 1 && phrase2.Count() > 1)
+                {
+                    words1 = phrase1[1].Split(' ');
+                    words2 = phrase2[0].Split(' ');
+                    if (words1.Count() > 1 && words2.Count() > 1 && words1[1] == words2[words2.Count() - 2] && phrase1.Count() == 2 && phrase2.Count() == 2 && (words1[1] == "topic" ||
+                            words1[1] == "participants" || words1[1] == "location" || words1[1] == "startdate" || words1[1] == "enddate"))
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+            else
+            {
+                return false;
+            }
         }
         
        public Rule FindRuleById(string id)
@@ -401,8 +409,10 @@ namespace UTS.ScheduleSystem.DomainLogic
         } 
 
         // Check whether a rule is already existed in the database or not
-        public bool CheckRepeatingRule(string input, List<FixedConversationalRule> fCRulesList, List<ConversationalRule> cRulesList)
+        public bool CheckRepeatingRule(string input)
         {
+            List<FixedConversationalRule> fCRulesList = FixedConversationalRuleHandler.FindAllFixedConversationalRules();
+            List< ConversationalRule > cRulesList = ConversationalRuleHandler.FindAllConversationalRules();
             string compactedString = Utils.IgnoreWhiteSpace(input);
 
             foreach (FixedConversationalRule r in fCRulesList)

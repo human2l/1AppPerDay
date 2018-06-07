@@ -172,7 +172,6 @@ namespace UTS.ScheduleSystem.DomainLogic
             ConversationalRule conversationalRule = ConversationalRuleHandler.FindConversationalRuleById(ruleId);
             conversationalRule.Status = Status.Rejected.ToString();
             ConversationalRuleHandler.UpdateAConversationalRule(conversationalRule);
-            //dataHandler.ChangeConversationalRuleState(ruleId, Status.Rejected.ToString());
         }
 
         //Subfunction of RejectRule to reject a fixed conversational rule 
@@ -246,21 +245,6 @@ namespace UTS.ScheduleSystem.DomainLogic
                 rateSum = rateSum + UserSuccessRate(editor.Id);
             }
             return rateSum / Convert.ToDouble(editors.Count);
-        }
-        
-        // Recognize the on selected row editor and save into on focus user
-        public AspNetUser RecognizeUser(string editorId, List<AspNetUser> editorList)
-        {
-            AspNetUser result = new AspNetUser();
-            foreach (AspNetUser user in editorList)
-            {
-                if (user.Id.Equals(editorId))
-                {
-                    result = user;
-                    break;
-                }
-            }
-            return result;
         }
     }
 }

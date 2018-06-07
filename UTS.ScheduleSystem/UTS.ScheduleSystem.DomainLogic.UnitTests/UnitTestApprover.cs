@@ -235,5 +235,18 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
             int UserRelatedPendingRulesNum = approverService.UserRelatedPendingRulesNum(UnitTestPublic.testUserId1);
             Assert.AreEqual(2, UserRelatedPendingRulesNum);
         }
+
+        [TestMethod]
+        public void ApproverService_UserSuccessRate_ReturnCorrectSuccessRateOfUser()
+        {
+            ConversationalRuleHandler.AddConversationalRule(UnitTestPublic.cRule1);
+            ConversationalRuleHandler.AddConversationalRule(UnitTestPublic.cRule2);
+            ConversationalRuleHandler.AddConversationalRule(UnitTestPublic.cRule3);
+            FixedConversationalRuleHandler.AddFixedConversationalRule(UnitTestPublic.cFRule1);
+            FixedConversationalRuleHandler.AddFixedConversationalRule(UnitTestPublic.cFRule2);
+            FixedConversationalRuleHandler.AddFixedConversationalRule(UnitTestPublic.cFRule3);
+            double userSuccessRate = approverService.UserSuccessRate(UnitTestPublic.testUserId1);
+            Assert.AreEqual(0.5, userSuccessRate);
+        }
     }
 }

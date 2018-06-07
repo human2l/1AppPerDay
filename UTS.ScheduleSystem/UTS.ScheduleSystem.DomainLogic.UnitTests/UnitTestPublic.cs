@@ -54,7 +54,7 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
         public static ConversationalRule cRule31 = new ConversationalRule
         {
             Input = "When will I have meal with { topic } blah",
-            Output = "It's { topic } blah",
+            Output = "It is { topic } blah",
             Status = Status.Pending.ToString()
         };
 
@@ -67,34 +67,34 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
         };
         public static FixedConversationalRule cFRule11 = new FixedConversationalRule
         {
-            Input = "How are you?",
-            Output = "I'm fine, thanks, and you?",
+            Input = "How are you",
+            Output = "I am fine",
             Status = Status.Pending.ToString()
         };
         public static FixedConversationalRule cFRule2 = new FixedConversationalRule
         {
-            Input = "How are you?",
-            Output = "I'm fine, thanks, and you?",
+            Input = "How are you",
+            Output = "I am fine",
             RelatedUsersId = "u001",
             Status = Status.Approved.ToString()
         };
         public static FixedConversationalRule cFRule21 = new FixedConversationalRule
         {
-            Input = "How are you?",
-            Output = "I'm fine, thanks, and you?",
+            Input = "How are you",
+            Output = "I am fine",
             Status = Status.Pending.ToString()
         };
         public static FixedConversationalRule cFRule3 = new FixedConversationalRule
         {
-            Input = "How are you?",
-            Output = "I'm fine, thanks, and you?",
+            Input = "How are you",
+            Output = "I am fine",
             RelatedUsersId = "u001",
             Status = Status.Rejected.ToString()
         };
         public static FixedConversationalRule cFRule31 = new FixedConversationalRule
         {
-            Input = "How are you?",
-            Output = "I'm fine, thanks, and you?",
+            Input = "How are you",
+            Output = "I am fine",
             Status = Status.Pending.ToString()
         };
         public static MealSchedule ms1 = new MealSchedule
@@ -104,6 +104,7 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
             Location = "c",
             StartDate = "d",
             EndDate = "e",
+            LastEditUserId = "u001"
         };
         public static MealSchedule ms2 = new MealSchedule
         {
@@ -112,6 +113,7 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
             Location = "h",
             StartDate = "i",
             EndDate = "j",
+            LastEditUserId = "u002"
         };
         public static MealSchedule ms3 = new MealSchedule
         {
@@ -120,6 +122,7 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
             Location = "m",
             StartDate = "n",
             EndDate = "o",
+            LastEditUserId = "u003"
         };
 
         //Backup the database into memory
@@ -175,6 +178,17 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
                 rule1.Output.Equals(rule2.Output) &&
                 rule1.RelatedUsersId.Equals(rule2.RelatedUsersId) &&
                 rule1.Status.Equals(rule2.Status)) ? true : false;
+            return isSame;
+        }
+
+        public static Boolean CompareMealSchedule(MealSchedule mealSchedule1, MealSchedule mealSchedule2)
+        {
+            Boolean isSame = ((mealSchedule1.Topic.Equals(mealSchedule2.Topic)) &&
+                (mealSchedule1.Participants.Equals(mealSchedule2.Participants)) &&
+                (mealSchedule1.Location.Equals(mealSchedule2.Location)) &&
+                (mealSchedule1.StartDate.Equals(mealSchedule2.StartDate)) &&
+                (mealSchedule1.EndDate.Equals(mealSchedule2.EndDate)) &&
+                (mealSchedule1.LastEditUserId.Equals(mealSchedule2.LastEditUserId))) ? true : false;
             return isSame;
         }
 

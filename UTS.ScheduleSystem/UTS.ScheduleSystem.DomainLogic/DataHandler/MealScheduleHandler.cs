@@ -22,11 +22,12 @@ namespace UTS.ScheduleSystem.DomainLogic.DataHandler
         // Delete a mealschedule data from database
         public static void RemoveMealschedule(string Id)
         {
+            int intId = int.Parse(Id);
             using (ScheduleSystemContext context = new ScheduleSystemContext())
             {
                 var mealschedule = (from MealSchedule
                                             in context.MealSchedules
-                                    where MealSchedule.Id == int.Parse(Id)
+                                    where MealSchedule.Id == intId
                                     select MealSchedule).First();
                 context.MealSchedules.Remove(mealschedule);
                 context.SaveChanges();
@@ -50,11 +51,12 @@ namespace UTS.ScheduleSystem.DomainLogic.DataHandler
         // Update a mealschedule data by Id
         public static void UpdateAMealschedule(MealSchedule mealschedule)
         {
+            int mealScheduleId = mealschedule.Id;
             using (ScheduleSystemContext context = new ScheduleSystemContext())
             {
                 var ms = (from MealSchedule
                                     in context.MealSchedules
-                                    where MealSchedule.Id == mealschedule.Id
+                                    where MealSchedule.Id == mealScheduleId
                                     select MealSchedule).First();
                 ms.Topic = mealschedule.Topic;
                 ms.Participants = mealschedule.Participants;

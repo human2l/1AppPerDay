@@ -36,7 +36,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             }
             else
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
             
         }
@@ -50,11 +50,12 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         public ActionResult Create([Bind(Include = "Input, Output")] Rule rule)
         {
             rule.Status = "Pending";
-            if (editorService.IsFixedRuleValid(rule.Input, rule.Output))
+
+            if (editorService.IsFixedRuleValid(rule.Input, rule.Output) && !editorService.CheckRepeatingRule(rule.Input))
             {
                 editorService.AddNewFCRule(rule.Input.ToLower(), rule.Output.ToLower(), currentUser);
             }
-            else if (editorService.IsRuleValid(rule.Input) && editorService.IsRuleValid(rule.Output))
+            else if (editorService.IsRuleValid(rule.Input) && editorService.IsRuleValid(rule.Output) && !editorService.CheckRepeatingRule(rule.Input))
             {
                 editorService.AddNewCRule(rule.Input.ToLower(), rule.Output.ToLower(), currentUser);
             }
