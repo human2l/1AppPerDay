@@ -35,7 +35,7 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
         {
             Input = "When will I have meal with { topic } blah",
             Output = "It's { topic } blah",
-            RelatedUsersId = "u002",
+            RelatedUsersId = "u001",
             Status = Status.Approved.ToString()
         };
         public static ConversationalRule cRule21 = new ConversationalRule
@@ -48,7 +48,7 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
         {
             Input = "When will I have meal with { topic } blah",
             Output = "It's { topic } blah",
-            RelatedUsersId = "u003",
+            RelatedUsersId = "u001",
             Status = Status.Rejected.ToString()
         };
         public static ConversationalRule cRule31 = new ConversationalRule
@@ -75,7 +75,7 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
         {
             Input = "How are you?",
             Output = "I'm fine, thanks, and you?",
-            RelatedUsersId = "u002",
+            RelatedUsersId = "u001",
             Status = Status.Approved.ToString()
         };
         public static FixedConversationalRule cFRule21 = new FixedConversationalRule
@@ -88,7 +88,7 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
         {
             Input = "How are you?",
             Output = "I'm fine, thanks, and you?",
-            RelatedUsersId = "u003",
+            RelatedUsersId = "u001",
             Status = Status.Rejected.ToString()
         };
         public static FixedConversationalRule cFRule31 = new FixedConversationalRule
