@@ -42,13 +42,7 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
         [TestMethod]
         public void DataMaintainerService_AddMealSchedule_SaveMealScheduleIntoDatabase()
         {
-            dataMaintainerService.AddMealSchedule(
-                UnitTestPublic.ms1.Topic,
-                UnitTestPublic.ms1.Participants,
-                UnitTestPublic.ms1.Location, 
-                UnitTestPublic.ms1.StartDate,
-                UnitTestPublic.ms1.EndDate,
-                UnitTestPublic.ms1.LastEditUserId);
+            dataMaintainerService.AddMealSchedule(UnitTestPublic.ms1);
             MealSchedule testMSchedule = MealScheduleHandler.FindMealScheduleById("1");
             Assert.IsTrue(UnitTestPublic.CompareMealSchedule(UnitTestPublic.ms1, testMSchedule));
         }
@@ -67,13 +61,11 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
         public void DataMaintainerService_EditMealSchedule_EditMealScheduleInDatabase()
         {
             MealScheduleHandler.AddMealschedule(UnitTestPublic.ms1);
-            dataMaintainerService.EditMealSchedule("1",
-                UnitTestPublic.ms2.Topic, 
-                UnitTestPublic.ms2.Participants, 
-                UnitTestPublic.ms2.Location, 
-                UnitTestPublic.ms2.StartDate, 
-                UnitTestPublic.ms2.EndDate, 
-                UnitTestPublic.ms2.LastEditUserId);
+
+            MealSchedule newMealSchedule = UnitTestPublic.ms2;
+            newMealSchedule.Id = 1;
+
+            dataMaintainerService.EditMealSchedule(newMealSchedule);
             MealSchedule testMSchedule = MealScheduleHandler.FindMealScheduleById("1");
             Assert.IsTrue(UnitTestPublic.CompareMealSchedule(UnitTestPublic.ms2, testMSchedule));
         }

@@ -56,7 +56,7 @@ namespace UTS.ScheduleSystem.DomainLogic
         }
         
         //convert multiple white space in a string to a single white space
-        public static string IgnoreWhiteSpace(string input)
+        public static string IgnoreSpace(string input)
         {
             char[] WhiteSpace = new char[] { ' ' };
             string longString = input;
@@ -68,54 +68,15 @@ namespace UTS.ScheduleSystem.DomainLogic
         // Remove all marks
         public static string RemoveAllMarks(string input)
         {
-            string pattern = @"[^0-9a-zA-Z]";
+            string pattern = @"[^0-9a-zA-Z\s]";
             return Regex.Replace(input, pattern, "");
-            //string Uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            //string number = "1234567890";
-            //string Lowercase = "abcdefghijklmnopqrstuvwxyz";
-            
-            //bool simple = false;
-            //string temp;
-            //while (!simple)
-            //{
-            //    temp = input;
-            //    for (var i = 0; i < input.Count(); i++)
-            //    {
-            //        if (!Uppercase.Contains(input.ElementAt(i)) && !number.Contains(input.ElementAt(i)) && !Lowercase.Contains(input.ElementAt(i)) && input.ElementAt(i) != ' ')
-            //        {
-            //            input = input.Replace(input.ElementAt(i) + "", "");
-            //            break;
-            //        }
-            //    }
-            //    if (input == temp)
-            //    {
-            //        simple = true;
-            //    }
-            //}
-
-            //return input;
         }
 
         // Check if input is not null and includes only alphabet and num (判断只包含数字字母并且不为空)
         public static bool IsStringValid(string input)
         {
-            string pattern = @"^[a-zA-Z0-9]*$";
+            string pattern = @"^[a-zA-Z0-9\s]*$";
             return ((input != null) && (Regex.IsMatch(input, pattern)));
-            //string az = "qwertyuiopasdfghjklzxcvbnm ";
-            //string num = "1234567890";
-            //if (input != null)
-            //{
-            //    input = input.ToLower();
-            //    foreach (char x in input)
-            //    {
-            //        if (!az.Contains(x) && !num.Contains(x))
-            //        {
-            //            return false;
-            //        }
-            //    }
-            //    return true;
-            //}
-            //return false;
         }
     }
 }

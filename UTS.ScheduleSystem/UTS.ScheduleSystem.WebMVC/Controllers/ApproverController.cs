@@ -94,10 +94,10 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             List<double> successRate = new List<double>();
             foreach (var editor in editors)
             {
-                approvedCount.Add(approverService.UserRelatedApprovedRulesNum(editor.Id));
-                rejectedCount.Add(approverService.UserRelatedRejectedRulesNum(editor.Id));
-                pendingCount.Add(approverService.UserRelatedPendingRulesNum(editor.Id));
-                successRate.Add(approverService.UserSuccessRate(editor.Id)*100);
+                approvedCount.Add(approverService.UserRelatedApprovedRulesNum(editor.Email));
+                rejectedCount.Add(approverService.UserRelatedRejectedRulesNum(editor.Email));
+                pendingCount.Add(approverService.UserRelatedPendingRulesNum(editor.Email));
+                successRate.Add(approverService.UserSuccessRate(editor.Email) *100);
             }
             ViewBag.editorList = editors;
             ViewBag.approvedCount = approvedCount;

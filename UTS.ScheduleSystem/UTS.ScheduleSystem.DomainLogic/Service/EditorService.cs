@@ -17,8 +17,8 @@ namespace UTS.ScheduleSystem.DomainLogic
         {
             FixedConversationalRule rule = new FixedConversationalRule
             {
-                Input = Utils.IgnoreWhiteSpace(input),
-                Output = Utils.IgnoreWhiteSpace(output),
+                Input = Utils.IgnoreSpace(input),
+                Output = Utils.IgnoreSpace(output),
                 RelatedUsersId = userId,
                 Status = Status.Pending.ToString()
             };
@@ -31,8 +31,8 @@ namespace UTS.ScheduleSystem.DomainLogic
         {
             ConversationalRule rule = new ConversationalRule
             {
-                Input = Utils.IgnoreWhiteSpace(input),
-                Output = Utils.IgnoreWhiteSpace(output),
+                Input = Utils.IgnoreSpace(input),
+                Output = Utils.IgnoreSpace(output),
                 RelatedUsersId = userId,
                 Status = Status.Pending.ToString()
             };
@@ -421,7 +421,7 @@ namespace UTS.ScheduleSystem.DomainLogic
         {
             List<FixedConversationalRule> fCRulesList = FixedConversationalRuleHandler.FindAllFixedConversationalRules();
             List< ConversationalRule > cRulesList = ConversationalRuleHandler.FindAllConversationalRules();
-            string compactedString = Utils.IgnoreWhiteSpace(input);
+            string compactedString = Utils.IgnoreSpace(input);
 
             foreach (FixedConversationalRule r in fCRulesList)
             {

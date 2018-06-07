@@ -60,11 +60,11 @@ namespace UTS.ScheduleSystem.DomainLogic
         public MealSchedule MealScheduleFormat(MealSchedule mealSchedule)
         {
             MealSchedule newMealSchedule = mealSchedule;
-            newMealSchedule.Topic = Utils.IgnoreWhiteSpace(mealSchedule.Topic.ToLower());
-            newMealSchedule.Location = Utils.IgnoreWhiteSpace(mealSchedule.Location.ToLower());
-            newMealSchedule.Participants = Utils.IgnoreWhiteSpace(mealSchedule.Participants.ToLower());
-            newMealSchedule.StartDate = Utils.IgnoreWhiteSpace(mealSchedule.StartDate.ToLower());
-            newMealSchedule.EndDate = Utils.IgnoreWhiteSpace(mealSchedule.EndDate.ToLower());
+            newMealSchedule.Topic = Utils.IgnoreSpace(mealSchedule.Topic.ToLower());
+            newMealSchedule.Location = Utils.IgnoreSpace(mealSchedule.Location.ToLower());
+            newMealSchedule.Participants = Utils.IgnoreSpace(mealSchedule.Participants.ToLower());
+            newMealSchedule.StartDate = Utils.IgnoreSpace(mealSchedule.StartDate.ToLower());
+            newMealSchedule.EndDate = Utils.IgnoreSpace(mealSchedule.EndDate.ToLower());
             return newMealSchedule;
         }
     }

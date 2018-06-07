@@ -116,7 +116,7 @@ namespace UTS.ScheduleSystem.DomainLogic
         // Format user question input
         public static string ConversationFormat(string question)
         {
-            return Utils.IgnoreWhiteSpace(Utils.RemoveAllMarks(question)).ToLower();
+            return Utils.IgnoreSpace(Utils.RemoveAllMarks(question)).ToLower();
         }
     }
 }

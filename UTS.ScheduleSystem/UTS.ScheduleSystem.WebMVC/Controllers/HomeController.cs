@@ -42,7 +42,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         {
             //string output = "";
             input = DomainLogic.Utils.RemoveAllMarks(input);
-            input = DomainLogic.Utils.IgnoreWhiteSpace(input);
+            input = DomainLogic.Utils.IgnoreSpace(input);
             //string keyword = "";
             //Rule rule = new Rule();
             //string[] inputSplitedRule = MainLogic.ConversationService.SplitRule(input);
