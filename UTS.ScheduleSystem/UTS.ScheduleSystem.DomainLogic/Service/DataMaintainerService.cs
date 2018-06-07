@@ -22,9 +22,9 @@ namespace UTS.ScheduleSystem.DomainLogic
         }
 
         // Delete a mealschedule from database due to id
-        public void DeleteMealSchedule(MealSchedule mealSchedule)
+        public void DeleteMealSchedule(string id)
         {
-            MealScheduleHandler.RemoveMealschedule(mealSchedule.Id);
+            MealScheduleHandler.RemoveMealschedule(id);
         }
 
 
@@ -32,6 +32,18 @@ namespace UTS.ScheduleSystem.DomainLogic
         public void EditMealSchedule(MealSchedule mealSchedule)
         {
             MealScheduleHandler.UpdateAMealschedule(mealSchedule);
+        }
+
+        // Find a mealschedule by Id
+        public MealSchedule FindMealScheduleById (string id)
+        {
+            return MealScheduleHandler.FindMealScheduleById(id);
+        }
+
+        // Find all meal schedules from database
+        public List<MealSchedule> FindAllMealSchedules()
+        {
+            return MealScheduleHandler.FindAllMealSchedules();
         }
 
         // Check user inputs
