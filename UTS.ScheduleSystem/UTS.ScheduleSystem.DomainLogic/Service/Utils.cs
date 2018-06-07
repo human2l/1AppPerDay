@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UTS.ScheduleSystem.Data;
 public enum Status { Approved, Rejected, Pending }
 
-namespace UTS.ScheduleSystem.MainLogic
+namespace UTS.ScheduleSystem.DomainLogic
 {
     public enum Status { Approved, Rejected, Pending }
 

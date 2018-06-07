@@ -283,7 +283,6 @@ C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\obj\Debug\UTS.ScheduleSystem.WebMVC.csproj.CopyComplete
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\obj\Debug\UTS.ScheduleSystem.WebMVC.dll
 C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\obj\Debug\UTS.ScheduleSystem.WebMVC.pdb
-C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\obj\Debug\UTS.ScheduleSystem.WebMVC.csprojAssemblyReference.cache
 C:\Users\Public\Documents\WondowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\bin\ApplicationInsights.config
 C:\Users\Public\Documents\WondowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\bin\Database.mdf
 C:\Users\Public\Documents\WondowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\bin\Database_log.ldf
@@ -431,3 +430,4 @@ C:\Users\Public\Documents\WondowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS
 C:\Users\Public\Documents\WondowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\obj\Debug\UTS.ScheduleSystem.WebMVC.csproj.CopyComplete
 C:\Users\Public\Documents\WondowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\obj\Debug\UTS.ScheduleSystem.WebMVC.dll
 C:\Users\Public\Documents\WondowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\obj\Debug\UTS.ScheduleSystem.WebMVC.pdb
+C:\Users\Public\Documents\WindowsConfiguration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVC\obj\Debug\UTS.ScheduleSystem.WebMVC.csprojResolveAssemblyReference.cache

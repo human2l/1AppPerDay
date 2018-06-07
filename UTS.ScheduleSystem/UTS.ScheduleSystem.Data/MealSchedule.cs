@@ -9,6 +9,11 @@ namespace UTS.ScheduleSystem.Data
     [Table("MealSchedule")]
     public partial class MealSchedule
     {
+        public MealSchedule()
+        {
+
+        }
+
         public int Id { get; set; }
 
         [StringLength(128)]

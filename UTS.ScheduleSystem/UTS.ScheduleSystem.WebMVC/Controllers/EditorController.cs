@@ -6,14 +6,14 @@ using System.Web;
 using System.Web.Mvc;
 using UTS.ScheduleSystem.Data;
 using UTS.ScheduleSystem.WebMVC.Models;
-using UTS.ScheduleSystem.MainLogic.DatabaseHandler;
+using UTS.ScheduleSystem.DomainLogic.DataHandler;
 
 
 namespace UTS.ScheduleSystem.WebMVC.Controllers
 {
     public class EditorController : Controller
     {
-        private MainLogic.EditorService editorService = new MainLogic.EditorService();
+        private DomainLogic.EditorService editorService = new DomainLogic.EditorService();
         private string currentUser = System.Web.HttpContext.Current.User.Identity.Name;
 
         // GET: Editor

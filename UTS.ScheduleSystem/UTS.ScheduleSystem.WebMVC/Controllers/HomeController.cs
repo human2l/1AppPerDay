@@ -41,12 +41,12 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         private string HandleConversation(string input)
         {
             //string output = "";
-            input = MainLogic.Utils.RemoveAllMarks(input);
-            input = MainLogic.Utils.IgnoreWhiteSpace(input);
+            input = DomainLogic.Utils.RemoveAllMarks(input);
+            input = DomainLogic.Utils.IgnoreWhiteSpace(input);
             //string keyword = "";
             //Rule rule = new Rule();
             //string[] inputSplitedRule = MainLogic.ConversationService.SplitRule(input);
-            MainLogic.ConversationService conversationService = new MainLogic.ConversationService();
+            DomainLogic.ConversationService conversationService = new DomainLogic.ConversationService();
             string output = conversationService.Conversation(input);
             //string output = MainLogic.ConversationService.Conversation(input);
 

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UTS.ScheduleSystem.Data;
 
-namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
+namespace UTS.ScheduleSystem.DomainLogic.DataHandler
 {
     public class ConversationalRuleHandler
     {

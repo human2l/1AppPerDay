@@ -5,8 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using UTS.ScheduleSystem.Data;
-using UTS.ScheduleSystem.MainLogic;
-using UTS.ScheduleSystem.MainLogic.DatabaseHandler;
+using UTS.ScheduleSystem.DomainLogic;
 
 namespace UTS.ScheduleSystem.WebMVC.Controllers
 {

@@ -7,7 +7,7 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
     [TestClass]
     public class UnitTestEditor
     {
-        private static MainLogic.EditorService editorService = new MainLogic.EditorService();
+        private static EditorService editorService = new EditorService();
         private Boolean CompareTwoRules(Rule rule1, Rule rule2)
         {
             Boolean isSame =

@@ -8,15 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using UTS.ScheduleSystem.Data;
 using UTS.ScheduleSystem.DomainLogic.DataHandler;
-using UTS.ScheduleSystem.MainLogic.DatabaseHandler;
 
-namespace UTS.ScheduleSystem.MainLogic
+namespace UTS.ScheduleSystem.DomainLogic
 {
     public class ConversationService
     {
         private List<ConversationalRule> conversationalRules;
         private List<FixedConversationalRule> fixedConversationalRules;
-        private List<MealSchedule> mealSchedules;
         private string questionType;
         private string answerType;
         private string questionKeyword;
@@ -59,7 +57,7 @@ namespace UTS.ScheduleSystem.MainLogic
         // Answer to unfixed rule conversation
         private Boolean AnswerToConversation(string question)
         {
-            if (!hasParameter(question))
+            if (!HasParameter(question))
             {
                 return false;
             }
@@ -94,7 +92,7 @@ namespace UTS.ScheduleSystem.MainLogic
             return result;
         }
 
-        private bool hasParameter(string str)
+        private bool HasParameter(string str)
         {
             int left = str.IndexOf('{');
             int right = str.IndexOf('}');

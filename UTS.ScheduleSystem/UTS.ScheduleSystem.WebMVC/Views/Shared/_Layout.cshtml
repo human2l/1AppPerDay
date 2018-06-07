@@ -1,6 +1,6 @@
 ﻿@{ 
     ViewBag.CurrentUser = System.Web.HttpContext.Current.User.Identity.Name;
-    ViewBag.CurrentUserRole = UTS.ScheduleSystem.MainLogic.DatabaseHandler.UserHandler.getCurrentUserRole(ViewBag.CurrentUser);
+    ViewBag.CurrentUserRole = UTS.ScheduleSystem.DomainLogic.DataHandler.UserHandler.GetCurrentUserRole(ViewBag.CurrentUser);
 }
 
 

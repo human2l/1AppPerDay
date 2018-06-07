@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UTS.ScheduleSystem.Data;
-using UTS.ScheduleSystem.MainLogic.DatabaseHandler;
+using UTS.ScheduleSystem.DomainLogic.DataHandler;
 
-namespace UTS.ScheduleSystem.MainLogic
+namespace UTS.ScheduleSystem.DomainLogic
 {
     public class DataMaintainerService
     {
