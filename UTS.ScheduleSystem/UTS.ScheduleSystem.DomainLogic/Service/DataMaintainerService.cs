@@ -15,19 +15,8 @@ namespace UTS.ScheduleSystem.DomainLogic
         }
 
         // Add a new mealschedule to database
-        public void AddMealSchedule(string topic, string participants, string location, string startDate, string endDate, string lastEditorUserId)
+        public void AddMealSchedule(MealSchedule mealSchedule)
         {
-
-            //for datamaintainer to add meal
-            MealSchedule mealSchedule = new MealSchedule
-            {
-                Topic = topic.ToLower(),
-                Participants = participants.ToLower(),
-                Location = location.ToLower(),
-                StartDate = startDate.ToLower(),
-                EndDate = endDate.ToLower(),
-                LastEditUserId = lastEditorUserId
-            };
             MealScheduleHandler.AddMealschedule(mealSchedule);
 
         }
@@ -40,18 +29,8 @@ namespace UTS.ScheduleSystem.DomainLogic
 
 
         // Save edit on a mealschedule to database
-        public void EditMealSchedule(string id, string topic, string participants, string location, string startDate, string endDate, string lastEditorUserId)
+        public void EditMealSchedule(MealSchedule mealSchedule)
         {
-            MealSchedule mealSchedule = new MealSchedule
-            {
-                Id = int.Parse(id),
-                Topic = topic.ToLower(),
-                Participants = participants.ToLower(),
-                Location = location.ToLower(),
-                StartDate = startDate.ToLower(),
-                EndDate = endDate.ToLower(),
-                LastEditUserId = lastEditorUserId
-            };
             MealScheduleHandler.UpdateAMealschedule(mealSchedule);
         }
 
@@ -75,6 +54,18 @@ namespace UTS.ScheduleSystem.DomainLogic
                 Utils.IsStringValid(m.Participants) &&
                 Utils.IsStringValid(m.StartDate) &&
                 Utils.IsStringValid(m.EndDate));
+        }
+
+        // Format mealschedule inputs
+        public MealSchedule MealScheduleFormat(MealSchedule mealSchedule)
+        {
+            MealSchedule newMealSchedule = mealSchedule;
+            newMealSchedule.Topic = Utils.IgnoreWhiteSpace(mealSchedule.Topic.ToLower());
+            newMealSchedule.Location = Utils.IgnoreWhiteSpace(mealSchedule.Location.ToLower());
+            newMealSchedule.Participants = Utils.IgnoreWhiteSpace(mealSchedule.Participants.ToLower());
+            newMealSchedule.StartDate = Utils.IgnoreWhiteSpace(mealSchedule.StartDate.ToLower());
+            newMealSchedule.EndDate = Utils.IgnoreWhiteSpace(mealSchedule.EndDate.ToLower());
+            return newMealSchedule;
         }
     }
 }

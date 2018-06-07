@@ -12,7 +12,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
 {
     public class DataMaintainerController : Controller
     {
-        private DomainLogic.DataMaintainerService dataMaintainerService = new DomainLogic.DataMaintainerService();
+        private DataMaintainerService dataMaintainerService = new DataMaintainerService();
         private string currentUser = System.Web.HttpContext.Current.User.Identity.Name;
         // GET: DataMaintainer
         // Show the list of all contacts
@@ -34,15 +34,11 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         [HttpPost]
         public ActionResult Create([Bind(Include = "Topic,Location,Participants,StartDate,EndDate")] MealSchedule mealSchedule)
         {
+            mealSchedule.LastEditUserId = currentUser;
             if (dataMaintainerService.IsDataValid(mealSchedule))
             {
-                mealSchedule.LastEditUserId = currentUser;
-                mealSchedule.Topic = Utils.IgnoreWhiteSpace(mealSchedule.Topic.ToLower());
-                mealSchedule.Location = Utils.IgnoreWhiteSpace(mealSchedule.Location.ToLower());
-                mealSchedule.Participants = Utils.IgnoreWhiteSpace(mealSchedule.Participants.ToLower());
-                mealSchedule.StartDate = Utils.IgnoreWhiteSpace(mealSchedule.StartDate.ToLower());
-                mealSchedule.EndDate = Utils.IgnoreWhiteSpace(mealSchedule.EndDate.ToLower());
-                MealScheduleHandler.AddMealschedule(mealSchedule);
+                MealSchedule newMealSchedule = dataMaintainerService.MealScheduleFormat(mealSchedule);
+                dataMaintainerService.AddMealSchedule(newMealSchedule);
                 return RedirectToAction("Index");
             }
             else
@@ -50,7 +46,6 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
                 // Show error message
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
         }
 
         // GET: MealSchedules/Edit/5
@@ -76,13 +71,17 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         public ActionResult Edit(MealSchedule mealSchedule)
         {
             mealSchedule.LastEditUserId = currentUser;
-            mealSchedule.Topic = mealSchedule.Topic.ToLower();
-            mealSchedule.Location = mealSchedule.Location.ToLower();
-            mealSchedule.Participants = mealSchedule.Participants.ToLower();
-            mealSchedule.StartDate = mealSchedule.StartDate.ToLower();
-            mealSchedule.EndDate = mealSchedule.EndDate.ToLower();
-            MealScheduleHandler.UpdateAMealschedule(mealSchedule);
-            return RedirectToAction("Index");
+            if (dataMaintainerService.IsDataValid(mealSchedule))
+            {
+                MealSchedule newMealSchedule = dataMaintainerService.MealScheduleFormat(mealSchedule);
+                dataMaintainerService.EditMealSchedule(newMealSchedule);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                // Show error message
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
         }
 
         // GET: DataMaintainer/Delete/5

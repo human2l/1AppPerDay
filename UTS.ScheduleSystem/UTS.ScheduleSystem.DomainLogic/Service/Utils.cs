@@ -198,6 +198,7 @@ namespace UTS.ScheduleSystem.DomainLogic
             return IgnoreWhiteSpace(RemoveAllMarks(question)).ToLower();
         }
 
+        // Check if input is not null and includes only alphabet and num
         public static bool IsStringValid(string input)
         {
             string az = "qwertyuiopasdfghjklzxcvbnm ";
