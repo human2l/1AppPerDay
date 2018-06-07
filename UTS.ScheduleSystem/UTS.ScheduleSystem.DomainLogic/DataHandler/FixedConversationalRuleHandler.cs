@@ -128,6 +128,7 @@ namespace UTS.ScheduleSystem.DomainLogic.DataHandler
                     context.FixedConversationalRules.Remove(fixedConversationalRule);
                     deleteCount++;
                 }
+                context.SaveChanges();
                 return deleteCount == count;
             }
         }

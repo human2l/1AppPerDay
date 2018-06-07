@@ -123,6 +123,7 @@ namespace UTS.ScheduleSystem.DomainLogic.DataHandler
                     context.MealSchedules.Remove(mealSchedule);
                     deleteCount++;
                 }
+                context.SaveChanges();
                 return deleteCount == count;
             }
         }

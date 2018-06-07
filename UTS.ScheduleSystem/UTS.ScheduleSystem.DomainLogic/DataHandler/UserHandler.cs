@@ -47,6 +47,7 @@ namespace UTS.ScheduleSystem.DomainLogic.DataHandler
                     context.AspNetUsers.Remove(user);
                     deleteCount++;
                 }
+                context.SaveChanges();
                 return deleteCount == count;
             }
         }

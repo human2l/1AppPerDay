@@ -114,6 +114,7 @@ namespace UTS.ScheduleSystem.DomainLogic.DataHandler
                     context.ConversationalRules.Remove(conversationalRule);
                     deleteCount++;
                 }
+                context.SaveChanges();
                 return deleteCount == count;
             }
         }
