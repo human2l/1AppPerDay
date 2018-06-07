@@ -346,6 +346,14 @@ namespace UTS.ScheduleSystem.DomainLogic
                         return false;
                     }
                 }
+                output = output.ToLower();
+                foreach (char x in output)
+                {
+                    if (!az.Contains(x) && !num.Contains(x))
+                    {
+                        return false;
+                    }
+                }
                 return true;
             }
             return false;

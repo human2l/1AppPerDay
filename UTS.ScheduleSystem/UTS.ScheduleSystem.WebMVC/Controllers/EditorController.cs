@@ -109,7 +109,15 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             rule.Status = "Pending";
             rule.Input = rule.Input.ToLower();
             rule.Output = rule.Output.ToLower();
-            rule.RelatedUsersId = ConversationalRuleHandler.FindConversationalRuleById(rule.Id + "").RelatedUsersId + " " + currentUser;
+            if (!ConversationalRuleHandler.FindConversationalRuleById(rule.Id + "").RelatedUsersId.Contains(currentUser))
+            {
+                rule.RelatedUsersId = ConversationalRuleHandler.FindConversationalRuleById(rule.Id + "").RelatedUsersId + " " + currentUser;
+            }
+            else
+            {
+                rule.RelatedUsersId = ConversationalRuleHandler.FindConversationalRuleById(rule.Id + "").RelatedUsersId;
+            }
+                
             if (editorService.IsRuleValid(rule.Input) && editorService.IsRuleValid(rule.Output))
             {
                 ConversationalRuleHandler.UpdateAConversationalRule(rule);
@@ -127,7 +135,15 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         public ActionResult EditFixed(FixedConversationalRule rule)
         {
             rule.Status = "Pending";
-            rule.RelatedUsersId = FixedConversationalRuleHandler.FindFixedConversationalRuleById(rule.Id + "").RelatedUsersId + " " + currentUser;
+            if (!FixedConversationalRuleHandler.FindFixedConversationalRuleById(rule.Id + "").RelatedUsersId.Contains(currentUser))
+            {
+                rule.RelatedUsersId = FixedConversationalRuleHandler.FindFixedConversationalRuleById(rule.Id + "").RelatedUsersId + " " + currentUser;
+            }
+            else
+            {
+                rule.RelatedUsersId = FixedConversationalRuleHandler.FindFixedConversationalRuleById(rule.Id + "").RelatedUsersId;
+            }
+            
             if (editorService.IsFixedRuleValid(rule.Input, rule.Output))
             {
                 FixedConversationalRuleHandler.UpdateAFixedConversationalRule(rule);
