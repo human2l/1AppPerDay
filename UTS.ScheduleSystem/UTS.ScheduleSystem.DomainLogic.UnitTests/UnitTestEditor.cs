@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UTS.ScheduleSystem.Data;
 
@@ -8,23 +9,48 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
     public class UnitTestEditor
     {
         private static EditorService editorService = new EditorService();
-        private Boolean CompareTwoRules(Rule rule1, Rule rule2)
+
+        [ClassInitialize]
+        public static void StartAllTest(TestContext testContext)
         {
-            Boolean isSame =
-                (rule1.Input.Equals(rule2.Input) &&
-                rule1.Output.Equals(rule2.Output) &&
-                rule1.RelatedUsersId.Equals(rule2.RelatedUsersId) &&
-                rule1.Status.Equals(rule2.Status)) ? true : false;
-            return isSame;
+            //Backup the database into memory
+            UnitTestPublic.StartAllTest();
+        }
+
+        [TestInitialize]
+        public void StartTest()
+        {
+            // Empty the database
+            UnitTestPublic.Clear();
+        }
+
+        [TestCleanup()]
+        public void TerminateTest()
+        {
+            // Empty the database
+            UnitTestPublic.Clear();
+        }
+
+        // Restore the database from backup
+        [ClassCleanup]
+        public static void TerminateAllTest()
+        {
+            UnitTestPublic.TerminateAllTest();
         }
 
         [TestMethod]
         public void TestMethod1()
         {
-            FixedConversationalRule cFRule1 = new FixedConversationalRule("q", "q", "u001", "Pending");
-            editorService.AddNewFCRule("q", "q", "u001");
+            editorService.AddNewFCRule(UnitTestPublic.cFRule1.Input, UnitTestPublic.cFRule1.Output, UnitTestPublic.cFRule1.RelatedUsersId);
+            List<FixedConversationalRule> testFcRuleList = new List<FixedConversationalRule>();
+            testFcRuleList = editorService.ShowAllFixedConversationalRuleRules();
+            FixedConversationalRule testFcRule1 = new FixedConversationalRule();
+            if (testFcRuleList.Count == 1)
+            {
+                testFcRule1 = testFcRuleList[0];
+            }
 
-            Assert.IsTrue(CompareTwoRules(cFRule1, cFRule1));
+            Assert.IsTrue(UnitTestPublic.CompareTwoFcRules(UnitTestPublic.cFRule1, testFcRule1));
         }
     }
 }

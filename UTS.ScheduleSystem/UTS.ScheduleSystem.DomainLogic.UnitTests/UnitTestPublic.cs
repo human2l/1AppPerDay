@@ -54,8 +54,9 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
 
         public static FixedConversationalRule cFRule1 = new FixedConversationalRule
         {
-            Input = "How are you?",
-            Output = "I'm fine, thanks, and you?",
+            Input = "How are you",
+            Output = "I am fine",
+            RelatedUsersId = "u001",
             Status = Status.Pending.ToString()
         };
         public static FixedConversationalRule cFRule11 = new FixedConversationalRule
@@ -151,7 +152,16 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
         }
 
         // Compare two rule to see if they are the same one
-        public static Boolean CompareTwoRules(Rule rule1, Rule rule2)
+        public static Boolean CompareTwoFcRules(FixedConversationalRule rule1, FixedConversationalRule rule2)
+        {
+            Boolean isSame = (rule1.Input.Equals(rule2.Input) &&
+                rule1.Output.Equals(rule2.Output) &&
+                rule1.RelatedUsersId.Equals(rule2.RelatedUsersId) &&
+                rule1.Status.Equals(rule2.Status)) ? true : false;
+            return isSame;
+        }
+
+        public static Boolean CompareTwoCRules(ConversationalRule rule1, ConversationalRule rule2)
         {
             Boolean isSame = (rule1.Input.Equals(rule2.Input) &&
                 rule1.Output.Equals(rule2.Output) &&
