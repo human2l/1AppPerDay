@@ -30,7 +30,15 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             //rules.Add(rule);
             ViewBag.FixedConversationalRule = fixedConversationalRules;
             ViewBag.ConversationalRule = conversationalRules;
-            return View();
+            if (currentUser != "" && UserHandler.GetCurrentUserRole(currentUser).Contains("E"))
+            {
+                return View();
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            
         }
 
         public ActionResult Create()
