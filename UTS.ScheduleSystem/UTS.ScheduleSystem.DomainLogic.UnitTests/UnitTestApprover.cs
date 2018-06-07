@@ -206,7 +206,7 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
             FixedConversationalRuleHandler.AddFixedConversationalRule(UnitTestPublic.cFRule1);
             FixedConversationalRuleHandler.AddFixedConversationalRule(UnitTestPublic.cFRule2);
             FixedConversationalRuleHandler.AddFixedConversationalRule(UnitTestPublic.cFRule3);
-            int UserRelatedApprovedRulesNum = controller.ApproverService.UserRelatedApprovedRulesNum(frank.Id);
+            int UserRelatedApprovedRulesNum = approverService.UserRelatedApprovedRulesNum(UnitTestPublic.testUserId);
             Assert.AreEqual(2, UserRelatedApprovedRulesNum);
         }
 
@@ -219,7 +219,7 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
             FixedConversationalRuleHandler.AddFixedConversationalRule(UnitTestPublic.cFRule1);
             FixedConversationalRuleHandler.AddFixedConversationalRule(UnitTestPublic.cFRule2);
             FixedConversationalRuleHandler.AddFixedConversationalRule(UnitTestPublic.cFRule3);
-            int UserRelatedRejectedRulesNum = controller.ApproverService.UserRelatedRejectedRulesNum(frank.Id);
+            int UserRelatedRejectedRulesNum = approverService.UserRelatedRejectedRulesNum(UnitTestPublic.testUserId);
             Assert.AreEqual(2, UserRelatedRejectedRulesNum);
         }
 
@@ -232,7 +232,7 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
             FixedConversationalRuleHandler.AddFixedConversationalRule(UnitTestPublic.cFRule1);
             FixedConversationalRuleHandler.AddFixedConversationalRule(UnitTestPublic.cFRule2);
             FixedConversationalRuleHandler.AddFixedConversationalRule(UnitTestPublic.cFRule3);
-            int UserRelatedPendingRulesNum = controller.ApproverService.UserRelatedPendingRulesNum(frank.Id);
+            int UserRelatedPendingRulesNum = approverService.UserRelatedPendingRulesNum(UnitTestPublic.testUserId);
             Assert.AreEqual(2, UserRelatedPendingRulesNum);
         }
     }

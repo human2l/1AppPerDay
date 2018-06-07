@@ -15,7 +15,8 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
         public static List<ConversationalRule> tempConversationalRulesList = new List<ConversationalRule>();
         public static List<MealSchedule> tempMealScheduleList = new List<MealSchedule>();
 
-        public static string testUserId = "u001";
+        public static string testUserId1 = "u001";
+        public static string testUserId2 = "u002";
 
         public static ConversationalRule cRule1 = new ConversationalRule
         {
@@ -34,6 +35,7 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
         {
             Input = "When will I have meal with { topic } blah",
             Output = "It's { topic } blah",
+            RelatedUsersId = "u002",
             Status = Status.Approved.ToString()
         };
         public static ConversationalRule cRule21 = new ConversationalRule
@@ -46,6 +48,7 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
         {
             Input = "When will I have meal with { topic } blah",
             Output = "It's { topic } blah",
+            RelatedUsersId = "u003",
             Status = Status.Rejected.ToString()
         };
         public static ConversationalRule cRule31 = new ConversationalRule
@@ -72,6 +75,7 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
         {
             Input = "How are you?",
             Output = "I'm fine, thanks, and you?",
+            RelatedUsersId = "u002",
             Status = Status.Approved.ToString()
         };
         public static FixedConversationalRule cFRule21 = new FixedConversationalRule
@@ -84,6 +88,7 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
         {
             Input = "How are you?",
             Output = "I'm fine, thanks, and you?",
+            RelatedUsersId = "u003",
             Status = Status.Rejected.ToString()
         };
         public static FixedConversationalRule cFRule31 = new FixedConversationalRule
