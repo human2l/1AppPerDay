@@ -107,6 +107,8 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         public ActionResult Edit(ConversationalRule rule)
         {
             rule.Status = "Pending";
+            rule.Input = rule.Input.ToLower();
+            rule.Output = rule.Output.ToLower();
             rule.RelatedUsersId = ConversationalRuleHandler.FindConversationalRuleById(rule.Id + "").RelatedUsersId + " " + currentUser;
             if (editorService.IsRuleValid(rule.Input) && editorService.IsRuleValid(rule.Output))
             {

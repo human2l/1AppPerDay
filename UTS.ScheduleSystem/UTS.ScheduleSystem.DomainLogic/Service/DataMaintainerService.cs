@@ -21,11 +21,11 @@ namespace UTS.ScheduleSystem.DomainLogic
             //for datamaintainer to add meal
             MealSchedule mealSchedule = new MealSchedule
             {
-                Topic = topic,
-                Participants = participants,
-                Location = location,
-                StartDate = startDate,
-                EndDate = endDate,
+                Topic = topic.ToLower(),
+                Participants = participants.ToLower(),
+                Location = location.ToLower(),
+                StartDate = startDate.ToLower(),
+                EndDate = endDate.ToLower(),
                 LastEditUserId = lastEditorUserId
             };
             MealScheduleHandler.AddMealschedule(mealSchedule);
@@ -45,11 +45,11 @@ namespace UTS.ScheduleSystem.DomainLogic
             MealSchedule mealSchedule = new MealSchedule
             {
                 Id = int.Parse(id),
-                Topic = topic,
-                Participants = participants,
-                Location = location,
-                StartDate = startDate,
-                EndDate = endDate,
+                Topic = topic.ToLower(),
+                Participants = participants.ToLower(),
+                Location = location.ToLower(),
+                StartDate = startDate.ToLower(),
+                EndDate = endDate.ToLower(),
                 LastEditUserId = lastEditorUserId
             };
             MealScheduleHandler.UpdateAMealschedule(mealSchedule);
@@ -65,6 +65,16 @@ namespace UTS.ScheduleSystem.DomainLogic
         public List<MealSchedule> FindAllMealSchedules()
         {
             return MealScheduleHandler.FindAllMealSchedules();
+        }
+
+        // Check user inputs
+        public bool IsDataValid(MealSchedule m)
+        {
+            return (Utils.IsStringValid(m.Topic) &&
+                Utils.IsStringValid(m.Location) &&
+                Utils.IsStringValid(m.Participants) &&
+                Utils.IsStringValid(m.StartDate) &&
+                Utils.IsStringValid(m.EndDate));
         }
     }
 }

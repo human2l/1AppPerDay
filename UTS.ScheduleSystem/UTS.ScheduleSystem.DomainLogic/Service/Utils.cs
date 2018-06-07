@@ -197,5 +197,24 @@ namespace UTS.ScheduleSystem.DomainLogic
         {
             return IgnoreWhiteSpace(RemoveAllMarks(question)).ToLower();
         }
+
+        public static bool IsStringValid(string input)
+        {
+            string az = "qwertyuiopasdfghjklzxcvbnm ";
+            string num = "1234567890";
+            if (input != null)
+            {
+                input = input.ToLower();
+                foreach (char x in input)
+                {
+                    if (!az.Contains(x) && !num.Contains(x))
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
     }
 }

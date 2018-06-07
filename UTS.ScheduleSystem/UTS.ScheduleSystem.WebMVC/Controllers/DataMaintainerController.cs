@@ -11,6 +11,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
 {
     public class DataMaintainerController : Controller
     {
+        private DomainLogic.DataMaintainerService dataMaintainerService = new DomainLogic.DataMaintainerService();
         private string currentUser = System.Web.HttpContext.Current.User.Identity.Name;
         // GET: DataMaintainer
         // Show the list of all contacts
@@ -32,8 +33,16 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         [HttpPost]
         public ActionResult Create([Bind(Include = "Topic,Location,Participants,StartDate,EndDate")] MealSchedule mealSchedule)
         {
-            //need changed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            mealSchedule.LastEditUserId = "111";
+            if (dataMaintainerService.IsDataValid(mealSchedule))
+            {
+
+            }
+            mealSchedule.LastEditUserId = currentUser;
+            mealSchedule.Topic = mealSchedule.Topic.ToLower();
+            mealSchedule.Location = mealSchedule.Location.ToLower();
+            mealSchedule.Participants = mealSchedule.Participants.ToLower();
+            mealSchedule.StartDate = mealSchedule.StartDate.ToLower();
+            mealSchedule.EndDate = mealSchedule.EndDate.ToLower();
             MealScheduleHandler.AddMealschedule(mealSchedule);
             return RedirectToAction("Index");
         }
@@ -60,8 +69,12 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         [HttpPost]
         public ActionResult Edit(MealSchedule mealSchedule)
         {
-            //need changed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1111
-            mealSchedule.LastEditUserId = "111";
+            mealSchedule.LastEditUserId = currentUser;
+            mealSchedule.Topic = mealSchedule.Topic.ToLower();
+            mealSchedule.Location = mealSchedule.Location.ToLower();
+            mealSchedule.Participants = mealSchedule.Participants.ToLower();
+            mealSchedule.StartDate = mealSchedule.StartDate.ToLower();
+            mealSchedule.EndDate = mealSchedule.EndDate.ToLower();
             MealScheduleHandler.UpdateAMealschedule(mealSchedule);
             return RedirectToAction("Index");
         }
