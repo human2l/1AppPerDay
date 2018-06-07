@@ -100,5 +100,22 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             }
             return conversationalRules;
         }
+
+        // Remove all table rows
+        public static bool ClearAllConversationalRule()
+        {
+            using (ScheduleSystemContext context = new ScheduleSystemContext())
+            {
+                var conversationalRules = context.ConversationalRules.ToList();
+                int count = conversationalRules.Count();
+                int deleteCount = 0;
+                foreach (var conversationalRule in conversationalRules)
+                {
+                    context.ConversationalRules.Remove(conversationalRule);
+                    deleteCount++;
+                }
+                return deleteCount == count;
+            }
+        }
     }
 }

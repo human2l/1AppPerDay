@@ -114,5 +114,22 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             }
             return fixedConversationalRules;
         }
+
+        // Remove all table rows
+        public static bool ClearAllFixedConversationalRule()
+        {
+            using (ScheduleSystemContext context = new ScheduleSystemContext())
+            {
+                var fixedConversationalRules = context.FixedConversationalRules.ToList();
+                int count = fixedConversationalRules.Count();
+                int deleteCount = 0;
+                foreach (var fixedConversationalRule in fixedConversationalRules)
+                {
+                    context.FixedConversationalRules.Remove(fixedConversationalRule);
+                    deleteCount++;
+                }
+                return deleteCount == count;
+            }
+        }
     }
 }

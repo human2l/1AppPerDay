@@ -21,7 +21,8 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             return users;
         }
 
-        public static string getCurrentUserRole(string userName)
+        // Get current user role according to user name
+        public static string GetCurrentUserRole(string userName)
         {
             foreach(var user in UsersList())
             {
@@ -31,6 +32,23 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
                 }
             }
             return null;
+        }
+
+        // Remove all table rows
+        public static bool ClearAllUsers()
+        {
+            using (ScheduleSystemContext context = new ScheduleSystemContext())
+            {
+                var users = context.AspNetUsers.ToList();
+                int count = users.Count();
+                int deleteCount = 0;
+                foreach(var user in users)
+                {
+                    context.AspNetUsers.Remove(user);
+                    deleteCount++;
+                }
+                return deleteCount == count;
+            }
         }
     }
 }

@@ -109,5 +109,23 @@ namespace UTS.ScheduleSystem.MainLogic.DatabaseHandler
             }
             return mealSchedules;
         }
+
+        // Remove all table rows
+        public static bool ClearAllMealSchedule()
+        {
+            using (ScheduleSystemContext context = new ScheduleSystemContext())
+            {
+                var mealSchedules = context.MealSchedules.ToList();
+                int count = mealSchedules.Count();
+                int deleteCount = 0;
+                foreach (var mealSchedule in mealSchedules)
+                {
+                    context.MealSchedules.Remove(mealSchedule);
+                    deleteCount++;
+                }
+                return deleteCount == count;
+            }
+        }
     }
 }
+
