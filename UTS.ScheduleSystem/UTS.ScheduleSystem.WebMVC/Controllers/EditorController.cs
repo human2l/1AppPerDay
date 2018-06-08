@@ -137,6 +137,8 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         public ActionResult EditFixed(FixedConversationalRule rule)
         {
             rule.Status = "Pending";
+            rule.Input = rule.Input.ToLower();
+            rule.Output = rule.Output.ToLower();
             if (!FixedConversationalRuleHandler.FindFixedConversationalRuleById(rule.Id + "").RelatedUsersId.Contains(currentUser))
             {
                 rule.RelatedUsersId = FixedConversationalRuleHandler.FindFixedConversationalRuleById(rule.Id + "").RelatedUsersId + " " + currentUser;
