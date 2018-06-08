@@ -23,7 +23,6 @@ namespace UTS.ScheduleSystem.DomainLogic
                 Status = Status.Pending.ToString()
             };
             FixedConversationalRuleHandler.AddFixedConversationalRule(rule);
-            //dataHandler.AddFixedConversationalRule(rule);
         }
 
         // Add a conversation rule
@@ -37,7 +36,6 @@ namespace UTS.ScheduleSystem.DomainLogic
                 Status = Status.Pending.ToString()
             };
             ConversationalRuleHandler.AddConversationalRule(rule);
-            //dataHandler.AddConversationalRule(rule);
         }
 
         public List<FixedConversationalRule> ShowAllFixedConversationalRuleRules()
@@ -50,51 +48,7 @@ namespace UTS.ScheduleSystem.DomainLogic
             return ConversationalRuleHandler.FindAllConversationalRules();
         }
 
-        // Show all pending rules stored in the database
-        public List<Rule> ShowAllPendingRules()
-        {
-            List<FixedConversationalRule> fCRulesList = ShowAllFixedConversationalRuleRules();
-            List<ConversationalRule> cRulesList = ShowAllConversationalRuleRules();
-            List<Rule> pendingRulesList = new List<Rule>();
-            foreach (FixedConversationalRule fCRule in fCRulesList)
-            {
-                if (fCRule.Status == Status.Pending.ToString())
-                {
-                    pendingRulesList.Add(fCRule);
-                }
-            }
-            foreach (ConversationalRule cRule in cRulesList)
-            {
-                if (cRule.Status == Status.Pending.ToString())
-                {
-                    pendingRulesList.Add(cRule);
-                }
-            }
-            return pendingRulesList;
-        }
-
-        // Show all rejected rules stored in the database
-        public List<Rule> ShowAllRejectedRules()
-        {
-            List<FixedConversationalRule> fCRulesList = ShowAllFixedConversationalRuleRules();
-            List<ConversationalRule> cRulesList = ShowAllConversationalRuleRules();
-            List<Rule> rejectedRulesList = new List<Rule>();
-            foreach (FixedConversationalRule fCRule in fCRulesList)
-            {
-                if (fCRule.Status == Status.Rejected.ToString())
-                {
-                    rejectedRulesList.Add(fCRule);
-                }
-            }
-            foreach (ConversationalRule cRule in cRulesList)
-            {
-                if (cRule.Status == Status.Rejected.ToString())
-                {
-                    rejectedRulesList.Add(cRule);
-                }
-            }
-            return rejectedRulesList;
-        }
+        
 
         // Get related user id string and return a string without target user id
         private string StringFormat(string relatedUserId, string userId)
@@ -114,74 +68,7 @@ namespace UTS.ScheduleSystem.DomainLogic
             return result;
         }
 
-        // Change a rule
-        public void EditPendingRule(string userId, string ruleId, string ruleInput, string ruleOutput)
-        {
-            string relatedUserId = userId;
-            Rule rule = FixedConversationalRuleHandler.FindFixedConversationalRuleById(ruleId);
-            List<FixedConversationalRule> fCRulesList = FixedConversationalRuleHandler.FindAllFixedConversationalRules();
-            List<ConversationalRule> cRulesList = ConversationalRuleHandler.FindAllConversationalRules();
-            if (rule != null)
-            {
-                for (int i = 0; i < fCRulesList.Count; i++)
-                {
-                    if (fCRulesList[i].Id == int.Parse(ruleId))
-                    {
-                        relatedUserId = (StringFormat(fCRulesList[i].RelatedUsersId,userId) + " " + userId).Trim();
-                        break;
-                    }
-                }
-                FixedConversationalRule fRule = new FixedConversationalRule
-                {
-                    Input = ruleInput,
-                    Output = ruleOutput,
-                    RelatedUsersId = userId,
-                    Status = "Pending"
-                };
-                FixedConversationalRuleHandler.UpdateAFixedConversationalRule(fRule);
-            }
-            else
-            {
-                rule = ConversationalRuleHandler.FindConversationalRuleById(ruleId);
-                if (rule != null)
-                {
-                    for (int i = 0; i < cRulesList.Count; i++)
-                    {
-                        if (cRulesList[i].Id == int.Parse(ruleId))
-                        {
-                            relatedUserId = (StringFormat(cRulesList[i].RelatedUsersId, userId) + " " + userId).Trim();
-                            break;
-                        }
-                    }
-                    ConversationalRule cRule = new ConversationalRule
-                    {
-                        Input = ruleInput,
-                        Output = ruleOutput,
-                        RelatedUsersId = userId,
-                        Status = "Pending"
-                    };
-                    ConversationalRuleHandler.UpdateAConversationalRule(cRule);
-                }
-            }
-        }
-
-        // Delete a rule
-        public void DeletePendingRule(string ruleId)
-        {
-            Rule rule = FixedConversationalRuleHandler.FindFixedConversationalRuleById(ruleId);
-            if (rule != null)
-            {
-                FixedConversationalRuleHandler.RemoveFixedConversationalRule(ruleId);
-            }
-            else
-            {
-                rule = ConversationalRuleHandler.FindConversationalRuleById(ruleId);
-                if (rule != null)
-                {
-                    ConversationalRuleHandler.RemoveConversationalRule(ruleId);
-                }
-            }
-        }
+        
 
         // Show a user's approved rules
         public Tuple<List<FixedConversationalRule>, List<ConversationalRule>> ShowCurrentUserApprovedRules(string userName)
@@ -364,33 +251,11 @@ namespace UTS.ScheduleSystem.DomainLogic
                 }
             }
             return true;
-            //if (input != null && output != null && !input.Contains("{") && !input.Contains("}") && !output.Contains("{") && !output.Contains("}"))
-            //{
-            //    input = input.ToLower();
-            //    foreach(char x in input)
-            //    {
-            //        if(!az.Contains(x) && !num.Contains(x))
-            //        {
-            //            return false;
-            //        }
-            //    }
-            //    output = output.ToLower();
-            //    foreach (char x in output)
-            //    {
-            //        if (!az.Contains(x) && !num.Contains(x))
-            //        {
-            //            return false;
-            //        }
-            //    }
-            //    return true;
-            //}
-            //return false;
         }
 
         // Make sure the input only contains one coloum
         public bool IsRuleValid(string input)
         {
-            //string compactedString = IgnoreWhiteSpace(input);
             string az = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
             string num = "1234567890";
             string marks = "{}";
@@ -444,55 +309,10 @@ namespace UTS.ScheduleSystem.DomainLogic
             }
 
             return (keywordsArray.Contains(input.Substring(keywordIndex, keywordEndIndex - keywordIndex+1))) ;
-            //if (input != null)
-            //{
-            //    input = input.ToLower();
-            //    foreach (char x in input)
-            //    {
-            //        if (!az.Contains(x) && !num.Contains(x) && !marks.Contains(x))
-            //        {
-            //            return false;
-            //        }
-            //    }
-            //    string[] phrase1;
-            //    string[] phrase2;
-            //    phrase1 = input.Split('{');
-            //    phrase2 = input.Split('}');
-            //    string[] words1;
-            //    string[] words2;
-            //    if (phrase1.Count() > 1 && phrase2.Count() > 1)
-            //    {
-            //        words1 = phrase1[1].Split(' ');
-            //        words2 = phrase2[0].Split(' ');
-            //        if (words1.Count() > 1 && words2.Count() > 1 && words1[1] == words2[words2.Count() - 2] && phrase1.Count() == 2 && phrase2.Count() == 2 && (words1[1] == "topic" ||
-            //                words1[1] == "participants" || words1[1] == "location" || words1[1] == "startdate" || words1[1] == "enddate"))
-            //        {
-            //            return true;
-            //        }
-            //    }
-
-            //    return false;
-            //}
-            //else
-            //{
-            //    return false;
-            //}
+         
         }
         
-       public Rule FindRuleById(string id)
-        {
-            Rule rule = FixedConversationalRuleHandler.FindFixedConversationalRuleById(id);
-            if (rule != null)
-            {
-                return rule;
-            }
-            else
-            {
-                rule = ConversationalRuleHandler.FindConversationalRuleById(id);
-            }
-            return rule;
-        } 
-
+       
         // Check whether a rule is already existed in the database or not
         public bool CheckRepeatingRule(string input)
         {

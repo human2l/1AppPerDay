@@ -107,6 +107,8 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             ViewBag.overallSuccessRate = approverService.OverallAveSuccessRate()*100;
             return CheckCurrentUser();
         }
+
+        // Check the role of current user
         public ActionResult CheckCurrentUser()
         {
             if (currentUser != "" && UserHandler.GetCurrentUserRole(currentUser).Contains("A"))

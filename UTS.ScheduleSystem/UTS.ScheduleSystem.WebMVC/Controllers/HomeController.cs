@@ -39,18 +39,14 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
 
         }
 
+        // Handle main conversation function
         private string HandleConversation(string input)
         {
-            //string output = "";
             input = DomainLogic.Utils.RemoveAllMarks(input);
             input = DomainLogic.Utils.IgnoreSpace(input);
-            //string keyword = "";
-            //Rule rule = new Rule();
-            //string[] inputSplitedRule = MainLogic.ConversationService.SplitRule(input);
+
             DomainLogic.ConversationService conversationService = new DomainLogic.ConversationService();
             string output = conversationService.Conversation(input);
-            //string output = MainLogic.ConversationService.Conversation(input);
-
             return output;
         }
 

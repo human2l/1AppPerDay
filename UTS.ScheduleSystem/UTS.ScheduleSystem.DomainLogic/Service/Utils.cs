@@ -12,49 +12,7 @@ namespace UTS.ScheduleSystem.DomainLogic
     public enum Status { Approved, Rejected, Pending }
 
     public static class Utils
-    {
-        //create if for different objects
-        //params: String:type of object, List: the list which contains that type of objects
-        public static string CreateIdByType(string objType, string lastId)
-        {
-            switch (objType)
-            {
-                case "User":
-                    //Currently it doesn't need to create id for user
-                    //return "u" + (int.Parse(GetLastId(list).Substring(1))+1);
-                    return "uuu";
-                case "ConversationalRule":
-                    return (lastId == null) ? "c1" : "c" + (int.Parse(lastId.Substring(1)) + 1);
-                case "FixedConversationalRule":
-                    return (lastId == null) ? "fc1" : "fc" + (int.Parse(lastId.Substring(2)) + 1);
-                case "MealSchedule":
-                    return (lastId == null) ? "ms1" : "ms" + (int.Parse(lastId.Substring(2)) + 1);
-                default:
-                    return null;
-            }
-        }
-
-        // Find last editor id from relatedUsersId string
-        public static string FindLastEditorId(string relatedUsersId)
-        {
-            string[] usersId = relatedUsersId.Split(' ');
-            return usersId[usersId.Count() - 1];
-        }
-
-        //Convert status string to status enum
-        public static Status GetStatus(string status)
-        {
-            switch (status)
-            {
-                case "Approved":
-                    return Status.Approved;
-                case "Rejected":
-                    return Status.Rejected;
-                default:
-                    return Status.Pending;
-            }
-        }
-        
+    {        
         //convert multiple white space in a string to a single white space
         public static string IgnoreSpace(string input)
         {

@@ -82,7 +82,6 @@
     <Compile Include="UnitTestDataMaintainer.cs" />
     <Compile Include="UnitTestEditor.cs" />
     <Compile Include="UnitTestPublic.cs" />
-    <Compile Include="UnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

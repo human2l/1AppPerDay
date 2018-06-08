@@ -116,6 +116,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        // Check the role of current user
         public ActionResult CheckCurrentUser()
         {
             if (currentUser != "" && UserHandler.GetCurrentUserRole(currentUser).Contains("DM"))

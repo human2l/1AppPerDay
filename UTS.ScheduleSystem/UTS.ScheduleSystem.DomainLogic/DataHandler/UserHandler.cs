@@ -33,15 +33,5 @@ namespace UTS.ScheduleSystem.DomainLogic.DataHandler
             }
             return null;
         }
-
-        // Remove all table rows
-        public static void ClearAllUsers()
-        {
-            using (ScheduleSystemContext context = new ScheduleSystemContext())
-            {
-                context.Database.ExecuteSqlCommand("TRUNCATE TABLE [AspNetUsers]");
-                context.SaveChanges();
-            }
-        }
     }
 }
