@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UTS.ScheduleSystem.Data;
+using UTS.ScheduleSystem.DomainLogic.DataHandler;
 
 namespace UTS.ScheduleSystem.DomainLogic.UnitTests
 {
@@ -71,20 +72,62 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
         }
 
         [TestMethod]
-        public void EditorService_ShowAllPendingRules()
+        public void EditorService_CheckRepeatingRule()
         {
             editorService.AddNewFCRule(UnitTestPublic.cFRule1.Input, UnitTestPublic.cFRule1.Output, UnitTestPublic.cFRule1.RelatedUsersId);
-            editorService.AddNewCRule(UnitTestPublic.cRule1.Input, UnitTestPublic.cRule1.Output, UnitTestPublic.cRule1.RelatedUsersId);
-            List<Rule> testPendingRulesList = new List<Rule>();
-            testPendingRulesList.Add(UnitTestPublic.cFRule1);
-            testPendingRulesList.Add(UnitTestPublic.cRule1);
-            List<Rule> pendingRulesList = new List<Rule>();
-            pendingRulesList = editorService.ShowAllPendingRules();
-            foreach (Rule rule in testPendingRulesList)
-            {
 
+            Assert.AreEqual(true, editorService.CheckRepeatingRule(UnitTestPublic.cFRule1.Input));
+        }
+
+        [TestMethod]
+        public void EditorService_EditRule()
+        {
+            editorService.AddNewFCRule(UnitTestPublic.cFRule1.Input, UnitTestPublic.cFRule1.Output, UnitTestPublic.cFRule1.RelatedUsersId);
+            FixedConversationalRule editedRule = new FixedConversationalRule();
+
+            List<FixedConversationalRule> testFcRuleList = new List<FixedConversationalRule>();
+            testFcRuleList = editorService.ShowAllFixedConversationalRuleRules();
+            FixedConversationalRule testFcRule1 = new FixedConversationalRule();
+            if (testFcRuleList.Count == 1)
+            {
+                testFcRule1 = testFcRuleList[0];
+            }
+            editedRule = testFcRule1;
+            editedRule.Input = "edited";
+            testFcRule1.Input = "edited";
+            FixedConversationalRuleHandler.UpdateAFixedConversationalRule(editedRule);
+
+            testFcRuleList = editorService.ShowAllFixedConversationalRuleRules();
+            if (testFcRuleList.Count == 1)
+            {
+                testFcRule1 = testFcRuleList[0];
             }
 
+            Assert.IsTrue(UnitTestPublic.CompareTwoFcRules(editedRule, testFcRule1));
+        }
+
+        [TestMethod]
+        public void EditorService_RemoveRule()
+        {
+            editorService.AddNewFCRule(UnitTestPublic.cFRule1.Input, UnitTestPublic.cFRule1.Output, UnitTestPublic.cFRule1.RelatedUsersId);
+            editorService.AddNewFCRule(UnitTestPublic.cFRule2.Input, UnitTestPublic.cFRule2.Output, UnitTestPublic.cFRule2.RelatedUsersId);
+
+            List<FixedConversationalRule> testFcRuleList = new List<FixedConversationalRule>();
+            testFcRuleList = editorService.ShowAllFixedConversationalRuleRules();
+            FixedConversationalRule testFcRule1 = new FixedConversationalRule();
+            FixedConversationalRule testFcRule2 = new FixedConversationalRule();
+            if (testFcRuleList.Count == 2)
+            {
+                testFcRule1 = testFcRuleList[0];
+                testFcRule2 = testFcRuleList[1];
+            }
+            FixedConversationalRuleHandler.RemoveFixedConversationalRule(testFcRule1.Id + "");
+            testFcRuleList = editorService.ShowAllFixedConversationalRuleRules();
+            if (testFcRuleList.Count == 1)
+            {
+                testFcRule1 = testFcRuleList[0];
+            }
+            Assert.IsTrue(UnitTestPublic.CompareTwoFcRules(testFcRule1, testFcRule2));
         }
 
     }
