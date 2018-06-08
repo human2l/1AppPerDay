@@ -6,7 +6,7 @@
 
     var ConversationalRules = (List<FixedConversationalRule>)ViewBag.FixedConversationalRule;
 }
-<h1>Pending Rules</h1>
+<h1>Pending / Rejected Rules</h1>
 <table class="table table-striped table-bordered table-hover">
     <tr>
         <th>Rule ID</th>
@@ -18,7 +18,7 @@
     </tr>
 
     <tr>
-        <td colspan="6"><b>Conversational Rules</b></td>
+        <td colspan="6"><b>Pending Conversational Rules</b></td>
     </tr>
     @foreach (var item in (List<ConversationalRule>)ViewBag.ConversationalRule)
     {
@@ -36,7 +36,7 @@
 
     }
     <tr>
-        <td colspan="6"><b>Fixed Conversational Rules</b></td>
+        <td colspan="6"><b>Pending Fixed Conversational Rules</b></td>
     </tr>
     @foreach (var item in (List<FixedConversationalRule>)ViewBag.FixedConversationalRule)
     {
@@ -49,6 +49,42 @@
                 <td>@item.RelatedUsersId</td>
                 <td>@Html.ActionLink("Edit", "EditFixed", new { id = item.Id })</td>
                 <td>@Html.ActionLink("Delete", "DeleteFixed", new { id = item.Id })</td>
+            </tr>
+        }
+
+    }
+    <tr>
+        <td colspan="6"><b>Rejected Conversational Rules</b></td>
+    </tr>
+    @foreach (var item in (List<ConversationalRule>)ViewBag.ConversationalRule)
+    {
+        if (item.Status == "Rejected")
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Input</td>
+                <td>@item.Output</td>
+                <td>@item.RelatedUsersId</td>
+                <td></td>
+                <td></td>
+            </tr>
+        }
+
+    }
+    <tr>
+        <td colspan="6"><b>Rejected Fixed Conversational Rules</b></td>
+    </tr>
+    @foreach (var item in (List<FixedConversationalRule>)ViewBag.FixedConversationalRule)
+    {
+        if (item.Status == "Rejected")
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Input</td>
+                <td>@item.Output</td>
+                <td>@item.RelatedUsersId</td>
+                <td></td>
+                <td></td>
             </tr>
         }
 
