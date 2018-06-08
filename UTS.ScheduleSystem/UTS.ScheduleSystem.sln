@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.DomainLo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.Data", "UTS.ScheduleSystem.Data\UTS.ScheduleSystem.Data.csproj", "{B1106E0C-F4ED-49CF-B245-8C76554A564F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTS.ScheduleSystem.WebMVCTests", "UTS.ScheduleSystem.WebMVCTests\UTS.ScheduleSystem.WebMVCTests.csproj", "{D307976F-4D57-4E69-9AF4-5EEF1886E254}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B1106E0C-F4ED-49CF-B245-8C76554A564F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1106E0C-F4ED-49CF-B245-8C76554A564F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1106E0C-F4ED-49CF-B245-8C76554A564F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D307976F-4D57-4E69-9AF4-5EEF1886E254}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D307976F-4D57-4E69-9AF4-5EEF1886E254}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D307976F-4D57-4E69-9AF4-5EEF1886E254}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D307976F-4D57-4E69-9AF4-5EEF1886E254}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

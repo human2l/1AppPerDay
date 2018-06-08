@@ -16,6 +16,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         public ActionResult Index()
         {
             //ViewBag.Answer = Membership.GetUser().ToString();
+            if(System.Web.HttpContext.Current != null)
             ViewBag.Answer = "Hello, " + System.Web.HttpContext.Current.User.Identity.Name;
             //ViewBag.Answer = "I'm waiting...";
             return View();

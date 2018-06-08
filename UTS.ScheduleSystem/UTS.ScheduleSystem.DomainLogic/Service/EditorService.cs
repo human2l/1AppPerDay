@@ -396,6 +396,11 @@ namespace UTS.ScheduleSystem.DomainLogic
             string marks = "{}";
             string[] keywordsArray = { "topic", "participants", "location", "startdate", "enddate" };
 
+
+            if (input == null || input.Length == 0)
+            {
+                return false;
+            }
             foreach (char x in input)
             {
                 if (az.Contains(x) || num.Contains(x) || marks.Contains(x) || x == ' ')
@@ -413,10 +418,7 @@ namespace UTS.ScheduleSystem.DomainLogic
             int keywordIndex = -1;
             int keywordEndIndex = -1;
 
-            if (input == null || input.Length == 0)
-            {
-                return false;
-            }
+            
 
             for (int i = 0; i < input.Length-2; i++)
             {
