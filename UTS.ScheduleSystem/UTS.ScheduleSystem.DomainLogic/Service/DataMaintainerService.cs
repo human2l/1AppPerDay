@@ -21,10 +21,16 @@ namespace UTS.ScheduleSystem.DomainLogic
 
         }
 
-        // Delete a mealschedule from database due to id
+        // Delete a mealschedule from database
         public void DeleteMealSchedule(MealSchedule mealSchedule)
         {
             MealScheduleHandler.RemoveMealschedule(mealSchedule.Id);
+        }
+
+        // Delete a mealschedule from database due to id
+        public void DeleteMealScheduleById(string MealScheduleID)
+        {
+            MealScheduleHandler.RemoveMealschedule(int.Parse(MealScheduleID));
         }
 
 

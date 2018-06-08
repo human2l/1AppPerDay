@@ -53,7 +53,7 @@ namespace UTS.ScheduleSystem.DomainLogic.UnitTests
             MealScheduleHandler.AddMealschedule(UnitTestPublic.ms1);
             MealScheduleHandler.AddMealschedule(UnitTestPublic.ms2);
             MealScheduleHandler.AddMealschedule(UnitTestPublic.ms3);
-            dataMaintainerService.DeleteMealSchedule("1");
+            dataMaintainerService.DeleteMealScheduleById("1");
             Assert.AreEqual(2, MealScheduleHandler.FindAllMealSchedules().Count);
         }
 

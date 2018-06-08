@@ -336,27 +336,55 @@ namespace UTS.ScheduleSystem.DomainLogic
         {
             string az = "qwertyuiopasdfghjklzxcvbnm ";
             string num = "1234567890";
-            if (input != null && output != null && !input.Contains("{") && !input.Contains("}") && !output.Contains("{") && !output.Contains("}"))
+            if(input == null || output == null || input.Length == 0 || output.Length == 0)
             {
-                input = input.ToLower();
-                foreach(char x in input)
-                {
-                    if(!az.Contains(x) && !num.Contains(x))
-                    {
-                        return false;
-                    }
-                }
-                output = output.ToLower();
-                foreach (char x in output)
-                {
-                    if (!az.Contains(x) && !num.Contains(x))
-                    {
-                        return false;
-                    }
-                }
-                return true;
+                return false;
             }
-            return false;
+
+            foreach(char x in input)
+            {
+                if(az.Contains(x)||num.Contains(x)||x == ' ')
+                {
+                    continue;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            foreach (char x in output)
+            {
+                if (az.Contains(x) || num.Contains(x) || x == ' ')
+                {
+                    continue;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return true;
+            //if (input != null && output != null && !input.Contains("{") && !input.Contains("}") && !output.Contains("{") && !output.Contains("}"))
+            //{
+            //    input = input.ToLower();
+            //    foreach(char x in input)
+            //    {
+            //        if(!az.Contains(x) && !num.Contains(x))
+            //        {
+            //            return false;
+            //        }
+            //    }
+            //    output = output.ToLower();
+            //    foreach (char x in output)
+            //    {
+            //        if (!az.Contains(x) && !num.Contains(x))
+            //        {
+            //            return false;
+            //        }
+            //    }
+            //    return true;
+            //}
+            //return false;
         }
 
         // Make sure the input only contains one coloum
@@ -366,40 +394,87 @@ namespace UTS.ScheduleSystem.DomainLogic
             string az = "qwertyuiopasdfghjklzxcvbnm ";
             string num = "1234567890";
             string marks = "{}";
-            
-            if (input != null)
-            {
-                input = input.ToLower();
-                foreach (char x in input)
-                {
-                    if (!az.Contains(x) && !num.Contains(x) && !marks.Contains(x))
-                    {
-                        return false;
-                    }
-                }
-                string[] phrase1;
-                string[] phrase2;
-                phrase1 = input.Split('{');
-                phrase2 = input.Split('}');
-                string[] words1;
-                string[] words2;
-                if (phrase1.Count() > 1 && phrase2.Count() > 1)
-                {
-                    words1 = phrase1[1].Split(' ');
-                    words2 = phrase2[0].Split(' ');
-                    if (words1.Count() > 1 && words2.Count() > 1 && words1[1] == words2[words2.Count() - 2] && phrase1.Count() == 2 && phrase2.Count() == 2 && (words1[1] == "topic" ||
-                            words1[1] == "participants" || words1[1] == "location" || words1[1] == "startdate" || words1[1] == "enddate"))
-                    {
-                        return true;
-                    }
-                }
+            string[] keywordsArray = { "topic", "participants", "location", "startdate", "enddate" };
 
-                return false;
+            foreach (char x in input)
+            {
+                if (az.Contains(x) || num.Contains(x) || marks.Contains(x) || x == ' ')
+                {
+                    continue;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+
+            int leftBrackets = 0;
+            int rightBrackets = 0;
+            int keywordIndex = -1;
+            int keywordEndIndex = -1;
+
+            if (input == null || input.Length == 0)
             {
                 return false;
             }
+
+            for (int i = 0; i < input.Length-2; i++)
+            {
+                if(input[i] == '{' && input[i+1] == ' ')
+                {
+                    leftBrackets++;
+                    keywordIndex = i + 2;
+                }
+            }
+
+            for(int i = 1; i < input.Length-1; i++)
+            {
+                if (input[i] == ' ' && input[i + 1] == '}')
+                {
+                    rightBrackets++;
+                    keywordEndIndex = i - 1;
+                }
+            }
+
+            if(leftBrackets != 1 || rightBrackets != 1 || keywordIndex == -1 || keywordEndIndex == -1 || keywordIndex >= keywordEndIndex)
+            {
+                return false;
+            }
+
+            return (keywordsArray.Contains(input.Substring(keywordIndex, keywordEndIndex - keywordIndex+1))) ;
+            //if (input != null)
+            //{
+            //    input = input.ToLower();
+            //    foreach (char x in input)
+            //    {
+            //        if (!az.Contains(x) && !num.Contains(x) && !marks.Contains(x))
+            //        {
+            //            return false;
+            //        }
+            //    }
+            //    string[] phrase1;
+            //    string[] phrase2;
+            //    phrase1 = input.Split('{');
+            //    phrase2 = input.Split('}');
+            //    string[] words1;
+            //    string[] words2;
+            //    if (phrase1.Count() > 1 && phrase2.Count() > 1)
+            //    {
+            //        words1 = phrase1[1].Split(' ');
+            //        words2 = phrase2[0].Split(' ');
+            //        if (words1.Count() > 1 && words2.Count() > 1 && words1[1] == words2[words2.Count() - 2] && phrase1.Count() == 2 && phrase2.Count() == 2 && (words1[1] == "topic" ||
+            //                words1[1] == "participants" || words1[1] == "location" || words1[1] == "startdate" || words1[1] == "enddate"))
+            //        {
+            //            return true;
+            //        }
+            //    }
+
+            //    return false;
+            //}
+            //else
+            //{
+            //    return false;
+            //}
         }
         
        public Rule FindRuleById(string id)

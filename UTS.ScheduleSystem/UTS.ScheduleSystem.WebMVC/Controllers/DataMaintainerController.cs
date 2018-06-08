@@ -80,8 +80,8 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             else
             {
                 // Show error message
-                Response.Write("<script>window.alert('hahahahaha');</script>");
-                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+                Response.Write("<script>window.alert('Invalid Input. Please edit again.');</script>");
+                return Edit(mealSchedule.Id);
             }
         }
 

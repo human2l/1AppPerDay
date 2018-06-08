@@ -68,7 +68,8 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             else
             {
                 // Show error message
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                Response.Write("<script>window.alert('Invalid Input or rule already exit. Please check your input.');</script>");
+                return Create();
             }
             return RedirectToAction("Index");
         }
@@ -118,7 +119,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
                 rule.RelatedUsersId = ConversationalRuleHandler.FindConversationalRuleById(rule.Id + "").RelatedUsersId;
             }
                 
-            if (editorService.IsRuleValid(rule.Input) && editorService.IsRuleValid(rule.Output))
+            if (editorService.IsRuleValid(rule.Input) && editorService.IsRuleValid(rule.Output) && !editorService.CheckRepeatingRule(rule.Input))
             {
                 ConversationalRuleHandler.UpdateAConversationalRule(rule);
                 return RedirectToAction("Index");
@@ -126,7 +127,8 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             else
             {
                 // Show error message
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                Response.Write("<script>window.alert('Invalid Input or rule already exit. Please edit again.');</script>");
+                return Edit(rule.Id);
             }
 
         }
