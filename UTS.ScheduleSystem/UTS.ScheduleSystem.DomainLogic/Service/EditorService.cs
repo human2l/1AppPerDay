@@ -334,7 +334,7 @@ namespace UTS.ScheduleSystem.DomainLogic
         // Check the input validation
         public bool IsFixedRuleValid (string input, string output)
         {
-            string az = "qwertyuiopasdfghjklzxcvbnm ";
+            string az = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
             string num = "1234567890";
             if(input == null || output == null || input.Length == 0 || output.Length == 0)
             {
@@ -391,7 +391,7 @@ namespace UTS.ScheduleSystem.DomainLogic
         public bool IsRuleValid(string input)
         {
             //string compactedString = IgnoreWhiteSpace(input);
-            string az = "qwertyuiopasdfghjklzxcvbnm ";
+            string az = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
             string num = "1234567890";
             string marks = "{}";
             string[] keywordsArray = { "topic", "participants", "location", "startdate", "enddate" };

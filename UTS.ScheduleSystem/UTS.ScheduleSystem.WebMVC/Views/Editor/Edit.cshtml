@@ -8,11 +8,11 @@
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(x => x.Id)
-<table>
-    <tr><td>@Html.LabelFor(x => x.Input, "Input")</td><td>@Html.TextBoxFor(x => x.Input, new { @Value = ViewBag.OnEditingRule.Input })</td></tr>
-    <tr><td>@Html.LabelFor(x => x.Output, "Output")</td><td>@Html.TextBoxFor(x => x.Output, new { @Value = ViewBag.OnEditingRule.Output })</td></tr>
+    <table>
+        <tr><td>@Html.LabelFor(x => x.Input, "Input")</td><td>@Html.TextBoxFor(x => x.Input, new { @Value = ViewBag.OnEditingRule.Input, @maxlength = "15" })</td></tr>
+        <tr><td>@Html.LabelFor(x => x.Output, "Output")</td><td>@Html.TextBoxFor(x => x.Output, new { @Value = ViewBag.OnEditingRule.Output, @maxlength = "15" })</td></tr>
 
-</table>
-    <input type="submit" value="Save"/>
+    </table>
+    <input type="submit" value="Save" />
     @Html.ActionLink("Cancel", "Index")
 }

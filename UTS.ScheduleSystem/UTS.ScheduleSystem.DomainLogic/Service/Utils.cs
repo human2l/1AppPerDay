@@ -72,11 +72,12 @@ namespace UTS.ScheduleSystem.DomainLogic
             return Regex.Replace(input, pattern, "");
         }
 
-        // Check if input is not null and includes only alphabet and num (判断只包含数字字母并且不为空)
+        // Check if input is not null and includes only alphabet and num (判断只包含数字字母 并且不为空)
         public static bool IsStringValid(string input)
         {
             string pattern = @"^[a-zA-Z0-9\s]*$";
             return ((input != null) && (Regex.IsMatch(input, pattern)));
         }
+
     }
 }

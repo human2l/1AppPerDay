@@ -4,18 +4,21 @@
     ViewBag.Title = "Edit";
     var onEditingMealSchedule = ViewBag.OnEditingMealSchedule;
 }
-    <h1>Maintain Data</h1>
-    <h2>Edit a mealSchedule</h2>
-    @using (Html.BeginForm())
-    {
-        @Html.HiddenFor(x => x.Id)
+<h1>Maintain Data</h1>
+<h2>Edit a mealSchedule</h2>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.Id)
     <table>
-        <tr><td>@Html.LabelFor(x => x.Topic, "Topic")</td><td>@Html.TextBoxFor(x => x.Topic, new { @Value = onEditingMealSchedule.Topic })</td></tr>
-        <tr><td>@Html.LabelFor(x => x.Participants, "Participants")</td><td>@Html.TextBoxFor(x => x.Participants, new { @Value = onEditingMealSchedule.Participants })</td></tr>
-        <tr><td>@Html.LabelFor(x => x.Location, "Location")</td><td>@Html.TextBoxFor(x => x.Location, new { @Value = onEditingMealSchedule.Location })</td></tr>
-        <tr><td>@Html.LabelFor(x => x.StartDate, "StartDate")</td><td>@Html.TextBoxFor(x => x.StartDate, new { @Value = onEditingMealSchedule.StartDate })</td></tr>
-        <tr><td>@Html.LabelFor(x => x.EndDate, "EndDate")</td><td>@Html.TextBoxFor(x => x.EndDate, new { @Value = onEditingMealSchedule.EndDate })</td></tr>
+        <tr><td>@Html.LabelFor(x => x.Topic, "Topic")</td><td>@Html.TextBoxFor(x => x.Topic, new { @Value = onEditingMealSchedule.Topic, @maxlength = "15" })</td></tr>
+        <tr><td>@Html.LabelFor(x => x.Participants, "Participants")</td><td>@Html.TextBoxFor(x => x.Participants, new { @Value = onEditingMealSchedule.Participants, @maxlength = "15" })</td></tr>
+        <tr><td>@Html.LabelFor(x => x.Location, "Location")</td><td>@Html.TextBoxFor(x => x.Location, new { @Value = onEditingMealSchedule.Location, @maxlength = "15" })</td></tr>
+        <tr><td>@Html.LabelFor(x => x.StartDate, "StartDate")</td><td>@Html.TextBoxFor(x => x.StartDate, new { @Value = onEditingMealSchedule.StartDate, @maxlength = "15" })</td></tr>
+        <tr><td>@Html.LabelFor(x => x.EndDate, "EndDate")</td><td>@Html.TextBoxFor(x => x.EndDate, new { @Value = onEditingMealSchedule.EndDate, @maxlength = "15" })</td></tr>
     </table>
-        <input type="submit" value="Save" />
-        @Html.ActionLink("Cancel", "Index")
-    }
+    <input type="submit" value="Save" />
+    @Html.ActionLink("Cancel", "Index")
+}
+
+
+

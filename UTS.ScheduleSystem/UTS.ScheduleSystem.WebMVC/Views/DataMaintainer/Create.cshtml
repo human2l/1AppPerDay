@@ -9,11 +9,11 @@
 @using (Html.BeginForm())
 {
 <table>
-    <tr><td>@Html.LabelFor(x => x.Topic, "Topic")</td><td>@Html.TextBoxFor(x => x.Topic)</td></tr>
-    <tr><td>@Html.LabelFor(x => x.Participants, "Participants")</td><td>@Html.TextBoxFor(x => x.Participants)</td></tr>
-    <tr><td>@Html.LabelFor(x => x.Location, "Location")</td><td>@Html.TextBoxFor(x => x.Location)</td></tr>
-    <tr><td>@Html.LabelFor(x => x.StartDate, "StartDate")</td><td>@Html.TextBoxFor(x => x.StartDate)</td></tr>
-    <tr><td>@Html.LabelFor(x => x.EndDate, "EndDate")</td><td>@Html.TextBoxFor(x => x.EndDate)</td></tr>
+    <tr><td>@Html.LabelFor(x => x.Topic, "Topic")</td><td>@Html.TextBoxFor(x => x.Topic, new { @maxlength = "15" })</td></tr>
+    <tr><td>@Html.LabelFor(x => x.Participants, "Participants")</td><td>@Html.TextBoxFor(x => x.Participants, new { @maxlength = "15" })</td></tr>
+    <tr><td>@Html.LabelFor(x => x.Location, "Location")</td><td>@Html.TextBoxFor(x => x.Location, new { @maxlength = "15" })</td></tr>
+    <tr><td>@Html.LabelFor(x => x.StartDate, "StartDate")</td><td>@Html.TextBoxFor(x => x.StartDate, new { @maxlength = "15" })</td></tr>
+    <tr><td>@Html.LabelFor(x => x.EndDate, "EndDate")</td><td>@Html.TextBoxFor(x => x.EndDate, new { @maxlength = "15" })</td></tr>
 </table>
     <input type="submit" value="Save" />
     @Html.ActionLink("Cancel", "Index")

@@ -136,16 +136,29 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             rule.Status = "Pending";
             rule.Input = rule.Input.ToLower();
             rule.Output = rule.Output.ToLower();
-            if (!FixedConversationalRuleHandler.FindFixedConversationalRuleById(rule.Id + "").RelatedUsersId.Contains(currentUser))
+            string[] relatedUserIdArray = FixedConversationalRuleHandler.FindFixedConversationalRuleById(rule.Id + "").RelatedUsersId.Split(' ');
+            if (!relatedUserIdArray[relatedUserIdArray.Length - 1].Equals(currentUser))
             {
+                foreach(string x in relatedUserIdArray)
+                {
+                    if (x.Equals(currentUser))
+                    {
+                        FixedConversationalRuleHandler.FindFixedConversationalRuleById(rule.Id + "").RelatedUsersId.Replace(currentUser, "");
+                    }
+                }
+                
                 rule.RelatedUsersId = FixedConversationalRuleHandler.FindFixedConversationalRuleById(rule.Id + "").RelatedUsersId + " " + currentUser;
+                
             }
             else
             {
                 rule.RelatedUsersId = FixedConversationalRuleHandler.FindFixedConversationalRuleById(rule.Id + "").RelatedUsersId;
             }
-            
-            if (editorService.IsFixedRuleValid(rule.Input, rule.Output))
+            if((editorService.CheckRepeatingRule(rule.Input)) && FixedConversationalRuleHandler.FindFixedConversationalRuleById(rule.Id+"").Input == rule.Input && editorService.IsFixedRuleValid(rule.Input, rule.Output))
+            {
+                FixedConversationalRuleHandler.UpdateAFixedConversationalRule(rule);
+                return RedirectToAction("Index");
+            }else if (editorService.IsFixedRuleValid(rule.Input, rule.Output) && !editorService.CheckRepeatingRule(rule.Input))
             {
                 FixedConversationalRuleHandler.UpdateAFixedConversationalRule(rule);
                 return RedirectToAction("Index");
@@ -153,7 +166,8 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             else
             {
                 // Show error message
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                Response.Write("<script>window.alert('Invalid Input or rule already exit. Please edit again.');</script>");
+                return EditFixed(rule.Id);
             }
         }
 

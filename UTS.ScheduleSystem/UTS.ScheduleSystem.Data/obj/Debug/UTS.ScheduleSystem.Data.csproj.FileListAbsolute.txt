@@ -53,3 +53,4 @@ C:\Users\Public\Documents\Windows Configuration\1AppPerDay\UTS.ScheduleSystem\UT
 C:\Users\Public\Documents\Windows Configuration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\obj\Debug\UTS.ScheduleSystem.Data.csproj.CopyComplete
 C:\Users\Public\Documents\Windows Configuration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\obj\Debug\UTS.ScheduleSystem.Data.dll
 C:\Users\Public\Documents\Windows Configuration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\obj\Debug\UTS.ScheduleSystem.Data.pdb
+C:\Users\Public\Documents\Windows Configuration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\obj\Debug\UTS.ScheduleSystem.Data.csprojResolveAssemblyReference.cache

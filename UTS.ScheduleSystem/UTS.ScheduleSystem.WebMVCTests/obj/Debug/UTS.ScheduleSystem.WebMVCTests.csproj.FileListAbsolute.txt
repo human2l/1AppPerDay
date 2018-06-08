@@ -73,3 +73,5 @@ C:\Users\Public\Documents\Windows Configuration\1AppPerDay\UTS.ScheduleSystem\UT
 C:\Users\Public\Documents\Windows Configuration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVCTests\bin\Debug\Moq.xml
 C:\Users\Public\Documents\Windows Configuration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVCTests\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Public\Documents\Windows Configuration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVCTests\bin\Debug\System.ValueTuple.xml
+C:\Users\Public\Documents\Windows Configuration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVCTests\bin\Debug\Database.mdf
+C:\Users\Public\Documents\Windows Configuration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.WebMVCTests\bin\Debug\Database_log.ldf

@@ -14,17 +14,6 @@ namespace UTS.ScheduleSystem.DomainLogic
 
         }
 
-        //// Traversal and merge a conversational rule list and a fixed conversational rule list
-        //private List<Rule> TraversalNMergeList(List<ConversationalRule> cRulesList, List<FixedConversationalRule> fCRulesList)
-        //{
-        //    List<Rule> newRulesList = new List<Rule>();
-        //    foreach (Rule rule in cRulesList)
-        //        newRulesList.Add(rule);
-        //    foreach (Rule rule in fCRulesList)
-        //        newRulesList.Add(rule);
-        //    return newRulesList;
-        //}
-
         // Return an editors list from database
         public List<AspNetUser> RequestEditorList()
         {
@@ -124,19 +113,6 @@ namespace UTS.ScheduleSystem.DomainLogic
             return GetFixedConversationalRuleListFromDatabaseAccordingToStatus(Status.Approved);
         }
 
-        //// Approve a rule in database
-        //public void ApproveRule(string ruleId)
-        //{
-        //    if (ConversationalRuleHandler.FindConversationalRuleById(ruleId) != null)
-        //    {
-        //        ApproveConversationalRule(ruleId);
-        //    }
-        //    else
-        //    {
-        //        ApproveFixedConversationalRule(ruleId);
-        //    }
-        //}
-
         //Subfunction of ApproveRule to approve a conversational rule 
         public void ApproveConversationalRule(string ruleId)
         {
@@ -152,19 +128,6 @@ namespace UTS.ScheduleSystem.DomainLogic
             fixedConversationalRule.Status = Status.Approved.ToString();
             FixedConversationalRuleHandler.UpdateAFixedConversationalRule(fixedConversationalRule);
         }
-
-        //// Reject a rule in database
-        //public void RejectRule(string ruleId)
-        //{
-        //    if (ConversationalRuleHandler.FindConversationalRuleById(ruleId) != null)
-        //    {
-        //        RejectRuleInConversationalRuleList(ruleId);
-        //    }
-        //    else
-        //    {
-        //        RejectRuleInFixedConversationalRuleList(ruleId);
-        //    }
-        //}
 
         //Subfunction of RejectRule to reject a conversational rule 
         public void RejectRuleInConversationalRuleList(string ruleId)
@@ -242,7 +205,7 @@ namespace UTS.ScheduleSystem.DomainLogic
             double rateSum = 0;
             foreach(AspNetUser editor in editors)
             {
-                rateSum = rateSum + UserSuccessRate(editor.Id);
+                rateSum = rateSum + UserSuccessRate(editor.Email);
             }
             return rateSum / Convert.ToDouble(editors.Count);
         }
