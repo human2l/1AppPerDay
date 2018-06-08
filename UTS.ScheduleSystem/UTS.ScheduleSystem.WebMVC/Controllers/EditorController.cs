@@ -21,20 +21,12 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
         {
             List<FixedConversationalRule> fixedConversationalRules = editorService.ShowAllFixedConversationalRuleRules();
             List<ConversationalRule> conversationalRules = editorService.ShowAllConversationalRuleRules();
-            //FixedConversationalRule rule = new FixedConversationalRule();
-            //rule.Id = 1;
-            //rule.Input = "Hello";
-            //rule.Output = "World";
-            //rule.RelatedUsersId = "u001";
-            //rule.Status = "Pending";
-            //rules.Add(rule);
             ViewBag.FixedConversationalRule = fixedConversationalRules;
             ViewBag.ConversationalRule = conversationalRules;
             return CheckCurrentUser();
-
-
         }
 
+        // Check the role of current user
         public ActionResult CheckCurrentUser()
         {
             if (currentUser != "" && UserHandler.GetCurrentUserRole(currentUser).Contains("E"))
@@ -52,6 +44,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             return CheckCurrentUser();
         }
 
+        // Add new rule
         [HttpPost]
         public ActionResult Create([Bind(Include = "Input, Output")] Rule rule)
         {
@@ -74,6 +67,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        // Edit a rule
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -89,6 +83,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             return CheckCurrentUser();
         }
 
+        //Edit a fixed rule
         public ActionResult EditFixed(int? id)
         {
             if (id == null)
@@ -104,6 +99,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             return CheckCurrentUser();
         }
 
+        // Save the edited rule into database
         [HttpPost]
         public ActionResult Edit(ConversationalRule rule)
         {
@@ -133,6 +129,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
 
         }
 
+        // Save the edited fixed rule into database
         [HttpPost]
         public ActionResult EditFixed(FixedConversationalRule rule)
         {
@@ -160,6 +157,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             }
         }
 
+        // Delete a rule
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -175,6 +173,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             return CheckCurrentUser();
         }
 
+        // Delete a fixed rule
         public ActionResult DeleteFixed(int? id)
         {
             if (id == null)
@@ -190,6 +189,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             return CheckCurrentUser();
         }
 
+        // Delete a rule
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -202,6 +202,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        // Delete a fixed rule
         [HttpPost, ActionName("DeleteFixed")]
         public ActionResult DeleteFixedConfirmed(int id)
         {
@@ -214,6 +215,7 @@ namespace UTS.ScheduleSystem.WebMVC.Controllers
             return RedirectToAction("Index");
         }
 
+        // Run report
         public ActionResult Report()
         {
             List<FixedConversationalRule> currentUserApprovedfcRules = editorService.ShowCurrentUserApprovedRules(currentUser).Item1;
