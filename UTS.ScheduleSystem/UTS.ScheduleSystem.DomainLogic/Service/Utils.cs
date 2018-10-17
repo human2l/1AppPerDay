@@ -37,5 +37,10 @@ namespace UTS.ScheduleSystem.DomainLogic
             return ((input != null) && (Regex.IsMatch(input, pattern)));
         }
 
+        public static string FindLastEditorId(string relatedUserIds)
+        {
+            return relatedUserIds.Split(' ').Last();
+        }
+
     }
 }

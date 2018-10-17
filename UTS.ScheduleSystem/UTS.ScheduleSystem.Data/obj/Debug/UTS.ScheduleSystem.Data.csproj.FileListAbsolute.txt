@@ -54,3 +54,17 @@ C:\Users\Public\Documents\Windows Configuration\1AppPerDay\UTS.ScheduleSystem\UT
 C:\Users\Public\Documents\Windows Configuration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\obj\Debug\UTS.ScheduleSystem.Data.dll
 C:\Users\Public\Documents\Windows Configuration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\obj\Debug\UTS.ScheduleSystem.Data.pdb
 C:\Users\Public\Documents\Windows Configuration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\obj\Debug\UTS.ScheduleSystem.Data.csprojResolveAssemblyReference.cache
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\bin\Debug\Database.mdf
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\bin\Debug\Database_log.ldf
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\bin\Debug\UTS.ScheduleSystem.Data.dll.config
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\bin\Debug\UTS.ScheduleSystem.Data.dll
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\bin\Debug\UTS.ScheduleSystem.Data.pdb
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\bin\Debug\EntityFramework.dll
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\bin\Debug\EntityFramework.xml
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\obj\Debug\UTS.ScheduleSystem.Data.csprojResolveAssemblyReference.cache
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\obj\Debug\UTS.ScheduleSystem.Data.csproj.CoreCompileInputs.cache
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\obj\Debug\UTS.ScheduleSystem.Data.csproj.CopyComplete
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\obj\Debug\UTS.ScheduleSystem.Data.dll
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.Data\obj\Debug\UTS.ScheduleSystem.Data.pdb

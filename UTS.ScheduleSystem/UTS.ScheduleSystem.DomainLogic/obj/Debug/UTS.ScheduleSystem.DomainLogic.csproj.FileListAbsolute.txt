@@ -67,3 +67,20 @@ C:\Users\Public\Documents\Windows Configuration\1AppPerDay\UTS.ScheduleSystem\UT
 C:\Users\Public\Documents\Windows Configuration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\obj\Debug\UTS.ScheduleSystem.DomainLogic.csproj.CopyComplete
 C:\Users\Public\Documents\Windows Configuration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\obj\Debug\UTS.ScheduleSystem.DomainLogic.dll
 C:\Users\Public\Documents\Windows Configuration\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\obj\Debug\UTS.ScheduleSystem.DomainLogic.pdb
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\bin\Debug\Database.mdf
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\bin\Debug\Database_log.ldf
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\bin\Debug\UTS.ScheduleSystem.DomainLogic.dll.config
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\bin\Debug\UTS.ScheduleSystem.DomainLogic.dll
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\bin\Debug\UTS.ScheduleSystem.DomainLogic.pdb
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\bin\Debug\EntityFramework.dll
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\bin\Debug\UTS.ScheduleSystem.Data.dll
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\bin\Debug\UTS.ScheduleSystem.Data.pdb
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\bin\Debug\UTS.ScheduleSystem.Data.dll.config
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\bin\Debug\EntityFramework.xml
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\obj\Debug\UTS.ScheduleSystem.DomainLogic.csprojResolveAssemblyReference.cache
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\obj\Debug\UTS.ScheduleSystem.DomainLogic.csproj.CoreCompileInputs.cache
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\obj\Debug\UTS.ScheduleSystem.DomainLogic.csproj.CopyComplete
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\obj\Debug\UTS.ScheduleSystem.DomainLogic.dll
+C:\Users\Frank\Desktop\Github_Projects\1AppPerDay\UTS.ScheduleSystem\UTS.ScheduleSystem.DomainLogic\obj\Debug\UTS.ScheduleSystem.DomainLogic.pdb
